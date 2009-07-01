@@ -266,11 +266,30 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>29B97315FDCFA39411CA2CEA</string>
+								<string>29B97323FDCFA39411CA2CEA</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>7</integer>
+									<integer>6</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>8</integer>
+									<integer>6</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>9</integer>
+									<integer>6</integer>
+									<integer>0</integer>
+								</array>
+								<array>
+									<integer>10</integer>
+									<integer>6</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -294,7 +313,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>3 269 788 504 0 0 1280 778 </string>
+						<string>443 265 788 504 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -310,7 +329,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>MyNewFile14.java</string>
+								<string>iRubyKaigi2009.xcdatamodel</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -318,7 +337,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>MyNewFile14.java</string>
+										<string>iRubyKaigi2009.xcdatamodel</string>
+										<key>_historyCapacity</key>
+										<integer>0</integer>
+										<key>bookmark</key>
+										<string>4681C7D90FFAB9180023DACB</string>
+										<key>history</key>
+										<array>
+											<string>4681C6240FFAB6850023DACB</string>
+										</array>
 									</dict>
 									<key>SplitCount</key>
 									<string>1</string>
@@ -329,14 +356,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {580, 277}}</string>
+								<string>{{0, 0}, {580, 260}}</string>
 								<key>RubberWindowFrame</key>
-								<string>3 269 788 504 0 0 1280 778 </string>
+								<string>443 265 788 504 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>277pt</string>
+							<string>260pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -349,14 +376,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 282}, {580, 181}}</string>
+								<string>{{0, 265}, {580, 198}}</string>
 								<key>RubberWindowFrame</key>
-								<string>3 269 788 504 0 0 1280 778 </string>
+								<string>443 265 788 504 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>181pt</string>
+							<string>198pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -375,9 +402,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>4681C5C60FFAB3AC0023DACB</string>
+				<string>4681C7DA0FFAB9180023DACB</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>4681C5C70FFAB3AC0023DACB</string>
+				<string>4681C7DB0FFAB9180023DACB</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -516,10 +543,10 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>4681C5C90FFAB3AC0023DACB</string>
-		<string>/Users/ISD/git/iRubyKaigi2009/iRubyKaigi2009.xcodeproj</string>
+		<string>/Users/ISD/git/irubykaigi2009/Project/iRubyKaigi2009.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>3 269 788 504 0 0 1280 778 </string>
+	<string>443 265 788 504 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -596,7 +623,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>4681C5C90FFAB3AC0023DACB</string>
-				<string>4681C5CA0FFAB3AC0023DACB</string>
+				<string>4681C7DC0FFAB9180023DACB</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
