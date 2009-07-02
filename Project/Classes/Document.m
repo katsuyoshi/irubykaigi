@@ -151,6 +151,29 @@
     }
 }
 
+- (NSManagedObject *)roomForName:(NSString *)name
+{
+    NSFetchRequest *request = [NSFetchRequest new];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    [request setPredicate:predicate];
+    [request setEntity:entity];
+    
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if ([result count]) {
+        return [result lastObject];
+    } else {
+        NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
+        [eo setValue:name forKey:@"name"];
+        
+        [request setPredicate:nil];
+        int count = [self.managedObjectContext countForFetchRequest:request error:&error];
+        [eo setValue:[NSNumber numberWithInt:count] forKey:@"position"];
+        
+        return eo;
+    }
+}
 
 - (NSArray *)days
 {
@@ -168,6 +191,15 @@
 {
     NSFetchRequest *request = [NSFetchRequest new];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:self.managedObjectContext];
+    [request setEntity:entity];
+    NSError *error;
+    return [self.managedObjectContext executeFetchRequest:request error:&error];
+}
+
+- (NSArray *)rooms
+{
+    NSFetchRequest *request = [NSFetchRequest new];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
     [request setEntity:entity];
     NSError *error;
     return [self.managedObjectContext executeFetchRequest:request error:&error];
@@ -193,15 +225,33 @@
                 int index = 0;
                 NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:self.managedObjectContext];
                 NSManagedObject *day;
+                NSString *roomName = nil;
+                NSString *floorName = nil;
                 for (NSString *element in [line componentsSeparatedByString:@","]) {
                     NSString *key = [keys objectAtIndex:index];
                     if ([key isEqualToString:@"date"]) {
                         day = [self dayForDate:element];
                         [[day  mutableSetValueForKey:@"sessions"] addObject:eo];
 // DELETEME:                        [eo setValue:[self dateFromString:element] forKey:key];
+                    } else
+                    if ([key isEqualToString:@"room"]) {
+                        roomName = element;
+                    } else
+                    if ([key isEqualToString:@"floor"]) {
+                        floorName = element;
                     } else {
                         [eo setValue:element forKey:key];
                     }
+
+                    if (roomName && floorName) {
+                        NSManagedObject *room = [self roomForName:roomName];
+                        if ([room valueForKey:@"floor"] == nil) {
+                            [room setValue:floorName forKey:@"floor"];
+                        }
+                        [eo setValue:room forKey:@"room"];
+                        roomName = floorName = nil;
+                    }
+
                 
                     index++;
                 }

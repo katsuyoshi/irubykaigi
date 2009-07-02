@@ -15,6 +15,8 @@
 		460633950F55AC9000A33C8B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 460633940F55AC9000A33C8B /* Settings.bundle */; };
 		460633A20F55B5F900A33C8B /* isd_logo_60x40_w.png in Resources */ = {isa = PBXBuildFile; fileRef = 460633A10F55B5F900A33C8B /* isd_logo_60x40_w.png */; };
 		4608BDE00F56FA430011302D /* IUTPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4608BDDF0F56FA430011302D /* IUTPreference.m */; };
+		460A78250FFD02A900DD0775 /* SessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460A78240FFD02A900DD0775 /* SessionTableViewController.m */; };
+		460A78280FFD05D000DD0775 /* SessionTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */; };
 		4617B7F00F57B76100D94BF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4617B7EF0F57B76100D94BF1 /* Default.png */; };
 		4620593D0F28CB5700857D87 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4620593C0F28CB5700857D87 /* DetailView.xib */; };
 		462AC4B40FEAFF2400B587D6 /* UIViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */; };
@@ -69,6 +71,11 @@
 		460633A10F55B5F900A33C8B /* isd_logo_60x40_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = isd_logo_60x40_w.png; sourceTree = "<group>"; };
 		4608BDDE0F56FA430011302D /* IUTPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTPreference.h; sourceTree = "<group>"; };
 		4608BDDF0F56FA430011302D /* IUTPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTPreference.m; sourceTree = "<group>"; };
+		460A78230FFD02A900DD0775 /* SessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewController.h; sourceTree = "<group>"; };
+		460A78240FFD02A900DD0775 /* SessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewController.m; sourceTree = "<group>"; };
+		460A78260FFD05D000DD0775 /* SessionTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewControllerTest.h; sourceTree = "<group>"; };
+		460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewControllerTest.m; sourceTree = "<group>"; };
+		460A782F0FFD08CE00DD0775 /* UITableViewControllerTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewControllerTestHelper.h; sourceTree = "<group>"; };
 		4617B7EF0F57B76100D94BF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4620593C0F28CB5700857D87 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		462AC4B20FEAFF2400B587D6 /* UIViewBasedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewBasedTest.h; sourceTree = "<group>"; };
@@ -204,6 +211,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		460A78220FFD028F00DD0775 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				460A78230FFD02A900DD0775 /* SessionTableViewController.h */,
+				460A78240FFD02A900DD0775 /* SessionTableViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		4681C7FB0FFABD2E0023DACB /* Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +240,7 @@
 		4681C7FC0FFABD2E0023DACB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				460A78220FFD028F00DD0775 /* Controllers */,
 				4681C7FD0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.h */,
 				4681C7FE0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.m */,
 				4681C7FF0FFABD2E0023DACB /* RootViewController.h */,
@@ -256,6 +273,8 @@
 			children = (
 				4681C83A0FFABE8F0023DACB /* DocumentTest.h */,
 				4681C83B0FFABE8F0023DACB /* DocumentTest.m */,
+				460A78260FFD05D000DD0775 /* SessionTableViewControllerTest.h */,
+				460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -273,6 +292,7 @@
 		46C6AB3F0F2DBE7E00BA1B73 /* UnitTest */ = {
 			isa = PBXGroup;
 			children = (
+				460A782F0FFD08CE00DD0775 /* UITableViewControllerTestHelper.h */,
 				46C6AB400F2DBE7E00BA1B73 /* ControllerTest */,
 				466EDC780F4094DB00D2B9AC /* IUTLog.h */,
 				46718C880F38239A00272C9A /* SenTestAssertion.h */,
@@ -430,6 +450,8 @@
 				4681C80D0FFABD2E0023DACB /* iRubyKaigi2009.xcdatamodel in Sources */,
 				4681C82F0FFABDD60023DACB /* Document.m in Sources */,
 				4681C83C0FFABE8F0023DACB /* DocumentTest.m in Sources */,
+				460A78250FFD02A900DD0775 /* SessionTableViewController.m in Sources */,
+				460A78280FFD05D000DD0775 /* SessionTableViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

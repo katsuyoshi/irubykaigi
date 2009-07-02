@@ -28,6 +28,7 @@
 
 - (NSArray *)days;
 - (NSArray *)sessions;
+- (NSArray *)rooms;
 
 
 - (NSManagedObject *)dayForDate:(NSString *)dateStr;
