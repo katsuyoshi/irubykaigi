@@ -31,7 +31,6 @@
 		4681C80D0FFABD2E0023DACB /* iRubyKaigi2009.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4681C8020FFABD2E0023DACB /* iRubyKaigi2009.xcdatamodel */; };
 		4681C8100FFABD2E0023DACB /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4681C8090FFABD2E0023DACB /* RootViewController.xib */; };
 		4681C82B0FFABD7D0023DACB /* session_info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4681C82A0FFABD7D0023DACB /* session_info.csv */; };
-		4681C82F0FFABDD60023DACB /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 4681C82E0FFABDD60023DACB /* Document.m */; };
 		4681C83C0FFABE8F0023DACB /* DocumentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4681C83B0FFABE8F0023DACB /* DocumentTest.m */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
 		46C6AB570F2DBE7E00BA1B73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB3E0F2DBE7E00BA1B73 /* AppDelegate.m */; };
@@ -47,6 +46,9 @@
 		46C6AB610F2DBE7E00BA1B73 /* IUTTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB540F2DBE7E00BA1B73 /* IUTTestRunner.m */; };
 		46C6AB620F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */; };
 		46C6ADCA0F2DDFC800BA1B73 /* isd_logo_60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */; };
+		46EE13190FFE3C47000224D0 /* NSManagedObjectContextExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE13180FFE3C47000224D0 /* NSManagedObjectContextExtension.m */; };
+		46EE131C0FFE3C66000224D0 /* PredicateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE131B0FFE3C66000224D0 /* PredicateCondition.m */; };
+		46EE13230FFE3D1E000224D0 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE13220FFE3D1E000224D0 /* Document.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +106,6 @@
 		4681C8090FFABD2E0023DACB /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = /Users/ISD/git/irubykaigi2009/Project/RootViewController.xib; sourceTree = "<absolute>"; };
 		4681C8270FFABD630023DACB /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/session_info.csv; sourceTree = "<group>"; };
 		4681C82C0FFABD890023DACB /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/session_info.csv; sourceTree = "<group>"; };
-		4681C82D0FFABDD60023DACB /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Document.h; path = /Users/ISD/git/irubykaigi2009/Project/Classes/Document.h; sourceTree = "<absolute>"; };
-		4681C82E0FFABDD60023DACB /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Document.m; path = /Users/ISD/git/irubykaigi2009/Project/Classes/Document.m; sourceTree = "<absolute>"; };
 		4681C83A0FFABE8F0023DACB /* DocumentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentTest.h; path = /Users/ISD/git/irubykaigi2009/Test/Tests/DocumentTest.h; sourceTree = "<absolute>"; };
 		4681C83B0FFABE8F0023DACB /* DocumentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DocumentTest.m; path = /Users/ISD/git/irubykaigi2009/Test/Tests/DocumentTest.m; sourceTree = "<absolute>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
@@ -135,6 +135,12 @@
 		46C6AB550F2DBE7E00BA1B73 /* IUTTestRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTTestRunnerViewController.h; sourceTree = "<group>"; };
 		46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTTestRunnerViewController.m; sourceTree = "<group>"; };
 		46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = isd_logo_60x40.png; sourceTree = "<group>"; };
+		46EE13170FFE3C47000224D0 /* NSManagedObjectContextExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextExtension.h; sourceTree = "<group>"; };
+		46EE13180FFE3C47000224D0 /* NSManagedObjectContextExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextExtension.m; sourceTree = "<group>"; };
+		46EE131A0FFE3C66000224D0 /* PredicateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PredicateCondition.h; sourceTree = "<group>"; };
+		46EE131B0FFE3C66000224D0 /* PredicateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PredicateCondition.m; sourceTree = "<group>"; };
+		46EE13210FFE3D1E000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		46EE13220FFE3D1E000224D0 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,13 +246,12 @@
 		4681C7FC0FFABD2E0023DACB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				46EE13160FFE3C29000224D0 /* Models */,
 				460A78220FFD028F00DD0775 /* Controllers */,
 				4681C7FD0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.h */,
 				4681C7FE0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.m */,
 				4681C7FF0FFABD2E0023DACB /* RootViewController.h */,
 				4681C8000FFABD2E0023DACB /* RootViewController.m */,
-				4681C82D0FFABDD60023DACB /* Document.h */,
-				4681C82E0FFABDD60023DACB /* Document.m */,
 			);
 			name = Classes;
 			path = /Users/ISD/git/irubykaigi2009/Project/Classes;
@@ -341,10 +346,23 @@
 			path = ControllerTest;
 			sourceTree = "<group>";
 		};
+		46EE13160FFE3C29000224D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				46EE131A0FFE3C66000224D0 /* PredicateCondition.h */,
+				46EE131B0FFE3C66000224D0 /* PredicateCondition.m */,
+				46EE13170FFE3C47000224D0 /* NSManagedObjectContextExtension.h */,
+				46EE13180FFE3C47000224D0 /* NSManagedObjectContextExtension.m */,
+				46EE13210FFE3D1E000224D0 /* Document.h */,
+				46EE13220FFE3D1E000224D0 /* Document.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* iRubyKaigi2009 */ = {
+		1D6058900D05DD3D006BFB54 /* iRubyKaigi2009Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2009Test" */;
 			buildPhases = (
@@ -386,7 +404,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* iRubyKaigi2009 */,
+				1D6058900D05DD3D006BFB54 /* iRubyKaigi2009Test */,
 			);
 		};
 /* End PBXProject section */
@@ -448,10 +466,12 @@
 				4681C80A0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.m in Sources */,
 				4681C80B0FFABD2E0023DACB /* RootViewController.m in Sources */,
 				4681C80D0FFABD2E0023DACB /* iRubyKaigi2009.xcdatamodel in Sources */,
-				4681C82F0FFABDD60023DACB /* Document.m in Sources */,
 				4681C83C0FFABE8F0023DACB /* DocumentTest.m in Sources */,
 				460A78250FFD02A900DD0775 /* SessionTableViewController.m in Sources */,
 				460A78280FFD05D000DD0775 /* SessionTableViewControllerTest.m in Sources */,
+				46EE13190FFE3C47000224D0 /* NSManagedObjectContextExtension.m in Sources */,
+				46EE131C0FFE3C66000224D0 /* PredicateCondition.m in Sources */,
+				46EE13230FFE3D1E000224D0 /* Document.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "Document.h"
+#import "NSManagedObjectContextExtension.h"
 
 @implementation Document
 
@@ -125,14 +126,6 @@
     NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     return [formatter dateFromString:dateStr];
-/* DELETEME:
-    NSArray *elements = [dateStr componentsSeparatedByString:@"-"];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setYear:[[elements objectAtIndex:0] intValue]];
-    [components setMonth:[[elements objectAtIndex:1] intValue]];
-    [components setDay:[[elements objectAtIndex:2] intValue]];
-    return [[NSCalendar currentCalendar] dateFromComponents:components];
-*/
 }
 
 
@@ -182,32 +175,21 @@
 
 - (NSArray *)days
 {
-    NSFetchRequest *request = [NSFetchRequest new];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Day" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES] autorelease]];
-    [request setSortDescriptors:sortDescriptors];
-    
-    NSError *error;
-    return [self.managedObjectContext executeFetchRequest:request error:&error];
+    PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Day" format:nil argumentArray:nil];
+    condition.orderings = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES] autorelease]];
+    return [self.managedObjectContext findAll:condition];
 }
 
 - (NSArray *)sessions
 {
-    NSFetchRequest *request = [NSFetchRequest new];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    NSError *error;
-    return [self.managedObjectContext executeFetchRequest:request error:&error];
+    PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Session" format:nil argumentArray:nil];
+    return [self.managedObjectContext findAll:condition];
 }
 
 - (NSArray *)rooms
 {
-    NSFetchRequest *request = [NSFetchRequest new];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
-    [request setEntity:entity];
-    NSError *error;
-    return [self.managedObjectContext executeFetchRequest:request error:&error];
+    PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Room" format:nil argumentArray:nil];
+    return [self.managedObjectContext findAll:condition];
 }
 
 

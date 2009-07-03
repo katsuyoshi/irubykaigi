@@ -196,7 +196,7 @@
     Document *document = [Document sharedDocument];
     
     if (fetchedResultsController == nil) {
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:document.managedObjectContext];
         [fetchRequest setEntity:entity];
 	
@@ -211,8 +211,6 @@
 	
         fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:document.managedObjectContext sectionNameKeyPath:@"time" cacheName:[day description]];
 	
-        [fetchRequest release];
-        [sortDescriptors release];
 	}
 	return fetchedResultsController;
 }    
