@@ -49,6 +49,8 @@
 		46EE13190FFE3C47000224D0 /* NSManagedObjectContextExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE13180FFE3C47000224D0 /* NSManagedObjectContextExtension.m */; };
 		46EE131C0FFE3C66000224D0 /* PredicateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE131B0FFE3C66000224D0 /* PredicateCondition.m */; };
 		46EE13230FFE3D1E000224D0 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE13220FFE3D1E000224D0 /* Document.m */; };
+		46EE137C0FFE418D000224D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EE137B0FFE418D000224D0 /* Localizable.strings */; };
+		46EE146E0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,10 @@
 		46EE131B0FFE3C66000224D0 /* PredicateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PredicateCondition.m; sourceTree = "<group>"; };
 		46EE13210FFE3D1E000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		46EE13220FFE3D1E000224D0 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
+		46EE13770FFE416C000224D0 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		46EE137D0FFE419A000224D0 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		46EE146C0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewControllerWithNextDayTest.h; sourceTree = "<group>"; };
+		46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewControllerWithNextDayTest.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,6 +244,7 @@
 				4681C8080FFABD2E0023DACB /* MainWindow.xib */,
 				4681C8090FFABD2E0023DACB /* RootViewController.xib */,
 				4681C82A0FFABD7D0023DACB /* session_info.csv */,
+				46EE137B0FFE418D000224D0 /* Localizable.strings */,
 			);
 			name = Project;
 			path = /Users/ISD/git/irubykaigi2009/Project;
@@ -280,6 +287,8 @@
 				4681C83B0FFABE8F0023DACB /* DocumentTest.m */,
 				460A78260FFD05D000DD0775 /* SessionTableViewControllerTest.h */,
 				460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */,
+				46EE146C0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.h */,
+				46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -434,6 +443,7 @@
 				4617B7F00F57B76100D94BF1 /* Default.png in Resources */,
 				4681C8100FFABD2E0023DACB /* RootViewController.xib in Resources */,
 				4681C82B0FFABD7D0023DACB /* session_info.csv in Resources */,
+				46EE137C0FFE418D000224D0 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +482,7 @@
 				46EE13190FFE3C47000224D0 /* NSManagedObjectContextExtension.m in Sources */,
 				46EE131C0FFE3C66000224D0 /* PredicateCondition.m in Sources */,
 				46EE13230FFE3D1E000224D0 /* Document.m in Sources */,
+				46EE146E0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +496,15 @@
 				4681C82C0FFABD890023DACB /* Japanese */,
 			);
 			name = session_info.csv;
+			sourceTree = "<group>";
+		};
+		46EE137B0FFE418D000224D0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46EE13770FFE416C000224D0 /* English */,
+				46EE137D0FFE419A000224D0 /* Japanese */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

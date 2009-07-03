@@ -67,8 +67,32 @@
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(5));
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(6));
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(7));
+    
+    UITableViewCell *cell;
+    
+    cell = CELL(0, 0);
+    ASSERT_EQUAL(@"Using Git and GitHub to Develop One Million Times Faster", cell.textLabel.text);
+    ASSERT_EQUAL(@"一橋記念講堂 Scott Chacon", cell.detailTextLabel.text);
+    ASSERT_EQUAL_INT(UITableViewCellAccessoryDetailDisclosureButton, cell.accessoryType);
+    ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
+
+    cell = CELL(0, 1);
+    ASSERT_EQUAL(@"break", cell.textLabel.text);
+    ASSERT_NIL(cell.detailTextLabel.text);
+    ASSERT_EQUAL_INT(UITableViewCellAccessoryNone, cell.accessoryType);
+    ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
 }
 
+- (void)testTitle
+{
+    ASSERT_EQUAL(@"7月17日", self.controller.title);
+}
+
+
+- (void)testRightItemButton
+{
+    ASSERT_NIL(controller.navigationItem.rightBarButtonItem);
+}
 
 #pragma mark -
 #pragma mark Option

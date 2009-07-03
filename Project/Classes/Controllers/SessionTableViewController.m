@@ -8,11 +8,16 @@
 
 #import "SessionTableViewController.h"
 #import "Document.h"
+#import "SessionDetailTableViewController.h"
+
+@interface SessionTableViewController(_private)
+- (NSString *)titleForDate:(NSManagedObject *)date;
+@end
 
 
 @implementation SessionTableViewController
 
-@synthesize day, nextDay, fetchedResultsController;
+@synthesize day, nextDay, parent, fetchedResultsController;
 
 
 /*
@@ -27,9 +32,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if (self.parent) {
+        UIBarButtonItem *buttonItem = [[[UIBarButtonItem alloc] initWithTitle:[self titleForDate:parent.day] style:UIBarButtonItemStyleBordered target:self action:@selector(previousDayAction:)] autorelease];
+        self.navigationItem.leftBarButtonItem = buttonItem;
+    }
+
+    if (self.nextDay) {
+        UIBarButtonItem *buttonItem = [[[UIBarButtonItem alloc] initWithTitle:[self titleForDate:self.nextDay] style:UIBarButtonItemStyleBordered target:self action:@selector(nextDayAction:)] autorelease];
+        self.navigationItem.rightBarButtonItem = buttonItem;
+    }
+
     [self.fetchedResultsController performFetch:NULL];
 }
 
+- (NSString *)titleForDate:(NSManagedObject *)aDay
+{
+    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
+    [formatter setDateFormat:NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil)];
+    return [formatter stringFromDate:[aDay valueForKey:@"date"]];
+}
+
+- (NSString *)title
+{
+    return [self titleForDate:self.day];
+}
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,11 +130,14 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"BreakCell"];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BreakCell"] autorelease];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SessionCell"] autorelease];
+            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
     
@@ -175,8 +205,20 @@
 }
 */
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self.navigationController pushViewController:[SessionDetailTableViewController sharedController]
+     animated:YES];
+}
+
+
 
 - (void)dealloc {
+    [day release];
+    [nextDay release];
+    [parent release];
+    [nextDaysSessionController release];
+    [fetchedResultsController release];
     [super dealloc];
 }
 
@@ -188,6 +230,8 @@
 {
     if (nextDaysSessionController == nil) {
         nextDaysSessionController = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        nextDaysSessionController.day = self.nextDay;
+        nextDaysSessionController.parent = self;
     }
     return nextDaysSessionController;
 }
@@ -214,6 +258,20 @@
 	}
 	return fetchedResultsController;
 }    
+
+
+#pragma mark -
+#pragma mark actions
+
+- (void)previousDayAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)nextDayAction:(id)sender
+{
+    [self.navigationController pushViewController:self.nextDaysSessionController animated:YES];
+}
 
 @end
 

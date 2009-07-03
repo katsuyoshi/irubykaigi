@@ -24,7 +24,17 @@
     [[Document sharedDocument] importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
     
     firstSessionViewController = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    firstSessionViewController.day = [[[Document sharedDocument] days] objectAtIndex:0];
+
+    // 日付を設定
+    SessionTableViewController *sessionViewController = firstSessionViewController;
+    NSArray *days = [[Document sharedDocument] days];
+    sessionViewController.day = [days objectAtIndex:0];
+    int i, count = [days count];
+    for (i = 1; i < count; i++) {
+        sessionViewController.nextDay = [days objectAtIndex:i];
+        sessionViewController = sessionViewController.nextDaysSessionController;
+    }
+    
     navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
 	
 	[window addSubview:[navigationController view]];

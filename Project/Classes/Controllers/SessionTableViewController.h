@@ -13,6 +13,7 @@
 
     NSManagedObject *day;
     NSManagedObject *nextDay;
+    SessionTableViewController *parent;
     SessionTableViewController *nextDaysSessionController;
     
 	NSFetchedResultsController *fetchedResultsController;
@@ -20,8 +21,14 @@
 
 @property (retain) NSManagedObject *day;
 @property (retain) NSManagedObject *nextDay;
+@property (retain) SessionTableViewController *parent;
 @property (retain, readonly) SessionTableViewController *nextDaysSessionController;
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
+
+
+- (void)previousDayAction:(id)sender;
+- (void)nextDayAction:(id)sender;
+
 
 @end
