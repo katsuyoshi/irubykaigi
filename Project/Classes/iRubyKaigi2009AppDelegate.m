@@ -13,7 +13,7 @@
 @implementation iRubyKaigi2009AppDelegate
 
 @synthesize window;
-@synthesize navigationController;
+@synthesize navigationController, firstSessionViewController;
 
 
 #pragma mark -
@@ -21,10 +21,11 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    // Override point for customization after app launch    
-
-	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
-	rootViewController.managedObjectContext = self.managedObjectContext;
+    [[Document sharedDocument] importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    
+    firstSessionViewController = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    firstSessionViewController.day = [[[Document sharedDocument] days] objectAtIndex:0];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];

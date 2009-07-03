@@ -216,6 +216,7 @@
     NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     BOOL isFirst = YES;
     NSArray *keys;
+    int position = 0;
     for (NSString *line in [contents componentsSeparatedByString:@"\n"]) {
         if ([line length]) {
             if (isFirst) {
@@ -224,6 +225,8 @@
             } else {
                 int index = 0;
                 NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:self.managedObjectContext];
+                [eo setValue:[NSNumber numberWithInt:position++] forKey:@"position"];
+                
                 NSManagedObject *day;
                 NSString *roomName = nil;
                 NSString *floorName = nil;
@@ -239,11 +242,14 @@
                     } else
                     if ([key isEqualToString:@"floor"]) {
                         floorName = element;
+                    } else
+                    if ([key isEqualToString:@"break"]) {
+                        [eo setValue:[NSNumber numberWithBool:[element isEqualToString:@"true"]] forKey:key];
                     } else {
                         [eo setValue:element forKey:key];
                     }
 
-                    if (roomName && floorName) {
+                    if (roomName && floorName && ![[eo valueForKey:@"break"] boolValue]) {
                         NSManagedObject *room = [self roomForName:roomName];
                         if ([room valueForKey:@"floor"] == nil) {
                             [room setValue:floorName forKey:@"floor"];

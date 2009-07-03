@@ -344,7 +344,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* iRubyKaigi2009Test */ = {
+		1D6058900D05DD3D006BFB54 /* iRubyKaigi2009 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2009Test" */;
 			buildPhases = (
@@ -386,7 +386,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* iRubyKaigi2009Test */,
+				1D6058900D05DD3D006BFB54 /* iRubyKaigi2009 */,
 			);
 		};
 /* End PBXProject section */

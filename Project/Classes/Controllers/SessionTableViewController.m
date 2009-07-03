@@ -87,17 +87,42 @@
 }
 
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+	NSManagedObject *eo = [fetchedResultsController objectAtIndexPath:indexPath];
+	return [[eo valueForKey:@"time"] description];
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    UITableViewCell *cell;
+	NSManagedObject *eo = [fetchedResultsController objectAtIndexPath:indexPath];
+
+    if ([[eo valueForKey:@"break"] boolValue]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"BreakCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BreakCell"] autorelease];
+        }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SessionCell"] autorelease];
+        }
     }
     
-    // Set up the cell...
+	cell.textLabel.text = [[eo valueForKey:@"title"] description];
+
+    NSString *room = [eo valueForKeyPath:@"room.name"];
+    NSString *speaker = [eo valueForKey:@"speaker"];
+    NSMutableArray *subTitles = [NSMutableArray array];
+    if (room) {
+        [subTitles addObject:room];
+    }
+    if (speaker) {
+        [subTitles addObjectsFromArray:[speaker componentsSeparatedByString:@"、"]];
+    }
+    cell.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];
 	
     return cell;
 }
@@ -178,6 +203,7 @@
         NSArray *sortDescriptors = [NSArray arrayWithObjects:
                                       [[[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES] autorelease]
                                     , [[[NSSortDescriptor alloc] initWithKey:@"room.position" ascending:YES] autorelease]
+                                    , [[[NSSortDescriptor alloc] initWithKey:@"position" ascending:YES] autorelease]
                                     , nil];
 	
         [fetchRequest setSortDescriptors:sortDescriptors];

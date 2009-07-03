@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'mechanize'
 
-@keys = %w(date time title speaker room floor)
+@keys = %w(date time title speaker break room floor)
 @sessions = []
 @rooms = []
 
-def normalized_room room
+def add_room room
   @rooms.each do |r|
     if r[0, room.size] == room
       return r
@@ -14,38 +14,65 @@ def normalized_room room
   if room == 'Hitotsubashi Memorial Hall'
     room = 'Hitotsubashi Memorial Hall(2nd Floor)'
   end
-  @rooms << room
+  /(.*)\((.*)\)/ =~ room
+  @rooms << [$1, $2]
   room
 end
 
+def room_for_index i
+  @rooms[i]
+end
+
 def parse_timetable elements, day
-  rooms = elements.search('th.room').map {|e| e.inner_text}
+  # 部屋情報
+  elements.search('th.room').map {|e| add_room(e.inner_text)}
+  
   elements.search('tbody tr').each do |session_info|
+    
+    # 時間帯
     time = session_info.search('th').first.inner_text
-    session_info.search('div.session').each_with_index do |e, i|
+    
+    # session情報の取得
+    session_info.search('div.session').each_with_index do |e, index|
       session = Hash.new
       titles = e.search('p.title')
       session['title'] = titles.first.inner_text.gsub(',', '、') if titles.first
       speakers = e.search('p.speaker')
       session['speaker'] = speakers.first.inner_text.gsub(',', '、') if speakers.first
-      if rooms[i]
-        /(.*)\((.*)\)/ =~ normalized_room(rooms[i])
-        session['room'] = $1
-        session['floor'] = $2
-      end
+      # 部屋は仮設定。この後sessionsのインデックスから振り直す
+      session['room'], session['floor'] = room_for_index(index)
       session['time'] = time
       session['date'] = day
       @sessions << session
     end
 
+    # breakの情報
     session_info.search('td.break').each do |e|
       session = Hash.new
-      session['title'] = 'break'
+      session['title'] = e.inner_text
       session['time'] = time
       session['date'] = day
+      session['room'] = nil
+      session['floor'] = nil
+      session['break'] = true
       @sessions << session
     end
   end
+
+  # 部屋の振り直し
+  elements.search('td.sessions').each_with_index do |sessions, index|
+    sessions.search('div.session').each do |e|
+      titles = e.search('p.title')
+      if titles
+        title = titles.first.inner_text.gsub(',', '、')
+        if title
+          session = @sessions.find {|e| e['title'] == title && !e['break'] }
+          session['room'], session['floor'] = room_for_index(index) if session
+        end
+      end
+    end
+  end
+  
 end
 
 def get_parse_store_and_love uri, filename
@@ -71,7 +98,6 @@ def get_parse_store_and_love uri, filename
     end
     lines << a.join(',')
   end
-#  puts lines.join('\n')
 
   # ファイルに保存
   File.open(filename, 'w') do |f|

@@ -1,73 +1,73 @@
-date,time,title,speaker,room,floor
-2009-07-17,13:30 - 14:30,Using Git and GitHub to Develop One Million Times Faster,Scott Chacon,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-17,14:30 - 14:40,break,,,
-2009-07-17,14:40 - 16:10,Pragmatic Patterns of Ruby on Rails,Yasuko Ohba,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-17,14:40 - 16:10,Learning Successful Architcture from "Enterprise Rails",Naoto Takai,Conference Room,2nd Floor
-2009-07-17,14:40 - 16:10,(TBD),Akira Matsuda,Conference Room,1st Floor
-2009-07-17,14:40 - 16:10,Using Adhearsion to Voice Enable your Ruby Applications,Jason Goecke,,
-2009-07-17,14:40 - 16:10,(TBD),Kentaro Goto,,
-2009-07-17,14:40 - 16:10,The random number generator of Ruby and a proposal to improve it,Kenta Murata,,
-2009-07-17,14:40 - 16:10,(TBD),Ryutaro Kurai,,
-2009-07-17,16:10 - 16:40,break,,,
-2009-07-17,16:40 - 17:40,From Rails to Rack: Making Rails 3 a Better Ruby Citizen,Yehuda Katz,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-17,16:40 - 17:40,Design and Implementation of Programing Language with Static Typing,Kazunori Hashimoto、 Masato Kiyama,Conference Room,2nd Floor
-2009-07-17,16:40 - 17:40,Perspective on Performance Improvement of Ruby Virtual Machine,Koichi Sasada,Conference Room,1st Floor
-2009-07-17,17:40 - 17:50,break,,,
-2009-07-17,17:50 - 18:50,Lightning Talks,,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-17,19:30 - ,break,,,
-2009-07-18,10:00 - 12:00,Fate of Ruby 1.8,Urabe Shyouhei,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-18,10:00 - 12:00,Road map for Ruby 1.9.2,Yugui,Conference Room,2nd Floor
-2009-07-18,10:00 - 12:00,Ruby Reference Manual Renewal Project 2009 Summer,okkez,Conference Room,1st Floor
-2009-07-18,10:00 - 12:00,Perspective on Performance Improvement of Ruby Virtual Machine,Koichi Sasada,,
-2009-07-18,10:00 - 12:00,Sequel: The Database Toolkit for Ruby,Jeremy Evans,,
-2009-07-18,10:00 - 12:00,Sinatra: The Framework Within,Aaron Quint,,
-2009-07-18,10:00 - 12:00,The innate beauty of Ramaze,Michael Fellinger,,
-2009-07-18,10:00 - 12:00,Ruby in 1/60 seconds - Game Programming Ruby -,kumaryu,,
-2009-07-18,10:00 - 12:00,Working Effectively with Ruby for Average Programmers,Tatsuhiro UJIHISA,,
-2009-07-18,10:00 - 12:00,A prototype on integrated environment of static code analysis for Ruby,Tomohisa Katsuma,,
-2009-07-18,12:00 - 13:30,break,,,
-2009-07-18,13:30 - 14:30,Keynote Address,Matz,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-18,14:30 - 15:30,Lightning Talks,,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-18,15:30 - 16:00,break,,,
-2009-07-18,16:00 - 18:30,(TBD),Katsutoshi Kojima (ITOCHU Techno-Solutions Corp.),Hitotsubashi Memorial Hall,2nd Floor
-2009-07-18,16:00 - 18:30,Ke-tai Site (Web Site for Japanese Cell Phone) Development with Ruby、 Rails,Tomoya Narita、 Kei Hamanaka (NIFTY Corporation),Conference Room,2nd Floor
-2009-07-18,16:00 - 18:30,(TBD),Kazuya Yoshimi (RAWHIDE.),Conference Room,1st Floor
-2009-07-18,16:00 - 18:30,(TBD),Hirotomo Oi (Recruit),,
-2009-07-18,16:00 - 18:30,Between C and Ruby,Kouhei Sutou (ClearCode Inc.),,
-2009-07-18,16:00 - 18:30,(TBD),Akihiro Matsumura(TIS Inc./SonicGarden) Yuuichi Kuroda(Mitsubishi UFJ Information Technology、 Ltd.),,
-2009-07-18,16:00 - 18:30,(TBD),Yukio Goto、 Manabu Oshiro、 Muga Nishizawa (Rakuten),,
-2009-07-18,16:00 - 18:30,Ruby C10K challenge: High Performance Networking,Ilya Grigorik,,
-2009-07-18,16:00 - 18:30,NeverBlock and I/O Concurrency in Ruby,Mohammad A. Ali,,
-2009-07-18,16:00 - 18:30,JRuby Update 2009,Thomas Enebo、 Nick Sieger,,
-2009-07-18,16:00 - 18:30,Distributed Parallel Computing Framework fairy and Distributed Object System DeepConnect,Keiju Ishitsuka、 Hajime Masuda,,
-2009-07-18,16:00 - 18:30,great BigTable and my toys.,Masatoshi SEKI,,
-2009-07-18,16:00 - 18:30,concov: continuous test coverage viewer,Yusuke Endoh ,,
-2009-07-18,16:00 - 18:30,My ECO Life by Ruby GC improve: No plastic bag thank you,nari,,
-2009-07-18,18:30 - 20:30,Beer bust,(Bring your own food/drink),Hitotsubashi Memorial Hall,2nd Floor
-2009-07-19,09:30 - 12:00,Edo Cabinet,John Mettraux,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-19,09:30 - 12:00,Checking Interactively-Developed Code,Andriy Hnativ,Conference Room,2nd Floor
-2009-07-19,09:30 - 12:00,To the Edge of Web Performance and Beyond,Joshua Hull,Conference Room,1st Floor
-2009-07-19,09:30 - 12:00,Ruby - The Script Language,arton,,
-2009-07-19,09:30 - 12:00,(TBD),Tanaka Akira,,
-2009-07-19,09:30 - 12:00,(TBD),Kentaro Goto,,
-2009-07-19,09:30 - 12:00,rubygems autoload hell?(Working Title),Kazuhiro Nishiyama,,
-2009-07-19,09:30 - 12:00, ,(this room will start at 10:00),,
-2009-07-19,09:30 - 12:00,Project Report:Regional RubyKaigi,KAKUTANI Shintaro,,
-2009-07-19,09:30 - 12:00,Shanghai Ruby/Rails Community,Koz Masumitsu,,
-2009-07-19,09:30 - 12:00,Hello World From The Other Side Of Earth,Daniel Bovensiepen,,
-2009-07-19,12:00 - 13:30,break,,,
-2009-07-19,13:30 - 15:30,How Lazy Americans Monitor Servers,James Edward Gray II,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-19,13:30 - 15:30,Journey through a pointy forest: XML parsing in Ruby,Aaron Patterson,Conference Room,2nd Floor
-2009-07-19,13:30 - 15:30,Ruby、 on your Mac of course,Vincent Isambart,Conference Room,1st Floor
-2009-07-19,13:30 - 15:30,RubyCocoa/HotCocoa(RHC) - Let's develop an application of MacOS X with Ruby -,TAKAO Kouji,,
-2009-07-19,13:30 - 15:30,iPhone Application Development with Ruby,Takuma Mori,,
-2009-07-19,13:30 - 15:30,N-ways to distribute your Ruby desktop apps,Yutaka HARA ,,
-2009-07-19,13:30 - 15:30,Our tDiary's policy and strategies to support Ruby 1.9 and our future plan.,SHIBATA Hiroshi ,,
-2009-07-19,13:30 - 15:30,Haml and Sass: Solution for you who get tired of ugly markup,Keita Urashima ,,
-2009-07-19,15:30 - 16:00,break,,,
-2009-07-19,16:00 - 17:00,Re-introduction to Ruby,Shugo Maeda,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-19,16:00 - 17:00,Getting Things "Done Done" As Cool As Cucumber,KAKUTANI Shintaro,Conference Room,2nd Floor
-2009-07-19,16:00 - 17:00,All about Erubis,Makoto Kuwata,Conference Room,1st Floor
-2009-07-19,17:00 - 17:10,break,,,
-2009-07-19,17:10 - 18:10,Keynote Address,Masayoshi Takahashi,Hitotsubashi Memorial Hall,2nd Floor
-2009-07-19,18:10 - 18:20,Closing,,Hitotsubashi Memorial Hall,2nd Floor
+date,time,title,speaker,break,room,floor
+2009-07-17,13:30 - 14:30,Using Git and GitHub to Develop One Million Times Faster,Scott Chacon,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-17,14:30 - 14:40,break,,true,,
+2009-07-17,14:40 - 16:10,Pragmatic Patterns of Ruby on Rails,Yasuko Ohba,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-17,14:40 - 16:10,Learning Successful Architcture from "Enterprise Rails",Naoto Takai,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-17,14:40 - 16:10,(TBD),Akira Matsuda,,Conference Room,2nd Floor
+2009-07-17,14:40 - 16:10,Using Adhearsion to Voice Enable your Ruby Applications,Jason Goecke,,Conference Room,2nd Floor
+2009-07-17,14:40 - 16:10,(TBD),Kentaro Goto,,,
+2009-07-17,14:40 - 16:10,The random number generator of Ruby and a proposal to improve it,Kenta Murata,,Conference Room,1st Floor
+2009-07-17,14:40 - 16:10,(TBD),Ryutaro Kurai,,,
+2009-07-17,16:10 - 16:40,break,,true,,
+2009-07-17,16:40 - 17:40,From Rails to Rack: Making Rails 3 a Better Ruby Citizen,Yehuda Katz,,,
+2009-07-17,16:40 - 17:40,Design and Implementation of Programing Language with Static Typing,Kazunori Hashimoto、 Masato Kiyama,,Conference Room,2nd Floor
+2009-07-17,16:40 - 17:40,Perspective on Performance Improvement of Ruby Virtual Machine,Koichi Sasada,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-17,17:40 - 17:50,break,,true,,
+2009-07-17,17:50 - 18:50,Lightning Talks,,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-17,19:30 - ,Party (registration required),,true,,
+2009-07-18,10:00 - 12:00,Fate of Ruby 1.8,Urabe Shyouhei,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,10:00 - 12:00,Road map for Ruby 1.9.2,Yugui,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,10:00 - 12:00,Ruby Reference Manual Renewal Project 2009 Summer,okkez,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,10:00 - 12:00,Perspective on Performance Improvement of Ruby Virtual Machine,Koichi Sasada,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,10:00 - 12:00,Sequel: The Database Toolkit for Ruby,Jeremy Evans,,Conference Room,2nd Floor
+2009-07-18,10:00 - 12:00,Sinatra: The Framework Within,Aaron Quint,,Conference Room,2nd Floor
+2009-07-18,10:00 - 12:00,The innate beauty of Ramaze,Michael Fellinger,,Conference Room,2nd Floor
+2009-07-18,10:00 - 12:00,Ruby in 1/60 seconds - Game Programming Ruby -,kumaryu,,Conference Room,1st Floor
+2009-07-18,10:00 - 12:00,Working Effectively with Ruby for Average Programmers,Tatsuhiro UJIHISA,,Conference Room,1st Floor
+2009-07-18,10:00 - 12:00,A prototype on integrated environment of static code analysis for Ruby,Tomohisa Katsuma,,Conference Room,1st Floor
+2009-07-18,12:00 - 13:30,lunch break,,true,,
+2009-07-18,13:30 - 14:30,Keynote Address,Matz,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,14:30 - 15:30,Lightning Talks,,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,15:30 - 16:00,break,,true,,
+2009-07-18,16:00 - 18:30,(TBD),Katsutoshi Kojima (ITOCHU Techno-Solutions Corp.),,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,16:00 - 18:30,Ke-tai Site (Web Site for Japanese Cell Phone) Development with Ruby、 Rails,Tomoya Narita、 Kei Hamanaka (NIFTY Corporation),,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,16:00 - 18:30,(TBD),Kazuya Yoshimi (RAWHIDE.),,Conference Room,1st Floor
+2009-07-18,16:00 - 18:30,(TBD),Hirotomo Oi (Recruit),,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,16:00 - 18:30,Between C and Ruby,Kouhei Sutou (ClearCode Inc.),,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-18,16:00 - 18:30,(TBD),Akihiro Matsumura(TIS Inc./SonicGarden) Yuuichi Kuroda(Mitsubishi UFJ Information Technology、 Ltd.),,Conference Room,1st Floor
+2009-07-18,16:00 - 18:30,(TBD),Yukio Goto、 Manabu Oshiro、 Muga Nishizawa (Rakuten),,,
+2009-07-18,16:00 - 18:30,Ruby C10K challenge: High Performance Networking,Ilya Grigorik,,Conference Room,2nd Floor
+2009-07-18,16:00 - 18:30,NeverBlock and I/O Concurrency in Ruby,Mohammad A. Ali,,Conference Room,2nd Floor
+2009-07-18,16:00 - 18:30,JRuby Update 2009,Thomas Enebo、 Nick Sieger,,Conference Room,2nd Floor
+2009-07-18,16:00 - 18:30,Distributed Parallel Computing Framework fairy and Distributed Object System DeepConnect,Keiju Ishitsuka、 Hajime Masuda,,Conference Room,1st Floor
+2009-07-18,16:00 - 18:30,great BigTable and my toys.,Masatoshi SEKI,,Conference Room,1st Floor
+2009-07-18,16:00 - 18:30,concov: continuous test coverage viewer,Yusuke Endoh ,,Conference Room,1st Floor
+2009-07-18,16:00 - 18:30,My ECO Life by Ruby GC improve: No plastic bag thank you,nari,,Conference Room,1st Floor
+2009-07-18,18:30 - 20:30,Beer bust,(Bring your own food/drink),,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,09:30 - 12:00,Edo Cabinet,John Mettraux,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,09:30 - 12:00,Checking Interactively-Developed Code,Andriy Hnativ,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,09:30 - 12:00,To the Edge of Web Performance and Beyond,Joshua Hull,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,09:30 - 12:00,Ruby - The Script Language,arton,,Conference Room,2nd Floor
+2009-07-19,09:30 - 12:00,(TBD),Tanaka Akira,,Conference Room,2nd Floor
+2009-07-19,09:30 - 12:00,(TBD),Kentaro Goto,,Conference Room,1st Floor
+2009-07-19,09:30 - 12:00,rubygems autoload hell?(Working Title),Kazuhiro Nishiyama,,Conference Room,2nd Floor
+2009-07-19,09:30 - 12:00, ,(this room will start at 10:00),,Conference Room,1st Floor
+2009-07-19,09:30 - 12:00,Project Report:Regional RubyKaigi,KAKUTANI Shintaro,,Conference Room,1st Floor
+2009-07-19,09:30 - 12:00,Shanghai Ruby/Rails Community,Koz Masumitsu,,Conference Room,1st Floor
+2009-07-19,09:30 - 12:00,Hello World From The Other Side Of Earth,Daniel Bovensiepen,,Conference Room,1st Floor
+2009-07-19,12:00 - 13:30,lunch break,,true,,
+2009-07-19,13:30 - 15:30,How Lazy Americans Monitor Servers,James Edward Gray II,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,13:30 - 15:30,Journey through a pointy forest: XML parsing in Ruby,Aaron Patterson,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,13:30 - 15:30,Ruby、 on your Mac of course,Vincent Isambart,,Conference Room,2nd Floor
+2009-07-19,13:30 - 15:30,RubyCocoa/HotCocoa(RHC) - Let's develop an application of MacOS X with Ruby -,TAKAO Kouji,,Conference Room,2nd Floor
+2009-07-19,13:30 - 15:30,iPhone Application Development with Ruby,Takuma Mori,,Conference Room,2nd Floor
+2009-07-19,13:30 - 15:30,N-ways to distribute your Ruby desktop apps,Yutaka HARA ,,Conference Room,1st Floor
+2009-07-19,13:30 - 15:30,Our tDiary's policy and strategies to support Ruby 1.9 and our future plan.,SHIBATA Hiroshi ,,Conference Room,1st Floor
+2009-07-19,13:30 - 15:30,Haml and Sass: Solution for you who get tired of ugly markup,Keita Urashima ,,Conference Room,1st Floor
+2009-07-19,15:30 - 16:00,break,,true,,
+2009-07-19,16:00 - 17:00,Re-introduction to Ruby,Shugo Maeda,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,16:00 - 17:00,Getting Things "Done Done" As Cool As Cucumber,KAKUTANI Shintaro,,Conference Room,2nd Floor
+2009-07-19,16:00 - 17:00,All about Erubis,Makoto Kuwata,,Conference Room,1st Floor
+2009-07-19,17:00 - 17:10,break,,true,,
+2009-07-19,17:10 - 18:10,Keynote Address,Masayoshi Takahashi,,Hitotsubashi Memorial Hall,2nd Floor
+2009-07-19,18:10 - 18:20,Closing,,,Hitotsubashi Memorial Hall,2nd Floor

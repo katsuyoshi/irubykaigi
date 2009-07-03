@@ -1,73 +1,73 @@
-date,time,title,speaker,room,floor
-2009-07-17,13:30 - 14:30,Using Git and GitHub to Develop One Million Times Faster,Scott Chacon,一橋記念講堂,2F
-2009-07-17,14:30 - 14:40,break,,,
-2009-07-17,14:40 - 16:10,Pragmatic Patterns of Ruby on Rails - 現場で役立つRuby on Railsパターン,大場 寧子,一橋記念講堂,2F
-2009-07-17,14:40 - 16:10,『エンタープライズRails』に学ぶ企業ユーザのためのRails活用の極意,高井 直人,中会議場,2F
-2009-07-17,14:40 - 16:10,Railsエコシステムの研究,松田 明,特別会議室,1F
-2009-07-17,14:40 - 16:10,Using Adhearsion to Voice Enable your Ruby Applications,Jason Goecke,,
-2009-07-17,14:40 - 16:10,Rubyの数,後藤 謙太郎,,
-2009-07-17,14:40 - 16:10,乱数生成器ライブラリの紹介および処理系への組込みの提案,村田 賢太,,
-2009-07-17,14:40 - 16:10,Rubyで楽しむBDD、ZDD,倉井 龍太郎,,
-2009-07-17,16:10 - 16:40,break,,,
-2009-07-17,16:40 - 17:40,From Rails to Rack: Making Rails 3 a Better Ruby Citizen,Yehuda Katz,一橋記念講堂,2F
-2009-07-17,16:40 - 17:40,静的型付けを持ったRubyっぽい言語の設計と実装,橋本 和典、木山 真人,中会議場,2F
-2009-07-17,16:40 - 17:40,Ruby VMの高速化の展望,笹田 耕一,特別会議室,1F
-2009-07-17,17:40 - 17:50,break,,,
-2009-07-17,17:50 - 18:50,Lightning Talks,,一橋記念講堂,2F
-2009-07-17,19:30 - ,break,,,
-2009-07-18,10:00 - 12:00,Ruby 1.8 のゆくえ,卜部 昌平,一橋記念講堂,2F
-2009-07-18,10:00 - 12:00,Ruby 1.9.2ロードマップ,Yugui,中会議場,2F
-2009-07-18,10:00 - 12:00,Ruby リファレンスマニュアル刷新計画 2009 夏,okkez,特別会議室,1F
-2009-07-18,10:00 - 12:00,Rubyist Magazine が出来るまで,ささだこういち,,
-2009-07-18,10:00 - 12:00,Sequel: The Database Toolkit for Ruby,Jeremy Evans,,
-2009-07-18,10:00 - 12:00,Sinatra: The Framework Within,Aaron Quint,,
-2009-07-18,10:00 - 12:00,The innate beauty of Ramaze,Michael Fellinger,,
-2009-07-18,10:00 - 12:00,1/60秒でRuby ～Rubyでゲームを作ったら～,kumaryu,,
-2009-07-18,10:00 - 12:00,Rubyにおける生産性を高めるための開発環境を考察する,ujihisa 氏久 達博,,
-2009-07-18,10:00 - 12:00,静的コード解析統合環境の試作,勝間 友久,,
-2009-07-18,12:00 - 13:30,break,,,
-2009-07-18,13:30 - 14:30,Keynote Address,まつもとゆきひろ,一橋記念講堂,2F
-2009-07-18,14:30 - 15:30,Lightning Talks,,一橋記念講堂,2F
-2009-07-18,15:30 - 16:00,break,,,
-2009-07-18,16:00 - 18:30,ビジネスユースでのRuby導入のポイントと解決策,小島 克俊（伊藤忠テクノソリューションズ株式会社）,一橋記念講堂,2F
-2009-07-18,16:00 - 18:30,Ruby、Railsによる「ケータイ」ポータルの作り方！,成田 智也・浜中 慶（ニフティ株式会社）,中会議場,2F
-2009-07-18,16:00 - 18:30,(調整中),吉見 和也（RAWHIDE.）,特別会議室,1F
-2009-07-18,16:00 - 18:30,(調整中),大井 宏友（リクルート）,,
-2009-07-18,16:00 - 18:30,CとRubyとその間,須藤 功平（株式会社クリアコード）,,
-2009-07-18,16:00 - 18:30,オープンソース開発を始めよう,松村 章弘(TIS株式会社/SonicGarden)、 黒田 雄一(三菱UFJインフォメーションテクノロジー株式会社),,
-2009-07-18,16:00 - 18:30,Ruby による楽天の大規模サービスと基盤技術 (デモあり),後藤 幸生、 大城 学、 西澤 無我 (楽天株式会社),,
-2009-07-18,16:00 - 18:30,Ruby C10K challenge: High Performance Networking,Ilya Grigorik,,
-2009-07-18,16:00 - 18:30,NeverBlock and I/O Concurrency in Ruby,Mohammad A. Ali,,
-2009-07-18,16:00 - 18:30,JRuby Update 2009,Thomas Enebo、 Nick Sieger,,
-2009-07-18,16:00 - 18:30,分散並列処理フレームワークfairyと分散オブジェクトシステムDeepConnect,石塚 圭樹、増田 創,,
-2009-07-18,16:00 - 18:30,偉大なBigTableとぼくのおもちゃ,関 将俊,,
-2009-07-18,16:00 - 18:30,concov: 時系列に注目したテストカバレッジビューア,遠藤 侑介,,
-2009-07-18,16:00 - 18:30,RubyのGC改善による私のエコライフ ～レジ袋は結構ですよ(2009夏)～,nari,,
-2009-07-18,18:30 - 20:30,Beer bust,(Bring your own food/drink),一橋記念講堂,2F
-2009-07-19,09:30 - 12:00,Edo Cabinet,メトロー ジョン,一橋記念講堂,2F
-2009-07-19,09:30 - 12:00,Checking Interactively-Developed Code,Andriy Hnativ,中会議場,2F
-2009-07-19,09:30 - 12:00,To the Edge of Web Performance and Beyond,Joshua Hull,特別会議室,1F
-2009-07-19,09:30 - 12:00,スクリプト言語Ruby,arton,,
-2009-07-19,09:30 - 12:00,ソケットライブラリの改善,田中 哲,,
-2009-07-19,09:30 - 12:00,あらためて仕事で使うRuby,後藤 謙太郎,,
-2009-07-19,09:30 - 12:00,rubygems autoload hell?(仮),西山 和広,,
-2009-07-19,09:30 - 12:00, ,(この部屋の開始時刻は10:00です),,
-2009-07-19,09:30 - 12:00,Regional RubyKaigiのご報告,角谷 信太郎,,
-2009-07-19,09:30 - 12:00,上海のRailsコミュニティー！ 日本がぼやぼやしている間に、上海はアツイ！,天狗こと増満 工将,,
-2009-07-19,09:30 - 12:00,Hello World From The Other Side Of Earth,Daniel Bovensiepen,,
-2009-07-19,12:00 - 13:30,break,,,
-2009-07-19,13:30 - 15:30,How Lazy Americans Monitor Servers,James Edward Gray II,一橋記念講堂,2F
-2009-07-19,13:30 - 15:30,Journey through a pointy forest: XML parsing in Ruby,Aaron Patterson,中会議場,2F
-2009-07-19,13:30 - 15:30,RubyならMacでしょう・Ruby、 on your Mac of course,Vincent Isambart,特別会議室,1F
-2009-07-19,13:30 - 15:30,RubyCocoa/HotCocoa(RHC) ～RubyによるMac OS Xデスクトップアプリケーション開発～,高尾 宏治,,
-2009-07-19,13:30 - 15:30,RubyではじめるiPhoneアプリ開発,森 琢磨,,
-2009-07-19,13:30 - 15:30,Ruby製アプリケーションを配布するn個の方法,原 悠,,
-2009-07-19,13:30 - 15:30,tDiary の Ruby 1.9 対応の過程と今後のロードマップ,柴田 博志,,
-2009-07-19,13:30 - 15:30,Haml and Sass: Solution for you who get tired of ugly markup,浦嶌 啓太,,
-2009-07-19,15:30 - 16:00,break,,,
-2009-07-19,16:00 - 17:00,Re-introduction to Ruby,前田 修吾,一橋記念講堂,2F
-2009-07-19,16:00 - 17:00,Getting Things "Done Done" As Cool As Cucumber,角谷 信太郎,中会議場,2F
-2009-07-19,16:00 - 17:00,Erubis徹底解説,桑田 誠,特別会議室,1F
-2009-07-19,17:00 - 17:10,break,,,
-2009-07-19,17:10 - 18:10,Keynote Address,高橋 征義,一橋記念講堂,2F
-2009-07-19,18:10 - 18:20,Closing,,一橋記念講堂,2F
+date,time,title,speaker,break,room,floor
+2009-07-17,13:30 - 14:30,Using Git and GitHub to Develop One Million Times Faster,Scott Chacon,,一橋記念講堂,2F
+2009-07-17,14:30 - 14:40,break,,true,,
+2009-07-17,14:40 - 16:10,Pragmatic Patterns of Ruby on Rails - 現場で役立つRuby on Railsパターン,大場 寧子,,一橋記念講堂,2F
+2009-07-17,14:40 - 16:10,『エンタープライズRails』に学ぶ企業ユーザのためのRails活用の極意,高井 直人,,一橋記念講堂,2F
+2009-07-17,14:40 - 16:10,Railsエコシステムの研究,松田 明,,中会議場,2F
+2009-07-17,14:40 - 16:10,Using Adhearsion to Voice Enable your Ruby Applications,Jason Goecke,,中会議場,2F
+2009-07-17,14:40 - 16:10,Rubyの数,後藤 謙太郎,,特別会議室,1F
+2009-07-17,14:40 - 16:10,乱数生成器ライブラリの紹介および処理系への組込みの提案,村田 賢太,,特別会議室,1F
+2009-07-17,14:40 - 16:10,Rubyで楽しむBDD、ZDD,倉井 龍太郎,,特別会議室,1F
+2009-07-17,16:10 - 16:40,break,,true,,
+2009-07-17,16:40 - 17:40,From Rails to Rack: Making Rails 3 a Better Ruby Citizen,Yehuda Katz,,,
+2009-07-17,16:40 - 17:40,静的型付けを持ったRubyっぽい言語の設計と実装,橋本 和典、木山 真人,,中会議場,2F
+2009-07-17,16:40 - 17:40,Ruby VMの高速化の展望,笹田 耕一,,特別会議室,1F
+2009-07-17,17:40 - 17:50,break,,true,,
+2009-07-17,17:50 - 18:50,Lightning Talks,,,一橋記念講堂,2F
+2009-07-17,19:30 - ,Party (registration required),,true,,
+2009-07-18,10:00 - 12:00,Ruby 1.8 のゆくえ,卜部 昌平,,一橋記念講堂,2F
+2009-07-18,10:00 - 12:00,Ruby 1.9.2ロードマップ,Yugui,,一橋記念講堂,2F
+2009-07-18,10:00 - 12:00,Ruby リファレンスマニュアル刷新計画 2009 夏,okkez,,一橋記念講堂,2F
+2009-07-18,10:00 - 12:00,Rubyist Magazine が出来るまで,ささだこういち,,一橋記念講堂,2F
+2009-07-18,10:00 - 12:00,Sequel: The Database Toolkit for Ruby,Jeremy Evans,,中会議場,2F
+2009-07-18,10:00 - 12:00,Sinatra: The Framework Within,Aaron Quint,,中会議場,2F
+2009-07-18,10:00 - 12:00,The innate beauty of Ramaze,Michael Fellinger,,中会議場,2F
+2009-07-18,10:00 - 12:00,1/60秒でRuby ～Rubyでゲームを作ったら～,kumaryu,,特別会議室,1F
+2009-07-18,10:00 - 12:00,Rubyにおける生産性を高めるための開発環境を考察する,ujihisa 氏久 達博,,特別会議室,1F
+2009-07-18,10:00 - 12:00,静的コード解析統合環境の試作,勝間 友久,,特別会議室,1F
+2009-07-18,12:00 - 13:30,lunch break,,true,,
+2009-07-18,13:30 - 14:30,Keynote Address,まつもとゆきひろ,,一橋記念講堂,2F
+2009-07-18,14:30 - 15:30,Lightning Talks,,,一橋記念講堂,2F
+2009-07-18,15:30 - 16:00,break,,true,,
+2009-07-18,16:00 - 18:30,ビジネスユースでのRuby導入のポイントと解決策,小島 克俊（伊藤忠テクノソリューションズ株式会社）,,,
+2009-07-18,16:00 - 18:30,Ruby、Railsによる「ケータイ」ポータルの作り方！,成田 智也・浜中 慶（ニフティ株式会社）,,,
+2009-07-18,16:00 - 18:30,(調整中),吉見 和也（RAWHIDE.）,,,
+2009-07-18,16:00 - 18:30,(調整中),大井 宏友（リクルート）,,,
+2009-07-18,16:00 - 18:30,CとRubyとその間,須藤 功平（株式会社クリアコード）,,,
+2009-07-18,16:00 - 18:30,オープンソース開発を始めよう,松村 章弘(TIS株式会社/SonicGarden)、 黒田 雄一(三菱UFJインフォメーションテクノロジー株式会社),,,
+2009-07-18,16:00 - 18:30,Ruby による楽天の大規模サービスと基盤技術 (デモあり),後藤 幸生、 大城 学、 西澤 無我 (楽天株式会社),,,
+2009-07-18,16:00 - 18:30,Ruby C10K challenge: High Performance Networking,Ilya Grigorik,,,
+2009-07-18,16:00 - 18:30,NeverBlock and I/O Concurrency in Ruby,Mohammad A. Ali,,,
+2009-07-18,16:00 - 18:30,JRuby Update 2009,Thomas Enebo、 Nick Sieger,,,
+2009-07-18,16:00 - 18:30,分散並列処理フレームワークfairyと分散オブジェクトシステムDeepConnect,石塚 圭樹、増田 創,,,
+2009-07-18,16:00 - 18:30,偉大なBigTableとぼくのおもちゃ,関 将俊,,,
+2009-07-18,16:00 - 18:30,concov: 時系列に注目したテストカバレッジビューア,遠藤 侑介,,,
+2009-07-18,16:00 - 18:30,RubyのGC改善による私のエコライフ ～レジ袋は結構ですよ(2009夏)～,nari,,,
+2009-07-18,18:30 - 20:30,Beer bust,(Bring your own food/drink),,一橋記念講堂,2F
+2009-07-19,09:30 - 12:00,Edo Cabinet,メトロー ジョン,,一橋記念講堂,2F
+2009-07-19,09:30 - 12:00,Checking Interactively-Developed Code,Andriy Hnativ,,一橋記念講堂,2F
+2009-07-19,09:30 - 12:00,To the Edge of Web Performance and Beyond,Joshua Hull,,一橋記念講堂,2F
+2009-07-19,09:30 - 12:00,スクリプト言語Ruby,arton,,中会議場,2F
+2009-07-19,09:30 - 12:00,ソケットライブラリの改善,田中 哲,,中会議場,2F
+2009-07-19,09:30 - 12:00,あらためて仕事で使うRuby,後藤 謙太郎,,中会議場,2F
+2009-07-19,09:30 - 12:00,rubygems autoload hell?(仮),西山 和広,,中会議場,2F
+2009-07-19,09:30 - 12:00, ,(この部屋の開始時刻は10:00です),,特別会議室,1F
+2009-07-19,09:30 - 12:00,Regional RubyKaigiのご報告,角谷 信太郎,,特別会議室,1F
+2009-07-19,09:30 - 12:00,上海のRailsコミュニティー！ 日本がぼやぼやしている間に、上海はアツイ！,天狗こと増満 工将,,特別会議室,1F
+2009-07-19,09:30 - 12:00,Hello World From The Other Side Of Earth,Daniel Bovensiepen,,特別会議室,1F
+2009-07-19,12:00 - 13:30,lunch break,,true,,
+2009-07-19,13:30 - 15:30,How Lazy Americans Monitor Servers,James Edward Gray II,,,
+2009-07-19,13:30 - 15:30,Journey through a pointy forest: XML parsing in Ruby,Aaron Patterson,,,
+2009-07-19,13:30 - 15:30,RubyならMacでしょう・Ruby、 on your Mac of course,Vincent Isambart,,,
+2009-07-19,13:30 - 15:30,RubyCocoa/HotCocoa(RHC) ～RubyによるMac OS Xデスクトップアプリケーション開発～,高尾 宏治,,,
+2009-07-19,13:30 - 15:30,RubyではじめるiPhoneアプリ開発,森 琢磨,,,
+2009-07-19,13:30 - 15:30,Ruby製アプリケーションを配布するn個の方法,原 悠,,,
+2009-07-19,13:30 - 15:30,tDiary の Ruby 1.9 対応の過程と今後のロードマップ,柴田 博志,,,
+2009-07-19,13:30 - 15:30,Haml and Sass: Solution for you who get tired of ugly markup,浦嶌 啓太,,,
+2009-07-19,15:30 - 16:00,break,,true,,
+2009-07-19,16:00 - 17:00,Re-introduction to Ruby,前田 修吾,,一橋記念講堂,2F
+2009-07-19,16:00 - 17:00,Getting Things "Done Done" As Cool As Cucumber,角谷 信太郎,,中会議場,2F
+2009-07-19,16:00 - 17:00,Erubis徹底解説,桑田 誠,,特別会議室,1F
+2009-07-19,17:00 - 17:10,break,,true,,
+2009-07-19,17:10 - 18:10,Keynote Address,高橋 征義,,一橋記念講堂,2F
+2009-07-19,18:10 - 18:20,Closing,,,一橋記念講堂,2F
