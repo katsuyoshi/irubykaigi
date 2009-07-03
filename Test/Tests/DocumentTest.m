@@ -66,6 +66,12 @@
     ASSERT_EQUAL([Document dateFromString:@"2009-7-19"], [[[document days] objectAtIndex:2] valueForKey:@"date"]);
 }
 
+- (void)testBreakAndParty
+{
+    
+}
+
+
 #pragma mark -
 #pragma mark Option
 

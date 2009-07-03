@@ -122,12 +122,17 @@
 
 + (NSDate *)dateFromString:(NSString *)dateStr
 {
+    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    return [formatter dateFromString:dateStr];
+/* DELETEME:
     NSArray *elements = [dateStr componentsSeparatedByString:@"-"];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setYear:[[elements objectAtIndex:0] intValue]];
     [components setMonth:[[elements objectAtIndex:1] intValue]];
     [components setDay:[[elements objectAtIndex:2] intValue]];
     return [[NSCalendar currentCalendar] dateFromComponents:components];
+*/
 }
 
 
@@ -249,7 +254,7 @@
                         [eo setValue:element forKey:key];
                     }
 
-                    if (roomName && floorName && ![[eo valueForKey:@"break"] boolValue]) {
+                    if ([roomName length] && [floorName length] && ![[eo valueForKey:@"break"] boolValue]) {
                         NSManagedObject *room = [self roomForName:roomName];
                         if ([room valueForKey:@"floor"] == nil) {
                             [room setValue:floorName forKey:@"floor"];
