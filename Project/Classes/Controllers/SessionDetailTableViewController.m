@@ -13,15 +13,6 @@
 
 @synthesize session;
 
-+ (id)sharedController
-{
-    static id controller = nil;
-    if (controller == nil) {
-        controller = [[self alloc] initWithStyle:UITableViewStyleGrouped];
-    }
-    return controller;
-}
-
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -31,19 +22,18 @@
 }
 */
 
-/*
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.title = [self.session valueForKey:@"time"];
     [self.tableView reloadData];
-    [super viewWillAppear:animated];
 }
 
 /*
@@ -56,13 +46,11 @@
 	[super viewWillDisappear:animated];
 }
 */
-
+/*
 - (void)viewDidDisappear:(BOOL)animated {
-    self.session = nil;
-    [self.tableView reloadData];
 	[super viewDidDisappear:animated];
 }
-
+*/
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -158,7 +146,7 @@
         }
         break;
     }
-	
+    	
     return cell;
 }
 
@@ -242,6 +230,8 @@
         }
     }
 }
+
+
 
 @end
 

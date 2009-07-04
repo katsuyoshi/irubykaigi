@@ -78,6 +78,8 @@
 			46D2A6CF0FFF278800E15600 = 46D2A6CF0FFF278800E15600 /* PBXTextBookmark */;
 			46D2A6D00FFF278800E15600 = 46D2A6D00FFF278800E15600 /* PBXTextBookmark */;
 			46D2A6D10FFF278800E15600 = 46D2A6D10FFF278800E15600 /* PBXTextBookmark */;
+			46D2A8830FFF4EEF00E15600 /* PBXTextBookmark */ = 46D2A8830FFF4EEF00E15600 /* PBXTextBookmark */;
+			46D2A8840FFF4EEF00E15600 /* PBXTextBookmark */ = 46D2A8840FFF4EEF00E15600 /* PBXTextBookmark */;
 			46EE13600FFE4010000224D0 = 46EE13600FFE4010000224D0 /* PBXTextBookmark */;
 			46EE13620FFE4010000224D0 = 46EE13620FFE4010000224D0 /* PBXTextBookmark */;
 			46EE13630FFE4010000224D0 = 46EE13630FFE4010000224D0 /* PBXTextBookmark */;
@@ -563,6 +565,26 @@
 		vrLen = 667;
 		vrLoc = 3800;
 	};
+	46D2A8830FFF4EEF00E15600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */;
+		name = "SessionDetailTableViewControllerTest.m: 95";
+		rLen = 0;
+		rLoc = 2944;
+		rType = 0;
+		vrLen = 1156;
+		vrLoc = 3177;
+	};
+	46D2A8840FFF4EEF00E15600 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */;
+		name = "SessionDetailTableViewControllerTest.m: 99";
+		rLen = 0;
+		rLoc = 2912;
+		rType = 0;
+		vrLen = 1498;
+		vrLoc = 1708;
+	};
 	46EE13170FFE3C47000224D0 /* NSManagedObjectContextExtension.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {681, 510}}";
@@ -756,9 +778,9 @@
 	};
 	46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {767, 3080}}";
-			sepNavSelRange = "{4634, 0}";
-			sepNavVisRange = "{229, 278}";
+			sepNavIntBoundsRect = "{{0, 0}, {681, 2318}}";
+			sepNavSelRange = "{2912, 0}";
+			sepNavVisRange = "{1708, 1498}";
 		};
 	};
 	46EE15660FFED108000224D0 /* PBXTextBookmark */ = {
@@ -841,7 +863,7 @@
 		fRef = 460A78240FFD02A900DD0775 /* SessionTableViewController.m */;
 		name = "SessionTableViewController.m: 211";
 		rLen = 0;
-		rLoc = 8218;
+		rLoc = 8431;
 		rType = 0;
 		vrLen = 1144;
 		vrLoc = 6596;
@@ -928,7 +950,7 @@
 		fRef = 46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */;
 		name = "SessionDetailTableViewController.m: 108";
 		rLen = 92;
-		rLoc = 2550;
+		rLoc = 2303;
 		rType = 0;
 		vrLen = 1017;
 		vrLoc = 2050;
@@ -948,7 +970,7 @@
 		fRef = 46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */;
 		name = "SessionDetailTableViewControllerTest.m: 131";
 		rLen = 0;
-		rLoc = 4080;
+		rLoc = 4290;
 		rType = 0;
 		vrLen = 1200;
 		vrLoc = 3160;

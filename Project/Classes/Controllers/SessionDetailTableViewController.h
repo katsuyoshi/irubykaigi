@@ -13,12 +13,9 @@
 
     NSManagedObject *session;
     NSArray *sperkers;
-    
+
 }
 
 @property (retain) NSManagedObject *session;
-
-+ (id)sharedController;
-
 
 @end

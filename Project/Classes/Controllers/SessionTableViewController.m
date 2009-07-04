@@ -200,7 +200,10 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    SessionDetailTableViewController *detailController = [SessionDetailTableViewController sharedController];
+    SessionDetailTableViewController *detailController = [[[SessionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    
+    // 本来はSessionクラスを作ってそこで色を管理すべき
+    detailController.tableView.backgroundColor = [self.tableView cellForRowAtIndexPath:indexPath].backgroundView.backgroundColor;
     detailController.session = [fetchedResultsController objectAtIndexPath:indexPath];
     [self.navigationController pushViewController:detailController animated:YES];
 }
