@@ -68,21 +68,15 @@ def parse_timetable elements, day
         if session
             session['room'], session['floor'] = room_for_index(index) if session
         end
-=begin
-        titles = e.search('p.title')
-        if titles
-          title = titles.first.inner_text.gsub(',', '、')
-          if title
-            speakers = e.search('p.speaker').first.inner_text.gsub(',', '、')
-            session = @sessions.find {|e| e['title'] == title && e['speakers'] == speakers && !e['break'] }
-            session['room'], session['floor'] = room_for_index(index) if session
-          end
-        end
-=end
       end
     end
   end
-  
+ 
+  # 例外
+  session = @sessions.find{|e| e['title'] == 'Beer bust'}
+p session
+  session['room'], session['floor'] = room_for_index(1) if session
+   
 end
 
 def get_parse_store_and_love uri, filename
