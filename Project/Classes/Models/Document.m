@@ -149,11 +149,11 @@
     }
 }
 
-- (NSManagedObject *)roomForName:(NSString *)name
+- (NSManagedObject *)roomForName:(NSString *)name floor:(NSString *)floor
 {
     NSFetchRequest *request = [NSFetchRequest new];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@ and floor = %@", name, floor];
     [request setPredicate:predicate];
     [request setEntity:entity];
     
@@ -164,7 +164,8 @@
     } else {
         NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
         [eo setValue:name forKey:@"name"];
-        
+        [eo setValue:floor forKey:@"floor"];
+
         [request setPredicate:nil];
         int count = [self.managedObjectContext countForFetchRequest:request error:&error];
         [eo setValue:[NSNumber numberWithInt:count - 1] forKey:@"position"];
@@ -236,10 +237,7 @@
                     }
 
                     if ([roomName length] && [floorName length] && ![[eo valueForKey:@"break"] boolValue]) {
-                        NSManagedObject *room = [self roomForName:roomName];
-                        if ([room valueForKey:@"floor"] == nil) {
-                            [room setValue:floorName forKey:@"floor"];
-                        }
+                        NSManagedObject *room = [self roomForName:roomName floor:floorName];
                         [eo setValue:room forKey:@"room"];
                         roomName = floorName = nil;
                     }

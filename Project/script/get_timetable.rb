@@ -35,6 +35,7 @@ def parse_timetable elements, day
     # session情報の取得
     session_info.search('div.session').each_with_index do |e, index|
       session = Hash.new
+      session['metadata'] = e
       titles = e.search('p.title')
       session['title'] = titles.first.inner_text.gsub(',', '、') if titles.first
       speakers = e.search('p.speaker')
@@ -63,14 +64,21 @@ def parse_timetable elements, day
   elements.search('tbody tr').each do |session_info|
     session_info.search('td.sessions').each_with_index do |sessions, index|
       sessions.search('div.session').each do |e|
+        session = @sessions.find{|s| s['metadata'] == e}
+        if session
+            session['room'], session['floor'] = room_for_index(index) if session
+        end
+=begin
         titles = e.search('p.title')
         if titles
           title = titles.first.inner_text.gsub(',', '、')
           if title
-            session = @sessions.find {|e| e['title'] == title && !e['break'] }
+            speakers = e.search('p.speaker').first.inner_text.gsub(',', '、')
+            session = @sessions.find {|e| e['title'] == title && e['speakers'] == speakers && !e['break'] }
             session['room'], session['floor'] = room_for_index(index) if session
           end
         end
+=end
       end
     end
   end
