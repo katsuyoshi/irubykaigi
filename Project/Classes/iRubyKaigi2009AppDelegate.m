@@ -36,6 +36,7 @@
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
 //    navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    [navigationController setToolbarHidden:NO animated:NO];
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
@@ -56,23 +57,6 @@
     }
 }
 
-
-#pragma mark -
-#pragma mark Saving
-
-/**
- Performs the save action for the application, which is to send the save:
- message to the application's managed object context.
- */
-- (IBAction)saveAction:(id)sender {
-	
-    NSError *error;
-    if (![[self managedObjectContext] save:&error]) {
-		// Handle error
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);  // Fail
-    }
-}
 
 
 #pragma mark -

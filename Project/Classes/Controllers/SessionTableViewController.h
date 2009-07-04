@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SessionTableViewController : UITableViewController<NSFetchedResultsControllerDelegate> {
+@interface SessionTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
 
     NSManagedObject *day;
     NSManagedObject *nextDay;
@@ -29,6 +29,8 @@
 
 - (void)previousDayAction:(id)sender;
 - (void)nextDayAction:(id)sender;
+
+- (void)beginUpdate:(id)sender;
 
 
 @end

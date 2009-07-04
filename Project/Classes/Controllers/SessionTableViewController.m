@@ -45,6 +45,10 @@
         UIBarButtonItem *buttonItem = [[[UIBarButtonItem alloc] initWithTitle:[self titleForDate:self.nextDay] style:UIBarButtonItemStyleBordered target:self action:@selector(nextDayAction:)] autorelease];
         self.navigationItem.rightBarButtonItem = buttonItem;
     }
+    
+    UIBarButtonItem *updateButtonItems = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(beginUpdate:)] autorelease];
+    NSArray *items = [NSArray arrayWithObject:updateButtonItems];
+    [self setToolbarItems:items animated:NO];
 
     [self.fetchedResultsController performFetch:NULL];
 }
@@ -59,10 +63,6 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
     return [formatter stringFromDate:[aDay valueForKey:@"date"]];
 }
 
-- (NSString *)title
-{
-    return [self titleForDate:self.day];
-}
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -226,6 +226,16 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
 #pragma mark -
 #pragma mark accessor
 
+- (void)setDay:(NSManagedObject *)aDay
+{
+    if (day != aDay) {
+        [day release];
+        day = [aDay retain];
+        
+        self.title = [self titleForDate:day];
+    }
+}
+
 - (SessionTableViewController *)nextDaysSessionController
 {
     if (nextDaysSessionController == nil) {
@@ -271,6 +281,11 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
 - (void)nextDayAction:(id)sender
 {
     [self.navigationController pushViewController:self.nextDaysSessionController animated:YES];
+}
+
+
+- (void)beginUpdate:(id)sender
+{
 }
 
 @end

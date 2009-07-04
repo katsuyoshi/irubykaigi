@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SessionDetailTableViewController : UITableViewController {
+@interface SessionDetailTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
 
     NSManagedObject *session;
     NSArray *sperkers;
