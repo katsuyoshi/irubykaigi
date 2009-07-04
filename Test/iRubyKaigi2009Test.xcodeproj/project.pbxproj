@@ -21,6 +21,7 @@
 		4620593D0F28CB5700857D87 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4620593C0F28CB5700857D87 /* DetailView.xib */; };
 		462AC4B40FEAFF2400B587D6 /* UIViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */; };
 		462AC5A30FEB29B200B587D6 /* UITableViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC5A20FEB29B200B587D6 /* UITableViewBasedTest.m */; };
+		4658DA160FFF8A8C00CBBFEE /* NSManagedObjectExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4658DA150FFF8A8C00CBBFEE /* NSManagedObjectExtension.m */; };
 		465B04250F2056FF000E8FE2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465B04240F2056FF000E8FE2 /* TestView.xib */; };
 		466AF4DE0F2F02A3004A649A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 466AF4DD0F2F02A3004A649A /* icon.png */; };
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
@@ -28,7 +29,6 @@
 		4681C7E80FFAB9690023DACB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4681C7E70FFAB9690023DACB /* CoreData.framework */; };
 		4681C80A0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4681C7FE0FFABD2E0023DACB /* iRubyKaigi2009AppDelegate.m */; };
 		4681C80D0FFABD2E0023DACB /* iRubyKaigi2009.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4681C8020FFABD2E0023DACB /* iRubyKaigi2009.xcdatamodel */; };
-		4681C8100FFABD2E0023DACB /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4681C8090FFABD2E0023DACB /* RootViewController.xib */; };
 		4681C82B0FFABD7D0023DACB /* session_info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4681C82A0FFABD7D0023DACB /* session_info.csv */; };
 		4681C83C0FFABE8F0023DACB /* DocumentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4681C83B0FFABE8F0023DACB /* DocumentTest.m */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
@@ -88,6 +88,8 @@
 		462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewBasedTest.m; sourceTree = "<group>"; };
 		462AC5A10FEB29B200B587D6 /* UITableViewBasedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewBasedTest.h; sourceTree = "<group>"; };
 		462AC5A20FEB29B200B587D6 /* UITableViewBasedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewBasedTest.m; sourceTree = "<group>"; };
+		4658DA140FFF8A8C00CBBFEE /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
+		4658DA150FFF8A8C00CBBFEE /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
 		465B04240F2056FF000E8FE2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		466AF4DD0F2F02A3004A649A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		466EDC780F4094DB00D2B9AC /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTLog.h; sourceTree = "<group>"; };
@@ -105,7 +107,6 @@
 		4681C8060FFABD2E0023DACB /* iRubyKaigi2009_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRubyKaigi2009_Prefix.pch; path = /Users/ISD/git/irubykaigi2009/Project/iRubyKaigi2009_Prefix.pch; sourceTree = "<absolute>"; };
 		4681C8070FFABD2E0023DACB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = /Users/ISD/git/irubykaigi2009/Project/main.m; sourceTree = "<absolute>"; };
 		4681C8080FFABD2E0023DACB /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = /Users/ISD/git/irubykaigi2009/Project/MainWindow.xib; sourceTree = "<absolute>"; };
-		4681C8090FFABD2E0023DACB /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootViewController.xib; path = /Users/ISD/git/irubykaigi2009/Project/RootViewController.xib; sourceTree = "<absolute>"; };
 		4681C8270FFABD630023DACB /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/session_info.csv; sourceTree = "<group>"; };
 		4681C82C0FFABD890023DACB /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/session_info.csv; sourceTree = "<group>"; };
 		4681C83A0FFABE8F0023DACB /* DocumentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentTest.h; path = /Users/ISD/git/irubykaigi2009/Test/Tests/DocumentTest.h; sourceTree = "<absolute>"; };
@@ -252,7 +253,6 @@
 				4681C8060FFABD2E0023DACB /* iRubyKaigi2009_Prefix.pch */,
 				4681C8070FFABD2E0023DACB /* main.m */,
 				4681C8080FFABD2E0023DACB /* MainWindow.xib */,
-				4681C8090FFABD2E0023DACB /* RootViewController.xib */,
 				4681C82A0FFABD7D0023DACB /* session_info.csv */,
 				46EE137B0FFE418D000224D0 /* Localizable.strings */,
 			);
@@ -368,6 +368,8 @@
 		46EE13160FFE3C29000224D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4658DA140FFF8A8C00CBBFEE /* NSManagedObjectExtension.h */,
+				4658DA150FFF8A8C00CBBFEE /* NSManagedObjectExtension.m */,
 				46EE131A0FFE3C66000224D0 /* PredicateCondition.h */,
 				46EE131B0FFE3C66000224D0 /* PredicateCondition.m */,
 				46EE13170FFE3C47000224D0 /* NSManagedObjectContextExtension.h */,
@@ -451,7 +453,6 @@
 				460633950F55AC9000A33C8B /* Settings.bundle in Resources */,
 				460633A20F55B5F900A33C8B /* isd_logo_60x40_w.png in Resources */,
 				4617B7F00F57B76100D94BF1 /* Default.png in Resources */,
-				4681C8100FFABD2E0023DACB /* RootViewController.xib in Resources */,
 				4681C82B0FFABD7D0023DACB /* session_info.csv in Resources */,
 				46EE137C0FFE418D000224D0 /* Localizable.strings in Resources */,
 			);
@@ -495,6 +496,7 @@
 				46EE15510FFECB64000224D0 /* SessionDetailTableViewController.m in Sources */,
 				46EE15540FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m in Sources */,
 				46D2A8110FFF481700E15600 /* SessionTableViewCell.m in Sources */,
+				4658DA160FFF8A8C00CBBFEE /* NSManagedObjectExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
