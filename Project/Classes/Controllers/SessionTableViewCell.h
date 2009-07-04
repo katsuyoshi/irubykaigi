@@ -12,7 +12,6 @@
 @interface SessionTableViewCell : UITableViewCell {
 
     NSManagedObject *session;
-// DELETEME:    NSArray *colors;
 
     BOOL initialized;
 }
