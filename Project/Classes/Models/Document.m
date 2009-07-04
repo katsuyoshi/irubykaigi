@@ -132,7 +132,7 @@
 - (NSManagedObject *)dayForDate:(NSString *)dateStr
 {
     NSDate *date = [[self class] dateFromString:dateStr];
-    NSFetchRequest *request = [NSFetchRequest new];
+    NSFetchRequest *request = [[NSFetchRequest new] autorelease];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Day" inManagedObjectContext:self.managedObjectContext];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date = %@", date];
     [request setPredicate:predicate];
@@ -151,7 +151,7 @@
 
 - (NSManagedObject *)roomForName:(NSString *)name floor:(NSString *)floor
 {
-    NSFetchRequest *request = [NSFetchRequest new];
+    NSFetchRequest *request = [[NSFetchRequest new] autorelease];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@ and floor = %@", name, floor];
     [request setPredicate:predicate];

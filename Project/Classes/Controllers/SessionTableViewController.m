@@ -57,7 +57,7 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
 //    [formatter setLocale:[NSLocale systemLocale]];
-    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:NSLocalizedString(@"LOCALE", nil)]];
+    [formatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:NSLocalizedString(@"LOCALE", nil)] autorelease]];
 NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
     [formatter setDateFormat:NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil)];
     return [formatter stringFromDate:[aDay valueForKey:@"date"]];
