@@ -18,6 +18,7 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		460A79EE0FFDA94400DD0775 /* SessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460A79EB0FFDA94400DD0775 /* SessionTableViewController.m */; };
 		460A79F30FFDA98600DD0775 /* session_info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 460A79F10FFDA98600DD0775 /* session_info.csv */; };
+		46D2A89F0FFF59FA00E15600 /* NSManagedObjectExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */; };
 		46EE143D0FFE53D1000224D0 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE14380FFE53D1000224D0 /* Document.m */; };
 		46EE143E0FFE53D1000224D0 /* NSManagedObjectContextExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE143A0FFE53D1000224D0 /* NSManagedObjectContextExtension.m */; };
 		46EE143F0FFE53D1000224D0 /* PredicateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE143C0FFE53D1000224D0 /* PredicateCondition.m */; };
@@ -43,6 +44,8 @@
 		460A79EB0FFDA94400DD0775 /* SessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewController.m; sourceTree = "<group>"; };
 		460A79F20FFDA98600DD0775 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/session_info.csv; sourceTree = "<group>"; };
 		460A79F40FFDA99100DD0775 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/session_info.csv; sourceTree = "<group>"; };
+		46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
+		46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
 		46EE14370FFE53D1000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		46EE14380FFE53D1000224D0 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		46EE14390FFE53D1000224D0 /* NSManagedObjectContextExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextExtension.h; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				46EE14380FFE53D1000224D0 /* Document.m */,
 				46EE14390FFE53D1000224D0 /* NSManagedObjectContextExtension.h */,
 				46EE143A0FFE53D1000224D0 /* NSManagedObjectContextExtension.m */,
+				46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */,
+				46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */,
 				46EE143B0FFE53D1000224D0 /* PredicateCondition.h */,
 				46EE143C0FFE53D1000224D0 /* PredicateCondition.m */,
 			);
@@ -235,6 +240,7 @@
 				46EE143F0FFE53D1000224D0 /* PredicateCondition.m in Sources */,
 				46EE15270FFE6899000224D0 /* SessionDetailTableViewController.m in Sources */,
 				46EE18260FFF1454000224D0 /* SessionTableViewCell.m in Sources */,
+				46D2A89F0FFF59FA00E15600 /* NSManagedObjectExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Katsuyoshi Ito";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -273,6 +280,7 @@
 				GCC_PREFIX_HEADER = iRubyKaigi2009_Prefix.pch;
 				INFOPLIST_FILE = "iRubyKaigi2009-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2009;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "015FD9E7-03D2-482E-8BF0-526AFEFF0A8C";
 			};
 			name = Debug;
 		};

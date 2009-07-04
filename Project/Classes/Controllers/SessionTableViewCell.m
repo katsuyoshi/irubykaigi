@@ -7,6 +7,7 @@
 //
 
 #import "SessionTableViewCell.h"
+#import "NSManagedObjectExtension.h"
 
 
 @implementation SessionTableViewCell
@@ -35,7 +36,7 @@
 
 
 - (void)dealloc {
-    [colors release];
+// DELETEME:    [colors release];
     [session release];
     [super dealloc];
 }
@@ -48,7 +49,8 @@
     self.backgroundView = [[UIView new] autorelease];
     
     self.detailTextLabel.textColor = [UIColor darkGrayColor];
-    
+
+/* DELETEME:
     colors = [[NSArray alloc] initWithObjects:
                   [UIColor yellowColor]
                 , [UIColor greenColor]
@@ -59,9 +61,10 @@
                     , [UIColor colorWithRed:255.0 / 255.0 green:204.0 / 255.0 blue:102.0 / 255.0 alpha:1.0] // スピンドリフト
                     , [UIColor colorWithRed:102.0 / 255.0 green:255.0 / 255.0 blue:102.0 / 204.0 alpha:1.0] // マスクメロン
 */
-                    , nil];
+// DELETEME:                    , nil];
 }
 
+/* DELETEME:
 - (void)setColor
 {
     int position = [[session valueForKeyPath:@"room.position"] intValue];
@@ -71,7 +74,7 @@
         self.backgroundView.backgroundColor = [UIColor redColor];
     }
 }
-
+*/
 
 - (void)setSession:(NSManagedObject *)aSession
 {
@@ -89,7 +92,7 @@
             self.backgroundView.backgroundColor = [UIColor brownColor];
             self.textLabel.textColor = [UIColor whiteColor];
         } else {
-            [self setColor];
+            self.backgroundView.backgroundColor = [session sessionColor]; // DELETEME: [self setColor];
             self.textLabel.textColor = [UIColor blackColor];
         }
     

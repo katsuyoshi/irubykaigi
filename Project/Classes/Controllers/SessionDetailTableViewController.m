@@ -7,6 +7,7 @@
 //
 
 #import "SessionDetailTableViewController.h"
+#import "NSManagedObjectExtension.h"
 
 
 @implementation SessionDetailTableViewController
@@ -228,6 +229,7 @@
         } else {
             sperkers = [[NSArray array] retain];
         }
+        self.tableView.backgroundColor = [session sessionColor];
     }
 }
 

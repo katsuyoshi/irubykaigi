@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -322,6 +320,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -339,18 +339,16 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>46D2A8840FFF4EEF00E15600</string>
+										<string>46D2A8E30FFF5D8100E15600</string>
 										<key>history</key>
 										<array>
 											<string>4681C8520FFBBA350023DACB</string>
 											<string>4681C8550FFBBA350023DACB</string>
 											<string>460A78110FFCFEF500DD0775</string>
 											<string>460A78700FFD12A100DD0775</string>
-											<string>46EE13600FFE4010000224D0</string>
 											<string>46EE13620FFE4010000224D0</string>
 											<string>46EE13630FFE4010000224D0</string>
 											<string>46EE13640FFE4010000224D0</string>
-											<string>46EE13650FFE4010000224D0</string>
 											<string>46EE13730FFE4062000224D0</string>
 											<string>46EE13E10FFE4C93000224D0</string>
 											<string>46EE14010FFE5154000224D0</string>
@@ -361,16 +359,12 @@
 											<string>46EE15690FFED108000224D0</string>
 											<string>46EE156D0FFED108000224D0</string>
 											<string>46EE157D0FFED14C000224D0</string>
-											<string>46EE159D0FFED37D000224D0</string>
-											<string>46EE15B20FFED423000224D0</string>
 											<string>46EE15C70FFED5EF000224D0</string>
 											<string>46EE160F0FFED96F000224D0</string>
 											<string>46EE16110FFED96F000224D0</string>
 											<string>46EE16120FFED96F000224D0</string>
 											<string>46EE16490FFEDB8B000224D0</string>
-											<string>46EE16510FFEDC76000224D0</string>
 											<string>46EE16620FFEDCD3000224D0</string>
-											<string>46EE16EC0FFEE8FA000224D0</string>
 											<string>46EE16ED0FFEE8FA000224D0</string>
 											<string>46EE17C60FFF109C000224D0</string>
 											<string>46EE17C70FFF109C000224D0</string>
@@ -574,7 +568,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>46D2A88F0FFF4EEF00E15600</string>
 		<string>46D2A8900FFF4EEF00E15600</string>
 		<string>46D2A8910FFF4EEF00E15600</string>
 		<string>1C78EAAD065D492600B07095</string>
