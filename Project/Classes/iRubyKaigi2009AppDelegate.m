@@ -7,7 +7,6 @@
 //
 
 #import "iRubyKaigi2009AppDelegate.h"
-#import "RootViewController.h"
 
 
 @implementation iRubyKaigi2009AppDelegate

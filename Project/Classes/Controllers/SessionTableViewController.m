@@ -52,6 +52,8 @@
 - (NSString *)titleForDate:(NSManagedObject *)aDay
 {
     NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+//    [formatter setLocale:[NSLocale systemLocale]];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:NSLocalizedString(@"LOCALE", nil)]];
 NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
     [formatter setDateFormat:NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil)];
     return [formatter stringFromDate:[aDay valueForKey:@"date"]];
@@ -134,60 +136,17 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
         cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"BreakCell"];
         if (cell == nil) {
             cell = [[[SessionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BreakCell"] autorelease];
-/*
-            cell.textLabel.backgroundColor = nil;//[UIColor redColor];
-//            cell.contentView.backgroundColor = [UIColor clearColor];
-//            cell.backgroundColor = [UIColor clearColor];
-            for (UIView *view in cell.contentView.subviews) {
-                view.backgroundColor = [UIColor clearColor];
-            }
-            cell.backgroundView = [[UIView new] autorelease];
-*/
         }
     } else {
         cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
         if (cell == nil) {
             cell = [[[SessionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SessionCell"] autorelease];
             cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-/*
-            cell.textLabel.opaque = NO;
-//            cell.contentView.backgroundColor = [UIColor clearColor];
-//            cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-//            cell.backgroundColor = [UIColor clearColor];
-            cell.backgroundView = [[UIView new] autorelease];
-*/
         }
     }
     
     cell.session = eo;
-/*
-	cell.textLabel.text = [[eo valueForKey:@"title"] description];
 
-    NSString *room = [eo valueForKeyPath:@"room.name"];
-    NSString *speaker = [eo valueForKey:@"speaker"];
-    NSMutableArray *subTitles = [NSMutableArray array];
-    if (room) {
-        [subTitles addObject:room];
-        switch ([[eo valueForKeyPath:@"room.position"] intValue]) {
-        case 1:
-            cell.backgroundColor = [UIColor yellowColor];
-            break;
-        case 2:
-            cell.backgroundColor = [UIColor greenColor];
-            break;
-        case 3:
-            cell.backgroundColor = [UIColor cyanColor];
-            break;
-        }
-    } else {
-        cell.backgroundView.backgroundColor = [UIColor brownColor];
-    }
-    
-    if (speaker) {
-        [subTitles addObjectsFromArray:[speaker componentsSeparatedByString:@"、"]];
-    }
-    cell.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];
-*/	
     return cell;
 }
 

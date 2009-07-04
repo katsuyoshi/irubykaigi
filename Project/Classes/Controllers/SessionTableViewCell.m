@@ -62,6 +62,17 @@
                     , nil];
 }
 
+- (void)setColor
+{
+    int position = [[session valueForKeyPath:@"room.position"] intValue];
+    if (position < [colors count]) {
+        self.backgroundView.backgroundColor = [colors objectAtIndex:position];
+    } else {
+        self.backgroundView.backgroundColor = [UIColor redColor];
+    }
+}
+
+
 - (void)setSession:(NSManagedObject *)aSession
 {
     if (initialized == NO) {
@@ -74,26 +85,24 @@
      
         self.textLabel.text = [session valueForKey:@"title"];
 
+        if ([[session valueForKey:@"break"] boolValue]) {
+            self.backgroundView.backgroundColor = [UIColor brownColor];
+            self.textLabel.textColor = [UIColor whiteColor];
+        } else {
+            [self setColor];
+            self.textLabel.textColor = [UIColor blackColor];
+        }
+    
         NSString *room = [session valueForKeyPath:@"room.name"];
         NSString *speaker = [session valueForKey:@"speaker"];
         NSMutableArray *subTitles = [NSMutableArray array];
         if (room) {
             [subTitles addObject:room];
-            int position = [[session valueForKeyPath:@"room.position"] intValue];
-            if (position < [colors count]) {
-                self.backgroundView.backgroundColor = [colors objectAtIndex:position];
-            }
-        } else {
-            self.backgroundView.backgroundColor = [UIColor brownColor];
         }
-    
         if (speaker) {
             [subTitles addObjectsFromArray:[speaker componentsSeparatedByString:@"、"]];
         }
-        self.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];
-        
-        [self setNeedsLayout];
-	
+        self.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];	
     }
 }
 
