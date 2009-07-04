@@ -51,6 +51,8 @@
 		46EE13230FFE3D1E000224D0 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE13220FFE3D1E000224D0 /* Document.m */; };
 		46EE137C0FFE418D000224D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EE137B0FFE418D000224D0 /* Localizable.strings */; };
 		46EE146E0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */; };
+		46EE15510FFECB64000224D0 /* SessionDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */; };
+		46EE15540FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,10 @@
 		46EE137D0FFE419A000224D0 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46EE146C0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewControllerWithNextDayTest.h; sourceTree = "<group>"; };
 		46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewControllerWithNextDayTest.m; sourceTree = "<group>"; };
+		46EE154F0FFECB64000224D0 /* SessionDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailTableViewController.h; sourceTree = "<group>"; };
+		46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailTableViewController.m; sourceTree = "<group>"; };
+		46EE15520FFECBA7000224D0 /* SessionDetailTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailTableViewControllerTest.h; sourceTree = "<group>"; };
+		46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailTableViewControllerTest.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +234,8 @@
 			children = (
 				460A78230FFD02A900DD0775 /* SessionTableViewController.h */,
 				460A78240FFD02A900DD0775 /* SessionTableViewController.m */,
+				46EE154F0FFECB64000224D0 /* SessionDetailTableViewController.h */,
+				46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +297,8 @@
 				460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */,
 				46EE146C0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.h */,
 				46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */,
+				46EE15520FFECBA7000224D0 /* SessionDetailTableViewControllerTest.h */,
+				46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -483,6 +493,8 @@
 				46EE131C0FFE3C66000224D0 /* PredicateCondition.m in Sources */,
 				46EE13230FFE3D1E000224D0 /* Document.m in Sources */,
 				46EE146E0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m in Sources */,
+				46EE15510FFECB64000224D0 /* SessionDetailTableViewController.m in Sources */,
+				46EE15540FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

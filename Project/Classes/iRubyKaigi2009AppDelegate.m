@@ -36,6 +36,7 @@
     }
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
+//    navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];

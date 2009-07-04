@@ -60,14 +60,16 @@ def parse_timetable elements, day
   end
 
   # 部屋の振り直し
-  elements.search('td.sessions').each_with_index do |sessions, index|
-    sessions.search('div.session').each do |e|
-      titles = e.search('p.title')
-      if titles
-        title = titles.first.inner_text.gsub(',', '、')
-        if title
-          session = @sessions.find {|e| e['title'] == title && !e['break'] }
-          session['room'], session['floor'] = room_for_index(index) if session
+  elements.search('tbody tr').each do |session_info|
+    session_info.search('td.sessions').each_with_index do |sessions, index|
+      sessions.search('div.session').each do |e|
+        titles = e.search('p.title')
+        if titles
+          title = titles.first.inner_text.gsub(',', '、')
+          if title
+            session = @sessions.find {|e| e['title'] == title && !e['break'] }
+            session['room'], session['floor'] = room_for_index(index) if session
+          end
         end
       end
     end

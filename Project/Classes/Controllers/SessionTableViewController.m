@@ -9,6 +9,8 @@
 #import "SessionTableViewController.h"
 #import "Document.h"
 #import "SessionDetailTableViewController.h"
+#import "SessionTableViewCell.h"
+
 
 @interface SessionTableViewController(_private)
 - (NSString *)titleForDate:(NSManagedObject *)date;
@@ -31,6 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.backgroundColor = [UIColor clearColor];
 
     if (self.parent) {
         UIBarButtonItem *buttonItem = [[[UIBarButtonItem alloc] initWithTitle:[self titleForDate:parent.day] style:UIBarButtonItemStyleBordered target:self action:@selector(previousDayAction:)] autorelease];
@@ -123,24 +127,40 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
+    SessionTableViewCell *cell;
 	NSManagedObject *eo = [fetchedResultsController objectAtIndexPath:indexPath];
 
     if ([[eo valueForKey:@"break"] boolValue]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"BreakCell"];
+        cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"BreakCell"];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BreakCell"] autorelease];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[[SessionTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BreakCell"] autorelease];
+/*
+            cell.textLabel.backgroundColor = nil;//[UIColor redColor];
+//            cell.contentView.backgroundColor = [UIColor clearColor];
+//            cell.backgroundColor = [UIColor clearColor];
+            for (UIView *view in cell.contentView.subviews) {
+                view.backgroundColor = [UIColor clearColor];
+            }
+            cell.backgroundView = [[UIView new] autorelease];
+*/
         }
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
+        cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SessionCell"] autorelease];
+            cell = [[[SessionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SessionCell"] autorelease];
             cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+/*
+            cell.textLabel.opaque = NO;
+//            cell.contentView.backgroundColor = [UIColor clearColor];
+//            cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+//            cell.backgroundColor = [UIColor clearColor];
+            cell.backgroundView = [[UIView new] autorelease];
+*/
         }
     }
     
+    cell.session = eo;
+/*
 	cell.textLabel.text = [[eo valueForKey:@"title"] description];
 
     NSString *room = [eo valueForKeyPath:@"room.name"];
@@ -148,12 +168,26 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
     NSMutableArray *subTitles = [NSMutableArray array];
     if (room) {
         [subTitles addObject:room];
+        switch ([[eo valueForKeyPath:@"room.position"] intValue]) {
+        case 1:
+            cell.backgroundColor = [UIColor yellowColor];
+            break;
+        case 2:
+            cell.backgroundColor = [UIColor greenColor];
+            break;
+        case 3:
+            cell.backgroundColor = [UIColor cyanColor];
+            break;
+        }
+    } else {
+        cell.backgroundView.backgroundColor = [UIColor brownColor];
     }
+    
     if (speaker) {
         [subTitles addObjectsFromArray:[speaker componentsSeparatedByString:@"、"]];
     }
     cell.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];
-	
+*/	
     return cell;
 }
 
@@ -207,8 +241,9 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    [self.navigationController pushViewController:[SessionDetailTableViewController sharedController]
-     animated:YES];
+    SessionDetailTableViewController *detailController = [SessionDetailTableViewController sharedController];
+    detailController.session = [fetchedResultsController objectAtIndexPath:indexPath];
+    [self.navigationController pushViewController:detailController animated:YES];
 }
 
 

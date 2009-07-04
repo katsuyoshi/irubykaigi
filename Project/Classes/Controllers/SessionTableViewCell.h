@@ -1,5 +1,5 @@
 //
-//  SessionDetailTableViewController.h
+//  SessionTableViewCell.h
 //  iRubyKaigi2009
 //
 //  Created by Katsuyoshi Ito on 09/07/04.
@@ -9,16 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SessionDetailTableViewController : UITableViewController {
+@interface SessionTableViewCell : UITableViewCell {
 
     NSManagedObject *session;
-    NSArray *sperkers;
-    
+    NSArray *colors;
+
+    BOOL initialized;
 }
 
 @property (retain) NSManagedObject *session;
-
-+ (id)sharedController;
-
 
 @end

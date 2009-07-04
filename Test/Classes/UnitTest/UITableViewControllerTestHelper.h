@@ -13,3 +13,4 @@
 #define NUMBER_OF_ROWS_IN_SECTION(s)	[self.controller tableView:self.controller.tableView numberOfRowsInSection:(s)]
 #define SELECT_CELL(r,s)	[self.controller tableView:self.controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:(r) inSection:(s)]]
 
+#define TITLE_FOR_SECTION(s)    [self.controller tableView:self.controller.tableView titleForHeaderInSection:s]

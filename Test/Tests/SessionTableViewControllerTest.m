@@ -56,7 +56,7 @@
 #pragma mark Tests
 
 
-- (void)testCount
+- (void)testCountAndCell
 {
     ASSERT_EQUAL_INT(8, NUMBER_OF_SECTIONS());
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(0));

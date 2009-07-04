@@ -167,7 +167,7 @@
         
         [request setPredicate:nil];
         int count = [self.managedObjectContext countForFetchRequest:request error:&error];
-        [eo setValue:[NSNumber numberWithInt:count] forKey:@"position"];
+        [eo setValue:[NSNumber numberWithInt:count - 1] forKey:@"position"];
         
         return eo;
     }
@@ -222,7 +222,6 @@
                     if ([key isEqualToString:@"date"]) {
                         day = [self dayForDate:element];
                         [[day  mutableSetValueForKey:@"sessions"] addObject:eo];
-// DELETEME:                        [eo setValue:[self dateFromString:element] forKey:key];
                     } else
                     if ([key isEqualToString:@"room"]) {
                         roomName = element;
@@ -245,7 +244,6 @@
                         roomName = floorName = nil;
                     }
 
-                
                     index++;
                 }
                 NSLog(@"%@", eo);

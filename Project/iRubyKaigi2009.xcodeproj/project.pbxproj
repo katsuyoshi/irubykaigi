@@ -24,6 +24,7 @@
 		46EE143F0FFE53D1000224D0 /* PredicateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE143C0FFE53D1000224D0 /* PredicateCondition.m */; };
 		46EE14500FFE53FA000224D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EE144E0FFE53FA000224D0 /* Localizable.strings */; };
 		46EE15270FFE6899000224D0 /* SessionDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE15260FFE6899000224D0 /* SessionDetailTableViewController.m */; };
+		46EE18260FFF1454000224D0 /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE18250FFF1454000224D0 /* SessionTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		46EE14510FFE5406000224D0 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46EE15250FFE6899000224D0 /* SessionDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailTableViewController.h; sourceTree = "<group>"; };
 		46EE15260FFE6899000224D0 /* SessionDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailTableViewController.m; sourceTree = "<group>"; };
+		46EE18240FFF1454000224D0 /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
+		46EE18250FFF1454000224D0 /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iRubyKaigi2009-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iRubyKaigi2009-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +149,8 @@
 				460A79EB0FFDA94400DD0775 /* SessionTableViewController.m */,
 				46EE15250FFE6899000224D0 /* SessionDetailTableViewController.h */,
 				46EE15260FFE6899000224D0 /* SessionDetailTableViewController.m */,
+				46EE18240FFF1454000224D0 /* SessionTableViewCell.h */,
+				46EE18250FFF1454000224D0 /* SessionTableViewCell.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				46EE143E0FFE53D1000224D0 /* NSManagedObjectContextExtension.m in Sources */,
 				46EE143F0FFE53D1000224D0 /* PredicateCondition.m in Sources */,
 				46EE15270FFE6899000224D0 /* SessionDetailTableViewController.m in Sources */,
+				46EE18260FFF1454000224D0 /* SessionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
