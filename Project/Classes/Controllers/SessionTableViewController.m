@@ -206,6 +206,11 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
     [self.navigationController pushViewController:detailController animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0;
+}
+
 
 
 - (void)dealloc {
