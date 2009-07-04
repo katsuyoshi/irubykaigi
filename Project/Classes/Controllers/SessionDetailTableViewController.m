@@ -41,6 +41,7 @@
 */
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.title = [self.session valueForKey:@"time"];
     [self.tableView reloadData];
     [super viewWillAppear:animated];
 }

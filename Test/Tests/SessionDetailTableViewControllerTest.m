@@ -90,6 +90,15 @@
     ASSERT_EQUAL(@"部屋", TITLE_FOR_SECTION(2));
 }
 
+- (void)testTitle
+{
+    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 0"];
+    controller.session = [[sessions filteredArrayUsingPredicate:predecate] objectAtIndex:0];
+    [controller viewWillAppear:NO];
+
+    ASSERT_EQUAL(@"13:30 - 14:30", controller.title);
+}
+
 - (void)testMultiSpeaker
 {
     NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 11"];

@@ -66,8 +66,8 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 268379233;
-			PBXWorkspaceStateSaveDate = 268379233;
+			PBXPerProjectTemplateStateSaveDate = 268388177;
+			PBXWorkspaceStateSaveDate = 268388177;
 		};
 		perUserProjectItems = {
 			460A78110FFCFEF500DD0775 = 460A78110FFCFEF500DD0775 /* PBXTextBookmark */;
@@ -75,9 +75,9 @@
 			460A78E30FFD17A100DD0775 = 460A78E30FFD17A100DD0775 /* PBXTextBookmark */;
 			4681C8520FFBBA350023DACB = 4681C8520FFBBA350023DACB /* PBXTextBookmark */;
 			4681C8550FFBBA350023DACB = 4681C8550FFBBA350023DACB /* PlistBookmark */;
-			46D2A6CF0FFF278800E15600 /* PBXTextBookmark */ = 46D2A6CF0FFF278800E15600 /* PBXTextBookmark */;
-			46D2A6D00FFF278800E15600 /* PBXTextBookmark */ = 46D2A6D00FFF278800E15600 /* PBXTextBookmark */;
-			46D2A6D10FFF278800E15600 /* PBXTextBookmark */ = 46D2A6D10FFF278800E15600 /* PBXTextBookmark */;
+			46D2A6CF0FFF278800E15600 = 46D2A6CF0FFF278800E15600 /* PBXTextBookmark */;
+			46D2A6D00FFF278800E15600 = 46D2A6D00FFF278800E15600 /* PBXTextBookmark */;
+			46D2A6D10FFF278800E15600 = 46D2A6D10FFF278800E15600 /* PBXTextBookmark */;
 			46EE13600FFE4010000224D0 = 46EE13600FFE4010000224D0 /* PBXTextBookmark */;
 			46EE13620FFE4010000224D0 = 46EE13620FFE4010000224D0 /* PBXTextBookmark */;
 			46EE13630FFE4010000224D0 = 46EE13630FFE4010000224D0 /* PBXTextBookmark */;
@@ -250,6 +250,12 @@
 		};
 	};
 	4681C7FF0FFABD2E0023DACB /* RootViewController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = RootViewController.h;
+		path = /Users/ISD/git/irubykaigi2009/Project/Classes/RootViewController.h;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {485, 625}}";
 			sepNavSelRange = "{212, 36}";
@@ -258,6 +264,12 @@
 		};
 	};
 	4681C8000FFABD2E0023DACB /* RootViewController.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = RootViewController.m;
+		path = /Users/ISD/git/irubykaigi2009/Project/Classes/RootViewController.m;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {681, 3332}}";
 			sepNavSelRange = "{3391, 17}";
@@ -916,7 +928,7 @@
 		fRef = 46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */;
 		name = "SessionDetailTableViewController.m: 108";
 		rLen = 92;
-		rLoc = 2497;
+		rLoc = 2550;
 		rType = 0;
 		vrLen = 1017;
 		vrLoc = 2050;
@@ -936,7 +948,7 @@
 		fRef = 46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */;
 		name = "SessionDetailTableViewControllerTest.m: 131";
 		rLen = 0;
-		rLoc = 4003;
+		rLoc = 4080;
 		rType = 0;
 		vrLen = 1200;
 		vrLoc = 3160;
