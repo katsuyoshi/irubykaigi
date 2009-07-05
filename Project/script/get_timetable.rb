@@ -4,6 +4,7 @@ require 'mechanize'
 @keys = %w(date time title speaker break room floor)
 @sessions = []
 @rooms = []
+@titles = Hash.new
 
 def add_room room
   @rooms.each do |r|
@@ -34,6 +35,12 @@ def parse_timetable elements, day
     
     # session情報の取得
     session_info.search('div.session').each_with_index do |e, index|
+    
+      # 二重に囲っている所があるので外側はスキップ
+      if e.search('div.session').size == 2
+        next
+      end
+      
       session = Hash.new
       session['metadata'] = e
       titles = e.search('p.title')
@@ -74,7 +81,6 @@ def parse_timetable elements, day
  
   # 例外
   session = @sessions.find{|e| e['title'] == 'Beer bust'}
-p session
   session['room'], session['floor'] = room_for_index(1) if session
    
 end

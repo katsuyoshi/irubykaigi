@@ -42,6 +42,7 @@
 		460A79EB0FFDA94400DD0775 /* SessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewController.m; sourceTree = "<group>"; };
 		460A79F20FFDA98600DD0775 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/session_info.csv; sourceTree = "<group>"; };
 		460A79F40FFDA99100DD0775 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/session_info.csv; sourceTree = "<group>"; };
+		4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
 		46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
 		46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
 		46EE14370FFE53D1000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4658DA8C1000EC1C00CBBFEE /* script */,
 				46EE144E0FFE53FA000224D0 /* Localizable.strings */,
 				460A79F10FFDA98600DD0775 /* session_info.csv */,
 				28860B760F44E54D00985440 /* iRubyKaigi2009.xcdatamodel */,
@@ -148,6 +150,14 @@
 				46EE18250FFF1454000224D0 /* SessionTableViewCell.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4658DA8C1000EC1C00CBBFEE /* script */ = {
+			isa = PBXGroup;
+			children = (
+				4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */,
+			);
+			path = script;
 			sourceTree = "<group>";
 		};
 		46EE14360FFE53D1000224D0 /* Models */ = {
