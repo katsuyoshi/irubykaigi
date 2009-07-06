@@ -20,6 +20,17 @@ def add_room room
   room
 end
 
+def normalized_room room
+  r = @rooms.find {|e| e[0] == room}
+  if r
+    r
+  else
+    /(.*)\s*\((.*)\)/ =~ room
+    [$1, $2]
+  end
+end
+
+
 def room_for_index i
   @rooms[i]
 end
@@ -43,11 +54,14 @@ def parse_timetable elements, day
       
       session = Hash.new
       session['metadata'] = e
-      titles = e.search('p.title')
-      session['title'] = titles.first.inner_text.gsub(',', '、') if titles.first
-      speakers = e.search('p.speaker')
-      session['speaker'] = speakers.first.inner_text.gsub(',', '、') if speakers.first
-      # 部屋は仮設定。この後sessionsのインデックスから振り直す
+      title = e.search('p.title').first
+      if title
+        session['title'] = title.inner_text.gsub(',', '、')
+        link = title.search('a').first
+        session['href'] = 'http://rubykaigi.org' << link[:href] if link
+      end
+      speaker = e.search('p.speaker').first
+      session['speaker'] = speaker.inner_text.gsub(',', '、') if speaker
       session['room'], session['floor'] = room_for_index(index)
       session['time'] = time
       session['date'] = day
@@ -67,14 +81,25 @@ def parse_timetable elements, day
     end
   end
 
-  # 部屋の振り直し
-  elements.search('tbody tr').each do |session_info|
-    session_info.search('td.sessions').each_with_index do |sessions, index|
-      sessions.search('div.session').each do |e|
-        session = @sessions.find{|s| s['metadata'] == e}
-        if session
-            session['room'], session['floor'] = room_for_index(index) if session
-        end
+  # 詳細情報の取得
+  # セッション情報の取得
+  agent = WWW::Mechanize.new
+  @sessions.each do |session|
+    if session['href']
+      agent.get(session['href'])
+      title = agent.page.search('h2').first
+      session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').gsub(',', '、')
+      agent.page.search('p.speaker').each do |e|
+        session['speaker'] = e.inner_text.gsub(',', '、')
+      end
+      agent.page.search('p.abstract').each do |e|
+        session['abstract'] = e.inner_text
+      end
+      agent.page.search('p.room').each do |e|
+        session['room'], session['floor'] = normalized_room e.inner_text
+      end
+      agent.page.search('p.profile').each do |e|
+        session['profile'] = e.inner_text
       end
     end
   end
@@ -82,6 +107,10 @@ def parse_timetable elements, day
   # 例外
   session = @sessions.find{|e| e['title'] == 'Beer bust'}
   session['room'], session['floor'] = room_for_index(1) if session
+  session = @sessions.find{|e| e['title'] == 'Closing'}
+  session['room'], session['floor'] = room_for_index(0) if session
+  session = @sessions.find{|e| e['speaker'] == '(この部屋の開始時刻は10:00です)'}
+  session['room'], session['floor'] = room_for_index(2) if session
    
 end
 

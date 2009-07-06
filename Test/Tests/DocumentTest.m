@@ -58,6 +58,10 @@
     }
     for (NSManagedObject *eo in [document sessions]) {
         ASSERT([eo validateForInsert:NULL]);
+        if (![[eo valueForKey:@"break"] boolValue]) {
+            ASSERT_NOT_NIL([eo valueForKeyPath:@"room.name"]);
+            ASSERT_NOT_NIL([eo valueForKeyPath:@"room.floor"]);
+        }
     }
     
     // 日付オーダーの確認
