@@ -8,7 +8,7 @@
  */
 
 #if TARGET_IPHONE_SIMULATOR
-#define IUTLog(format, ...)  IUTLog(format, ##__VA_ARGS__)
+#define IUTLog(format, ...)  NSLog(format, ##__VA_ARGS__)
 #else
 #define IUTLog(format, ...)
 #endif

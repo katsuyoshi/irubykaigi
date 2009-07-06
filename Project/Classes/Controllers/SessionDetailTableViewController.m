@@ -9,9 +9,11 @@
 #import "SessionDetailTableViewController.h"
 #import "NSManagedObjectExtension.h"
 
-#define TITLE_SECTION       0
-#define SPEAKERS_SECTION    1
-#define ROOM_SECTION        2
+#define TITLE_SECTION           0
+#define SPEAKERS_SECTION        1
+#define ROOM_SECTION            2
+#define ABSTRACT_SECTION        3
+#define SPEAKER_PROFILE_SECTION 4
 
 
 @interface SessionDetailTableViewController(_private)
@@ -86,7 +88,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return ([[session valueForKey:@"break"] boolValue]) ? 1 : 3;
+    return 5;
 }
 
 // Customize the number of rows in the table view.
@@ -98,6 +100,10 @@
         return [speakers count];
     case ROOM_SECTION:
         return 1;
+    case ABSTRACT_SECTION:
+        return ([[session valueForKey:@"abstract"] length]) ? 1 : 0;
+    case SPEAKER_PROFILE_SECTION:
+        return [[session valueForKey:@"profile"] length] ? 1 : 0;
     default:
         return 0;
     }
@@ -115,6 +121,16 @@
         break;
     case ROOM_SECTION:
         return NSLocalizedString(@"Room", nil);
+    case ABSTRACT_SECTION:
+        if ([[session valueForKey:@"abstract"] length]) {
+            return NSLocalizedString(@"Abstract", nil);
+        }
+        break;
+    case SPEAKER_PROFILE_SECTION:
+        if ([[session valueForKey:@"profile"] length]) {
+            return NSLocalizedString(@"Speaker Profile", nil);
+        }
+        break;
     }
 	return nil;
 }
@@ -128,7 +144,6 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleCell"] autorelease];
             cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20.0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.bounds = CGRectMake(0, 0, cell.textLabel.bounds.size.width, cell.textLabel.bounds.size.height * 3.0);
             cell.textLabel.numberOfLines = 4;
         }
     } else
@@ -137,6 +152,15 @@
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"HasDetailCell"] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    } else
+    if (section == ABSTRACT_SECTION || section == SPEAKER_PROFILE_SECTION) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"DescriptionCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DescriptionCell"] autorelease];
+            cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:14.0];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.numberOfLines = 20;
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -168,7 +192,13 @@
         cell.textLabel.text = [session valueForKeyPath:@"room.name"];
         cell.detailTextLabel.text = [session valueForKeyPath:@"room.floor"];
         break;
-    }
+     case ABSTRACT_SECTION:
+        cell.textLabel.text = [session valueForKeyPath:@"abstract"];
+        break;
+    case SPEAKER_PROFILE_SECTION:
+        cell.textLabel.text = [session valueForKeyPath:@"profile"];
+        break;
+   }
     	
     return cell;
 }
@@ -223,9 +253,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    switch (indexPath.section) {
+    case TITLE_SECTION:
         return 44.0 * 3;
-    } else {
+    case ABSTRACT_SECTION:
+    case SPEAKER_PROFILE_SECTION:
+        return 44.0 * 8;
+    default:
         return 44.0;
     }
 }

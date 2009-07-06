@@ -10,7 +10,6 @@
 #import "Document.h"
 #import "SessionDetailTableViewController.h"
 #import "SessionTableViewCell.h"
-#import "IUTLog.h"
 
 
 @interface SessionTableViewController(_private)

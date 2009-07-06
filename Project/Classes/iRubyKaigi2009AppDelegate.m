@@ -7,7 +7,6 @@
 //
 
 #import "iRubyKaigi2009AppDelegate.h"
-#import "IUTLog.h"
 
 
 @implementation iRubyKaigi2009AppDelegate

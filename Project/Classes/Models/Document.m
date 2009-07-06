@@ -8,7 +8,6 @@
 
 #import "Document.h"
 #import "NSManagedObjectContextExtension.h"
-#import "IUTLog.h"
 
 @implementation Document
 

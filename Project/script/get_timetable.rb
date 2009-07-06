@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'mechanize'
 
-@keys = %w(date time title speaker break room floor attention)
+@keys = %w(date time title speaker break room floor attention abstract profile)
 @sessions = []
 @rooms = []
 @titles = Hash.new
@@ -92,15 +92,30 @@ def parse_timetable elements, day
       agent.page.search('p.speaker').each do |e|
         session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')')
       end
-      agent.page.search('p.abstract').each do |e|
-        session['abstract'] = e.inner_text
-      end
       agent.page.search('p.room').each do |e|
         session['room'], session['floor'] = normalized_room e.inner_text
       end
-      agent.page.search('p.profile').each do |e|
-        session['profile'] = e.inner_text
+      
+      found = false
+      agent.page.search('p').each do |e|
+        if found
+          session['abstract'] = e.inner_text.gsub("\n", ' ')
+          break
+        else
+          found = e[:class] == 'abstract'
+        end
       end
+
+      found = false
+      agent.page.search('p').each do |e|
+        if found
+          session['profile'] = e.inner_text.gsub("\n", ' ')
+          break
+        else
+          found = e[:class] == 'profile'
+        end
+      end
+
     end
   end
  
