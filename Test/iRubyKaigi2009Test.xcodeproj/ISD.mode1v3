@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>463AC7DA1001C62B00AF2B05</string>
+						<string>463AC7F41001C76800AF2B05</string>
 						<key>history</key>
 						<array>
 							<string>463AC7D91001C62B00AF2B05</string>
@@ -320,15 +320,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>30</integer>
-									<integer>28</integer>
-									<integer>2</integer>
-									<integer>1</integer>
+									<integer>42</integer>
+									<integer>34</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 16}, {288, 801}}</string>
+							<string>{{0, 82}, {288, 801}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -367,7 +365,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>session_info.csv</string>
+								<string>SessionDetailTableViewControllerTest.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -375,11 +373,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>session_info.csv</string>
+										<string>SessionDetailTableViewControllerTest.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>463AC7D81001C62B00AF2B05</string>
+										<string>463AC7F31001C76800AF2B05</string>
 										<key>history</key>
 										<array>
 											<string>4658DAF810016DD100CBBFEE</string>
@@ -394,14 +392,14 @@
 											<string>463AC7361001B09800AF2B05</string>
 											<string>463AC7381001B09800AF2B05</string>
 											<string>463AC74C1001B36800AF2B05</string>
-											<string>463AC7681001B4A300AF2B05</string>
 											<string>463AC76A1001B4A300AF2B05</string>
-											<string>463AC7741001B52500AF2B05</string>
-											<string>463AC7951001BBC800AF2B05</string>
 											<string>463AC7961001BBC800AF2B05</string>
 											<string>463AC7971001BBC800AF2B05</string>
 											<string>463AC7BD1001BE4700AF2B05</string>
-											<string>463AC7BE1001BE4700AF2B05</string>
+											<string>463AC7E01001C69E00AF2B05</string>
+											<string>463AC7EB1001C75300AF2B05</string>
+											<string>463AC7EC1001C75300AF2B05</string>
+											<string>463AC7F21001C76800AF2B05</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -599,7 +597,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>463AC7DB1001C62B00AF2B05</string>
+		<string>463AC7F51001C76800AF2B05</string>
 		<string>46EE15730FFED108000224D0</string>
 		<string>463AC68510016F3800AF2B05</string>
 		<string>463AC67C10016F2400AF2B05</string>

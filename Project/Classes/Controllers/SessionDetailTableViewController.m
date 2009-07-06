@@ -97,7 +97,7 @@
     case SPEAKERS_SECTION:
         return [speakers count];
     case ROOM_SECTION:
-        return 2;
+        return 1;
     default:
         return 0;
     }
@@ -132,10 +132,10 @@
             cell.textLabel.numberOfLines = 4;
         }
     } else
-    if (section == SPEAKERS_SECTION) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"SpeakerCell"];
+    if (section == SPEAKERS_SECTION || section == ROOM_SECTION) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"HasDetailCell"];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SpeakerCell"] autorelease];
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"HasDetailCell"] autorelease];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     } else {
@@ -152,25 +152,7 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self cellForTableView:tableView inSection:indexPath.section];
-/* DELETEME:
-    if (indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
-        if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleCell"] autorelease];
-            cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20.0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.bounds = CGRectMake(0, 0, cell.textLabel.bounds.size.width, cell.textLabel.bounds.size.height * 3.0);
-            cell.textLabel.numberOfLines = 4;
-        }
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-        if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] autorelease];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-    }
-*/
-    
+
     switch (indexPath.section) {
     case TITLE_SECTION:
         cell.textLabel.text = [session valueForKey:@"title"];
@@ -183,11 +165,8 @@
         }
         break;
     case ROOM_SECTION:
-        if (indexPath.row == 0) {
-            cell.textLabel.text = [session valueForKeyPath:@"room.name"];
-        } else {
-            cell.textLabel.text = [session valueForKeyPath:@"room.floor"];
-        }
+        cell.textLabel.text = [session valueForKeyPath:@"room.name"];
+        cell.detailTextLabel.text = [session valueForKeyPath:@"room.floor"];
         break;
     }
     	

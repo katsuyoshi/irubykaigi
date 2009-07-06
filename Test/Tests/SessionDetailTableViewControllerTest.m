@@ -37,7 +37,7 @@
 {
     // this controller will be tested.
     // TODO: replace your view controller
-    controller = [[SessionDetailTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    controller = [[SessionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [[Document sharedDocument] importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
     sessions = [[[Document sharedDocument] sessions] retain];
     return controller;
@@ -61,7 +61,7 @@
     ASSERT_EQUAL_INT(3, NUMBER_OF_SECTIONS());
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(0));
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(1));
-    ASSERT_EQUAL_INT(2, NUMBER_OF_ROWS_IN_SECTION(2));
+    ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(2));
     
     UITableViewCell *cell;
     
@@ -77,10 +77,7 @@
 
     cell = CELL(0, 2);
     ASSERT_EQUAL(@"一橋記念講堂", cell.textLabel.text);
-    ASSERT_EQUAL_INT(UITableViewCellAccessoryNone, cell.accessoryType);
-    ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
-    cell = CELL(1, 2);
-    ASSERT_EQUAL(@"2F", cell.textLabel.text);
+    ASSERT_EQUAL(@"2F", cell.detailTextLabel.text);
     ASSERT_EQUAL_INT(UITableViewCellAccessoryNone, cell.accessoryType);
     ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
 
@@ -109,7 +106,7 @@
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(0));
     // スピーカーの人数になる
     ASSERT_EQUAL_INT(2, NUMBER_OF_ROWS_IN_SECTION(1));
-    ASSERT_EQUAL_INT(2, NUMBER_OF_ROWS_IN_SECTION(2));
+    ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(2));
     
 
     UITableViewCell *cell;
