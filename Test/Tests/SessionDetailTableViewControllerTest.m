@@ -71,7 +71,7 @@
     ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
 
     cell = CELL(0, 1);
-    ASSERT_EQUAL(@"Scott Chacon (GitHub)", cell.textLabel.text);
+    ASSERT_EQUAL(@"Scott Chacon", cell.textLabel.text);
     ASSERT_EQUAL_INT(UITableViewCellAccessoryNone, cell.accessoryType);
     ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
 
@@ -115,9 +115,11 @@
     UITableViewCell *cell;
 
     cell = CELL(0, 1);
-    ASSERT_EQUAL(@"橋本和典（熊本大学）", cell.textLabel.text);
+    ASSERT_EQUAL(@"橋本和典", cell.textLabel.text);
+    ASSERT_EQUAL(@"熊本大学", cell.detailTextLabel.text);
     cell = CELL(1, 1);
-    ASSERT_EQUAL(@"木山真人（熊本大学）", cell.textLabel.text);
+    ASSERT_EQUAL(@"木山真人", cell.textLabel.text);
+    ASSERT_EQUAL(@"熊本大学", cell.detailTextLabel.text);
 }    
 
 - (void)testWithoutRoom

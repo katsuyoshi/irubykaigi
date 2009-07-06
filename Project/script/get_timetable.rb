@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'mechanize'
 
-@keys = %w(date time title speaker break room floor)
+@keys = %w(date time title speaker break room floor attention)
 @sessions = []
 @rooms = []
 @titles = Hash.new
@@ -61,7 +61,7 @@ def parse_timetable elements, day
         session['href'] = 'http://rubykaigi.org' << link[:href] if link
       end
       speaker = e.search('p.speaker').first
-      session['speaker'] = speaker.inner_text.gsub(',', '、') if speaker
+      session['speaker'] = speaker.inner_text.gsub(',', '、').gsub('（', '(').gsub('）', ')') if speaker
       session['room'], session['floor'] = room_for_index(index)
       session['time'] = time
       session['date'] = day
@@ -90,7 +90,7 @@ def parse_timetable elements, day
       title = agent.page.search('h2').first
       session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').gsub(',', '、')
       agent.page.search('p.speaker').each do |e|
-        session['speaker'] = e.inner_text.gsub(',', '、')
+        session['speaker'] = e.inner_text.gsub(',', '、').gsub('（', '(').gsub('）', ')')
       end
       agent.page.search('p.abstract').each do |e|
         session['abstract'] = e.inner_text
@@ -107,10 +107,18 @@ def parse_timetable elements, day
   # 例外
   session = @sessions.find{|e| e['title'] == 'Beer bust'}
   session['room'], session['floor'] = room_for_index(1) if session
+  
   session = @sessions.find{|e| e['title'] == 'Closing'}
   session['room'], session['floor'] = room_for_index(0) if session
-  session = @sessions.find{|e| e['speaker'] == '(この部屋の開始時刻は10:00です)'}
-  session['room'], session['floor'] = room_for_index(2) if session
+  
+  # 注意事項(attentionに含める)
+  session = @sessions.find{|e| e['speaker'] == '(この部屋の開始時刻は10:00です)' || e['speaker'] == '(this room will start at 10:00)'}
+  if session
+    session['room'], session['floor'] = room_for_index(2)
+    session['attention'] = session['speaker']
+    session['speaker'] = nil
+  end
+  
    
 end
 

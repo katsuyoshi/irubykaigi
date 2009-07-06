@@ -230,10 +230,35 @@
                     if ([key isEqualToString:@"floor"]) {
                         floorName = element;
                     } else
+                    if ([key isEqualToString:@"speaker"]) {
+NSLog(@"%@", element);
+                        int index = 0;
+                        for (NSString *speakerInfo in [element componentsSeparatedByString:@"、"]) {
+                            NSArray *infos = [speakerInfo componentsSeparatedByString:@"("];
+                            NSString *name = [infos objectAtIndex:0];
+                            name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                            NSString *belonging = nil;
+                            if ([infos count] == 2) {
+                                belonging = [infos objectAtIndex:1];
+                                belonging = [belonging stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@")"]];
+                            }
+                            if ([name length]) {
+                                NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:self.managedObjectContext];
+                                [speaker setValue:name forKey:@"name"];
+                                if (belonging) {
+                                    [speaker setValue:belonging forKey:@"belonging"];
+                                }
+                                [speaker setValue:[NSNumber numberWithInt:index++] forKey:@"position"];
+                                [[eo mutableSetValueForKey:@"speakers"] addObject:speaker];
+                            }
+                        }
+                    } else
                     if ([key isEqualToString:@"break"]) {
                         [eo setValue:[NSNumber numberWithBool:[element isEqualToString:@"true"]] forKey:key];
                     } else {
-                        [eo setValue:element forKey:key];
+                        if ([element length]) {
+                            [eo setValue:element forKey:key];
+                        }
                     }
 
                     if ([roomName length] && [floorName length] && ![[eo valueForKey:@"break"] boolValue]) {

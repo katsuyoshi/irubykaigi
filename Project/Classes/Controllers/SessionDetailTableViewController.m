@@ -9,6 +9,15 @@
 #import "SessionDetailTableViewController.h"
 #import "NSManagedObjectExtension.h"
 
+#define TITLE_SECTION       0
+#define SPEAKERS_SECTION    1
+#define ROOM_SECTION        2
+
+
+@interface SessionDetailTableViewController(_private)
+- (UITableViewCell *)cellForTableView:(UITableView *)tableView inSection:(NSInteger)section;
+@end
+
 
 @implementation SessionDetailTableViewController
 
@@ -80,15 +89,14 @@
     return ([[session valueForKey:@"break"] boolValue]) ? 1 : 3;
 }
 
-
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
-    case 0:
+    case TITLE_SECTION:
         return 1;
-    case 1:
-        return [sperkers count];
-    case 2:
+    case SPEAKERS_SECTION:
+        return [speakers count];
+    case ROOM_SECTION:
         return 2;
     default:
         return 0;
@@ -98,23 +106,53 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     switch (section) {
-    case 0:
+    case TITLE_SECTION:
         return NSLocalizedString(@"Title", nil);
-    case 1:
-        if ([sperkers count]) {
+    case SPEAKERS_SECTION:
+        if ([speakers count]) {
             return NSLocalizedString(@"Speaker", nil);
         }
         break;
-    case 2:
+    case ROOM_SECTION:
         return NSLocalizedString(@"Room", nil);
     }
 	return nil;
 }
 
+- (UITableViewCell *)cellForTableView:(UITableView *)tableView inSection:(NSInteger)section
+{
+    UITableViewCell *cell = nil;
+    if (section == TITLE_SECTION) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleCell"] autorelease];
+            cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20.0];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.bounds = CGRectMake(0, 0, cell.textLabel.bounds.size.width, cell.textLabel.bounds.size.height * 3.0);
+            cell.textLabel.numberOfLines = 4;
+        }
+    } else
+    if (section == SPEAKERS_SECTION) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"SpeakerCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SpeakerCell"] autorelease];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"] autorelease];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+    }
+    return cell;
+}
+
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    
+    UITableViewCell *cell = [self cellForTableView:tableView inSection:indexPath.section];
+/* DELETEME:
     if (indexPath.section == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
         if (cell == nil) {
@@ -131,15 +169,20 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
+*/
     
     switch (indexPath.section) {
-    case 0:
+    case TITLE_SECTION:
         cell.textLabel.text = [session valueForKey:@"title"];
         break;
-    case 1:
-        cell.textLabel.text = [sperkers objectAtIndex:indexPath.row];
+    case SPEAKERS_SECTION:
+        {
+            NSManagedObject *speaker = [speakers objectAtIndex:indexPath.row];
+            cell.textLabel.text = [speaker valueForKey:@"name"];
+            cell.detailTextLabel.text = [speaker valueForKey:@"belonging"];
+        }
         break;
-    case 2:
+    case ROOM_SECTION:
         if (indexPath.row == 0) {
             cell.textLabel.text = [session valueForKeyPath:@"room.name"];
         } else {
@@ -210,7 +253,7 @@
 
 - (void)dealloc {
     [session release];
-    [sperkers release];
+    [speakers release];
     [super dealloc];
 }
 
@@ -224,11 +267,9 @@
         [session release];
         session = [aSession retain];
         
-        if ([[session valueForKey:@"speaker"] length]) {
-            sperkers = [[[session valueForKey:@"speaker"] componentsSeparatedByString:@"、"] retain];
-        } else {
-            sperkers = [[NSArray array] retain];
-        }
+        [speakers release];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"position" ascending:YES] autorelease]];
+        speakers = [[[[session mutableSetValueForKey:@"speakers"] allObjects] sortedArrayUsingDescriptors:sortDescriptors] retain];
         self.tableView.backgroundColor = [session sessionColor];
     }
 }

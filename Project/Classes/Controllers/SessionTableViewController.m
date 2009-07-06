@@ -141,8 +141,8 @@ NSLog(@"%@", NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil));
         cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SessionCell"];
         if (cell == nil) {
             cell = [[[SessionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SessionCell"] autorelease];
-            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
         }
+        cell.accessoryType = [eo valueForKey:@"attention"] ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDetailDisclosureButton;
     }
     
     cell.session = eo;

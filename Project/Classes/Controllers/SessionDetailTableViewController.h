@@ -12,7 +12,7 @@
 @interface SessionDetailTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
 
     NSManagedObject *session;
-    NSArray *sperkers;
+    NSArray *speakers;
 
 }
 

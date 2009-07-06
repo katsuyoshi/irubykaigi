@@ -233,12 +233,12 @@
 		460A78220FFD028F00DD0775 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				46D2A80F0FFF481700E15600 /* SessionTableViewCell.h */,
-				46D2A8100FFF481700E15600 /* SessionTableViewCell.m */,
 				460A78230FFD02A900DD0775 /* SessionTableViewController.h */,
 				460A78240FFD02A900DD0775 /* SessionTableViewController.m */,
 				46EE154F0FFECB64000224D0 /* SessionDetailTableViewController.h */,
 				46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */,
+				46D2A80F0FFF481700E15600 /* SessionTableViewCell.h */,
+				46D2A8100FFF481700E15600 /* SessionTableViewCell.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

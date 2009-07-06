@@ -72,7 +72,7 @@
     
     cell = CELL(0, 0);
     ASSERT_EQUAL(@"Using Git and GitHub to Develop One Million Times Faster", cell.textLabel.text);
-    ASSERT_EQUAL(@"一橋記念講堂 Scott Chacon (GitHub)", cell.detailTextLabel.text);
+    ASSERT_EQUAL(@"一橋記念講堂 Scott Chacon", cell.detailTextLabel.text);
     ASSERT_EQUAL_INT(UITableViewCellAccessoryDetailDisclosureButton, cell.accessoryType);
     ASSERT_EQUAL_INT(UITableViewCellSelectionStyleNone, cell.selectionStyle);
 

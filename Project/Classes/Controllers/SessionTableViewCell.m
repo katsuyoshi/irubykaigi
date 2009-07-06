@@ -71,16 +71,18 @@
             self.textLabel.textColor = [UIColor blackColor];
         }
     
-        NSString *room = [session valueForKeyPath:@"room.name"];
-        NSString *speaker = [session valueForKey:@"speaker"];
         NSMutableArray *subTitles = [NSMutableArray array];
-        if (room) {
-            [subTitles addObject:room];
+        NSString *attention = [session valueForKeyPath:@"attention"];
+        if (attention) {
+            self.detailTextLabel.text = attention;
+        } else {
+            NSString *room = [session valueForKeyPath:@"room.name"];
+            if (room) {
+                [subTitles addObject:room];
+            }
+            [subTitles addObjectsFromArray:[[session mutableSetValueForKey:@"speakers"] valueForKey:@"name"]];
+            self.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];
         }
-        if (speaker) {
-            [subTitles addObjectsFromArray:[speaker componentsSeparatedByString:@"、"]];
-        }
-        self.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];	
     }
 }
 
