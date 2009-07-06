@@ -8,6 +8,7 @@
 
 #import "Document.h"
 #import "NSManagedObjectContextExtension.h"
+#import "IUTLog.h"
 
 @implementation Document
 
@@ -231,7 +232,6 @@
                         floorName = element;
                     } else
                     if ([key isEqualToString:@"speaker"]) {
-NSLog(@"%@", element);
                         int index = 0;
                         NSArray *speakerInfos = [element componentsSeparatedByString:@"、"];
                         if ([speakerInfos count] == 1) {
@@ -273,7 +273,6 @@ NSLog(@"%@", element);
 
                     index++;
                 }
-                NSLog(@"%@", eo);
             }
         }
     }
