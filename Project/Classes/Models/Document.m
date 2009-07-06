@@ -209,7 +209,7 @@
         if ([line length]) {
             if (isFirst) {
                 isFirst = NO;
-                keys = [line componentsSeparatedByString:@","];
+                keys = [line componentsSeparatedByString:@"\t"];
             } else {
                 int index = 0;
                 NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:self.managedObjectContext];
@@ -218,7 +218,7 @@
                 NSManagedObject *day;
                 NSString *roomName = nil;
                 NSString *floorName = nil;
-                for (NSString *element in [line componentsSeparatedByString:@","]) {
+                for (NSString *element in [line componentsSeparatedByString:@"\t"]) {
                     NSString *key = [keys objectAtIndex:index];
                     if ([key isEqualToString:@"date"]) {
                         day = [self dayForDate:element];
@@ -233,7 +233,11 @@
                     if ([key isEqualToString:@"speaker"]) {
 NSLog(@"%@", element);
                         int index = 0;
-                        for (NSString *speakerInfo in [element componentsSeparatedByString:@"、"]) {
+                        NSArray *speakerInfos = [element componentsSeparatedByString:@"、"];
+                        if ([speakerInfos count] == 1) {
+                            speakerInfos = [element componentsSeparatedByString:@" and "];
+                        }
+                        for (NSString *speakerInfo in speakerInfos) {
                             NSArray *infos = [speakerInfo componentsSeparatedByString:@"("];
                             NSString *name = [infos objectAtIndex:0];
                             name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

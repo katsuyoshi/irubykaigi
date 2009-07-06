@@ -56,12 +56,12 @@ def parse_timetable elements, day
       session['metadata'] = e
       title = e.search('p.title').first
       if title
-        session['title'] = title.inner_text.gsub(',', '、')
+        session['title'] = title.inner_text
         link = title.search('a').first
         session['href'] = 'http://rubykaigi.org' << link[:href] if link
       end
       speaker = e.search('p.speaker').first
-      session['speaker'] = speaker.inner_text.gsub(',', '、').gsub('（', '(').gsub('）', ')') if speaker
+      session['speaker'] = speaker.inner_text.gsub('（', '(').gsub('）', ')') if speaker
       session['room'], session['floor'] = room_for_index(index)
       session['time'] = time
       session['date'] = day
@@ -88,9 +88,9 @@ def parse_timetable elements, day
     if session['href']
       agent.get(session['href'])
       title = agent.page.search('h2').first
-      session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').gsub(',', '、')
+      session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '')
       agent.page.search('p.speaker').each do |e|
-        session['speaker'] = e.inner_text.gsub(',', '、').gsub('（', '(').gsub('）', ')')
+        session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')')
       end
       agent.page.search('p.abstract').each do |e|
         session['abstract'] = e.inner_text
@@ -143,12 +143,12 @@ def get_parse_store_and_love uri, filename
     @keys.each do |key|
       a << s[key] ? s[key] : ''
     end
-    lines << a.join(',')
+    lines << a.join("\t")
   end
 
   # ファイルに保存
   File.open(filename, 'w') do |f|
-    f.puts @keys.join(',')
+    f.puts @keys.join("\t")
     lines.each do |l|
       f.puts l
     end
