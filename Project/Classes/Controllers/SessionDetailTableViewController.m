@@ -251,24 +251,24 @@
 }
 */
 
-- (CGFloat)cellHeightForTableView:(UITableView *)tableView text:(NSString *)text indexPath:(NSIndexPath *)indexPath minHeight:(float)minHeight
+- (CGFloat)cellHeightForTableView:(UITableView *)tableView text:(NSString *)text indexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self cellForTableView:tableView inSection:indexPath.section];
     CGSize size = [text sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(cell.bounds.size.width, 44.0 * 100)];
     float height = size.height + 44.0;
 
-    return (minHeight < height) ? height : minHeight;
+    return height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
     case TITLE_SECTION:
-        return [self cellHeightForTableView:tableView text:[session valueForKey:@"title"] indexPath:indexPath minHeight:44.0 * 2];
+        return [self cellHeightForTableView:tableView text:[session valueForKey:@"title"] indexPath:indexPath];
     case ABSTRACT_SECTION:
-        return [self cellHeightForTableView:tableView text:[session valueForKey:@"abstract"] indexPath:indexPath minHeight:44.0 * 2];
+        return [self cellHeightForTableView:tableView text:[session valueForKey:@"abstract"] indexPath:indexPath];
     case SPEAKER_PROFILE_SECTION:
-        return [self cellHeightForTableView:tableView text:[session valueForKey:@"profile"] indexPath:indexPath minHeight:44.0 * 2];
+        return [self cellHeightForTableView:tableView text:[session valueForKey:@"profile"] indexPath:indexPath];
     default:
         return 44.0;
     }
