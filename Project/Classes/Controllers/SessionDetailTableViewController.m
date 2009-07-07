@@ -158,7 +158,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"DescriptionCell"];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DescriptionCell"] autorelease];
-            cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:14.0];
+            cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:16.0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.numberOfLines = 20;
         }
@@ -251,14 +251,24 @@
 }
 */
 
+- (CGFloat)cellHeightForTableView:(UITableView *)tableView text:(NSString *)text indexPath:(NSIndexPath *)indexPath minHeight:(float)minHeight
+{
+    UITableViewCell *cell = [self cellForTableView:tableView inSection:indexPath.section];
+    CGSize size = [text sizeWithFont:cell.textLabel.font constrainedToSize:CGSizeMake(cell.bounds.size.width, 44.0 * 100)];
+    float height = size.height + 44.0;
+
+    return (minHeight < height) ? height : minHeight;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
     case TITLE_SECTION:
-        return 44.0 * 3;
+        return [self cellHeightForTableView:tableView text:[session valueForKey:@"title"] indexPath:indexPath minHeight:44.0 * 2];
     case ABSTRACT_SECTION:
+        return [self cellHeightForTableView:tableView text:[session valueForKey:@"abstract"] indexPath:indexPath minHeight:44.0 * 2];
     case SPEAKER_PROFILE_SECTION:
-        return 44.0 * 8;
+        return [self cellHeightForTableView:tableView text:[session valueForKey:@"profile"] indexPath:indexPath minHeight:44.0 * 2];
     default:
         return 44.0;
     }
