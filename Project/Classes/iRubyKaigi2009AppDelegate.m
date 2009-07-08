@@ -37,7 +37,7 @@
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
 //    navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    [navigationController setToolbarHidden:NO animated:NO];
+//    [navigationController setToolbarHidden:NO animated:NO];
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
