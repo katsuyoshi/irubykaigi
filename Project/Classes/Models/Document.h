@@ -13,6 +13,8 @@
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    
+    NSMutableSet *favoriteSet;
 }
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
@@ -37,5 +39,12 @@
 - (void)importSessionsFromCsvFile:(NSString *)fileName;
 - (void)importLightningTaklsFromCsvFile:(NSString *)fileName;
 
+#pragma mark -
+#pragma mark favorite
+
+- (void)changeFavoriteOfSession:(NSManagedObject *)session;
+- (BOOL)isFavoriteSession:(NSManagedObject *)session;
+- (void)loadFavorites;
+- (void)saveFavorites;
 
 @end

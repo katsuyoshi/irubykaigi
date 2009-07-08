@@ -16,6 +16,9 @@
     BOOL initialized;
 }
 
++ (UIImage *)favoriteOffImage;
++ (UIImage *)favoriteOnImage;
+
 @property (retain) NSManagedObject *session;
 
 @end

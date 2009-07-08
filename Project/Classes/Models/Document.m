@@ -24,9 +24,19 @@
 }
 
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self loadFavorites];
+    }
+    return self;
+}
+
 - (void)dealloc {
     [managedObjectContext release];
     [managedObjectModel release];
+    [favoriteSet release];
     [persistentStoreCoordinator release];
     [super dealloc];   
 }
@@ -204,6 +214,45 @@
                                 , nil];
     return [self.managedObjectContext findAll:condition];
 }
+
+#pragma mark -
+#pragma mark favorite
+
+- (void)changeFavoriteOfSession:(NSManagedObject *)session
+{
+    NSNumber *position = [session valueForKey:@"position"];
+    if ([self isFavoriteSession:session]) {
+        [favoriteSet removeObject:position];
+    } else {
+        [favoriteSet addObject:position];
+    }
+    [self saveFavorites];
+}
+
+- (BOOL)isFavoriteSession:(NSManagedObject *)session
+{
+    NSNumber *position = [session valueForKey:@"position"];
+    return [favoriteSet containsObject:position];
+}
+
+- (void)loadFavorites
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *array = [userDefaults arrayForKey:@"favorite"];
+    if (array) {
+        [favoriteSet release];
+        favoriteSet = [[NSMutableSet setWithArray:array] retain];
+    } else {
+        favoriteSet = [NSMutableSet new];
+    }
+}
+
+- (void)saveFavorites
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[favoriteSet allObjects] forKey:@"favorite"];
+}
+
 
 
 #pragma mark -
