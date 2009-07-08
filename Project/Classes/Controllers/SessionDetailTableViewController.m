@@ -42,12 +42,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+/*
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.title = [self.session valueForKey:@"time"];
-    [self.tableView reloadData];
 }
-
+*/
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -294,6 +293,7 @@
         NSArray *sortDescriptors = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"position" ascending:YES] autorelease]];
         speakers = [[[[session mutableSetValueForKey:@"speakers"] allObjects] sortedArrayUsingDescriptors:sortDescriptors] retain];
         self.tableView.backgroundColor = [session sessionColor];
+        self.title = [session valueForKey:@"time"];
     }
 }
 

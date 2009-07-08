@@ -42,7 +42,7 @@
 - (void)testImportFromCsvFile
 {
     // 取込み
-    [document importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
     
     // 数の確認
     ASSERT_EQUAL_INT(3, [[document days] count]);
@@ -70,9 +70,13 @@
     ASSERT_EQUAL([Document dateFromString:@"2009-7-19"], [[[document days] objectAtIndex:2] valueForKey:@"date"]);
 }
 
-- (void)testBreakAndParty
+- (void)testImportLightningTalks
 {
-    
+    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [document importLightningTaklsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"]];
+    NSArray *lightningTalks = [document lightningTalks];
+    ASSERT_EQUAL_INT(22, [lightningTalks count]);
+    ASSERT_EQUAL(@"一橋記念講堂", [[lightningTalks objectAtIndex:0] valueForKeyPath:@"room.name"]);
 }
 
 

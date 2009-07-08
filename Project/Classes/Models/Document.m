@@ -8,6 +8,8 @@
 
 #import "Document.h"
 #import "NSManagedObjectContextExtension.h"
+#import "IUTLog.h"
+
 
 @implementation Document
 
@@ -193,13 +195,21 @@
     return [self.managedObjectContext findAll:condition];
 }
 
-
+- (NSArray *)lightningTalks
+{
+    PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"LightningTalk" format:nil argumentArray:nil];
+    condition.orderings = [NSArray arrayWithObjects:
+                                  [[[NSSortDescriptor alloc] initWithKey:@"session.day.date" ascending:YES] autorelease]
+                                , [[[NSSortDescriptor alloc] initWithKey:@"position" ascending:YES] autorelease]
+                                , nil];
+    return [self.managedObjectContext findAll:condition];
+}
 
 
 #pragma mark -
 #pragma mark import datas
 
-- (void)importFromCsvFile:(NSString *)fileName
+- (void)importSessionsFromCsvFile:(NSString *)fileName
 {
     NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     BOOL isFirst = YES;
@@ -271,6 +281,60 @@
                     }
 
                     index++;
+                }
+            }
+        }
+    }
+}
+
+- (void)importLightningTaklsFromCsvFile:(NSString *)fileName
+{
+    NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
+    BOOL isFirst = YES;
+    NSArray *keys;
+    for (NSString *line in [contents componentsSeparatedByString:@"\n"]) {
+        if ([line length]) {
+            if (isFirst) {
+                isFirst = NO;
+                keys = [line componentsSeparatedByString:@"\t"];
+            } else {
+                NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"LightningTalk" inManagedObjectContext:self.managedObjectContext];
+                
+                NSManagedObject *session = nil;
+                NSString *name = nil;
+                NSString *belonging = nil;
+                int index = 0;
+                
+                for (NSString *element in [line componentsSeparatedByString:@"\t"]) {
+                    NSString *key = [keys objectAtIndex:index];
+                    if ([key isEqualToString:@"date"]) {
+// DELETEME: IUTLog(@"%@", [[self sessions] valueForKey:@"title"]);
+                        PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Session" format:@"day = %@ and title like %@" argumentArray:[NSArray arrayWithObjects:[self dayForDate:element], @"Lightning Talks*", nil]];
+                        session = [self.managedObjectContext find:condition];
+                        NSMutableSet *talks = [session mutableSetValueForKey:@"lightningTalks"];
+                        [eo setValue:[NSNumber numberWithInt:[talks count]] forKey:@"position"];
+                        [talks addObject:eo];
+                    } else
+                    if ([key isEqualToString:@"speaker"]) {
+                        name = element;
+                    } else
+                    if ([key isEqualToString:@"belonging"]) {
+                        belonging = element;
+                        if ([name length]) {
+                            NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:self.managedObjectContext];
+                            [speaker setValue:name forKey:@"name"];
+                            [speaker setValue:belonging forKey:@"belonging"];
+                            [[eo mutableSetValueForKey:@"speakers"] addObject:speaker];
+                            name = belonging = nil;
+                        }
+                    } else {
+                        if ([element length]) {
+                            [eo setValue:element forKey:key];
+                        }
+                    }
+
+                    index++;
+                    
                 }
             }
         }

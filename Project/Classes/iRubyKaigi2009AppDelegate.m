@@ -20,8 +20,9 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    [[Document sharedDocument] importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
-    
+    [[Document sharedDocument] importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [[Document sharedDocument] importLightningTaklsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"]];
+
     firstSessionViewController = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
 
     // 日付を設定

@@ -10,6 +10,7 @@
 #import "Document.h"
 #import "SessionDetailTableViewController.h"
 #import "SessionTableViewCell.h"
+#import "LightningTalksTableViewController.h"
 
 
 @interface SessionTableViewController(_private)
@@ -122,7 +123,7 @@
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
 	NSManagedObject *eo = [fetchedResultsController objectAtIndexPath:indexPath];
-	return [[eo valueForKey:@"time"] description];
+	return [eo valueForKey:@"time"];
 }
 
 // Customize the appearance of table view cells.
@@ -197,11 +198,18 @@
 */
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    SessionDetailTableViewController *detailController = [[[SessionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
-    
-    detailController.session = [fetchedResultsController objectAtIndexPath:indexPath];
-    [self.navigationController pushViewController:detailController animated:YES];
+{    
+    NSManagedObject *session = [fetchedResultsController objectAtIndexPath:indexPath];
+
+    if ([[session mutableSetValueForKey:@"lightningTalks"] count]) {
+        LightningTalksTableViewController *controller = [[[LightningTalksTableViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
+        controller.session = session;
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        SessionDetailTableViewController *controller = [[[SessionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+        controller.session = session;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

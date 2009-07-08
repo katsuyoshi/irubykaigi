@@ -17,6 +17,11 @@
 		4608BDE00F56FA430011302D /* IUTPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4608BDDF0F56FA430011302D /* IUTPreference.m */; };
 		460A78250FFD02A900DD0775 /* SessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460A78240FFD02A900DD0775 /* SessionTableViewController.m */; };
 		460A78280FFD05D000DD0775 /* SessionTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */; };
+		4614060510047C3A00964C01 /* LightningTalksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4614060410047C3A00964C01 /* LightningTalksTableViewController.m */; };
+		4614060810047C5E00964C01 /* LightningTalksTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4614060710047C5E00964C01 /* LightningTalksTableViewControllerTest.m */; };
+		4614060F10047D6D00964C01 /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 4614060E10047D6D00964C01 /* LightningTalk.m */; };
+		46140668100482E600964C01 /* lightning_talks_info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 46140666100482E600964C01 /* lightning_talks_info.csv */; };
+		461408BF1004C2E100964C01 /* LightningTalksDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461408BE1004C2E100964C01 /* LightningTalksDetailTableViewController.m */; };
 		4617B7F00F57B76100D94BF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4617B7EF0F57B76100D94BF1 /* Default.png */; };
 		4620593D0F28CB5700857D87 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4620593C0F28CB5700857D87 /* DetailView.xib */; };
 		462AC4B40FEAFF2400B587D6 /* UIViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */; };
@@ -82,6 +87,16 @@
 		460A78260FFD05D000DD0775 /* SessionTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewControllerTest.h; sourceTree = "<group>"; };
 		460A78270FFD05D000DD0775 /* SessionTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewControllerTest.m; sourceTree = "<group>"; };
 		460A782F0FFD08CE00DD0775 /* UITableViewControllerTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewControllerTestHelper.h; sourceTree = "<group>"; };
+		4614060310047C3A00964C01 /* LightningTalksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksTableViewController.h; sourceTree = "<group>"; };
+		4614060410047C3A00964C01 /* LightningTalksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalksTableViewController.m; sourceTree = "<group>"; };
+		4614060610047C5E00964C01 /* LightningTalksTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksTableViewControllerTest.h; sourceTree = "<group>"; };
+		4614060710047C5E00964C01 /* LightningTalksTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalksTableViewControllerTest.m; sourceTree = "<group>"; };
+		4614060D10047D6D00964C01 /* LightningTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalk.h; sourceTree = "<group>"; };
+		4614060E10047D6D00964C01 /* LightningTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalk.m; sourceTree = "<group>"; };
+		46140667100482E600964C01 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/lightning_talks_info.csv; sourceTree = "<group>"; };
+		46140669100482F900964C01 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/lightning_talks_info.csv; sourceTree = "<group>"; };
+		461408BD1004C2E100964C01 /* LightningTalksDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksDetailTableViewController.h; sourceTree = "<group>"; };
+		461408BE1004C2E100964C01 /* LightningTalksDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalksDetailTableViewController.m; sourceTree = "<group>"; };
 		4617B7EF0F57B76100D94BF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4620593C0F28CB5700857D87 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		462AC4B20FEAFF2400B587D6 /* UIViewBasedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewBasedTest.h; sourceTree = "<group>"; };
@@ -239,8 +254,21 @@
 				46EE15500FFECB64000224D0 /* SessionDetailTableViewController.m */,
 				46D2A80F0FFF481700E15600 /* SessionTableViewCell.h */,
 				46D2A8100FFF481700E15600 /* SessionTableViewCell.m */,
+				4614060310047C3A00964C01 /* LightningTalksTableViewController.h */,
+				4614060410047C3A00964C01 /* LightningTalksTableViewController.m */,
+				461408BD1004C2E100964C01 /* LightningTalksDetailTableViewController.h */,
+				461408BE1004C2E100964C01 /* LightningTalksDetailTableViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4614060910047D3900964C01 /* EO */ = {
+			isa = PBXGroup;
+			children = (
+				4614060D10047D6D00964C01 /* LightningTalk.h */,
+				4614060E10047D6D00964C01 /* LightningTalk.m */,
+			);
+			path = EO;
 			sourceTree = "<group>";
 		};
 		4681C7FB0FFABD2E0023DACB /* Project */ = {
@@ -255,6 +283,7 @@
 				4681C8080FFABD2E0023DACB /* MainWindow.xib */,
 				4681C82A0FFABD7D0023DACB /* session_info.csv */,
 				46EE137B0FFE418D000224D0 /* Localizable.strings */,
+				46140666100482E600964C01 /* lightning_talks_info.csv */,
 			);
 			name = Project;
 			path = /Users/ISD/git/irubykaigi2009/Project;
@@ -299,6 +328,8 @@
 				46EE146D0FFE57B0000224D0 /* SessionTableViewControllerWithNextDayTest.m */,
 				46EE15520FFECBA7000224D0 /* SessionDetailTableViewControllerTest.h */,
 				46EE15530FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m */,
+				4614060610047C5E00964C01 /* LightningTalksTableViewControllerTest.h */,
+				4614060710047C5E00964C01 /* LightningTalksTableViewControllerTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -368,6 +399,7 @@
 		46EE13160FFE3C29000224D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4614060910047D3900964C01 /* EO */,
 				4658DA140FFF8A8C00CBBFEE /* NSManagedObjectExtension.h */,
 				4658DA150FFF8A8C00CBBFEE /* NSManagedObjectExtension.m */,
 				46EE131A0FFE3C66000224D0 /* PredicateCondition.h */,
@@ -455,6 +487,7 @@
 				4617B7F00F57B76100D94BF1 /* Default.png in Resources */,
 				4681C82B0FFABD7D0023DACB /* session_info.csv in Resources */,
 				46EE137C0FFE418D000224D0 /* Localizable.strings in Resources */,
+				46140668100482E600964C01 /* lightning_talks_info.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,12 +530,25 @@
 				46EE15540FFECBA7000224D0 /* SessionDetailTableViewControllerTest.m in Sources */,
 				46D2A8110FFF481700E15600 /* SessionTableViewCell.m in Sources */,
 				4658DA160FFF8A8C00CBBFEE /* NSManagedObjectExtension.m in Sources */,
+				4614060510047C3A00964C01 /* LightningTalksTableViewController.m in Sources */,
+				4614060810047C5E00964C01 /* LightningTalksTableViewControllerTest.m in Sources */,
+				4614060F10047D6D00964C01 /* LightningTalk.m in Sources */,
+				461408BF1004C2E100964C01 /* LightningTalksDetailTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		46140666100482E600964C01 /* lightning_talks_info.csv */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46140667100482E600964C01 /* English */,
+				46140669100482F900964C01 /* Japanese */,
+			);
+			name = lightning_talks_info.csv;
+			sourceTree = "<group>";
+		};
 		4681C82A0FFABD7D0023DACB /* session_info.csv */ = {
 			isa = PBXVariantGroup;
 			children = (

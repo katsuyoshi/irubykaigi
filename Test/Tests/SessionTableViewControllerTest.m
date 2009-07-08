@@ -19,7 +19,7 @@
 - (void)setUp
 {
     document = [[Document sharedDocument] retain];
-    [document importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
     [super setUp];
 }
 

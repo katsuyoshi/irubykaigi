@@ -29,11 +29,13 @@
 - (NSArray *)days;
 - (NSArray *)sessions;
 - (NSArray *)rooms;
+- (NSArray *)lightningTalks;
 
 
 - (NSManagedObject *)dayForDate:(NSString *)dateStr;
 
-- (void)importFromCsvFile:(NSString *)fileName;
+- (void)importSessionsFromCsvFile:(NSString *)fileName;
+- (void)importLightningTaklsFromCsvFile:(NSString *)fileName;
 
 
 @end

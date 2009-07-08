@@ -38,7 +38,7 @@
     // this controller will be tested.
     // TODO: replace your view controller
     controller = [[SessionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [[Document sharedDocument] importFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [[Document sharedDocument] importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
     sessions = [[[Document sharedDocument] sessions] retain];
     return controller;
 }
@@ -56,7 +56,7 @@
 {
     NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 0"];
     controller.session = [[sessions filteredArrayUsingPredicate:predecate] objectAtIndex:0];
-    [controller viewWillAppear:NO];
+    [controller.tableView reloadData];
     
     ASSERT_EQUAL_INT(5, NUMBER_OF_SECTIONS());
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(0));
@@ -115,7 +115,7 @@
 {
     NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 11"];
     controller.session = [[sessions filteredArrayUsingPredicate:predecate] objectAtIndex:0];
-    [controller viewWillAppear:NO];
+    [controller.tableView reloadData];
     
     ASSERT_EQUAL_INT(5, NUMBER_OF_SECTIONS());
     ASSERT_EQUAL_INT(1, NUMBER_OF_ROWS_IN_SECTION(0));
