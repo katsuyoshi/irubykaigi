@@ -46,7 +46,7 @@ def parse_lightning_talks page, skip_title
         a = text.split(',')
       end
       talk['speaker'] = a[0].strip if a[0]
-      talk['blonging'] = a[1].strip if a[1]
+      talk['belonging'] = a[1].strip if a[1]
       @lightning_talks << talk
     end
   end
