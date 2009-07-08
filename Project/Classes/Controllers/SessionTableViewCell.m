@@ -63,7 +63,6 @@
 - (void)setUp
 {
     initialized = YES;
-// DELETEME:    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundView = [[UIView new] autorelease];
     
     self.detailTextLabel.textColor = [UIColor darkGrayColor];

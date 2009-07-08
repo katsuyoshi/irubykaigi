@@ -357,7 +357,6 @@
                 for (NSString *element in [line componentsSeparatedByString:@"\t"]) {
                     NSString *key = [keys objectAtIndex:index];
                     if ([key isEqualToString:@"date"]) {
-// DELETEME: IUTLog(@"%@", [[self sessions] valueForKey:@"title"]);
                         PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Session" format:@"day = %@ and title like %@" argumentArray:[NSArray arrayWithObjects:[self dayForDate:element], @"Lightning Talks*", nil]];
                         session = [self.managedObjectContext find:condition];
                         NSMutableSet *talks = [session mutableSetValueForKey:@"lightningTalks"];
