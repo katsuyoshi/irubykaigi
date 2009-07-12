@@ -47,11 +47,6 @@ def parse_timetable elements, day
     # session情報の取得
     session_info.search('div.session').each_with_index do |e, index|
     
-      # 二重に囲っている所があるので外側はスキップ
-      if e.search('div.session').size == 2
-        next
-      end
-      
       session = Hash.new
       session['metadata'] = e
       title = e.search('p.title').first
@@ -61,7 +56,7 @@ def parse_timetable elements, day
         session['href'] = 'http://rubykaigi.org' << link[:href] if link
       end
       speaker = e.search('p.speaker').first
-      session['speaker'] = speaker.inner_text.gsub('（', '(').gsub('）', ')') if speaker
+      session['speaker'] = speaker.inner_text.gsub('（', '(').gsub('）', ')').strip if speaker
       session['room'], session['floor'] = room_for_index(index)
       session['time'] = time
       session['date'] = day
@@ -87,35 +82,21 @@ def parse_timetable elements, day
   @sessions.each do |session|
     if session['href']
       agent.get(session['href'])
-      title = agent.page.search('h2').first
-      session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '')
-      agent.page.search('p.speaker').each do |e|
-        session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')')
+      page = agent.page
+      title = page.search('h2').first
+      session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').strip
+      page.search('p.speaker').each do |e|
+        session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')').strip
       end
-      agent.page.search('p.room').each do |e|
-        session['room'], session['floor'] = normalized_room e.inner_text
+      page.search('p.room').each do |e|
+        session['room'], session['floor'] = normalized_room e.inner_text.strip
       end
-      
-      found = false
-      agent.page.search('p').each do |e|
-        if found
-          session['abstract'] = e.inner_text.gsub("\n", ' ')
-          break
-        else
-          found = e[:class] == 'abstract'
-        end
+      page.search('p.abstract').each do |e|
+        session['abstract'] = e.inner_text.gsub("\n", ' ').strip
       end
-
-      found = false
-      agent.page.search('p').each do |e|
-        if found
-          session['profile'] = e.inner_text.gsub("\n", ' ')
-          break
-        else
-          found = e[:class] == 'profile'
-        end
+      page.search('p.profile').each do |e|
+        session['profile'] = e.inner_text.gsub("\n", ' ').strip
       end
-
     end
   end
  
@@ -144,10 +125,11 @@ def get_parse_store_and_love uri, filename
   # セッション情報の取得
   agent = WWW::Mechanize.new
   agent.get(uri)
+  page = agent.page
   
   # 解析
-  days = agent.page.search('h2').map {|e| e.inner_text.gsub(/年|月/, '-').gsub(/日.*/, '')}
-  agent.page.search('table.timetable').each_with_index do |timetable, i|
+  days = page.search('h2').map {|e| e.inner_text.gsub(/年|月/, '-').gsub(/日.*/, '')}
+  page.search('table.timetable').each_with_index do |timetable, i|
     parse_timetable timetable, Date.parse(days[i])
   end
 
