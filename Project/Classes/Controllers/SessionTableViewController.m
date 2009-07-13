@@ -47,11 +47,15 @@
         self.navigationItem.rightBarButtonItem = buttonItem;
     }
     
+    Document *document = [Document sharedDocument];
+
     UIBarButtonItem *updateButtonItems = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(beginUpdate:)] autorelease];
     NSArray *items = [NSArray arrayWithObject:updateButtonItems];
     [self setToolbarItems:items animated:NO];
+    updateButtonItems.enabled = ![[document updating] boolValue];
     
-    [[Document sharedDocument] addObserver:self forKeyPath:@"managedObjectContext" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+    [document addObserver:self forKeyPath:@"managedObjectContext" options:NSKeyValueObservingOptionNew context:NULL];
+    [document addObserver:self forKeyPath:@"updating" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (NSString *)titleForDate:(NSDate *)aDay
@@ -290,11 +294,7 @@
 
 - (void)beginUpdate:(id)sender
 {
-    if (updateOperation == nil) {
-        updateOperation = [[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil];
-        [updateOperation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
-        [updateOperation start];
-    }
+    [[Document sharedDocument] beginUpdate];
 }
 
 #pragma mark -
@@ -302,16 +302,16 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([keyPath isEqualToString:@"isFinished"]) {
-        [self.tableView reloadData];
-        [updateOperation release];
-        updateOperation = nil;
-    } else
     if ([keyPath isEqualToString:@"managedObjectContext"]) {
         [fetchedResultsController release];
         fetchedResultsController = nil;
         self.fetchedResultsController;
         [self.tableView reloadData];
+    } else 
+    if ([keyPath isEqualToString:@"updating"]) {
+        BOOL value = [[change valueForKey:@"new"] boolValue];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = value;
+        [[self.toolbarItems objectAtIndex:0] setEnabled:!value];
     }
 
 }

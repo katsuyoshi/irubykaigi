@@ -13,7 +13,7 @@
 
 @implementation Document
 
-@synthesize managedObjectContext;
+@synthesize managedObjectContext, updating;
 
 
 + (Document *)sharedDocument
@@ -25,8 +25,20 @@
     return document;
 }
 
++ (NSOperationQueue *)sharedOperationQueue
+{
+    static NSOperationQueue *queue = nil;
+    if (queue == nil) {
+        queue = [NSOperationQueue new];
+        [queue setMaxConcurrentOperationCount:3];
+    }
+    return queue;
+}
+
+
 
 - (void)dealloc {
+    [updating release];
     [updateError release];
     [updatingManagedObjectContext release];
     [managedObjectContext release];
@@ -449,8 +461,19 @@
     
 }
 
+- (void)beginUpdate
+{
+    if (updateOperation == nil) {
+        updateOperation = [[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil];
+        [updateOperation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+        self.updating = [NSNumber numberWithBool:YES];
+        [[[self class] sharedOperationQueue] addOperation:updateOperation];
+    }
+}
+
 - (void)update
 {
+    [NSThread sleepForTimeInterval:5.0];
     [updateError release];
     updateError = nil;
     
@@ -459,9 +482,21 @@
     
     [self updateSessionInfos];
     
-    self.managedObjectContext = updatingManagedObjectContext;
+    [self performSelectorOnMainThread:@selector(setManagedObjectContext:) withObject:updatingManagedObjectContext waitUntilDone:NO];
     [updatingManagedObjectContext release];
     updatingManagedObjectContext = nil;
+
+    NSNumber *no = [[NSNumber numberWithBool:NO] retain];
+    [self performSelectorOnMainThread:@selector(setUpdating:) withObject:no waitUntilDone:NO];
+    [no release];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"isFinished"]) {
+        [updateOperation release];
+        updateOperation = nil;
+    }
 }
 
 

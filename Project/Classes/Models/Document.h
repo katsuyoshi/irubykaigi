@@ -19,7 +19,10 @@
     NSMutableSet *favoriteSet;
     
     BOOL imported;
+
+    NSInvocationOperation *updateOperation;
     NSError *updateError;
+    NSNumber *updating;
 }
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
@@ -28,7 +31,11 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (retain) NSNumber *updating;
+
 + (Document *)sharedDocument;
+
++ (NSOperationQueue *)sharedOperationQueue;
 
 + (NSDate *)dateFromString:(NSString *)dateStr;
 
@@ -54,6 +61,7 @@
 - (void)saveFavorites;
 
 
+- (void)beginUpdate;
 - (void)update;
 
 

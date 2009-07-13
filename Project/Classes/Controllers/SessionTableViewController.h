@@ -17,8 +17,6 @@
     SessionTableViewController *nextDaysSessionController;
     
 	NSFetchedResultsController *fetchedResultsController;
-    
-    NSInvocationOperation *updateOperation;
 }
 
 @property (retain) NSDate *day;
@@ -27,7 +25,6 @@
 @property (retain, readonly) SessionTableViewController *nextDaysSessionController;
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
-
 
 - (void)previousDayAction:(id)sender;
 - (void)nextDayAction:(id)sender;
