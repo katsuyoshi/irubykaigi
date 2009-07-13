@@ -14,7 +14,7 @@
 
 
 @interface SessionTableViewController(_private)
-- (NSString *)titleForDate:(NSManagedObject *)date;
+- (NSString *)titleForDate:(NSDate *)date;
 @end
 
 
@@ -50,16 +50,16 @@
     UIBarButtonItem *updateButtonItems = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(beginUpdate:)] autorelease];
     NSArray *items = [NSArray arrayWithObject:updateButtonItems];
     [self setToolbarItems:items animated:NO];
-
-    [self.fetchedResultsController performFetch:NULL];
+    
+    [[Document sharedDocument] addObserver:self forKeyPath:@"managedObjectContext" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
 }
 
-- (NSString *)titleForDate:(NSManagedObject *)aDay
+- (NSString *)titleForDate:(NSDate *)aDay
 {
     NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
     [formatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:NSLocalizedString(@"LOCALE", nil)] autorelease]];
     [formatter setDateFormat:NSLocalizedString(@"DATE_FORMATTER_FOR_TITLE", nil)];
-    return [formatter stringFromDate:[aDay valueForKey:@"date"]];
+    return [formatter stringFromDate:aDay];
 }
 
 
@@ -111,7 +111,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	id <NSFetchedResultsSectionInfo> sectionInfo = [[fetchedResultsController sections] objectAtIndex:section];
+	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -119,14 +119,14 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-	NSManagedObject *eo = [fetchedResultsController objectAtIndexPath:indexPath];
+	NSManagedObject *eo = [self.fetchedResultsController objectAtIndexPath:indexPath];
 	return [eo valueForKey:@"time"];
 }
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SessionTableViewCell *cell;
-	NSManagedObject *eo = [fetchedResultsController objectAtIndexPath:indexPath];
+	NSManagedObject *eo = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     if ([[eo valueForKey:@"break"] boolValue]) {
         cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"BreakCell"];
@@ -148,7 +148,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSManagedObject *session = [fetchedResultsController objectAtIndexPath:indexPath];
+	NSManagedObject *session = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [[Document sharedDocument] changeFavoriteOfSession:session];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
@@ -196,7 +196,7 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {    
-    NSManagedObject *session = [fetchedResultsController objectAtIndexPath:indexPath];
+    NSManagedObject *session = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
     if ([[session mutableSetValueForKey:@"lightningTalks"] count]) {
         LightningTalksTableViewController *controller = [[[LightningTalksTableViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
@@ -229,7 +229,7 @@
 #pragma mark -
 #pragma mark accessor
 
-- (void)setDay:(NSManagedObject *)aDay
+- (void)setDay:(NSDate *)aDay
 {
     if (day != aDay) {
         [day release];
@@ -250,9 +250,9 @@
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
-    Document *document = [Document sharedDocument];
     
     if (fetchedResultsController == nil) {
+        Document *document = [Document sharedDocument];
         NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Session" inManagedObjectContext:document.managedObjectContext];
         [fetchRequest setEntity:entity];
@@ -264,10 +264,11 @@
                                     , nil];
 	
         [fetchRequest setSortDescriptors:sortDescriptors];
-        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"day = %@", day]];
+        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"day.date = %@", day]];
 	
         fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:document.managedObjectContext sectionNameKeyPath:@"time" cacheName:[day description]];
 	
+        [self.fetchedResultsController performFetch:NULL];
 	}
 	return fetchedResultsController;
 }    
@@ -289,6 +290,31 @@
 
 - (void)beginUpdate:(id)sender
 {
+    if (updateOperation == nil) {
+        updateOperation = [[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil];
+        [updateOperation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+        [updateOperation start];
+    }
+}
+
+
+#pragma mark -
+#pragma mark KVO notification
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"isFinished"]) {
+        [self.tableView reloadData];
+        [updateOperation release];
+        updateOperation = nil;
+    } else
+    if ([keyPath isEqualToString:@"managedObjectContext"]) {
+        [fetchedResultsController release];
+        fetchedResultsController = nil;
+        self.fetchedResultsController;
+        [self.tableView reloadData];
+    }
+
 }
 
 @end

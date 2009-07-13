@@ -20,24 +20,23 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    [[Document sharedDocument] importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
-    [[Document sharedDocument] importLightningTaklsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"]];
-
+    [[Document sharedDocument] import];
+    
     firstSessionViewController = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
 
     // 日付を設定
     SessionTableViewController *sessionViewController = firstSessionViewController;
     NSArray *days = [[Document sharedDocument] days];
-    sessionViewController.day = [days objectAtIndex:0];
+    sessionViewController.day = [[days objectAtIndex:0] valueForKey:@"date"];
     int i, count = [days count];
     for (i = 1; i < count; i++) {
-        sessionViewController.nextDay = [days objectAtIndex:i];
+        sessionViewController.nextDay = [[days objectAtIndex:i] valueForKey:@"date"];
         sessionViewController = sessionViewController.nextDaysSessionController;
     }
     
     navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
 //    navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-//    [navigationController setToolbarHidden:NO animated:NO];
+    [navigationController setToolbarHidden:NO animated:NO];
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
