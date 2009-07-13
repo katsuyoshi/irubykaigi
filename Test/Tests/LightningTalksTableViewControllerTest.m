@@ -18,14 +18,14 @@
 - (void)setUp
 {
     document = [[Document sharedDocument] retain];
-    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
-    [document importLightningTaklsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"]];
+    [document import];
     [super setUp];
 }
 
 - (void)tearDown
 {
     [document.managedObjectContext rollback];
+    [document setValue:[NSNumber numberWithBool:NO] forKey:@"imported"];
     [document release];
     [controller release];
     controller = nil;

@@ -33,8 +33,8 @@
     // TODO: replace your view controller
     controller = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
     NSArray *days = [document days];
-    controller.day = [days objectAtIndex:0];
-    controller.nextDay = [days objectAtIndex:1];
+    controller.day = [[days objectAtIndex:0] valueForKey:@"date"];
+    controller.nextDay = [[days objectAtIndex:1] valueForKey:@"date"];
     return controller;
 }
 
@@ -47,6 +47,7 @@
 
 - (void)testRightItemButton
 {
+    [controller viewDidLoad];
     UIBarButtonItem *buttonItem = controller.navigationItem.rightBarButtonItem;
     ASSERT_EQUAL(@"7月18日", buttonItem.title);
     ASSERT_EQUAL_INT(UIBarButtonItemStyleBordered, buttonItem.style);

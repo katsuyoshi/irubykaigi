@@ -13,17 +13,27 @@
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
-    
+
+    NSManagedObjectContext *updatingManagedObjectContext;	    
+
     NSMutableSet *favoriteSet;
+    
+    BOOL imported;
+
+    NSNumber *updating;
 }
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (retain) NSNumber *updating;
+
 + (Document *)sharedDocument;
+
++ (NSOperationQueue *)sharedOperationQueue;
 
 + (NSDate *)dateFromString:(NSString *)dateStr;
 
@@ -34,10 +44,11 @@
 - (NSArray *)lightningTalks;
 
 
-- (NSManagedObject *)dayForDate:(NSString *)dateStr;
+- (NSManagedObject *)dayForDate:(NSString *)dateStr managedObjectContext:(NSManagedObjectContext *)context;
 
-- (void)importSessionsFromCsvFile:(NSString *)fileName;
-- (void)importLightningTaklsFromCsvFile:(NSString *)fileName;
+- (void)import;
+- (void)importSessionsFromCsvFile:(NSString *)fileName managedObjectContext:(NSManagedObjectContext *)context;
+- (void)importLightningTaklsFromCsvFile:(NSString *)fileName managedObjectContext:(NSManagedObjectContext *)context;
 
 #pragma mark -
 #pragma mark favorite
@@ -46,5 +57,17 @@
 - (BOOL)isFavoriteSession:(NSManagedObject *)session;
 - (void)loadFavorites;
 - (void)saveFavorites;
+
+#pragma mark -
+#pragma mark update
+
+- (void)beginUpdate;
+- (void)update;
+
+#pragma mark -
+#pragma mark alert
+
+- (void)showErrorAlert:(NSString *)reason;
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end

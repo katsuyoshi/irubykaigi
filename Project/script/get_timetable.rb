@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'mechanize'
 
-@keys = %w(date time title speaker break room floor attention abstract profile)
+@keys = %w(code date time title speaker break room floor attention abstract profile)
 @sessions = []
 @rooms = []
 @titles = Hash.new
@@ -53,7 +53,10 @@ def parse_timetable elements, day
       if title
         session['title'] = title.inner_text
         link = title.search('a').first
-        session['href'] = 'http://rubykaigi.org' << link[:href] if link
+        if link
+          session['href'] = 'http://rubykaigi.org' << link[:href] 
+          session['code'] = link[:href].split("/").last
+        end
       end
       speaker = e.search('p.speaker').first
       session['speaker'] = speaker.inner_text.gsub('（', '(').gsub('）', ')').strip if speaker

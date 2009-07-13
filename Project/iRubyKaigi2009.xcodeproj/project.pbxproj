@@ -73,6 +73,8 @@
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
 		46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
+		46D35E56100B4B3E00C0A428 /* get_session_infos.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_session_infos.rb; sourceTree = "<group>"; };
+		46D35E57100B4B3E00C0A428 /* simple-json.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "simple-json.rb"; sourceTree = "<group>"; };
 		46EE14370FFE53D1000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		46EE14380FFE53D1000224D0 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		46EE14390FFE53D1000224D0 /* NSManagedObjectContextExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextExtension.h; sourceTree = "<group>"; };
@@ -206,6 +208,8 @@
 		4658DA8C1000EC1C00CBBFEE /* script */ = {
 			isa = PBXGroup;
 			children = (
+				46D35E56100B4B3E00C0A428 /* get_session_infos.rb */,
+				46D35E57100B4B3E00C0A428 /* simple-json.rb */,
 				4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */,
 				461405041003996C00964C01 /* get_lightning_talks.rb */,
 			);

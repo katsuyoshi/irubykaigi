@@ -13,6 +13,8 @@
 
 @implementation Document
 
+@synthesize managedObjectContext, updating;
+
 
 + (Document *)sharedDocument
 {
@@ -23,17 +25,21 @@
     return document;
 }
 
-
-- (id)init
++ (NSOperationQueue *)sharedOperationQueue
 {
-    self = [super init];
-    if (self) {
-        [self loadFavorites];
+    static NSOperationQueue *queue = nil;
+    if (queue == nil) {
+        queue = [NSOperationQueue new];
+        [queue setMaxConcurrentOperationCount:3];
     }
-    return self;
+    return queue;
 }
 
+
+
 - (void)dealloc {
+    [updating release];
+    [updatingManagedObjectContext release];
     [managedObjectContext release];
     [managedObjectModel release];
     [favoriteSet release];
@@ -141,45 +147,45 @@
 }
 
 
-- (NSManagedObject *)dayForDate:(NSString *)dateStr
+- (NSManagedObject *)dayForDate:(NSString *)dateStr managedObjectContext:(NSManagedObjectContext *)context
 {
     NSDate *date = [[self class] dateFromString:dateStr];
     NSFetchRequest *request = [[NSFetchRequest new] autorelease];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Day" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Day" inManagedObjectContext:context];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date = %@", date];
     [request setPredicate:predicate];
     [request setEntity:entity];
     
     NSError *error;
-    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *result = [context executeFetchRequest:request error:&error];
     if ([result count]) {
         return [result lastObject];
     } else {
-        NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Day" inManagedObjectContext:self.managedObjectContext];
+        NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Day" inManagedObjectContext:context];
         [eo setValue:date forKey:@"date"];
         return eo;
     }
 }
 
-- (NSManagedObject *)roomForName:(NSString *)name floor:(NSString *)floor
+- (NSManagedObject *)roomForName:(NSString *)name floor:(NSString *)floor managedObjectContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [[NSFetchRequest new] autorelease];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Room" inManagedObjectContext:context];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@ and floor = %@", name, floor];
     [request setPredicate:predicate];
     [request setEntity:entity];
     
     NSError *error;
-    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *result = [context executeFetchRequest:request error:&error];
     if ([result count]) {
         return [result lastObject];
     } else {
-        NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:self.managedObjectContext];
+        NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Room" inManagedObjectContext:context];
         [eo setValue:name forKey:@"name"];
         [eo setValue:floor forKey:@"floor"];
 
         [request setPredicate:nil];
-        int count = [self.managedObjectContext countForFetchRequest:request error:&error];
+        int count = [context countForFetchRequest:request error:&error];
         [eo setValue:[NSNumber numberWithInt:count - 1] forKey:@"position"];
         
         return eo;
@@ -220,7 +226,7 @@
 
 - (void)changeFavoriteOfSession:(NSManagedObject *)session
 {
-    NSNumber *position = [session valueForKey:@"position"];
+    NSNumber *position = [session valueForKey:@"code"];
     if ([self isFavoriteSession:session]) {
         [favoriteSet removeObject:position];
     } else {
@@ -231,7 +237,7 @@
 
 - (BOOL)isFavoriteSession:(NSManagedObject *)session
 {
-    NSNumber *position = [session valueForKey:@"position"];
+    NSNumber *position = [session valueForKey:@"code"];
     return [favoriteSet containsObject:position];
 }
 
@@ -240,6 +246,12 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *array = [userDefaults arrayForKey:@"favorite"];
     if (array) {
+        // 最初positionにしていたが、codeに変えたのでpositionからcodeへの変換
+        if ([[array lastObject] isKindOfClass:[NSNumber class]]) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"position in %@", array];
+            array = [[self sessions] filteredArrayUsingPredicate:predicate];
+            array = [array valueForKey:@"code"];
+        }
         [favoriteSet release];
         favoriteSet = [[NSMutableSet setWithArray:array] retain];
     } else {
@@ -258,7 +270,28 @@
 #pragma mark -
 #pragma mark import datas
 
-- (void)importSessionsFromCsvFile:(NSString *)fileName
+- (void)import
+{
+    if (imported == NO) {
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"session_info.csv"];
+        if ([manager fileExistsAtPath:filePath] == NO) {
+            filePath = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
+        }
+        [self importSessionsFromCsvFile:filePath managedObjectContext:self.managedObjectContext];
+        
+        filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
+        if ([manager fileExistsAtPath:filePath] == NO) {
+            filePath = [[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"];
+        }
+        [self importLightningTaklsFromCsvFile:filePath managedObjectContext:self.managedObjectContext];
+        
+        [self loadFavorites];
+        imported = YES;
+    }
+}
+
+- (void)importSessionsFromCsvFile:(NSString *)fileName managedObjectContext:(NSManagedObjectContext *)context
 {
     NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     BOOL isFirst = YES;
@@ -271,7 +304,7 @@
                 keys = [line componentsSeparatedByString:@"\t"];
             } else {
                 int index = 0;
-                NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:self.managedObjectContext];
+                NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"Session" inManagedObjectContext:context];
                 [eo setValue:[NSNumber numberWithInt:position++] forKey:@"position"];
                 
                 NSManagedObject *day;
@@ -280,7 +313,7 @@
                 for (NSString *element in [line componentsSeparatedByString:@"\t"]) {
                     NSString *key = [keys objectAtIndex:index];
                     if ([key isEqualToString:@"date"]) {
-                        day = [self dayForDate:element];
+                        day = [self dayForDate:element managedObjectContext:context];
                         [[day  mutableSetValueForKey:@"sessions"] addObject:eo];
                     } else
                     if ([key isEqualToString:@"room"]) {
@@ -305,7 +338,7 @@
                                 belonging = [belonging stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@")"]];
                             }
                             if ([name length]) {
-                                NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:self.managedObjectContext];
+                                NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
                                 [speaker setValue:name forKey:@"name"];
                                 if (belonging) {
                                     [speaker setValue:belonging forKey:@"belonging"];
@@ -324,19 +357,23 @@
                     }
 
                     if ([roomName length] && [floorName length] && ![[eo valueForKey:@"break"] boolValue]) {
-                        NSManagedObject *room = [self roomForName:roomName floor:floorName];
+                        NSManagedObject *room = [self roomForName:roomName floor:floorName managedObjectContext:context];
                         [eo setValue:room forKey:@"room"];
                         roomName = floorName = nil;
                     }
 
                     index++;
                 }
+                // codeがない場合はポジションの値を用いる
+                if ([eo valueForKey:@"code"] == nil) {
+                    [eo setValue:[[eo valueForKey:@"position"] description] forKey:@"code"];
+                }
             }
         }
     }
 }
 
-- (void)importLightningTaklsFromCsvFile:(NSString *)fileName
+- (void)importLightningTaklsFromCsvFile:(NSString *)fileName managedObjectContext:(NSManagedObjectContext *)context
 {
     NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     BOOL isFirst = YES;
@@ -347,7 +384,7 @@
                 isFirst = NO;
                 keys = [line componentsSeparatedByString:@"\t"];
             } else {
-                NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"LightningTalk" inManagedObjectContext:self.managedObjectContext];
+                NSManagedObject *eo = [NSEntityDescription insertNewObjectForEntityForName:@"LightningTalk" inManagedObjectContext:context];
                 
                 NSManagedObject *session = nil;
                 NSString *name = nil;
@@ -357,8 +394,8 @@
                 for (NSString *element in [line componentsSeparatedByString:@"\t"]) {
                     NSString *key = [keys objectAtIndex:index];
                     if ([key isEqualToString:@"date"]) {
-                        PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Session" format:@"day = %@ and title like %@" argumentArray:[NSArray arrayWithObjects:[self dayForDate:element], @"Lightning Talks*", nil]];
-                        session = [self.managedObjectContext find:condition];
+                        PredicateCondition *condition = [PredicateCondition conditionWithEntity:@"Session" format:@"day = %@ and title like %@" argumentArray:[NSArray arrayWithObjects:[self dayForDate:element managedObjectContext:context], @"Lightning Talks*", nil]];
+                        session = [context find:condition];
                         NSMutableSet *talks = [session mutableSetValueForKey:@"lightningTalks"];
                         [eo setValue:[NSNumber numberWithInt:[talks count]] forKey:@"position"];
                         [talks addObject:eo];
@@ -369,7 +406,7 @@
                     if ([key isEqualToString:@"belonging"]) {
                         belonging = element;
                         if ([name length]) {
-                            NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:self.managedObjectContext];
+                            NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
                             [speaker setValue:name forKey:@"name"];
                             [speaker setValue:belonging forKey:@"belonging"];
                             [[eo mutableSetValueForKey:@"speakers"] addObject:speaker];
@@ -388,5 +425,83 @@
         }
     }
 }
+
+
+#pragma mark -
+#pragma mark update
+
+
+- (void)loadFileAndStore:(NSString *)loadFileUri storeFileName:(NSString *)storeFileName
+{
+    NSError *error = nil;
+    NSURL *uri = [NSURL URLWithString:loadFileUri];
+    NSString *fileContents = [[NSString alloc] initWithContentsOfURL:uri encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
+    }
+    
+    NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:storeFileName];
+    [fileContents writeToFile:storePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
+    }
+}
+
+- (void)updateSessionInfos
+{
+    updatingManagedObjectContext = [NSManagedObjectContext new];
+    [updatingManagedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"session_info.csv"];
+    [self importSessionsFromCsvFile:filePath managedObjectContext:updatingManagedObjectContext];
+    filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
+    [self importLightningTaklsFromCsvFile:filePath managedObjectContext:updatingManagedObjectContext];
+}
+
+- (void)beginUpdate
+{
+    NSOperation *operation = [[[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil] autorelease];
+    self.updating = [NSNumber numberWithBool:YES];
+    [[[self class] sharedOperationQueue] addOperation:operation];
+}
+
+- (void)update
+{
+    @try {
+        // ファイル取得
+        [self loadFileAndStore:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
+        [self loadFileAndStore:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+        // 更新
+        [self updateSessionInfos];
+    
+        // データ置換
+        [self performSelectorOnMainThread:@selector(setManagedObjectContext:) withObject:updatingManagedObjectContext waitUntilDone:NO];
+        [updatingManagedObjectContext release];
+        updatingManagedObjectContext = nil;
+    } @catch (NSException *e) {
+        [self performSelectorOnMainThread:@selector(showErrorAlert:) withObject:[e reason] waitUntilDone:NO];
+    } @finally {
+        [self performSelectorOnMainThread:@selector(setUpdating:) withObject:[NSNumber numberWithInt:NO] waitUntilDone:NO];
+    }
+}
+
+
+#pragma mark -
+#pragma mark alert
+
+- (void)showErrorAlert:(NSString *)reason
+{
+IUTLog(@"error: %@", reason);
+    NSString *title = NSLocalizedString(@"Update Error!", nil);
+    NSString *message = NSLocalizedString(@"UPDATE_ERROR_MESSAGE", nil);
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [alertView release];
+    alertView = nil;
+}
+
 
 @end

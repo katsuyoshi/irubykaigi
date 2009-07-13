@@ -11,21 +11,20 @@
 
 @interface SessionTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
 
-    NSManagedObject *day;
-    NSManagedObject *nextDay;
+    NSDate *day;
+    NSDate *nextDay;
     SessionTableViewController *parent;
     SessionTableViewController *nextDaysSessionController;
     
 	NSFetchedResultsController *fetchedResultsController;
 }
 
-@property (retain) NSManagedObject *day;
-@property (retain) NSManagedObject *nextDay;
+@property (retain) NSDate *day;
+@property (retain) NSDate *nextDay;
 @property (retain) SessionTableViewController *parent;
 @property (retain, readonly) SessionTableViewController *nextDaysSessionController;
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
-
 
 - (void)previousDayAction:(id)sender;
 - (void)nextDayAction:(id)sender;
