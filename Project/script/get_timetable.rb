@@ -85,16 +85,16 @@ def parse_timetable elements, day
       page = agent.page
       title = page.search('h2').first
       session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').strip
-      page.search('p.speaker').each do |e|
+      page.search('div.speaker').each do |e|
         session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')').strip
       end
-      page.search('p.room').each do |e|
+      page.search('div.room').each do |e|
         session['room'], session['floor'] = normalized_room e.inner_text.strip
       end
-      page.search('p.abstract').each do |e|
+      page.search('div.abstract').each do |e|
         session['abstract'] = e.inner_text.gsub("\n", ' ').strip
       end
-      page.search('p.profile').each do |e|
+      page.search('div.profile').each do |e|
         session['profile'] = e.inner_text.gsub("\n", ' ').strip
       end
     end
