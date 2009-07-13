@@ -26,15 +26,6 @@
 }
 
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        [self loadFavorites];
-    }
-    return self;
-}
-
 - (void)dealloc {
     [updateError release];
     [updatingManagedObjectContext release];
@@ -224,7 +215,7 @@
 
 - (void)changeFavoriteOfSession:(NSManagedObject *)session
 {
-    NSNumber *position = [session valueForKey:@"position"];
+    NSNumber *position = [session valueForKey:@"code"];
     if ([self isFavoriteSession:session]) {
         [favoriteSet removeObject:position];
     } else {
@@ -235,7 +226,7 @@
 
 - (BOOL)isFavoriteSession:(NSManagedObject *)session
 {
-    NSNumber *position = [session valueForKey:@"position"];
+    NSNumber *position = [session valueForKey:@"code"];
     return [favoriteSet containsObject:position];
 }
 
@@ -244,6 +235,12 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *array = [userDefaults arrayForKey:@"favorite"];
     if (array) {
+        // 最初positionにしていたが、codeに変えたのでpositionからcodeへの変換
+        if ([[array lastObject] isKindOfClass:[NSNumber class]]) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"position in %@", array];
+            array = [[self sessions] filteredArrayUsingPredicate:predicate];
+            array = [array valueForKey:@"code"];
+        }
         [favoriteSet release];
         favoriteSet = [[NSMutableSet setWithArray:array] retain];
     } else {
@@ -277,6 +274,9 @@
             filePath = [[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"];
         }
         [self importLightningTaklsFromCsvFile:filePath managedObjectContext:self.managedObjectContext];
+        
+        [self loadFavorites];
+        imported = YES;
     }
 }
 
@@ -352,6 +352,10 @@
                     }
 
                     index++;
+                }
+                // codeがない場合はポジションの値を用いる
+                if ([eo valueForKey:@"code"] == nil) {
+                    [eo setValue:[[eo valueForKey:@"position"] description] forKey:@"code"];
                 }
             }
         }
