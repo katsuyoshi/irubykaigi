@@ -38,7 +38,7 @@
     // this controller will be tested.
     // TODO: replace your view controller
     controller = [[SessionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [[Document sharedDocument] importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [[Document sharedDocument] import];
     sessions = [[[Document sharedDocument] sessions] retain];
     return controller;
 }
@@ -54,7 +54,7 @@
 
 - (void)testCountAndCellWithRoom
 {
-    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 0"];
+    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 1"];
     controller.session = [[sessions filteredArrayUsingPredicate:predecate] objectAtIndex:0];
     [controller.tableView reloadData];
     
@@ -104,7 +104,7 @@
 
 - (void)testTitle
 {
-    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 0"];
+    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 1"];
     controller.session = [[sessions filteredArrayUsingPredicate:predecate] objectAtIndex:0];
     [controller viewWillAppear:NO];
 
@@ -113,7 +113,7 @@
 
 - (void)testMultiSpeaker
 {
-    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 11"];
+    NSPredicate *predecate = [NSPredicate predicateWithFormat:@"position = 12"];
     controller.session = [[sessions filteredArrayUsingPredicate:predecate] objectAtIndex:0];
     [controller.tableView reloadData];
     

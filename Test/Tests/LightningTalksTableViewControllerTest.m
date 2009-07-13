@@ -18,8 +18,7 @@
 - (void)setUp
 {
     document = [[Document sharedDocument] retain];
-    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
-    [document importLightningTaklsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"]];
+    [document import];
     [super setUp];
 }
 

@@ -42,12 +42,12 @@
 - (void)testImportFromCsvFile
 {
     // 取込み
-    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
+    [document import];
     
     // 数の確認
     ASSERT_EQUAL_INT(3, [[document days] count]);
     ASSERT_EQUAL_INT(3, [[document rooms] count]);
-    ASSERT_EQUAL_INT(72, [[document sessions] count]);
+    ASSERT_EQUAL_INT(75, [[document sessions] count]);
     
     // 検証
     for (NSManagedObject *eo in [document days]) {
@@ -72,8 +72,7 @@
 
 - (void)testImportLightningTalks
 {
-    [document importSessionsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"]];
-    [document importLightningTaklsFromCsvFile:[[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"]];
+    [document import];
     NSArray *lightningTalks = [document lightningTalks];
     ASSERT_EQUAL_INT(22, [lightningTalks count]);
     ASSERT_EQUAL(@"一橋記念講堂", [[lightningTalks objectAtIndex:0] valueForKeyPath:@"room.name"]);
