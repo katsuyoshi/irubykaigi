@@ -39,7 +39,6 @@
 
 - (void)dealloc {
     [updating release];
-    [updateError release];
     [updatingManagedObjectContext release];
     [managedObjectContext release];
     [managedObjectModel release];
@@ -434,18 +433,17 @@
 
 - (void)loadFileAndStore:(NSString *)loadFileUri storeFileName:(NSString *)storeFileName
 {
+    NSError *error = nil;
     NSURL *uri = [NSURL URLWithString:loadFileUri];
-    NSString *fileContents = [[NSString alloc] initWithContentsOfURL:uri encoding:NSUTF8StringEncoding error:&updateError];
-    if (updateError) {
-        [updateError retain];
-        return;
+    NSString *fileContents = [[NSString alloc] initWithContentsOfURL:uri encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
     }
     
     NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:storeFileName];
-    [fileContents writeToFile:storePath atomically:YES encoding:NSUTF8StringEncoding error:&updateError];
-    if (updateError) {
-        [updateError retain];
-        return;
+    [fileContents writeToFile:storePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
     }
 }
 
@@ -457,46 +455,52 @@
     [self importSessionsFromCsvFile:filePath managedObjectContext:updatingManagedObjectContext];
     filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
     [self importLightningTaklsFromCsvFile:filePath managedObjectContext:updatingManagedObjectContext];
-    
-    
 }
 
 - (void)beginUpdate
 {
-    if (updateOperation == nil) {
-        updateOperation = [[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil];
-        [updateOperation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
-        self.updating = [NSNumber numberWithBool:YES];
-        [[[self class] sharedOperationQueue] addOperation:updateOperation];
-    }
+    NSOperation *operation = [[[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil] autorelease];
+    self.updating = [NSNumber numberWithBool:YES];
+    [[[self class] sharedOperationQueue] addOperation:operation];
 }
 
 - (void)update
 {
-    [NSThread sleepForTimeInterval:5.0];
-    [updateError release];
-    updateError = nil;
+    @try {
+        // ファイル取得
+        [self loadFileAndStore:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
+        [self loadFileAndStore:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+        // 更新
+        [self updateSessionInfos];
     
-    [self loadFileAndStore:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
-    [self loadFileAndStore:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
-    
-    [self updateSessionInfos];
-    
-    [self performSelectorOnMainThread:@selector(setManagedObjectContext:) withObject:updatingManagedObjectContext waitUntilDone:NO];
-    [updatingManagedObjectContext release];
-    updatingManagedObjectContext = nil;
-
-    NSNumber *no = [[NSNumber numberWithBool:NO] retain];
-    [self performSelectorOnMainThread:@selector(setUpdating:) withObject:no waitUntilDone:NO];
-    [no release];
+        // データ置換
+        [self performSelectorOnMainThread:@selector(setManagedObjectContext:) withObject:updatingManagedObjectContext waitUntilDone:NO];
+        [updatingManagedObjectContext release];
+        updatingManagedObjectContext = nil;
+    } @catch (NSException *e) {
+        [self performSelectorOnMainThread:@selector(showErrorAlert:) withObject:[e reason] waitUntilDone:NO];
+    } @finally {
+        [self performSelectorOnMainThread:@selector(setUpdating:) withObject:[NSNumber numberWithInt:NO] waitUntilDone:NO];
+    }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+
+#pragma mark -
+#pragma mark alert
+
+- (void)showErrorAlert:(NSString *)reason
 {
-    if ([keyPath isEqualToString:@"isFinished"]) {
-        [updateOperation release];
-        updateOperation = nil;
-    }
+IUTLog(@"error: %@", reason);
+    NSString *title = NSLocalizedString(@"Update Error!", nil);
+    NSString *message = NSLocalizedString(@"UPDATE_ERROR_MESSAGE", nil);
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [alertView release];
+    alertView = nil;
 }
 
 

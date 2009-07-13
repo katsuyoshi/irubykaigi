@@ -20,8 +20,6 @@
     
     BOOL imported;
 
-    NSInvocationOperation *updateOperation;
-    NSError *updateError;
     NSNumber *updating;
 }
 
@@ -60,9 +58,16 @@
 - (void)loadFavorites;
 - (void)saveFavorites;
 
+#pragma mark -
+#pragma mark update
 
 - (void)beginUpdate;
 - (void)update;
 
+#pragma mark -
+#pragma mark alert
+
+- (void)showErrorAlert:(NSString *)reason;
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end
