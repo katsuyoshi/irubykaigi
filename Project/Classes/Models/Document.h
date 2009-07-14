@@ -31,6 +31,9 @@
 
 @property (retain) NSNumber *updating;
 
+@property (readonly) BOOL useSubSite;
+
+
 + (Document *)sharedDocument;
 
 + (NSOperationQueue *)sharedOperationQueue;

@@ -221,6 +221,12 @@
     return [self.managedObjectContext findAll:condition];
 }
 
+- (BOOL)useSubSite
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [[defaults valueForKey:@"USE_SUB_SITE"] boolValue];
+}
+
 #pragma mark -
 #pragma mark favorite
 
@@ -270,9 +276,32 @@
 #pragma mark -
 #pragma mark import datas
 
+- (void)clearFilesIfNeeds
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults valueForKey:@"CLEAR_FILES"] boolValue]) {
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSString *filePath;
+        
+        filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"session_info.csv"];
+        if ([manager fileExistsAtPath:filePath]) {
+            [manager removeItemAtPath:filePath error:NULL];
+        }
+        
+        filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
+        if ([manager fileExistsAtPath:filePath]) {
+            [manager removeItemAtPath:filePath error:NULL];
+        }
+        
+        [defaults setBool:NO forKey:@"CLEAR_FILES"];
+    }
+}
+
 - (void)import
 {
     if (imported == NO) {
+        [self clearFilesIfNeeds];
+    
         NSFileManager *manager = [NSFileManager defaultManager];
         
         // セッション情報取得
@@ -521,8 +550,14 @@ ERR:
 {
     @try {
         // ファイル取得
-        [self loadFileAndStoreToTemporary:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
-        [self loadFileAndStoreToTemporary:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+        if ([self useSubSite] == NO) {
+            [self loadFileAndStoreToTemporary:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
+            [self loadFileAndStoreToTemporary:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+        } else {
+            [self loadFileAndStoreToTemporary:NSLocalizedString(@"SUB_SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
+            [self loadFileAndStoreToTemporary:NSLocalizedString(@"SUB_LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+        }
+
         // 更新
         [self updateSessionInfosInTemporary];
     
