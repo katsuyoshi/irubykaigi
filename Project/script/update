@@ -1,0 +1,9 @@
+#!/bin/sh
+case "$0" in
+/*) A=`dirname "$0"` ;;
+*) A=`dirname "$PWD/$0"` ;;
+esac
+echo $A
+
+ruby $A/get_lightning_talks.rb
+ruby $A/get_timetable.rb
