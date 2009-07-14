@@ -26,6 +26,7 @@
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
 		4621C49E100718610052495F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C49D100718610052495F /* Default.png */; };
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
+		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		46A0B8331008194B006B355A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
 		46D2A89F0FFF59FA00E15600 /* NSManagedObjectExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */; };
 		46EE143D0FFE53D1000224D0 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EE14380FFE53D1000224D0 /* Document.m */; };
@@ -70,6 +71,7 @@
 		4621C4A710071B770052495F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
 		4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
+		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
 		46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				8D1107310486CEB800E47090 /* iRubyKaigi2009-Info.plist */,
 				4621C49D100718610052495F /* Default.png */,
 				46A0B8321008194B006B355A /* Entitlements.plist */,
+				468A2A47100C5A4E00942FE4 /* Settings.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				4621C49E100718610052495F /* Default.png in Resources */,
 				4621C51610072C4D0052495F /* iTunesArtwork in Resources */,
 				46A0B8331008194B006B355A /* Entitlements.plist in Resources */,
+				468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

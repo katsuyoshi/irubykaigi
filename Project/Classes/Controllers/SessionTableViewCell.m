@@ -34,16 +34,15 @@
 }
 
 
-/* CHECKME: 何でここ通らないんだ！
-- (id)initWithStyle:(UITableViewCellStyle)stylereuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:stylereuseIdentifier reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundView = [[UIView new] autorelease];
+        self.detailTextLabel.textColor = [UIColor darkGrayColor];
     }
     return self;
 }
-*/
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -60,20 +59,8 @@
 }
 
 
-- (void)setUp
-{
-    initialized = YES;
-    self.backgroundView = [[UIView new] autorelease];
-    
-    self.detailTextLabel.textColor = [UIColor darkGrayColor];
-}
-
 - (void)setSession:(NSManagedObject *)aSession
 {
-    if (initialized == NO) {
-        [self setUp];
-    }
-
     if (session != aSession) {
         [session release];
         session = [aSession retain];
