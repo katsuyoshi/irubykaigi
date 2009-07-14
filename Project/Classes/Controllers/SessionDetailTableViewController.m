@@ -140,7 +140,7 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleCell"] autorelease];
             cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20.0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.numberOfLines = 4;
+            cell.textLabel.numberOfLines = 10;
         }
     } else
     if (section == SPEAKERS_SECTION || section == ROOM_SECTION) {
@@ -156,7 +156,7 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DescriptionCell"] autorelease];
             cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:16.0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.numberOfLines = 20;
+            cell.textLabel.numberOfLines = 100;
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
