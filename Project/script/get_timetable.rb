@@ -123,34 +123,6 @@ def parse_timetable elements, day, json_url
     end
   end
   
-=begin
-  agent = WWW::Mechanize.new
-  @sessions.each do |session|
-    if session['href']
-      begin
-        agent.get(session['href'])
-        page = agent.page
-        title = page.search('h2').first
-        session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').strip
-        page.search('div.speaker').each do |e|
-          session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')').strip
-        end
-        page.search('div.room').each do |e|
-          session['room'], session['floor'] = normalized_room e.inner_text.strip
-        end
-        page.search('div.abstract').each do |e|
-          session['abstract'] = e.inner_text.gsub("\n", ' ').strip
-        end
-        page.search('div.profile').each do |e|
-          session['profile'] = e.inner_text.gsub("\n", ' ').strip
-        end
-      rescue
-p session['href']
-      end
-    end
-  end
-=end
- 
   # 例外
   session = @sessions.find{|e| e['title'] == 'Beer bust'}
   session['room'], session['floor'] = room_for_index(1) if session
