@@ -72,11 +72,12 @@
     [super viewWillAppear:animated];
 }
 */
-/*
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [Document sharedDocument].selectedDay = self.day;
 }
-*/
+
 /*
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
@@ -314,6 +315,17 @@
         [[self.toolbarItems objectAtIndex:0] setEnabled:!value];
     }
 
+}
+
+
+- (void)moveToController:(SessionTableViewController *)controller
+{
+    if (controller != self) {
+        if (self.nextDay) {
+            [self nextDayAction:self];
+            [self.nextDaysSessionController moveToController:controller];
+        }
+    }
 }
 
 @end

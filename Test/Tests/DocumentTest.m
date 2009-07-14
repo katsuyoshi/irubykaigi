@@ -79,6 +79,14 @@
     ASSERT_EQUAL(@"一橋記念講堂", [[lightningTalks objectAtIndex:0] valueForKeyPath:@"room.name"]);
 }
 
+- (void)testSelectedDay
+{
+    document.selectedDay = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSDate *day = [NSDate dateWithTimeIntervalSince1970:0];
+    document.selectedDay = day;
+    ASSERT_EQUAL(day, document.selectedDay);
+}
+
 
 #pragma mark -
 #pragma mark Option

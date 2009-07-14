@@ -31,5 +31,6 @@
 
 - (void)beginUpdate:(id)sender;
 
+- (void)moveToController:(SessionTableViewController *)controller;
 
 @end

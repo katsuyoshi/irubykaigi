@@ -36,8 +36,21 @@
 }
 
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        userDefaults = [[NSUserDefaults standardUserDefaults] retain];
+        formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss Z"];
+    }
+    return self;
+}
+
 
 - (void)dealloc {
+    [userDefaults release];
+    [formatter release];
     [updating release];
     [updatingManagedObjectContext release];
     [managedObjectContext release];
@@ -221,11 +234,30 @@
     return [self.managedObjectContext findAll:condition];
 }
 
+
+#pragma mark -
+#pragma mark setrings
+
 - (BOOL)useSubSite
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return [[defaults valueForKey:@"USE_SUB_SITE"] boolValue];
+    return [[userDefaults valueForKey:@"USE_SUB_SITE"] boolValue];
 }
+
+- (NSDate *)selectedDay
+{
+    NSString *dayString = [userDefaults stringForKey:@"SELECTED_DAY"];
+    if (dayString) {
+        return [formatter dateFromString:dayString];
+    } else {
+        return nil;
+    }
+}
+
+- (void)setSelectedDay:(NSDate *)day
+{
+    [userDefaults setObject:[formatter stringFromDate:day] forKey:@"SELECTED_DAY"];
+}
+
 
 #pragma mark -
 #pragma mark favorite
@@ -249,7 +281,6 @@
 
 - (void)loadFavorites
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *array = [userDefaults arrayForKey:@"favorite"];
     if (array) {
         // 最初positionにしていたが、codeに変えたのでpositionからcodeへの変換
@@ -267,7 +298,6 @@
 
 - (void)saveFavorites
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:[favoriteSet allObjects] forKey:@"favorite"];
 }
 
@@ -278,8 +308,7 @@
 
 - (void)clearFilesIfNeeds
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults valueForKey:@"CLEAR_FILES"] boolValue]) {
+    if ([[userDefaults valueForKey:@"CLEAR_FILES"] boolValue]) {
         NSFileManager *manager = [NSFileManager defaultManager];
         NSString *filePath;
         
@@ -293,7 +322,7 @@
             [manager removeItemAtPath:filePath error:NULL];
         }
         
-        [defaults setBool:NO forKey:@"CLEAR_FILES"];
+        [userDefaults setBool:NO forKey:@"CLEAR_FILES"];
     }
 }
 

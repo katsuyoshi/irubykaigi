@@ -21,6 +21,9 @@
     BOOL imported;
 
     NSNumber *updating;
+    
+    NSUserDefaults *userDefaults;
+    NSDateFormatter *formatter;
 }
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
@@ -32,6 +35,8 @@
 @property (retain) NSNumber *updating;
 
 @property (readonly) BOOL useSubSite;
+
+@property (assign) NSDate *selectedDay;
 
 
 + (Document *)sharedDocument;
