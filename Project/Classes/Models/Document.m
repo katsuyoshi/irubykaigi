@@ -461,7 +461,7 @@
 #pragma mark update
 
 
-- (void)loadFileAndStore:(NSString *)loadFileUri storeFileName:(NSString *)storeFileName
+- (void)loadFileAndStoreToTemporary:(NSString *)loadFileUri storeFileName:(NSString *)storeFileName
 {
     NSError *error = nil;
     NSURL *uri = [NSURL URLWithString:loadFileUri];
@@ -470,21 +470,44 @@
         @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
     }
     
-    NSString *storePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:storeFileName];
+    NSString *storePath = [NSTemporaryDirectory() stringByAppendingPathComponent:storeFileName];
     [fileContents writeToFile:storePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (error) {
         @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
     }
 }
 
-- (void)updateSessionInfos
+- (void)updateSessionInfosInTemporary
 {
     updatingManagedObjectContext = [NSManagedObjectContext new];
     [updatingManagedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
-    NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"session_info.csv"];
+    NSString *filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"session_info.csv"];
     [self importSessionsFromCsvFile:filePath managedObjectContext:updatingManagedObjectContext];
-    filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
+    filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"lightning_talks_info.csv"];
     [self importLightningTaklsFromCsvFile:filePath managedObjectContext:updatingManagedObjectContext];
+}
+
+- (void)replaceUpdatedFileFromTemporary:(NSString *)fileName
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSString *srcPath;
+    NSString *dstPath;
+    
+    srcPath = [NSTemporaryDirectory() stringByAppendingPathComponent:fileName];
+    dstPath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:fileName];
+    
+    if ([manager fileExistsAtPath:dstPath]) {
+        [manager removeItemAtPath:dstPath error:&error];
+        if (error) goto ERR;
+    }
+    
+    [manager moveItemAtPath:srcPath toPath:dstPath error:&error];
+    
+ERR:
+    if (error) {
+        @throw [NSException exceptionWithName:nil reason:[error localizedDescription] userInfo:nil];
+    }
 }
 
 - (void)beginUpdate
@@ -498,15 +521,19 @@
 {
     @try {
         // ファイル取得
-        [self loadFileAndStore:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
-        [self loadFileAndStore:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+        [self loadFileAndStoreToTemporary:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
+        [self loadFileAndStoreToTemporary:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
         // 更新
-        [self updateSessionInfos];
+        [self updateSessionInfosInTemporary];
     
         // データ置換
         [self performSelectorOnMainThread:@selector(setManagedObjectContext:) withObject:updatingManagedObjectContext waitUntilDone:NO];
         [updatingManagedObjectContext release];
         updatingManagedObjectContext = nil;
+        
+        // 成功したらファイルを置換える
+        [self replaceUpdatedFileFromTemporary:@"session_info.csv"];
+        [self replaceUpdatedFileFromTemporary:@"lightning_talks_info.csv"];
     } @catch (NSException *e) {
         [self performSelectorOnMainThread:@selector(showErrorAlert:) withObject:[e reason] waitUntilDone:NO];
     } @finally {
