@@ -274,15 +274,45 @@
 {
     if (imported == NO) {
         NSFileManager *manager = [NSFileManager defaultManager];
-        NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"session_info.csv"];
-        if ([manager fileExistsAtPath:filePath] == NO) {
-            filePath = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
+        
+        // セッション情報取得
+        NSString *originalFilePath = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
+        NSString *updatedFilePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"session_info.csv"];
+        NSString *filePath;
+
+        if ([manager fileExistsAtPath:updatedFilePath]) {
+            // 更新ファイルがある場合
+            // 更新時間が後の方を採用
+            NSDate *dateOfOriginal = [[manager fileAttributesAtPath:originalFilePath traverseLink:NO] valueForKey:NSFileModificationDate];
+            NSDate *dateOfUpdated = [[manager fileAttributesAtPath:updatedFilePath traverseLink:NO] valueForKey:NSFileModificationDate];
+            if ([dateOfOriginal laterDate:dateOfUpdated] == dateOfOriginal) {
+                filePath = originalFilePath;
+            } else {
+                filePath = updatedFilePath;
+            }
+        } else {
+            filePath = originalFilePath;
         }
         [self importSessionsFromCsvFile:filePath managedObjectContext:self.managedObjectContext];
         
-        filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
-        if ([manager fileExistsAtPath:filePath] == NO) {
-            filePath = [[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"];
+        
+        
+        // Lightning talks情報取得
+        originalFilePath = [[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"];
+        updatedFilePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"lightning_talks_info.csv"];
+        
+        if ([manager fileExistsAtPath:updatedFilePath]) {
+            // 更新ファイルがある場合
+            // 更新時間が後の方を採用
+            NSDate *dateOfOriginal = [[manager fileAttributesAtPath:originalFilePath traverseLink:NO] valueForKey:NSFileModificationDate];
+            NSDate *dateOfUpdated = [[manager fileAttributesAtPath:updatedFilePath traverseLink:NO] valueForKey:NSFileModificationDate];
+            if ([dateOfOriginal laterDate:dateOfUpdated] == dateOfOriginal) {
+                filePath = originalFilePath;
+            } else {
+                filePath = updatedFilePath;
+            }
+        } else {
+            filePath = originalFilePath;
         }
         [self importLightningTaklsFromCsvFile:filePath managedObjectContext:self.managedObjectContext];
         
