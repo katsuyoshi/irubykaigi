@@ -1,6 +1,9 @@
 require 'rubygems'
 require 'mechanize'
 
+@base_dir = File.expand_path(File.dirname(__FILE__))
+@store_dir = @base_dir + "/.."
+
 @keys = %w(date title speaker belonging)
 @lightning_talks = []
 
@@ -82,5 +85,5 @@ def get_parse_store_and_love uris, filename, skip_title = false
   
 end
   
-get_parse_store_and_love ['http://rubykaigi.org/2009/ja/talks/17H05', 'http://rubykaigi.org/2009/ja/talks/18H06'], './Japanese.lproj/lightning_talks_info.csv'
-get_parse_store_and_love ['http://rubykaigi.org/2009/en/talks/17H05', 'http://rubykaigi.org/2009/en/talks/18H06'], './English.lproj/lightning_talks_info.csv', true
+get_parse_store_and_love ['http://rubykaigi.org/2009/ja/talks/17H05', 'http://rubykaigi.org/2009/ja/talks/18H06'], @store_dir + '/Japanese.lproj/lightning_talks_info.csv'
+get_parse_store_and_love ['http://rubykaigi.org/2009/en/talks/17H05', 'http://rubykaigi.org/2009/en/talks/18H06'], @store_dir + '/English.lproj/lightning_talks_info.csv', true

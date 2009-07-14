@@ -1,5 +1,11 @@
 require 'rubygems'
 require 'mechanize'
+require 'open-uri'
+require File.expand_path(File.dirname(__FILE__) + '/simple-json')
+
+@base_dir = File.expand_path(File.dirname(__FILE__))
+@store_dir = @base_dir + "/.."
+
 
 @keys = %w(code date time title speaker break room floor attention abstract profile)
 @sessions = []
@@ -35,7 +41,21 @@ def room_for_index i
   @rooms[i]
 end
 
-def parse_timetable elements, day
+def room_for_session session
+  codes = %w(H M S)
+  /(H|M|S)/ =~ session['code']
+  if $1
+    room_for_index codes.index($1)
+  else
+    [nil, nil]
+  end
+end
+
+
+
+def parse_timetable elements, day, json_url
+  code_dict = Hash.new
+
   # 部屋情報
   elements.search('th.room').map {|e| add_room(e.inner_text)}
   
@@ -56,6 +76,7 @@ def parse_timetable elements, day
         if link
           session['href'] = 'http://rubykaigi.org' << link[:href] 
           session['code'] = link[:href].split("/").last
+          code_dict[session['code']] = session
         end
       end
       speaker = e.search('p.speaker').first
@@ -81,27 +102,54 @@ def parse_timetable elements, day
 
   # 詳細情報の取得
   # セッション情報の取得
-  agent = WWW::Mechanize.new
-  @sessions.each do |session|
-    if session['href']
-      agent.get(session['href'])
-      page = agent.page
-      title = page.search('h2').first
-      session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').strip
-      page.search('div.speaker').each do |e|
-        session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')').strip
-      end
-      page.search('div.room').each do |e|
-        session['room'], session['floor'] = normalized_room e.inner_text.strip
-      end
-      page.search('div.abstract').each do |e|
-        session['abstract'] = e.inner_text.gsub("\n", ' ').strip
-      end
-      page.search('div.profile').each do |e|
-        session['profile'] = e.inner_text.gsub("\n", ' ').strip
+  # 大部分はjsonから得る
+  src = ''
+  open(json_url) do |f|
+    src = f.read
+  end
+  json = WebAPI::JsonParser.new.parse(src)
+ 
+  json.each do |item|
+    talk = item['talk']
+    if talk['code']
+      session = code_dict[talk['code']]
+      if session
+        session['title'] = talk['title']
+        session['speaker'] = talk['speaker'].gsub('（', '(').gsub('）', ')').strip
+        session['abstract'] = talk['abstract'].gsub("\n", ' ').strip if talk['abstract']
+        session['profile'] = talk['profile'].gsub("\n", ' ').strip if talk['abstract']
+        session['room'], session['floor'] = room_for_session session
       end
     end
   end
+  
+=begin
+  agent = WWW::Mechanize.new
+  @sessions.each do |session|
+    if session['href']
+      begin
+        agent.get(session['href'])
+        page = agent.page
+        title = page.search('h2').first
+        session['title'] = title.inner_text.gsub('Title: ', '').gsub('タイトル: ', '').strip
+        page.search('div.speaker').each do |e|
+          session['speaker'] = e.inner_text.gsub('（', '(').gsub('）', ')').strip
+        end
+        page.search('div.room').each do |e|
+          session['room'], session['floor'] = normalized_room e.inner_text.strip
+        end
+        page.search('div.abstract').each do |e|
+          session['abstract'] = e.inner_text.gsub("\n", ' ').strip
+        end
+        page.search('div.profile').each do |e|
+          session['profile'] = e.inner_text.gsub("\n", ' ').strip
+        end
+      rescue
+p session['href']
+      end
+    end
+  end
+=end
  
   # 例外
   session = @sessions.find{|e| e['title'] == 'Beer bust'}
@@ -121,7 +169,7 @@ def parse_timetable elements, day
    
 end
 
-def get_parse_store_and_love uri, filename
+def get_parse_store_and_love uri, filename, json_url
   @sessions = []
   @rooms = []
   
@@ -133,7 +181,7 @@ def get_parse_store_and_love uri, filename
   # 解析
   days = page.search('h2').map {|e| e.inner_text.gsub(/年|月/, '-').gsub(/日.*/, '')}
   page.search('table.timetable').each_with_index do |timetable, i|
-    parse_timetable timetable, Date.parse(days[i])
+    parse_timetable timetable, Date.parse(days[i]), json_url
   end
 
   # ファイルのデータに整形
@@ -156,6 +204,6 @@ def get_parse_store_and_love uri, filename
 end
 
 
-get_parse_store_and_love 'http://rubykaigi.org/2009/ja/talks', './Japanese.lproj/session_info.csv'
-get_parse_store_and_love 'http://rubykaigi.org/2009/en/talks', './English.lproj/session_info.csv'
+get_parse_store_and_love 'http://rubykaigi.org/2009/ja/talks', @store_dir + '/Japanese.lproj/session_info.csv', 'http://rubykaigi.org/2009/ja/talks.json'
+get_parse_store_and_love 'http://rubykaigi.org/2009/en/talks', @store_dir + '/English.lproj/session_info.csv', 'http://rubykaigi.org/2009/en/talks.json'
 
