@@ -311,7 +311,6 @@
     } else 
     if ([keyPath isEqualToString:@"updating"]) {
         BOOL value = [[change valueForKey:@"new"] boolValue];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = value;
         [[self.toolbarItems objectAtIndex:0] setEnabled:!value];
     }
 

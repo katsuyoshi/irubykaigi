@@ -58,6 +58,8 @@
         needsUpdate = [userDefaults boolForKey:@"PRE_JAPANESE_CONTENTS"];
         needsUpdate = japaneseContents != needsUpdate;
         [userDefaults setBool:japaneseContents forKey:@"PRE_JAPANESE_CONTENTS"];
+
+        [self addObserver:self forKeyPath:@"updating" options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -650,6 +652,14 @@ ERR:
         [self performSelectorOnMainThread:@selector(showErrorAlert:) withObject:[e reason] waitUntilDone:NO];
     } @finally {
         [self performSelectorOnMainThread:@selector(setUpdating:) withObject:[NSNumber numberWithInt:NO] waitUntilDone:NO];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"updating"]) {
+        BOOL value = [[change valueForKey:@"new"] boolValue];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = value;
     }
 }
 
