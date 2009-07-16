@@ -49,6 +49,10 @@
     [window makeKeyAndVisible];
 
     [firstSessionViewController moveToController:currentViewController];
+    
+    if ([document needsUpdate]) {
+        [document beginUpdate];
+    }
 }
 
 /**

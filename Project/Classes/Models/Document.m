@@ -22,7 +22,7 @@
 
 @implementation Document
 
-@synthesize managedObjectContext, updating;
+@synthesize managedObjectContext, updating, needsUpdate;
 
 
 + (Document *)sharedDocument
@@ -53,6 +53,11 @@
         formatter = [NSDateFormatter new];
         [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss Z"];
         japaneseContents = [userDefaults boolForKey:@"JAPANESE_CONTENTS"];
+        
+        // japaneseContentsの変更があったらリロードが必要
+        needsUpdate = [userDefaults boolForKey:@"PRE_JAPANESE_CONTENTS"];
+        needsUpdate = japaneseContents != needsUpdate;
+        [userDefaults setBool:japaneseContents forKey:@"PRE_JAPANESE_CONTENTS"];
     }
     return self;
 }

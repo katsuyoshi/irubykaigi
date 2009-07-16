@@ -20,6 +20,7 @@
     
     BOOL imported;
     BOOL japaneseContents;
+    BOOL needsUpdate;
 
     NSNumber *updating;
     
@@ -36,6 +37,7 @@
 @property (retain) NSNumber *updating;
 
 @property (readonly) BOOL useSubSite;
+@property (readonly) BOOL needsUpdate;
 
 @property (assign) NSDate *selectedDay;
 
