@@ -55,8 +55,7 @@
         japaneseContents = [userDefaults boolForKey:@"JAPANESE_CONTENTS"];
         
         // japaneseContentsの変更があったらリロードが必要
-        needsUpdate = [userDefaults boolForKey:@"PRE_JAPANESE_CONTENTS"];
-        needsUpdate = japaneseContents != needsUpdate;
+        needsUpdate = japaneseContents != [userDefaults boolForKey:@"PRE_JAPANESE_CONTENTS"];
         [userDefaults setBool:japaneseContents forKey:@"PRE_JAPANESE_CONTENTS"];
 
         [self addObserver:self forKeyPath:@"updating" options:NSKeyValueObservingOptionNew context:NULL];
