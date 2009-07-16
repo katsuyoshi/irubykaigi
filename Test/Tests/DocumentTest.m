@@ -87,6 +87,50 @@
     ASSERT_EQUAL(day, document.selectedDay);
 }
 
+#pragma mark 設定毎のURLのテスト
+
+#if 0   // 日本語環境にしてテスト
+
+- (void)testDefaultUrl
+{
+    [document setValue:[NSNumber numberWithBool:NO] forKey:@"japaneseContents"];
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/Japanese.lproj/session_info.csv", [document sessionInfoUrl]);
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/Japanese.lproj/lightning_talks_info.csv", [document lightningTalksInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/crfxcr", [document subSessionInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/y3njc7", [document subLightningTalksInfoUrl]);
+}
+
+- (void)testJapaneseUrl
+{
+    [document setValue:[NSNumber numberWithBool:YES] forKey:@"japaneseContents"];
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/Japanese.lproj/session_info.csv", [document sessionInfoUrl]);
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/Japanese.lproj/lightning_talks_info.csv", [document lightningTalksInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/crfxcr", [document subSessionInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/y3njc7", [document subLightningTalksInfoUrl]);
+}
+
+
+#else   // 英語環境でテスト
+
+- (void)testDefaultUrl
+{
+    [document setValue:[NSNumber numberWithBool:NO] forKey:@"japaneseContents"];
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/English.lproj/session_info.csv", [document sessionInfoUrl]);
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/English.lproj/lightning_talks_info.csv", [document lightningTalksInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/abbuj1", [document subSessionInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/fespqk", [document subLightningTalksInfoUrl]);
+}
+
+- (void)testJapaneseUrl
+{
+    [document setValue:[NSNumber numberWithBool:YES] forKey:@"japaneseContents"];
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/Japanese.lproj/session_info.csv", [document sessionInfoUrl]);
+    ASSERT_EQUAL(@"http://iphone.itosoft.com/irubykaigi2009/Japanese.lproj/lightning_talks_info.csv", [document lightningTalksInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/crfxcr", [document subSessionInfoUrl]);
+    ASSERT_EQUAL(@"http://files.me.com/gutskun/y3njc7", [document subLightningTalksInfoUrl]);
+}
+
+#endif
 
 #pragma mark -
 #pragma mark Option

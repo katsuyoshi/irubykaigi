@@ -19,6 +19,7 @@
     NSMutableSet *favoriteSet;
     
     BOOL imported;
+    BOOL japaneseContents;
 
     NSNumber *updating;
     
@@ -69,8 +70,14 @@
 #pragma mark -
 #pragma mark update
 
+// テスト用に公開してるだけ
+- (NSString *)sessionInfoUrl;
+- (NSString *)lightningTalksInfoUrl;
+- (NSString *)subSessionInfoUrl;
+- (NSString *)subLightningTalksInfoUrl;
+
+// 更新開始
 - (void)beginUpdate;
-- (void)update;
 
 #pragma mark -
 #pragma mark alert

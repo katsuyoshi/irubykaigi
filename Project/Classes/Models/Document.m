@@ -11,6 +11,15 @@
 #import "IUTLog.h"
 
 
+@interface Document(_private)
+- (NSString *)urlForKey:(NSString *)key;
+- (void)loadFileAndStoreToTemporary:(NSString *)loadFileUri storeFileName:(NSString *)storeFileName;
+- (void)updateSessionInfosInTemporary;
+- (void)replaceUpdatedFileFromTemporary:(NSString *)fileName;
+- (void)update;
+@end
+
+
 @implementation Document
 
 @synthesize managedObjectContext, updating;
@@ -43,6 +52,7 @@
         userDefaults = [[NSUserDefaults standardUserDefaults] retain];
         formatter = [NSDateFormatter new];
         [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss Z"];
+        japaneseContents = [userDefaults boolForKey:@"JAPANESE_CONTENTS"];
     }
     return self;
 }
@@ -518,6 +528,38 @@
 #pragma mark -
 #pragma mark update
 
+- (NSString *)urlForKey:(NSString *)key
+{
+    if (japaneseContents) {
+        NSString *url = NSLocalizedString([@"JA_" stringByAppendingString:key], nil);
+        if ([url length]) {
+            return url;
+        }
+    }
+    return NSLocalizedString(key, nil);
+}
+
+- (NSString *)sessionInfoUrl
+{
+    return [self urlForKey:@"SESSION_INFO_URL"];
+}
+
+- (NSString *)lightningTalksInfoUrl
+{
+    return [self urlForKey:@"LIGHTNING_TALKS_INFO_URL"];
+}
+
+- (NSString *)subSessionInfoUrl
+{
+    return [self urlForKey:@"SUB_SESSION_INFO_URL"];
+}
+
+- (NSString *)subLightningTalksInfoUrl
+{
+    return [self urlForKey:@"SUB_LIGHTNING_TALKS_INFO_URL"];
+}
+
+
 
 - (void)loadFileAndStoreToTemporary:(NSString *)loadFileUri storeFileName:(NSString *)storeFileName
 {
@@ -568,6 +610,7 @@ ERR:
     }
 }
 
+
 - (void)beginUpdate
 {
     NSOperation *operation = [[[NSInvocationOperation alloc] initWithTarget:[Document sharedDocument] selector:@selector(update) object:(id)nil] autorelease];
@@ -580,11 +623,11 @@ ERR:
     @try {
         // ファイル取得
         if ([self useSubSite] == NO) {
-            [self loadFileAndStoreToTemporary:NSLocalizedString(@"SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
-            [self loadFileAndStoreToTemporary:NSLocalizedString(@"LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+            [self loadFileAndStoreToTemporary:[self sessionInfoUrl] storeFileName:@"session_info.csv"];
+            [self loadFileAndStoreToTemporary:[self lightningTalksInfoUrl] storeFileName:@"lightning_talks_info.csv"];
         } else {
-            [self loadFileAndStoreToTemporary:NSLocalizedString(@"SUB_SESSION_INFO_URL", nil) storeFileName:@"session_info.csv"];
-            [self loadFileAndStoreToTemporary:NSLocalizedString(@"SUB_LIGHTNING_TALKS_INFO_URL", nil) storeFileName:@"lightning_talks_info.csv"];
+            [self loadFileAndStoreToTemporary:[self subSessionInfoUrl] storeFileName:@"session_info.csv"];
+            [self loadFileAndStoreToTemporary:[self subLightningTalksInfoUrl] storeFileName:@"lightning_talks_info.csv"];
         }
 
         // 更新

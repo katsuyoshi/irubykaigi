@@ -16,7 +16,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Use sub site</string>
+			<string>Use a subsite</string>
 			<key>Key</key>
 			<string>USE_SUB_SITE</string>
 			<key>DefaultValue</key>
@@ -29,6 +29,22 @@
 			<string>Clear data files</string>
 			<key>Key</key>
 			<string>CLEAR_FILES</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Contents</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Japanese</string>
+			<key>Key</key>
+			<string>JAPANESE_CONTENTS</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
