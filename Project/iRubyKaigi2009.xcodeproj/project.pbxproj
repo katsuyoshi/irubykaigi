@@ -358,7 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Katsuyoshi Ito";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Katsuyoshi Ito (FN4DNLCM76)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -366,7 +366,7 @@
 				GCC_PREFIX_HEADER = iRubyKaigi2009_Prefix.pch;
 				INFOPLIST_FILE = "iRubyKaigi2009-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2009;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "58D56B63-330B-4EA8-AFA7-F8228913319C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9A428EC5-E3A8-43AD-855D-959917B2446B";
 			};
 			name = Debug;
 		};
