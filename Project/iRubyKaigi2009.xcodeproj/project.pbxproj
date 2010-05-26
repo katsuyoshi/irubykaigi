@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* iRubyKaigi2009AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iRubyKaigi2009AppDelegate.m */; };
+		1D3623260D0F684500981E51 /* iRubyKaigiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* iRubyKaigiAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -39,9 +39,9 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* iRubyKaigi2009AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi2009AppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* iRubyKaigi2009AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRubyKaigi2009AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* iRubyKaigi2009.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRubyKaigi2009.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D3623240D0F684500981E51 /* iRubyKaigiAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigiAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* iRubyKaigiAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRubyKaigiAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* iRubyKaigi2010.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRubyKaigi2010.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28860B760F44E54D00985440 /* iRubyKaigi2009.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi2009.xcdatamodel; sourceTree = "<group>"; };
 		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -89,7 +89,7 @@
 		46EE15260FFE6899000224D0 /* SessionDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailTableViewController.m; sourceTree = "<group>"; };
 		46EE18240FFF1454000224D0 /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
 		46EE18250FFF1454000224D0 /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* iRubyKaigi2009-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iRubyKaigi2009-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* iRubyKaigi-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iRubyKaigi-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +112,8 @@
 			children = (
 				460A79E90FFDA94400DD0775 /* Controllers */,
 				46EE14360FFE53D1000224D0 /* Models */,
-				1D3623240D0F684500981E51 /* iRubyKaigi2009AppDelegate.h */,
-				1D3623250D0F684500981E51 /* iRubyKaigi2009AppDelegate.m */,
+				1D3623240D0F684500981E51 /* iRubyKaigiAppDelegate.h */,
+				1D3623250D0F684500981E51 /* iRubyKaigiAppDelegate.m */,
 				463AC8461001CEFF00AF2B05 /* IUTLog.h */,
 			);
 			path = Classes;
@@ -122,7 +122,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* iRubyKaigi2009.app */,
+				1D6058910D05DD3D006BFB54 /* iRubyKaigi2010.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +133,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				4692CB0311ACB8040098ADE1 /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -163,7 +164,7 @@
 				460A79F10FFDA98600DD0775 /* session_info.csv */,
 				28860B760F44E54D00985440 /* iRubyKaigi2009.xcdatamodel */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* iRubyKaigi2009-Info.plist */,
+				8D1107310486CEB800E47090 /* iRubyKaigi-Info.plist */,
 				4621C49D100718610052495F /* Default.png */,
 				46A0B8321008194B006B355A /* Entitlements.plist */,
 				468A2A47100C5A4E00942FE4 /* Settings.bundle */,
@@ -219,6 +220,13 @@
 			path = script;
 			sourceTree = "<group>";
 		};
+		4692CB0311ACB8040098ADE1 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Resources-iPad";
+			sourceTree = "<group>";
+		};
 		46EE14360FFE53D1000224D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,9 +246,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* iRubyKaigi2009 */ = {
+		1D6058900D05DD3D006BFB54 /* iRubyKaigi2010 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2009" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2010" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -250,9 +258,9 @@
 			);
 			dependencies = (
 			);
-			name = iRubyKaigi2009;
+			name = iRubyKaigi2010;
 			productName = iRubyKaigi2009;
-			productReference = 1D6058910D05DD3D006BFB54 /* iRubyKaigi2009.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* iRubyKaigi2010.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +282,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* iRubyKaigi2009 */,
+				1D6058900D05DD3D006BFB54 /* iRubyKaigi2010 */,
 			);
 		};
 /* End PBXProject section */
@@ -306,7 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* iRubyKaigi2009AppDelegate.m in Sources */,
+				1D3623260D0F684500981E51 /* iRubyKaigiAppDelegate.m in Sources */,
 				28860B770F44E54D00985440 /* iRubyKaigi2009.xcdatamodel in Sources */,
 				460A79EE0FFDA94400DD0775 /* SessionTableViewController.m in Sources */,
 				46EE143D0FFE53D1000224D0 /* Document.m in Sources */,
@@ -358,15 +366,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Katsuyoshi Ito (FN4DNLCM76)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRubyKaigi2009_Prefix.pch;
-				INFOPLIST_FILE = "iRubyKaigi2009-Info.plist";
-				PRODUCT_NAME = iRubyKaigi2009;
+				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
+				PRODUCT_NAME = iRubyKaigi2010;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9A428EC5-E3A8-43AD-855D-959917B2446B";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -374,11 +385,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRubyKaigi2009_Prefix.pch;
-				INFOPLIST_FILE = "iRubyKaigi2009-Info.plist";
+				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2009;
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -390,8 +404,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = "Ad Hoc Distribution";
 		};
@@ -399,14 +414,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRubyKaigi2009_Prefix.pch;
-				INFOPLIST_FILE = "iRubyKaigi2009-Info.plist";
+				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2009;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc Distribution";
 		};
@@ -418,8 +436,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
@@ -431,15 +450,16 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2009" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2010" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

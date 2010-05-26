@@ -9,7 +9,7 @@
 #import "Document.h"
 
 
-@interface iRubyKaigi2009AppDelegate : NSObject <UIApplicationDelegate> {
+@interface iRubyKaigiAppDelegate : NSObject <UIApplicationDelegate> {
     
     UIWindow *window;
     UINavigationController *navigationController;

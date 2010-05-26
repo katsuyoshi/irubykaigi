@@ -6,10 +6,10 @@
 //  Copyright ITO SOFT DESIGN Inc 2009. All rights reserved.
 //
 
-#import "iRubyKaigi2009AppDelegate.h"
+#import "iRubyKaigiAppDelegate.h"
 
 
-@implementation iRubyKaigi2009AppDelegate
+@implementation iRubyKaigiAppDelegate
 
 @synthesize window;
 @synthesize navigationController, firstSessionViewController;
