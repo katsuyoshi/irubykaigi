@@ -1,36 +1,33 @@
 //
 //  SessionTableViewController.h
-//  iRubyKaigi2009Test
+//  iRubyKaigi
 //
-//  Created by Katsuyoshi Ito on 09/07/02.
-//  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
+//  Created by Katsuyoshi Ito on 10/05/26.
+//  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ISCDListTableViewController.h"
 
 
-@interface SessionTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface SessionTableViewController : ISCDListTableViewController <UISearchDisplayDelegate, UISearchBarDelegate> {
 
-    NSDate *day;
-    NSDate *nextDay;
-    SessionTableViewController *parent;
-    SessionTableViewController *nextDaysSessionController;
+    IBOutlet UISegmentedControl *dateSecmentedController;
     
-	NSFetchedResultsController *fetchedResultsController;
+    NSPredicate *datePredicate;
+    NSPredicate *roomPredicate;
+    NSPredicate *searchPredicate;
+    
 }
 
-@property (retain) NSDate *day;
-@property (retain) NSDate *nextDay;
-@property (retain) SessionTableViewController *parent;
-@property (retain, readonly) SessionTableViewController *nextDaysSessionController;
++ (UINavigationController *)navigationController;
++ (SessionTableViewController *)sessionViewController;
 
-@property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
+@property (retain) NSPredicate *datePredicate;
+@property (retain) NSPredicate *roomPredicate;
+@property (retain) NSPredicate *searchPredicate;
 
-- (void)previousDayAction:(id)sender;
-- (void)nextDayAction:(id)sender;
+@property (assign, readonly) NSPredicate *sessionPredicate;
 
-- (void)beginUpdate:(id)sender;
-
-- (void)moveToController:(SessionTableViewController *)controller;
 
 @end

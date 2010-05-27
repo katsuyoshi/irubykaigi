@@ -7,7 +7,8 @@
 //
 
 #import "iRubyKaigiAppDelegate.h"
-
+#import "SessionTableViewController.h"
+#import "TestDataImporter.h"
 
 @implementation iRubyKaigiAppDelegate
 
@@ -18,7 +19,18 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+
+    [[[TestDataImporter new] autorelease] import];
+
+    navigationController = [[SessionTableViewController navigationController] retain];
+
+    [window addSubview:navigationController.view];
+    [window makeKeyAndVisible];
+    
+    
+    
+#if 0
     Document *document = [Document sharedDocument];
     [document import];
     
@@ -53,6 +65,7 @@
     if ([document needsUpdate]) {
         [document beginUpdate];
     }
+#endif
 }
 
 /**
