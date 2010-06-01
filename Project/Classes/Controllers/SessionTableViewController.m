@@ -7,10 +7,15 @@
 //
 
 #import "SessionTableViewController.h"
+#import "Property.h"
+#import "Region.h"
+#import "Day.h"
+
 
 
 @interface SessionTableViewController(IRKPrivate)
 - (void)buildSearchDisplayController;
+- (void)buildDateSecmentedController;
 @end
 
 
@@ -44,9 +49,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
+    region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
+    [region retain];
+
     self.navigationItem.titleView = dateSecmentedController;
 
     [self buildSearchDisplayController];
+    [self buildDateSecmentedController];
 }
 
 - (void)buildSearchDisplayController
@@ -58,6 +67,15 @@
     searchBar.scopeButtonTitles = [NSArray arrayWithObjects:
                         NSLocalizedString(@"All", nil),
                         NSLocalizedString(@"Advanced", nil), nil];
+}
+
+- (void)buildDateSecmentedController
+{
+    int i = 0;    
+    [dateSecmentedController removeAllSegments];
+    for (Day *day in region.sortedDays) {
+        [dateSecmentedController insertSegmentWithTitle:day.title atIndex:i++ animated:NO];
+    }
 }
 
 

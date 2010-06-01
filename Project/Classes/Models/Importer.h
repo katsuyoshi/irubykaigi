@@ -16,5 +16,10 @@
 
 - (void)import;
 
+- (void)prepareDaysWithManagedObjectContext:(NSManagedObjectContext *)context;
+- (void)prepareSissionTypesWithManagedObjectContext:(NSManagedObjectContext *)context;
+
+
+- (void)save:(NSManagedObjectContext *)context;
 
 @end

@@ -21,6 +21,9 @@
 
 @property (assign, readonly) NSString *title;
 
++ (Day *)dayWithDate:(NSDate *)date region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Day *)dayWithDate:(NSDate *)date region:(Region *)region;
+
 @end
 
 

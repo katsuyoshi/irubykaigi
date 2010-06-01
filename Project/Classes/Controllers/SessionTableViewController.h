@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ISCDListTableViewController.h"
+#import "Region.h"
 
 
 @interface SessionTableViewController : ISCDListTableViewController <UISearchDisplayDelegate, UISearchBarDelegate> {
@@ -18,6 +19,7 @@
     NSPredicate *roomPredicate;
     NSPredicate *searchPredicate;
     
+    Region *region;
 }
 
 + (UINavigationController *)navigationController;

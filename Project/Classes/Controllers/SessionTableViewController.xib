@@ -82,7 +82,7 @@
 			<object class="IBUISegmentedControl" id="675041341">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
-				<string key="NSFrameSize">{240, 30}</string>
+				<string key="NSFrameSize">{300, 30}</string>
 				<reference key="NSSuperview"/>
 				<bool key="IBUIOpaque">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -275,7 +275,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>SessionTableViewController</string>
 					<string>UIResponder</string>
-					<string>{{63, 646}, {240, 30}}</string>
+					<string>{{63, 646}, {300, 30}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{298, 244}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

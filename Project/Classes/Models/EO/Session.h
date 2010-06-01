@@ -7,11 +7,10 @@
 //
 
 #import <CoreData/CoreData.h>
-#import "LocalizeableEntity.h"
 
 @class LightningTalk;
 
-@interface Session :  LocalizeableEntity  
+@interface Session :  NSManagedObject  
 {
 }
 
