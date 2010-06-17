@@ -43,5 +43,10 @@
     return [self speakerWithCode:code region:region inManagedObjectContext:DEFAULT_MANAGED_OBJECT_CONTEXT];
 }
 
++ (NSString *)listScopeName
+{
+    return @"session";
+}
+
 
 @end

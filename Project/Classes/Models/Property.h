@@ -17,4 +17,7 @@
 
 @property BOOL japanese;
 
+@property (assign) NSArray *sessionSearchHistories;
+
+
 @end

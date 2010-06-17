@@ -24,5 +24,11 @@
 @dynamic day;
 @dynamic room;
 @dynamic lightningTalks;
+@dynamic speakerRawData;
+
++ (NSString *)listScopeName
+{
+    return @"day";
+}
 
 @end

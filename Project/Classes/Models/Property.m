@@ -26,4 +26,15 @@
     return [self boolValueForKey:@"japanese" defaultValue:YES];
 }
 
+- (void)setSessionSearchHistories:(NSArray *)array
+{
+    [self setArray:array forKey:@"sessionSearchHistories"];
+}
+
+
+- (NSArray *)sessionSearchHistories
+{
+    return [self arrayForKey:@"sessionSearchHistories"];
+}
+
 @end

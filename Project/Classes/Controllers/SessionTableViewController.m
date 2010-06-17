@@ -22,8 +22,9 @@
 @implementation SessionTableViewController
 
 @synthesize datePredicate, roomPredicate, searchPredicate;
-@dynamic sessionPredicate;
+// FIXM: @dynamic sessionPredicate;
 
+@synthesize searchString, searchScopes;
 
 
 + (UINavigationController *)navigationController
@@ -43,19 +44,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
     region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
     [region retain];
 
     self.navigationItem.titleView = dateSecmentedController;
-
     [self buildSearchDisplayController];
     [self buildDateSecmentedController];
+
+    if ([region.sortedDays count]) {
+        self.masterObject = [region.sortedDays objectAtIndex:0];
+    }
 }
 
 - (void)buildSearchDisplayController
@@ -66,7 +64,9 @@
     
     searchBar.scopeButtonTitles = [NSArray arrayWithObjects:
                         NSLocalizedString(@"All", nil),
-                        NSLocalizedString(@"Advanced", nil), nil];
+                        NSLocalizedString(@"Session", nil),
+                        NSLocalizedString(@"Speaker", nil),
+                        nil];
 }
 
 - (void)buildDateSecmentedController
@@ -77,7 +77,6 @@
         [dateSecmentedController insertSegmentWithTitle:day.title atIndex:i++ animated:NO];
     }
 }
-
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -109,77 +108,6 @@
 
 
 #pragma mark -
-#pragma mark Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;
-}
-
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-#pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -197,20 +125,13 @@
 #pragma mark -
 #pragma mark Memory management
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
 
 - (void)dealloc {
+    [searchString release];
+    [searchScopes release];
+    
+    [region release];
+    
     [datePredicate release];
     [roomPredicate release];
     [searchPredicate release];
@@ -219,10 +140,25 @@
     [super dealloc];
 }
 
-
 #pragma mark -
 #pragma mark properties
 
+- (void)setMasterObject:(NSManagedObject *)object
+{
+    [super setMasterObject:object];
+    
+    Day *day = (Day *)object;
+    int index = [day.region.sortedDays indexOfObject:day];
+    dateSecmentedController.selectedSegmentIndex = index;
+    [self reloadData];
+}
+
+- (NSPredicate *)predicate
+{
+    return self.searchPredicate;
+}
+
+/* FIXME:
 - (NSPredicate *)sessionPredicate
 {
     NSMutableArray *predicates = [NSMutableArray array];
@@ -245,6 +181,7 @@
     }
     return predicate;
 }
+*/
 
 #pragma mark -
 
@@ -262,6 +199,15 @@
 }
 
 
+- (void)refetch
+{
+    [self resetFetchedResultController];
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+#ifdef DEBUG
+    if (error) [error showErrorForUserDomains];
+#endif
+}
 
 #pragma mark -
 #pragma mark ISCDListTableViewController
@@ -270,23 +216,126 @@
 {
     self.entityName = @"Session";
     self.displayKey = @"title";
+    self.sectionNameKeyPath = @"time";
+}
+
+
+#pragma mark -
+#pragma mark actions
+
+- (void)selectDayAction:(id)sender
+{
+    self.masterObject = [region.sortedDays objectAtIndex:dateSecmentedController.selectedSegmentIndex];
 }
 
 
 #pragma mark -
 #pragma mark UISearchDisplayController Delegate Methods
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+- (NSPredicate *)likePredicateForKey:(NSString *)key string:(NSString *)string
 {
-    // Return YES to cause the search result table view to be reloaded.
-    return NO;
+    NSString *str = [NSString stringWithFormat:@"*%@*", string];
+    return [NSPredicate predicateWithFormat:@"%K LIKE[c] %@", key, str];
 }
 
+- (BOOL)buildSearchPredicateAndRefetchIfNeeds
+{
+    if (self.searchScopes && [self.searchString length]) {
+        NSMutableArray *predicates = [NSMutableArray array];
+        for (NSString *scope in self.searchScopes) {
+            [predicates addObject:[self likePredicateForKey:scope string:self.searchString]];
+        }
+        self.searchPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    } else {
+        self.searchPredicate = nil;
+    }
+
+    BOOL needsRefetch = self.searchPredicate ? YES : NO;
+    if (needsRefetch) {
+        // table viewのreloadDataはUISearchDisplayDelegateが行うのでfetchだけにする
+        // table viewもやってしまうとScopeを切替えた時に、セクションタイトルが二重に表示されたりする
+        [self refetch];
+        // が行が多い状態から検索で少なくなり、フリックで下を表示しようとすると
+        // ストックされてるセルを再表示しようとしてデータがなくてExceptionが発生するので
+        // reloadDataに戻す
+        // がSerchBarをfirstResponderにしてなかった為だったので再度refetchのみ
+        // [self reloadData];
+    }
+    return needsRefetch;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)aSearchString
+{
+    self.searchString = aSearchString;
+    return [self buildSearchPredicateAndRefetchIfNeeds];
+}
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
 {
-    return NO;
+    switch (searchOption) {
+    case 0: // ALL
+        self.searchScopes = nil;
+        break;
+    case 1: // Session
+        self.searchScopes = [NSArray arrayWithObjects:@"title", @"summary", nil];
+        break;
+    case 2: // Speaker
+        self.searchScopes = [NSArray arrayWithObjects:@"profile", @"speakerRawData", nil];
+        break;
+    }
+    return [self buildSearchPredicateAndRefetchIfNeeds];
 }
+
+- (NSArray *)searchScopes
+{
+    if (searchScopes == nil || [searchScopes count] == 0) {
+        self.searchScopes = [NSArray arrayWithObjects:@"title", @"profile", @"summary", @"speakerRawData", nil];
+    }
+    return searchScopes;
+}
+
+#pragma mark -
+#pragma mark UISearchBarDelegate
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.searchPredicate = nil;
+    [self reloadData];
+}
+
+- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchDisplayController.searchBar becomeFirstResponder];
+
+    UINavigationController *navigationController = [HistoryTableViewController navigationController];
+    HistoryTableViewController *controller = (HistoryTableViewController *)navigationController.visibleViewController;
+    controller.propertyKey = @"sessionSearchHistories";
+    controller.delegate = self;
+    
+    [self presentModalViewController:navigationController animated:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    NSString *key = searchBar.text;
+    if ([key length]) {
+        Property *property = [Property sharedProperty];
+        NSMutableArray *array = [[[property sessionSearchHistories] mutableCopy] autorelease];
+        if ([array containsObject:key]) {
+            [array removeObject:key];
+        }
+        [array insertObject:key atIndex:0];
+        property.sessionSearchHistories = array;
+    }
+}
+
+#pragma mark -
+#pragma mark HistoryTableViewControllerDelegate
+
+- (void)didSelectHistoryItem:(NSString *)item
+{
+    self.searchDisplayController.searchBar.text = item;
+}
+
 
 @end
 

@@ -9,15 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "ISCDListTableViewController.h"
 #import "Region.h"
+#import "HistoryTableViewController.h"
 
 
-@interface SessionTableViewController : ISCDListTableViewController <UISearchDisplayDelegate, UISearchBarDelegate> {
+@interface SessionTableViewController : ISCDListTableViewController <UISearchDisplayDelegate, UISearchBarDelegate, HistoryTableViewControllerDelegate> {
 
     IBOutlet UISegmentedControl *dateSecmentedController;
     
     NSPredicate *datePredicate;
     NSPredicate *roomPredicate;
     NSPredicate *searchPredicate;
+    NSString *searchString;
+    NSArray *searchScopes;
     
     Region *region;
 }
@@ -29,7 +32,12 @@
 @property (retain) NSPredicate *roomPredicate;
 @property (retain) NSPredicate *searchPredicate;
 
-@property (assign, readonly) NSPredicate *sessionPredicate;
+@property (copy) NSString *searchString;
+@property (retain) NSArray *searchScopes;
 
+
+// FIXME: @property (assign, readonly) NSPredicate *sessionPredicate;
+
+- (IBAction)selectDayAction:(id)sender;
 
 @end

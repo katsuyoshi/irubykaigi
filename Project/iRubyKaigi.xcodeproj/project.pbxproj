@@ -22,6 +22,9 @@
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
 		4621C49E100718610052495F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C49D100718610052495F /* Default.png */; };
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
+		465BB4D211C9A25400770325 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4CF11C9A25400770325 /* Room.m */; };
+		465BB4D311C9A25400770325 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4D111C9A25400770325 /* Speaker.m */; };
+		465BB9D511CA573000770325 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB9D411CA573000770325 /* HistoryTableViewController.m */; };
 		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		4692CB4E11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */; };
 		4692CB9E11ACEB280098ADE1 /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4692CB6811ACEB280098ADE1 /* NSErrorCoreDataExtension.m */; };
@@ -93,6 +96,12 @@
 		4621C4A710071B770052495F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
 		4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
+		465BB4CE11C9A25400770325 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		465BB4CF11C9A25400770325 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		465BB4D011C9A25400770325 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		465BB4D111C9A25400770325 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
+		465BB9D311CA573000770325 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		465BB9D411CA573000770325 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		468A2B1C100C9A2000942FE4 /* update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = iRubyKaigi.xcdatamodel; path = ../../iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
@@ -281,6 +290,8 @@
 				461408361004BC4D00964C01 /* LightningTalksDetailTableViewController.h */,
 				461408371004BC4D00964C01 /* LightningTalksDetailTableViewController.m */,
 				4692CBD711ACF02F0098ADE1 /* ContentViewController.h */,
+				465BB9D311CA573000770325 /* HistoryTableViewController.h */,
+				465BB9D411CA573000770325 /* HistoryTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +299,10 @@
 		461407F51004B9CB00964C01 /* EO */ = {
 			isa = PBXGroup;
 			children = (
+				465BB4CE11C9A25400770325 /* Room.h */,
+				465BB4CF11C9A25400770325 /* Room.m */,
+				465BB4D011C9A25400770325 /* Speaker.h */,
+				465BB4D111C9A25400770325 /* Speaker.m */,
 				46D4430511AEC09E0076E28B /* Region.h */,
 				46D4430611AEC09E0076E28B /* Region.m */,
 				46D4430311AEC09E0076E28B /* Day.h */,
@@ -572,6 +587,9 @@
 				46D4470B11B12F660076E28B /* ISProperty.m in Sources */,
 				46D4472811B133F40076E28B /* Property.m in Sources */,
 				460EA3D111B37EA2009F5AAB /* SessionType.m in Sources */,
+				465BB4D211C9A25400770325 /* Room.m in Sources */,
+				465BB4D311C9A25400770325 /* Speaker.m in Sources */,
+				465BB9D511CA573000770325 /* HistoryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,17 +639,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Katsuyoshi Ito (FN4DNLCM76)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iRubyKaigi_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2010;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9A428EC5-E3A8-43AD-855D-959917B2446B";
-				SDKROOT = iphoneos3.2;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B9C3308A-FF9B-45D5-8361-804023FD3DAF";
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -646,7 +665,7 @@
 				GCC_PREFIX_HEADER = iRubyKaigi_Prefix.pch;
 				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2010;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -678,7 +697,7 @@
 				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
 				PRODUCT_NAME = iRubyKaigi2010;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Ad Hoc Distribution";

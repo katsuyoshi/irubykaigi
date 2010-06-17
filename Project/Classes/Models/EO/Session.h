@@ -26,6 +26,8 @@
 @property (nonatomic, retain) NSManagedObject * day;
 @property (nonatomic, retain) NSManagedObject * room;
 @property (nonatomic, retain) NSSet* lightningTalks;
+/** NSFetchResultsControllerで対多の検索が出来ないので、検索の為にスピーカー名の生データを持つ. */
+@property (nonatomic, retain) NSString * speakerRawData;
 
 @end
 

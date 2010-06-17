@@ -11,6 +11,7 @@
 #import "Day.h"
 #import "Region.h"
 #import "Session.h"
+#import "Speaker.h"
 
 
 @interface TestDataImporter(IRKPrivate)
@@ -33,7 +34,7 @@
         [self prepareDaysWithManagedObjectContext:context];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
-        [self importSessionsFromCsvFile:path region:[Region japanese] managedObjectContext:context];
+        [self importSessionsFromCsvFile:path region:[Region japaneseInManagedObjectContext:context] managedObjectContext:context];
 
         [self save:context];
     } @finally {
@@ -55,7 +56,6 @@
             } else {
                 int index = 0;
                 Session *session = [Session createWithManagedObjectContext:context];
-                [session setListNumber];
 
                 NSArray *attributeKeys = [NSArray arrayWithObjects:@"date", @"room", @"floor", @"speaker", @"break", @"abstract", nil];
                 
@@ -73,6 +73,10 @@
                             int dayOfMonth = [[e objectAtIndex:2] intValue];
                             NSDate *date = [NSDate dateWithYear:year month:month day:dayOfMonth hour:0 minute:0 second:0];
                             day = [region dayForDate:date];
+                            session.day = day;
+                            
+                            // dayが決まらないと順番を付けられない
+                            [session setListNumber];
                         }
                         break;
                     case 1: /* room */
@@ -80,6 +84,35 @@
                     case 2: /* floor */
                         break;
                     case 3: /* speaker */
+                        {
+                            session.speakerRawData = element;
+
+                            // '、'か' and 'を区切りとしている
+                            NSArray *speakerInfos = [element componentsSeparatedByString:@"、"];
+                            if ([speakerInfos count] == 1) {
+                                speakerInfos = [element componentsSeparatedByString:@" and "];
+                            }
+                            for (NSString *speakerInfo in speakerInfos) {
+                                NSArray *infos = [speakerInfo componentsSeparatedByString:@"("];
+                                NSString *name = [infos objectAtIndex:0];
+                                name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                                NSString *belonging = nil;
+                                if ([infos count] == 2) {
+                                    belonging = [infos objectAtIndex:1];
+                                    belonging = [belonging stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@")"]];
+                                }
+                                if ([name length]) {
+                                    Speaker *speaker = [Speaker createWithManagedObjectContext:context];
+                                    speaker.session = session;
+                                    speaker.name = name;
+                                    speaker.belonging = belonging;
+                                    speaker.region = region;
+                                    [speaker setListNumber];
+                                    // codeの代わり
+                                    speaker.code = [speaker.position stringValue];
+                                }
+                            }
+                        }
                         break;
                     case 4: /* break */
                         // FIXME: session.
