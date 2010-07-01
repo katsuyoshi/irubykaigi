@@ -44,16 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
-    [region retain];
-
-    self.navigationItem.titleView = dateSecmentedController;
-    [self buildSearchDisplayController];
-    [self buildDateSecmentedController];
-
-    if ([region.sortedDays count]) {
-        self.masterObject = [region.sortedDays objectAtIndex:0];
-    }
+    self.title = NSLocalizedString(@"Date", nil);
 }
 
 - (void)buildSearchDisplayController
@@ -217,6 +208,19 @@
     self.entityName = @"Session";
     self.displayKey = @"title";
     self.sectionNameKeyPath = @"time";
+
+
+    region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
+    [region retain];
+
+    self.navigationItem.titleView = dateSecmentedController;
+    [self buildSearchDisplayController];
+    [self buildDateSecmentedController];
+
+    if ([region.sortedDays count]) {
+        self.masterObject = [region.sortedDays objectAtIndex:0];
+    }
+    
 }
 
 

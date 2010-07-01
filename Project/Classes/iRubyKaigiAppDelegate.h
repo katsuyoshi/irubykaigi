@@ -12,13 +12,13 @@
 @interface iRubyKaigiAppDelegate : NSObject <UIApplicationDelegate> {
     
     UIWindow *window;
+    UITabBarController *tabBarController;
     UINavigationController *navigationController;
-    SessionTableViewController *firstSessionViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain, readonly) IBOutlet UINavigationController *navigationController;
-@property (retain, readonly) SessionTableViewController *firstSessionViewController;
 
 
 @end

@@ -13,7 +13,8 @@
 @implementation iRubyKaigiAppDelegate
 
 @synthesize window;
-@synthesize navigationController, firstSessionViewController;
+@synthesize tabBarController;
+@synthesize navigationController;
 
 
 #pragma mark -
@@ -23,49 +24,16 @@
 
     [[[TestDataImporter new] autorelease] import];
 
-    navigationController = [[SessionTableViewController navigationController] retain];
+    tabBarController.viewControllers = [NSArray arrayWithObject:[SessionTableViewController navigationController]];
+    UITabBarItem *tabBarItem = [tabBarController.tabBar.items lastObject];
+// DELETEME:    tabBarItem.title = NSLocalizedString(@"Date", nil);
+    tabBarItem.image = [UIImage imageNamed:@"session_by_date_icon_30x30.png"];
 
-    [window addSubview:navigationController.view];
+    [window addSubview:tabBarController.view];
     [window makeKeyAndVisible];
     
     
     
-#if 0
-    Document *document = [Document sharedDocument];
-    [document import];
-    
-    firstSessionViewController = [[SessionTableViewController alloc] initWithStyle:UITableViewStylePlain];
-
-    // 日付を設定
-    SessionTableViewController *sessionViewController = firstSessionViewController;
-    SessionTableViewController *currentViewController = firstSessionViewController;
-    NSArray *days = [document days];
-    NSDate *selectedDay = [document selectedDay];
-    
-    sessionViewController.day = [[days objectAtIndex:0] valueForKey:@"date"];
-    int i, count = [days count];
-    for (i = 1; i < count; i++) {
-        NSDate *day = [[days objectAtIndex:i] valueForKey:@"date"];
-        sessionViewController.nextDay = day;
-        sessionViewController = sessionViewController.nextDaysSessionController;
-        if ([sessionViewController.day isEqual:selectedDay]) {
-            currentViewController = sessionViewController;
-        }
-    }
-    
-    navigationController = [[UINavigationController alloc] initWithRootViewController:firstSessionViewController];
-//    navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    [navigationController setToolbarHidden:NO animated:NO];
-	
-	[window addSubview:[navigationController view]];
-    [window makeKeyAndVisible];
-
-    [firstSessionViewController moveToController:currentViewController];
-    
-    if ([document needsUpdate]) {
-        [document beginUpdate];
-    }
-#endif
 }
 
 /**
@@ -81,7 +49,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
-	
+	[tabBarController release];
 	[navigationController release];
 	[window release];
 	[super dealloc];

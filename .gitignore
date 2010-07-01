@@ -4,3 +4,6 @@ build
 vendor
 .DS_Store
 dis
+psd
+*.psd
+*.pxf
