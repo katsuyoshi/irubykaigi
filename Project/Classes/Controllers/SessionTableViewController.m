@@ -10,6 +10,7 @@
 #import "Property.h"
 #import "Region.h"
 #import "Day.h"
+#import "SessionTableViewCell.h"
 
 
 
@@ -99,21 +100,6 @@
 
 
 #pragma mark -
-#pragma mark Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
-}
-
-
-#pragma mark -
 #pragma mark Memory management
 
 
@@ -176,13 +162,6 @@
 
 #pragma mark -
 
-- (void)resetFetchedResultController
-{
-    _fetchedResultsController.delegate = nil;
-    [_fetchedResultsController release];
-    _fetchedResultsController = nil;
-}
-
 - (void)reloadData
 {
     [self resetFetchedResultController];
@@ -209,6 +188,9 @@
     self.displayKey = @"title";
     self.sectionNameKeyPath = @"time";
 
+    self.detailedTableViewControllerClassName = @"SessionDetailedTableViewController";
+    self.hasDetailView = YES;
+    
 
     region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
     [region retain];
@@ -339,6 +321,31 @@
 {
     self.searchDisplayController.searchBar.text = item;
 }
+
+#pragma mark -
+
+- (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
+{
+    return [SessionTableViewCell sessionTableViewCellWithIdentifier:cellIdentifier];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier = @"Cell";
+    
+    SessionTableViewCell *cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = (SessionTableViewCell *)[self createCellWithIdentifier:cellIdentifier];
+    }
+    cell.session = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0;
+}
+
 
 
 @end

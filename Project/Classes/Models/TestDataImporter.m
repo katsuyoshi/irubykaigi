@@ -12,6 +12,7 @@
 #import "Region.h"
 #import "Session.h"
 #import "Speaker.h"
+#import "Room.h"
 
 
 @interface TestDataImporter(IRKPrivate)
@@ -80,8 +81,12 @@
                         }
                         break;
                     case 1: /* room */
+                        roomName = element;
+                        session.room = [Room roomByName:roomName floor:floorName region:region inManagedObjectContext:context];
                         break;
                     case 2: /* floor */
+                        floorName = element;
+                        session.room = [Room roomByName:roomName floor:floorName region:region inManagedObjectContext:context];
                         break;
                     case 3: /* speaker */
                         {
@@ -102,14 +107,17 @@
                                     belonging = [belonging stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@")"]];
                                 }
                                 if ([name length]) {
-                                    Speaker *speaker = [Speaker createWithManagedObjectContext:context];
-                                    speaker.session = session;
-                                    speaker.name = name;
-                                    speaker.belonging = belonging;
-                                    speaker.region = region;
-                                    [speaker setListNumber];
-                                    // codeの代わり
-                                    speaker.code = [speaker.position stringValue];
+                                    Speaker *speaker = [Speaker findByName:name inManagedObjectContext:context];
+                                    if (speaker == nil) {
+                                        speaker = [Speaker createWithManagedObjectContext:context];
+                                        speaker.name = name;
+                                        speaker.belonging = belonging;
+                                        speaker.region = region;
+                                        [speaker setListNumber];
+                                        // codeの代わり
+                                        speaker.code = [speaker.position stringValue];
+                                    }
+                                    [speaker addSessionsObject:session];
                                 }
                             }
                         }

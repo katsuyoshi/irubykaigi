@@ -8,6 +8,9 @@
 
 #import "iRubyKaigiAppDelegate.h"
 #import "SessionTableViewController.h"
+#import "SpeakerTableViewController.h"
+#import "RoomTableViewController.h"
+
 #import "TestDataImporter.h"
 
 @implementation iRubyKaigiAppDelegate
@@ -22,13 +25,27 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 
+    NSArray *iconNames = [NSArray arrayWithObjects:
+                                @"session_by_date_icon_30x30.png",
+                                @"session_by_room_icon_30x30.png",
+                                @"session_by_speaker_icon_30x30.png",
+                                nil];
+                                
     [[[TestDataImporter new] autorelease] import];
 
-    tabBarController.viewControllers = [NSArray arrayWithObject:[SessionTableViewController navigationController]];
-    UITabBarItem *tabBarItem = [tabBarController.tabBar.items lastObject];
-// DELETEME:    tabBarItem.title = NSLocalizedString(@"Date", nil);
-    tabBarItem.image = [UIImage imageNamed:@"session_by_date_icon_30x30.png"];
-
+    NSArray *tabBarControllers = [NSArray arrayWithObjects:
+                                    [SessionTableViewController navigationController],
+                                    [RoomTableViewController navigationController],
+                                    [SpeakerTableViewController navigationController],
+                                    nil];
+    tabBarController.viewControllers = tabBarControllers;
+    
+    NSEnumerator *iconEnumerator = [iconNames objectEnumerator];
+    for (UITabBarItem *tabBarItem in tabBarController.tabBar.items) {
+        tabBarItem.image = [UIImage imageNamed:[iconEnumerator nextObject]];
+    }
+    
+        
     [window addSubview:tabBarController.view];
     [window makeKeyAndVisible];
     

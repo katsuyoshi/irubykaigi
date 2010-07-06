@@ -68,6 +68,25 @@
     ASSERT([room validateForInsert:NULL]);
 }
 
+- (void)testRoomByNameFloorRegion
+{
+    Region *region = [Region japanese];
+    Room *room, *room2;
+    
+    ASSERT_NIL([Room roomByName:nil floor:nil region:region]);
+    ASSERT_NIL([Room roomByName:@"a" floor:nil region:region]);
+    ASSERT_NIL([Room roomByName:nil floor:@"b" region:region]);
+    ASSERT_NIL([Room roomByName:@"a" floor:@"" region:region]);
+    ASSERT_NIL([Room roomByName:@"" floor:@"b" region:region]);
+
+    room = [Room roomByName:@"a" floor:@"b" region:region];
+    ASSERT_NOT_NIL(room);
+    room2 = [Room roomByName:@"a" floor:@"b" region:region];
+    ASSERT_SAME(room2, room);
+}
+
+
+
 
 #pragma mark -
 #pragma mark Option

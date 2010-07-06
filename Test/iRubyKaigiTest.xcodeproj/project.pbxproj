@@ -27,6 +27,14 @@
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
 		468052AD0FA58ACB003B5A71 /* SourceCodeOpener.m in Sources */ = {isa = PBXBuildFile; fileRef = 468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */; };
 		4681C7E80FFAB9690023DACB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4681C7E70FFAB9690023DACB /* CoreData.framework */; };
+		46824F6211E1AAFB00D73D84 /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F5F11E1AAFB00D73D84 /* SessionTableViewCell.m */; };
+		46824F7911E1AB1D00D73D84 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F6C11E1AB1D00D73D84 /* HistoryTableViewController.m */; };
+		46824F7A11E1AB1D00D73D84 /* IRKBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F6E11E1AB1D00D73D84 /* IRKBaseTabBarController.m */; };
+		46824F7B11E1AB1D00D73D84 /* IRKBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F7011E1AB1D00D73D84 /* IRKBaseViewController.m */; };
+		46824F7C11E1AB1D00D73D84 /* SessionByDateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F7211E1AB1D00D73D84 /* SessionByDateTableViewController.m */; };
+		46824F7D11E1AB1D00D73D84 /* SessionBySpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F7411E1AB1D00D73D84 /* SessionBySpeakerTableViewController.m */; };
+		46824F7E11E1AB1D00D73D84 /* SessionDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F7611E1AB1D00D73D84 /* SessionDetailedTableViewController.m */; };
+		46824F7F11E1AB1D00D73D84 /* SpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824F7811E1AB1D00D73D84 /* SpeakerTableViewController.m */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
 		46C6AB570F2DBE7E00BA1B73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB3E0F2DBE7E00BA1B73 /* AppDelegate.m */; };
 		46C6AB580F2DBE7E00BA1B73 /* UINavigationBarBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB420F2DBE7E00BA1B73 /* UINavigationBarBasedTest.m */; };
@@ -132,6 +140,22 @@
 		468052AB0FA58ACB003B5A71 /* SourceCodeOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceCodeOpener.h; sourceTree = "<group>"; };
 		468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCodeOpener.m; sourceTree = "<group>"; };
 		4681C7E70FFAB9690023DACB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		46824F5E11E1AAFB00D73D84 /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
+		46824F5F11E1AAFB00D73D84 /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
+		46824F6B11E1AB1D00D73D84 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		46824F6C11E1AB1D00D73D84 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		46824F6D11E1AB1D00D73D84 /* IRKBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRKBaseTabBarController.h; sourceTree = "<group>"; };
+		46824F6E11E1AB1D00D73D84 /* IRKBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKBaseTabBarController.m; sourceTree = "<group>"; };
+		46824F6F11E1AB1D00D73D84 /* IRKBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRKBaseViewController.h; sourceTree = "<group>"; };
+		46824F7011E1AB1D00D73D84 /* IRKBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKBaseViewController.m; sourceTree = "<group>"; };
+		46824F7111E1AB1D00D73D84 /* SessionByDateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionByDateTableViewController.h; sourceTree = "<group>"; };
+		46824F7211E1AB1D00D73D84 /* SessionByDateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionByDateTableViewController.m; sourceTree = "<group>"; };
+		46824F7311E1AB1D00D73D84 /* SessionBySpeakerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionBySpeakerTableViewController.h; sourceTree = "<group>"; };
+		46824F7411E1AB1D00D73D84 /* SessionBySpeakerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionBySpeakerTableViewController.m; sourceTree = "<group>"; };
+		46824F7511E1AB1D00D73D84 /* SessionDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailedTableViewController.h; sourceTree = "<group>"; };
+		46824F7611E1AB1D00D73D84 /* SessionDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailedTableViewController.m; sourceTree = "<group>"; };
+		46824F7711E1AB1D00D73D84 /* SpeakerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerTableViewController.h; sourceTree = "<group>"; };
+		46824F7811E1AB1D00D73D84 /* SpeakerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerTableViewController.m; sourceTree = "<group>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
 		469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSExceptionExtension.m; sourceTree = "<group>"; };
 		46C6AB3D0F2DBE7E00BA1B73 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -344,6 +368,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		46824F5D11E1AAFB00D73D84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46824F5E11E1AAFB00D73D84 /* SessionTableViewCell.h */,
+				46824F5F11E1AAFB00D73D84 /* SessionTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		46C20FD50F256E610053F9B9 /* TargetClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +478,7 @@
 		46D4436F11AED0DB0076E28B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				46824F5D11E1AAFB00D73D84 /* Views */,
 				46D4437011AED0DB0076E28B /* Controllers */,
 				46D4438011AED0DB0076E28B /* iRubyKaigiAppDelegate.h */,
 				46D4438111AED0DB0076E28B /* iRubyKaigiAppDelegate.m */,
@@ -456,6 +490,20 @@
 		46D4437011AED0DB0076E28B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				46824F6B11E1AB1D00D73D84 /* HistoryTableViewController.h */,
+				46824F6C11E1AB1D00D73D84 /* HistoryTableViewController.m */,
+				46824F6D11E1AB1D00D73D84 /* IRKBaseTabBarController.h */,
+				46824F6E11E1AB1D00D73D84 /* IRKBaseTabBarController.m */,
+				46824F6F11E1AB1D00D73D84 /* IRKBaseViewController.h */,
+				46824F7011E1AB1D00D73D84 /* IRKBaseViewController.m */,
+				46824F7111E1AB1D00D73D84 /* SessionByDateTableViewController.h */,
+				46824F7211E1AB1D00D73D84 /* SessionByDateTableViewController.m */,
+				46824F7311E1AB1D00D73D84 /* SessionBySpeakerTableViewController.h */,
+				46824F7411E1AB1D00D73D84 /* SessionBySpeakerTableViewController.m */,
+				46824F7511E1AB1D00D73D84 /* SessionDetailedTableViewController.h */,
+				46824F7611E1AB1D00D73D84 /* SessionDetailedTableViewController.m */,
+				46824F7711E1AB1D00D73D84 /* SpeakerTableViewController.h */,
+				46824F7811E1AB1D00D73D84 /* SpeakerTableViewController.m */,
 				46D4437111AED0DB0076E28B /* ContentViewController.h */,
 				46D4437911AED0DB0076E28B /* LightningTalksDetailTableViewController.h */,
 				46D4437A11AED0DB0076E28B /* LightningTalksDetailTableViewController.m */,
@@ -805,6 +853,14 @@
 				46D4891911B53D650063B689 /* Speaker.m in Sources */,
 				46D4892B11B55F690063B689 /* RoomTest.m in Sources */,
 				46D4893C11B562AB0063B689 /* SpeakerTest.m in Sources */,
+				46824F6211E1AAFB00D73D84 /* SessionTableViewCell.m in Sources */,
+				46824F7911E1AB1D00D73D84 /* HistoryTableViewController.m in Sources */,
+				46824F7A11E1AB1D00D73D84 /* IRKBaseTabBarController.m in Sources */,
+				46824F7B11E1AB1D00D73D84 /* IRKBaseViewController.m in Sources */,
+				46824F7C11E1AB1D00D73D84 /* SessionByDateTableViewController.m in Sources */,
+				46824F7D11E1AB1D00D73D84 /* SessionBySpeakerTableViewController.m in Sources */,
+				46824F7E11E1AB1D00D73D84 /* SessionDetailedTableViewController.m in Sources */,
+				46824F7F11E1AB1D00D73D84 /* SpeakerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

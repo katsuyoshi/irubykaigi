@@ -11,6 +11,8 @@
 #import "LightningTalk.h"
 #import "Region.h"
 #import "Session.h"
+#import "CiderCoreData.h"
+
 
 @implementation Speaker 
 
@@ -18,8 +20,8 @@
 @dynamic code;
 @dynamic belonging;
 @dynamic position;
-@dynamic lightningTalk;
-@dynamic session;
+@dynamic lightningTalks;
+@dynamic sessions;
 @dynamic region;
 
 
@@ -45,8 +47,33 @@
 
 + (NSString *)listScopeName
 {
-    return @"session";
+    return @"region";
 }
+
++ (Speaker *)findByName:(NSString *)name
+{
+    return [self findByName:name inManagedObjectContext:nil];
+}
+
++ (Speaker *)findByName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
+{
+    ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+    condition.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    condition.managedObjectContext = context;
+    return [Speaker find:condition error:NULL];
+}
+
+- (NSString *)indexTitle
+{
+    return [self.name substringToIndex:1];
+}
+
+- (NSArray *)sortedSession
+{
+    NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"day.date, time"];
+    return [self.sessions sortedArrayUsingDescriptors:sortDescriptors];
+}
+
 
 
 @end

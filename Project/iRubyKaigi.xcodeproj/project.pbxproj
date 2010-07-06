@@ -24,11 +24,20 @@
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
 		4621C49E100718610052495F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C49D100718610052495F /* Default.png */; };
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
+		4628F9D711DD68F400EFB272 /* SessionBySpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */; };
+		4628FA3C11DD76EA00EFB272 /* SessionDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */; };
 		465BB4D211C9A25400770325 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4CF11C9A25400770325 /* Room.m */; };
 		465BB4D311C9A25400770325 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4D111C9A25400770325 /* Speaker.m */; };
 		465BB9D511CA573000770325 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB9D411CA573000770325 /* HistoryTableViewController.m */; };
 		4663019E11DC7965008FEB6D /* session_by_speaker_icon_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 4663019C11DC7965008FEB6D /* session_by_speaker_icon_30x30.png */; };
 		4663019F11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4663019D11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png */; };
+		466301A211DC7B1B008FEB6D /* session_by_room_icon_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 466301A011DC7B1B008FEB6D /* session_by_room_icon_30x30.png */; };
+		466301A311DC7B1B008FEB6D /* session_by_room_icon_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 466301A111DC7B1B008FEB6D /* session_by_room_icon_30x30@2x.png */; };
+		466301B511DC7CC7008FEB6D /* SpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466301B411DC7CC7008FEB6D /* SpeakerTableViewController.m */; };
+		466881E111E2C13F00D344C7 /* ISSectionedArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466881E011E2C13F00D344C7 /* ISSectionedArrayController.m */; };
+		466882C911E2E25300D344C7 /* SessionBySomethingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 466882C811E2E25300D344C7 /* SessionBySomethingTableViewController.m */; };
+		46824FCB11E1B6B500D73D84 /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */; };
+		4682504611E1BF3E00D73D84 /* SessionByRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */; };
 		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		4692CB4E11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */; };
 		4692CB9E11ACEB280098ADE1 /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4692CB6811ACEB280098ADE1 /* NSErrorCoreDataExtension.m */; };
@@ -65,6 +74,7 @@
 		46D4430811AEC09E0076E28B /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4430611AEC09E0076E28B /* Region.m */; };
 		46D4470B11B12F660076E28B /* ISProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4470A11B12F660076E28B /* ISProperty.m */; };
 		46D4472811B133F40076E28B /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4472711B133F40076E28B /* Property.m */; };
+		46D8286311DDEF3E00D1D0AE /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D8286211DDEF3E00D1D0AE /* SessionTableViewCell.m */; };
 		46EE14500FFE53FA000224D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EE144E0FFE53FA000224D0 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +110,10 @@
 		4621C44710070EB60052495F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		4621C49D100718610052495F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4621C4A710071B770052495F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		4628F9D511DD68F400EFB272 /* SessionBySpeakerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionBySpeakerTableViewController.h; sourceTree = "<group>"; };
+		4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionBySpeakerTableViewController.m; sourceTree = "<group>"; };
+		4628FA3A11DD76EA00EFB272 /* SessionDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailedTableViewController.h; sourceTree = "<group>"; };
+		4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailedTableViewController.m; sourceTree = "<group>"; };
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
 		4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
 		465BB4CE11C9A25400770325 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
@@ -110,6 +124,18 @@
 		465BB9D411CA573000770325 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		4663019C11DC7965008FEB6D /* session_by_speaker_icon_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = session_by_speaker_icon_30x30.png; sourceTree = "<group>"; };
 		4663019D11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "session_by_speaker_icon_30x30@2x.png"; sourceTree = "<group>"; };
+		466301A011DC7B1B008FEB6D /* session_by_room_icon_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = session_by_room_icon_30x30.png; sourceTree = "<group>"; };
+		466301A111DC7B1B008FEB6D /* session_by_room_icon_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "session_by_room_icon_30x30@2x.png"; sourceTree = "<group>"; };
+		466301B311DC7CC7008FEB6D /* SpeakerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerTableViewController.h; sourceTree = "<group>"; };
+		466301B411DC7CC7008FEB6D /* SpeakerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerTableViewController.m; sourceTree = "<group>"; };
+		466881DF11E2C13F00D344C7 /* ISSectionedArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSectionedArrayController.h; sourceTree = "<group>"; };
+		466881E011E2C13F00D344C7 /* ISSectionedArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSectionedArrayController.m; sourceTree = "<group>"; };
+		466882C711E2E25300D344C7 /* SessionBySomethingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionBySomethingTableViewController.h; sourceTree = "<group>"; };
+		466882C811E2E25300D344C7 /* SessionBySomethingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionBySomethingTableViewController.m; sourceTree = "<group>"; };
+		46824FC911E1B6B500D73D84 /* RoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewController.h; sourceTree = "<group>"; };
+		46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewController.m; sourceTree = "<group>"; };
+		4682504411E1BF3E00D73D84 /* SessionByRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionByRoomTableViewController.h; sourceTree = "<group>"; };
+		4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionByRoomTableViewController.m; sourceTree = "<group>"; };
 		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		468A2B1C100C9A2000942FE4 /* update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = iRubyKaigi.xcdatamodel; path = ../../iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
@@ -185,6 +211,8 @@
 		46D4470A11B12F660076E28B /* ISProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProperty.m; sourceTree = "<group>"; };
 		46D4472611B133F40076E28B /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
 		46D4472711B133F40076E28B /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
+		46D8286111DDEF3E00D1D0AE /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
+		46D8286211DDEF3E00D1D0AE /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
 		46EE14370FFE53D1000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
 		46EE14380FFE53D1000224D0 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		46EE14390FFE53D1000224D0 /* NSManagedObjectContextExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextExtension.h; sourceTree = "<group>"; };
@@ -217,6 +245,7 @@
 				4692CB6311ACEB280098ADE1 /* cider */,
 				460A79E90FFDA94400DD0775 /* Controllers */,
 				46EE14360FFE53D1000224D0 /* Models */,
+				4628FB1911DD94CE00EFB272 /* Views */,
 				1D3623240D0F684500981E51 /* iRubyKaigiAppDelegate.h */,
 				1D3623250D0F684500981E51 /* iRubyKaigiAppDelegate.m */,
 				463AC8461001CEFF00AF2B05 /* IUTLog.h */,
@@ -291,8 +320,18 @@
 		460A79E90FFDA94400DD0775 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				466882C711E2E25300D344C7 /* SessionBySomethingTableViewController.h */,
+				466882C811E2E25300D344C7 /* SessionBySomethingTableViewController.m */,
 				4692CC7711AD1AB20098ADE1 /* SessionTableViewController.h */,
 				4692CC7811AD1AB20098ADE1 /* SessionTableViewController.m */,
+				466301B311DC7CC7008FEB6D /* SpeakerTableViewController.h */,
+				466301B411DC7CC7008FEB6D /* SpeakerTableViewController.m */,
+				4628F9D511DD68F400EFB272 /* SessionBySpeakerTableViewController.h */,
+				4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */,
+				46824FC911E1B6B500D73D84 /* RoomTableViewController.h */,
+				46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */,
+				4682504411E1BF3E00D73D84 /* SessionByRoomTableViewController.h */,
+				4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */,
 				4692CBB811ACEBD50098ADE1 /* SessionTableViewController.xib */,
 				461407CC1004B83800964C01 /* LightningTalksTableViewController.h */,
 				461407CD1004B83800964C01 /* LightningTalksTableViewController.m */,
@@ -301,6 +340,8 @@
 				4692CBD711ACF02F0098ADE1 /* ContentViewController.h */,
 				465BB9D311CA573000770325 /* HistoryTableViewController.h */,
 				465BB9D411CA573000770325 /* HistoryTableViewController.m */,
+				4628FA3A11DD76EA00EFB272 /* SessionDetailedTableViewController.h */,
+				4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,12 +370,23 @@
 		46218A8411DBA47E00CBBADF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				466301A011DC7B1B008FEB6D /* session_by_room_icon_30x30.png */,
+				466301A111DC7B1B008FEB6D /* session_by_room_icon_30x30@2x.png */,
 				4663019C11DC7965008FEB6D /* session_by_speaker_icon_30x30.png */,
 				4663019D11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png */,
 				46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */,
 				46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		4628FB1911DD94CE00EFB272 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46D8286111DDEF3E00D1D0AE /* SessionTableViewCell.h */,
+				46D8286211DDEF3E00D1D0AE /* SessionTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4658DA8C1000EC1C00CBBFEE /* script */ = {
@@ -454,6 +506,8 @@
 				4692CB9411ACEB280098ADE1 /* UIColorExtension.m */,
 				46D4470911B12F660076E28B /* ISProperty.h */,
 				46D4470A11B12F660076E28B /* ISProperty.m */,
+				466881DF11E2C13F00D344C7 /* ISSectionedArrayController.h */,
+				466881E011E2C13F00D344C7 /* ISSectionedArrayController.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -567,6 +621,8 @@
 				46218A8B11DBA47E00CBBADF /* session_by_date_icon_30x30.png in Resources */,
 				4663019E11DC7965008FEB6D /* session_by_speaker_icon_30x30.png in Resources */,
 				4663019F11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png in Resources */,
+				466301A211DC7B1B008FEB6D /* session_by_room_icon_30x30.png in Resources */,
+				466301A311DC7B1B008FEB6D /* session_by_room_icon_30x30@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +670,14 @@
 				465BB4D211C9A25400770325 /* Room.m in Sources */,
 				465BB4D311C9A25400770325 /* Speaker.m in Sources */,
 				465BB9D511CA573000770325 /* HistoryTableViewController.m in Sources */,
+				466301B511DC7CC7008FEB6D /* SpeakerTableViewController.m in Sources */,
+				4628F9D711DD68F400EFB272 /* SessionBySpeakerTableViewController.m in Sources */,
+				4628FA3C11DD76EA00EFB272 /* SessionDetailedTableViewController.m in Sources */,
+				46D8286311DDEF3E00D1D0AE /* SessionTableViewCell.m in Sources */,
+				46824FCB11E1B6B500D73D84 /* RoomTableViewController.m in Sources */,
+				4682504611E1BF3E00D73D84 /* SessionByRoomTableViewController.m in Sources */,
+				466881E111E2C13F00D344C7 /* ISSectionedArrayController.m in Sources */,
+				466882C911E2E25300D344C7 /* SessionBySomethingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +737,7 @@
 				GCC_PREFIX_HEADER = iRubyKaigi_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				INFOPLIST_FILE = "iRubyKaigi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = iRubyKaigi2010;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.0;

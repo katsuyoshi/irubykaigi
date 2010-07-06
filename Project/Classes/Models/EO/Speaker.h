@@ -20,14 +20,35 @@
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, retain) NSString * belonging;
 @property (nonatomic, retain) NSNumber * position;
-@property (nonatomic, retain) LightningTalk * lightningTalk;
-@property (nonatomic, retain) Session * session;
+@property (nonatomic, retain) NSSet* lightningTalks;
+@property (nonatomic, retain) NSSet* sessions;
 @property (nonatomic, retain) Region * region;
+
+@property (assign, readonly) NSString *indexTitle;
+
+
 
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region;
 
++ (Speaker *)findByName:(NSString *)name;
++ (Speaker *)findByName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
+
+@property (assign, readonly) NSArray *sortedSession;
+
 @end
 
+// coalesce these into one @interface Speaker (CoreDataGeneratedAccessors) section
+@interface Speaker (CoreDataGeneratedAccessors)
+- (void)addSessionsObject:(Session *)value;
+- (void)removeSessionsObject:(Session *)value;
+- (void)addSessions:(NSSet *)value;
+- (void)removeSessions:(NSSet *)value;
+
+- (void)addLightningTalksObject:(LightningTalk *)value;
+- (void)removeLightningTalksObject:(LightningTalk *)value;
+- (void)addLightningTalks:(NSSet *)value;
+- (void)removeLightningTalks:(NSSet *)value;
+@end
 
 

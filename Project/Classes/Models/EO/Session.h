@@ -9,6 +9,7 @@
 #import <CoreData/CoreData.h>
 
 @class LightningTalk;
+@class Room;
 
 @interface Session :  NSManagedObject  
 {
@@ -24,7 +25,7 @@
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, retain) NSSet* speakers;
 @property (nonatomic, retain) NSManagedObject * day;
-@property (nonatomic, retain) NSManagedObject * room;
+@property (nonatomic, retain) Room * room;
 @property (nonatomic, retain) NSSet* lightningTalks;
 /** NSFetchResultsControllerで対多の検索が出来ないので、検索の為にスピーカー名の生データを持つ. */
 @property (nonatomic, retain) NSString * speakerRawData;

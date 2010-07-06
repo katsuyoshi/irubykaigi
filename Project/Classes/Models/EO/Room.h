@@ -25,6 +25,11 @@
 + (Room *)roomWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Room *)roomWithCode:(NSString *)code region:(Region *)region;
 
++ (Room *)roomByName:(NSString *)name floor:(NSString *)floor region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
++ (Room *)roomByName:(NSString *)name floor:(NSString *)floor region:(Region *)region;
+
+@property (assign, readonly) NSString *roomDescription;
+@property (assign, readonly) NSArray *sortedSession;
 
 @end
 

@@ -31,4 +31,11 @@
     return @"day";
 }
 
+- (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
+{
+    return [NSArray arrayWithObjects:@"title", @"speakers.name", @"room.roomDescription", @"summary", @"profile", nil];
+}
+
+
+
 @end
