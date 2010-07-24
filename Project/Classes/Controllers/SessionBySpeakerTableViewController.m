@@ -27,7 +27,8 @@
     [speaker release];
     speaker = [aSpeaker retain];
     
-    [super setArrayControllerWithSessions:speaker.sessions];
+    self.title = speaker.name;
+    [self setArrayControllerWithSessions:speaker.sessions];
 }
 
 

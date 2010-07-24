@@ -31,6 +31,8 @@
 @property (assign, readonly) NSString *roomDescription;
 @property (assign, readonly) NSArray *sortedSession;
 
+@property (assign, readonly) UIColor *roomColor;
+
 @end
 
 

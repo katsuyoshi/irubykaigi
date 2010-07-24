@@ -14,6 +14,11 @@
 
 @implementation SessionBySomethingTableViewController
 
++ (UINavigationController *)navigationController
+{
+    return [[[UINavigationController alloc] initWithRootViewController:[self sessionTableViewController]] autorelease];
+}
+
 + (id)sessionTableViewController
 {
     return [[[self alloc] initWithStyle:UITableViewStylePlain] autorelease];
@@ -28,8 +33,8 @@
 - (void)setArrayControllerWithSessions:(NSSet *)sessions
 {
     [arrayController release];
-    arrayController = [[ISSectionedArrayController alloc] initWithSet:sessions sectionName:@"day" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"day.date, time"]];
-    arrayController.sectionTitleName = @"title";
+    arrayController = [[ISSectionedArrayController alloc] initWithSet:sessions sectionName:@"dayTimeTitle" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"day.date, time, position"]];
+    arrayController.sectionTitleName = @"self";
 }
 
 

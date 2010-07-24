@@ -10,6 +10,24 @@
 
 @class LightningTalk;
 @class Room;
+@class Day;
+
+typedef enum {
+    SessionTypeCodeNormal = 1,
+    SessionTypeCodeKeynote,
+    SessionTypeCodeOpening,
+    SessionTypeCodeClosing,
+    SessionTypeCodeLightningTalks,
+
+    SessionTypeCodeOpenAndAdmission = 100,
+    SessionTypeCodeBreak,
+    SessionTypeCodeLunch,
+    SessionTypeCodeParty,
+    
+    SessionTypeCodeAnnouncement = 200
+} SessionTypeCode;
+
+
 
 @interface Session :  NSManagedObject  
 {
@@ -24,11 +42,21 @@
 @property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSString * code;
 @property (nonatomic, retain) NSSet* speakers;
-@property (nonatomic, retain) NSManagedObject * day;
+@property (nonatomic, retain) Day * day;
 @property (nonatomic, retain) Room * room;
 @property (nonatomic, retain) NSSet* lightningTalks;
+@property (nonatomic, retain) NSNumber * sessionType;
+
 /** NSFetchResultsControllerで対多の検索が出来ないので、検索の為にスピーカー名の生データを持つ. */
 @property (nonatomic, retain) NSString * speakerRawData;
+
+@property (assign, readonly) NSString *dayTimeTitle;
+
+
+@property (readonly) BOOL isSession;
+@property (readonly) BOOL isBreak;
+@property (readonly) BOOL isAnnouncement;
+
 
 @end
 

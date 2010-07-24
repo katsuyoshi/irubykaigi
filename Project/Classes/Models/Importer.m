@@ -9,7 +9,7 @@
 #import "Importer.h"
 #import "CiderCoreData.h"
 #import "Region.h"
-#import "SessionType.h"
+#import "Session.h"
 
 
 @implementation Importer
@@ -38,7 +38,7 @@
 }
 
 
-
+#if 0
 - (void)prepareSissionTypesWithManagedObjectContext:(NSManagedObjectContext *)context
 {
     SessionTypeCode codes[] = { SessionTypeCodeNormal, SessionTypeCodeKeynote, SessionTypeCodeOpening, SessionTypeCodeClosing, SessionTypeCodeLightningTalks,
@@ -69,6 +69,7 @@
     }
         
 }
+#endif
 
 
 - (void)save:(NSManagedObjectContext *)context

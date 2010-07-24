@@ -16,6 +16,7 @@
 
 }
 
++ (UINavigationController *)navigationController;
 + (id)sessionTableViewController;
 
 - (void)setArrayControllerWithSessions:(NSSet *)sessions;

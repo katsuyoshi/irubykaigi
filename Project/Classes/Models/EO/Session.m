@@ -7,7 +7,7 @@
 //
 
 #import "Session.h"
-
+#import "Day.h"
 #import "LightningTalk.h"
 
 @implementation Session 
@@ -25,6 +25,12 @@
 @dynamic room;
 @dynamic lightningTalks;
 @dynamic speakerRawData;
+@dynamic sessionType;
+
+- (void)awakeFromInsert
+{
+    self.sessionType = [NSNumber numberWithInt:SessionTypeCodeNormal];
+}
 
 + (NSString *)listScopeName
 {
@@ -36,6 +42,25 @@
     return [NSArray arrayWithObjects:@"title", @"speakers.name", @"room.roomDescription", @"summary", @"profile", nil];
 }
 
+- (NSString *)dayTimeTitle
+{
+    return [NSString stringWithFormat:@"%@ %@", self.day.title, self.time];
+}
+
+- (BOOL)isSession
+{
+    return ([self.sessionType intValue] / 100) == 0;
+}
+
+- (BOOL)isBreak
+{
+    return ([self.sessionType intValue] / 100) == 1;
+}
+
+- (BOOL)isAnnouncement
+{
+    return ([self.sessionType intValue] / 100) == 2;
+}
 
 
 @end

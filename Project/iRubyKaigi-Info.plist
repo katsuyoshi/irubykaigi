@@ -28,5 +28,11 @@
 	<string>MainWindow</string>
 	<key>NSMainNibFile~ipad</key>
 	<string>MainWindow-iPad</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>icon@2x.png</string>
+	</array>
 </dict>
 </plist>

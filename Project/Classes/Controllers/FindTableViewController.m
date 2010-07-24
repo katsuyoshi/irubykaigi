@@ -1,26 +1,25 @@
 //
-//  SessionTableViewController.m
+//  FindTableViewController.m
 //  iRubyKaigi
 //
-//  Created by Katsuyoshi Ito on 10/05/26.
+//  Created by Katsuyoshi Ito on 10/07/23.
 //  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
-#import "SessionTableViewController.h"
+#import "FindTableViewController.h"
 #import "Property.h"
 #import "Region.h"
 #import "Day.h"
 #import "SessionTableViewCell.h"
 
-
-
-@interface SessionTableViewController(IRKPrivate)
+@interface FindTableViewController(IRKPrivate)
 - (void)buildSearchDisplayController;
 - (void)buildDateSecmentedController;
 @end
 
 
-@implementation SessionTableViewController
+
+@implementation FindTableViewController
 
 @synthesize datePredicate, roomPredicate, searchPredicate;
 // FIXM: @dynamic sessionPredicate;
@@ -33,9 +32,9 @@
     return [[[UINavigationController alloc] initWithRootViewController:[self sessionViewController]] autorelease];
 }
 
-+ (SessionTableViewController *)sessionViewController
++ (FindTableViewController *)sessionViewController
 {
-    return [[[SessionTableViewController alloc] initWithNibName:@"SessionTableViewController" bundle:nil] autorelease];
+    return [[[self alloc] initWithNibName:@"SessionTableViewController" bundle:nil] autorelease];
 }
 
 
@@ -355,8 +354,4 @@
 }
 
 
-
-
-
 @end
-

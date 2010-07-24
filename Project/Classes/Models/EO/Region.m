@@ -9,7 +9,6 @@
 #import "Region.h"
 #import "Day.h"
 #import "CiderCoreData.h"
-#import "SessionType.h"
 #import "Room.h"
 #import "Speaker.h"
 
@@ -17,7 +16,7 @@
 @implementation Region 
 
 @dynamic identifier;
-@dynamic days, rooms, sessionTypes, speakers;
+@dynamic days, rooms, speakers;
 
 
 + (Region *)regionWithIdentifier:(NSString *)identifier inManagedObjectContext:(NSManagedObjectContext *)context
@@ -100,14 +99,6 @@
 {
     NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"date"];
     return [[self.days allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-}
-
-#pragma mark -
-#pragma mark session type
-
-- (SessionType *)sessionTypeForCode:(SessionTypeCode)code
-{
-    return [SessionType sessionTypeWithCode:code region:self inManagedObjectContext:self.managedObjectContext];
 }
 
 #pragma mark -

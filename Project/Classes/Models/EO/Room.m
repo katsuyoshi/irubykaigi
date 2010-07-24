@@ -68,6 +68,40 @@
     return [self roomByName:name floor:floor region:region inManagedObjectContext:context];
 }
 
+- (UIColor *)roomColor
+{
+    switch ([self.position intValue]) {
+    case 1:
+        return [UIColor redColor];
+    case 2:
+        return [UIColor greenColor];
+    case 3:
+        return [UIColor blueColor];
+    case 4:
+        return [UIColor cyanColor];
+    case 5:
+        return [UIColor yellowColor];
+    case 6:
+        return [UIColor magentaColor];
+    case 7:
+        return [UIColor orangeColor];
+    case 8:
+        return [UIColor purpleColor];
+    case 9:
+        return [UIColor brownColor];
+    case 10:
+        return [UIColor lightGrayColor];
+    default:
+        return [UIColor whiteColor];
+    }
+}
+
+/*
++ blackColor
++ darkGrayColor
++ clearColor
++ grayColor
+*/
 
 - (NSString *)roomDescription
 {

@@ -10,6 +10,9 @@
 #import "SessionTableViewController.h"
 #import "SpeakerTableViewController.h"
 #import "RoomTableViewController.h"
+#import "SettingTableViewController.h"
+#import "FavoriteSessionTableViewController.h"
+#import "FindTableViewController.h"
 
 #import "TestDataImporter.h"
 
@@ -29,6 +32,8 @@
                                 @"session_by_date_icon_30x30.png",
                                 @"session_by_room_icon_30x30.png",
                                 @"session_by_speaker_icon_30x30.png",
+                                @"favorite_30x30.png",
+                                @"setting_icon_30x30.png",
                                 nil];
                                 
     [[[TestDataImporter new] autorelease] import];
@@ -37,6 +42,9 @@
                                     [SessionTableViewController navigationController],
                                     [RoomTableViewController navigationController],
                                     [SpeakerTableViewController navigationController],
+                                    [FavoriteSessionTableViewController navigationController],
+                                    [FindTableViewController navigationController],
+                                    [SettingTableViewController navigationController],
                                     nil];
     tabBarController.viewControllers = tabBarControllers;
     

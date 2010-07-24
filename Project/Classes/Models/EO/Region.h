@@ -7,7 +7,6 @@
 //
 
 #import <CoreData/CoreData.h>
-#import "SessionType.h"
 
 
 @class Day, Room, Speaker;
@@ -19,7 +18,6 @@
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSSet* days;
 @property (nonatomic, retain) NSSet* rooms;
-@property (nonatomic, retain) NSSet* sessionTypes;
 @property (nonatomic, retain) NSSet* speakers;
 
 
@@ -43,9 +41,6 @@
 - (Day *)dayForDate:(NSDate *)date;
 - (NSArray *)sortedDays;
 
-// access for session tyep
-- (SessionType *)sessionTypeForCode:(SessionTypeCode)code;
-
 // access for room
 - (Room *)roomForCode:(NSString *)code;
 
@@ -66,11 +61,6 @@
 - (void)removeRoomsObject:(NSManagedObject *)value;
 - (void)addRooms:(NSSet *)value;
 - (void)removeRooms:(NSSet *)value;
-
-- (void)addSessionTypesObject:(NSManagedObject *)value;
-- (void)removeSessionTypesObject:(NSManagedObject *)value;
-- (void)addSessionTypes:(NSSet *)value;
-- (void)removeSessionTypes:(NSSet *)value;
 
 - (void)addSpeakersObject:(NSManagedObject *)value;
 - (void)removeSpeakersObject:(NSManagedObject *)value;

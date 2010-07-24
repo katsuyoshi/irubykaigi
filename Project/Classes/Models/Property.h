@@ -19,5 +19,6 @@
 
 @property (assign) NSArray *sessionSearchHistories;
 
+@property (assign) NSArray *favoriteSessons;
 
 @end

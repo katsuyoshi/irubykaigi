@@ -16,8 +16,8 @@
 
 - (void)import;
 
-- (void)prepareDaysWithManagedObjectContext:(NSManagedObjectContext *)context;
-- (void)prepareSissionTypesWithManagedObjectContext:(NSManagedObjectContext *)context;
+// DELETEME: - (void)prepareDaysWithManagedObjectContext:(NSManagedObjectContext *)context;
+// DELETEME: - (void)prepareSissionTypesWithManagedObjectContext:(NSManagedObjectContext *)context;
 
 
 - (void)save:(NSManagedObjectContext *)context;

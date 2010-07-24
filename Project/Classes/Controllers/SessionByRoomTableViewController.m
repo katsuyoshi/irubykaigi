@@ -26,7 +26,8 @@
     [room release];
     room = [aRoom retain];
     
-    [super setArrayControllerWithSessions:room.sessions];
+    self.title = room.roomDescription;
+    [self setArrayControllerWithSessions:room.sessions];
 }
 
 

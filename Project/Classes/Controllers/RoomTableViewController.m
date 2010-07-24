@@ -10,6 +10,8 @@
 #import "Property.h"
 #import "Region.h"
 #import "SessionByRoomTableViewController.h"
+#import "RoomTableViewCell.h"
+#import "Room.h"
 
 
 @implementation RoomTableViewController
@@ -54,6 +56,20 @@
     [region retain];
 
     self.predicate = [NSPredicate predicateWithFormat:@"region = %@", region];
+}
+
+- (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
+{
+    return [RoomTableViewCell roomTableViewCellWithIdentifier:cellIdentifier];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    RoomTableViewCell *aCell = (RoomTableViewCell *)cell;
+    
+    aCell.room = (Room *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    aCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

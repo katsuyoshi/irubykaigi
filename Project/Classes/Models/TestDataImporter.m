@@ -32,7 +32,7 @@
         
         context = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];
 
-        [self prepareDaysWithManagedObjectContext:context];
+// DELETEME:        [self prepareDaysWithManagedObjectContext:context];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
         [self importSessionsFromCsvFile:path region:[Region japaneseInManagedObjectContext:context] managedObjectContext:context];
@@ -58,7 +58,7 @@
                 int index = 0;
                 Session *session = [Session createWithManagedObjectContext:context];
 
-                NSArray *attributeKeys = [NSArray arrayWithObjects:@"date", @"room", @"floor", @"speaker", @"break", @"abstract", nil];
+                NSArray *attributeKeys = [NSArray arrayWithObjects:@"date", @"room", @"floor", @"speaker", @"break", @"abstract", @"attention", nil];
                 
                 Day *day;
                 NSString *roomName = nil;
@@ -123,10 +123,17 @@
                         }
                         break;
                     case 4: /* break */
-                        // FIXME: session.
+                        if ([element isEqualToString:@"true"]) {
+                            session.sessionType = [NSNumber numberWithInt:SessionTypeCodeBreak];
+                        }
                         break;
                     case 5: /* abstract */
                         session.summary = element;
+                        break;
+                    case 6: /* attention */
+                        if ([element isEqualToString:@"true"]) {
+                            session.sessionType = [NSNumber numberWithInt:SessionTypeCodeAnnouncement];
+                        }
                         break;
                     default:
                         [session setValue:element forKey:key];

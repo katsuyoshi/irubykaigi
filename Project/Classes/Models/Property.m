@@ -18,7 +18,7 @@
 
 - (void)setJapanese:(BOOL)value
 {
-    [self setBoolValueForKey:@"japanese" value:value];
+    [self setBoolValue:value forKey:@"japanese"];
 }
 
 - (BOOL)japanese
@@ -36,5 +36,18 @@
 {
     return [self arrayForKey:@"sessionSearchHistories"];
 }
+
+
+- (void)setFavoriteSessons:(NSArray *)array
+{
+    [self setArray:array forKey:@"favoriteSessons"];
+}
+
+
+- (NSArray *)favoriteSessons
+{
+    return [self arrayForKey:@"favoriteSessons"];
+}
+
 
 @end
