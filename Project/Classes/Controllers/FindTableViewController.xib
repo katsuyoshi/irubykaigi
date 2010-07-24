@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="8"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -39,9 +40,29 @@
 			<object class="IBUITableView" id="873029372">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
+				<object class="NSMutableArray" key="NSSubviews">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="IBUISearchBar" id="22014057">
+						<reference key="NSNextResponder" ref="873029372"/>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrameSize">{320, 88}</string>
+						<reference key="NSSuperview" ref="873029372"/>
+						<int key="IBUIContentMode">3</int>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBShowsBookmarkButton">YES</bool>
+						<object class="IBUITextInputTraits" key="IBTextInputTraits">
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<object class="NSArray" key="IBScopeButtonTitles">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>Scope</string>
+							<string>Scope</string>
+						</object>
+						<bool key="IBShowsScopeBar">YES</bool>
+					</object>
+				</object>
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -58,49 +79,7 @@
 				<float key="IBUIRowHeight">44</float>
 				<float key="IBUISectionHeaderHeight">22</float>
 				<float key="IBUISectionFooterHeight">22</float>
-			</object>
-			<object class="IBUISearchDisplayController" id="739013398">
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-			</object>
-			<object class="IBUISegmentedControl" id="675041341">
-				<nil key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
-				<string key="NSFrameSize">{300, 30}</string>
-				<bool key="IBUIOpaque">NO</bool>
-				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<int key="IBSegmentControlStyle">2</int>
-				<int key="IBNumberOfSegments">3</int>
-				<int key="IBSelectedSegmentIndex">0</int>
-				<object class="NSArray" key="IBSegmentTitles">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>First</string>
-					<string>Second</string>
-					<string/>
-				</object>
-				<object class="NSMutableArray" key="IBSegmentWidths">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<real value="0.0"/>
-					<real value="0.0"/>
-					<real value="0.0"/>
-				</object>
-				<object class="NSMutableArray" key="IBSegmentEnabledStates">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<boolean value="YES"/>
-					<boolean value="YES"/>
-					<boolean value="YES"/>
-				</object>
-				<object class="NSMutableArray" key="IBSegmentContentOffsets">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{0, 0}</string>
-					<string>{0, 0}</string>
-					<string>{0, 0}</string>
-				</object>
-				<object class="NSMutableArray" key="IBSegmentImages">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSNull" id="4"/>
-					<reference ref="4"/>
-					<reference ref="4"/>
-				</object>
+				<reference key="IBUITableHeaderView" ref="22014057"/>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -132,60 +111,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">searchContentsController</string>
-						<reference key="source" ref="739013398"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">12</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">searchResultsDataSource</string>
-						<reference key="source" ref="739013398"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">13</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">searchResultsDelegate</string>
-						<reference key="source" ref="739013398"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">14</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="739013398"/>
+						<reference key="source" ref="22014057"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">15</int>
+					<int key="connectionID">16</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">searchDisplayController</string>
+						<string key="label">searchBar</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="739013398"/>
+						<reference key="destination" ref="22014057"/>
 					</object>
-					<int key="connectionID">18</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">dateSecmentedController</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="675041341"/>
-					</object>
-					<int key="connectionID">37</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">selectDayAction:</string>
-						<reference key="source" ref="675041341"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">13</int>
-					</object>
-					<int key="connectionID">38</int>
+					<int key="connectionID">44</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -213,18 +151,14 @@
 						<reference key="object" ref="873029372"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="22014057"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">9</int>
-						<reference key="object" ref="739013398"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">36</int>
-						<reference key="object" ref="675041341"/>
-						<reference key="parent" ref="0"/>
+						<int key="objectID">8</int>
+						<reference key="object" ref="22014057"/>
+						<reference key="parent" ref="873029372"/>
 					</object>
 				</object>
 			</object>
@@ -234,18 +168,16 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
-					<string>36.IBEditorWindowLastContentRect</string>
-					<string>36.IBPluginDependency</string>
 					<string>4.IBEditorWindowLastContentRect</string>
 					<string>4.IBPluginDependency</string>
+					<string>8.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>SessionTableViewController</string>
+					<string>FindTableViewController</string>
 					<string>UIResponder</string>
-					<string>{{63, 646}, {300, 30}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{298, 244}, {320, 480}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -265,17 +197,28 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">38</int>
+			<int key="maxID">44</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">ISCDListTableViewController</string>
-					<string key="superclassName">UITableViewController</string>
+					<string key="className">FindTableViewController</string>
+					<string key="superclassName">SessionBySomethingTableViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">searchBar</string>
+						<string key="NS.object.0">UISearchBar</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">searchBar</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">searchBar</string>
+							<string key="candidateClassName">UISearchBar</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">vendor/cider/cider/CoreData/UIKit/ISCDListTableViewController.h</string>
+						<string key="minorKey">Classes/Controllers/FindTableViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -286,33 +229,11 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">SessionTableViewController</string>
-					<string key="superclassName">ISCDListTableViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">selectDayAction:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">selectDayAction:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">selectDayAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">dateSecmentedController</string>
-						<string key="NS.object.0">UISegmentedControl</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">dateSecmentedController</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">dateSecmentedController</string>
-							<string key="candidateClassName">UISegmentedControl</string>
-						</object>
-					</object>
+					<string key="className">SessionBySomethingTableViewController</string>
+					<string key="superclassName">UITableViewController</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Controllers/SessionTableViewController.h</string>
+						<string key="minorKey">Classes/Controllers/SessionBySomethingTableViewController.h</string>
 					</object>
 				</object>
 			</object>
@@ -438,14 +359,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">UIControl</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UIControl.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">UIResponder</string>
 					<string key="superclassName">NSObject</string>
 					<reference key="sourceIdentifier" ref="447794702"/>
@@ -472,14 +385,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UISearchDisplayController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">UISegmentedControl</string>
-					<string key="superclassName">UIControl</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBFrameworkSource</string>
-						<string key="minorKey">UIKit.framework/Headers/UISegmentedControl.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

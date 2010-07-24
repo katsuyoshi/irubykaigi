@@ -10,6 +10,7 @@
 #import "Room.h"
 #import "Property.h"
 #import "RoomColorView.h"
+#import "UIColorIRK.h"
 
 
 @implementation SessionTableViewCell
@@ -34,6 +35,12 @@
         favoritButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
         [favoritButton addTarget:self action:@selector(didTouchUpFavorite:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:favoritButton];
+        
+        self.backgroundView = [[UIView new] autorelease];
+        self.backgroundView.backgroundColor = [UIColor lightGrayColor];
+        
+        self.textLabel.backgroundColor = [UIColor clearColor];
+        self.detailTextLabel.backgroundColor = [UIColor clearColor];
         
     }
     return self;
@@ -133,12 +140,13 @@
         roomColorView.hidden = session.isBreak;
         
         UIColor *textColor = session.isBreak ? [UIColor whiteColor] : [UIColor blackColor];
-        UIColor *bgColor = session.isBreak ? [UIColor brownColor] : [UIColor whiteColor];
-        self.contentView.backgroundColor = bgColor;
+        UIColor *bgColor = session.isBreak ? [UIColor breakSessionColor] : [UIColor normalSessionColor];
+        
+        self.backgroundView.backgroundColor = bgColor;
         self.textLabel.textColor = textColor;
-        self.textLabel.backgroundColor = bgColor;
-        self.detailTextLabel.backgroundColor = bgColor;
         self.detailTextLabel.textColor = textColor;
+//        self.textLabel.backgroundColor = bgColor;
+//        self.detailTextLabel.backgroundColor = bgColor;
 
     }
 }
@@ -161,3 +169,6 @@
 }
 
 @end
+
+
+

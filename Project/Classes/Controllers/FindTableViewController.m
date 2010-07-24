@@ -11,6 +11,8 @@
 #import "Region.h"
 #import "Day.h"
 #import "SessionTableViewCell.h"
+#import "Speaker.h"
+
 
 @interface FindTableViewController(IRKPrivate)
 - (void)buildSearchDisplayController;
@@ -21,22 +23,25 @@
 
 @implementation FindTableViewController
 
-@synthesize datePredicate, roomPredicate, searchPredicate;
-// FIXM: @dynamic sessionPredicate;
 
-@synthesize searchString, searchScopes;
+@synthesize searchString;
 
 
 + (UINavigationController *)navigationController
 {
-    return [[[UINavigationController alloc] initWithRootViewController:[self sessionViewController]] autorelease];
+    return [[[UINavigationController alloc] initWithRootViewController:[self findViewController]] autorelease];
 }
 
-+ (FindTableViewController *)sessionViewController
++ (FindTableViewController *)findViewController
 {
-    return [[[self alloc] initWithNibName:@"SessionTableViewController" bundle:nil] autorelease];
+    return [[[self alloc] initWithNibName:@"FindTableViewController" bundle:nil] autorelease];
 }
 
+
+- (NSString *)title
+{
+    return NSLocalizedString(@"Search", nil);
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -44,15 +49,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Date", nil);
+    [self buildSearchDisplayController];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)buildSearchDisplayController
 {
-    UISearchBar *searchBar = self.searchDisplayController.searchBar;
-    
-    self.tableView.contentOffset = CGPointMake(0, searchBar.frame.size.height);
-    
     searchBar.scopeButtonTitles = [NSArray arrayWithObjects:
                         NSLocalizedString(@"All", nil),
                         NSLocalizedString(@"Session", nil),
@@ -60,25 +62,20 @@
                         nil];
 }
 
-- (void)buildDateSecmentedController
-{
-    int i = 0;    
-    [dateSecmentedController removeAllSegments];
-    for (Day *day in region.sortedDays) {
-        [dateSecmentedController insertSegmentWithTitle:day.title atIndex:i++ animated:NO];
-    }
-}
-
-/*
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
-*/
-/*
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self performSelector:@selector(beActive) withObject:nil afterDelay:0.1];
 }
-*/
+
+- (void)beActive
+{
+    [self.searchDisplayController setActive:YES animated:YES];
+}
+
 /*
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -104,114 +101,13 @@
 
 - (void)dealloc {
     [searchString release];
-    [searchScopes release];
     
-    [region release];
-    
-    [datePredicate release];
-    [roomPredicate release];
-    [searchPredicate release];
-    
-    [dateSecmentedController release];
     [super dealloc];
 }
 
 #pragma mark -
 #pragma mark properties
 
-- (void)setMasterObject:(NSManagedObject *)object
-{
-    [super setMasterObject:object];
-    
-    Day *day = (Day *)object;
-    int index = [day.region.sortedDays indexOfObject:day];
-    dateSecmentedController.selectedSegmentIndex = index;
-    [self reloadData];
-}
-
-- (NSPredicate *)predicate
-{
-    return self.searchPredicate;
-}
-
-/* FIXME:
-- (NSPredicate *)sessionPredicate
-{
-    NSMutableArray *predicates = [NSMutableArray array];
-    if (self.datePredicate) {
-        [predicates addObject:self.datePredicate];
-    }
-    if (self.roomPredicate) {
-        [predicates addObject:self.roomPredicate];
-    }
-    if (self.searchPredicate) {
-        [predicates addObject:self.searchPredicate];
-    }
-    NSPredicate *predicate = nil;
-    for (NSPredicate *aPredicate in predicates) {
-        if (predicate == nil) {
-            predicate = aPredicate;
-        } else {
-            predicate = [NSPredicate predicateWithFormat:@"%@ and %@", predicate, aPredicate];
-        }
-    }
-    return predicate;
-}
-*/
-
-#pragma mark -
-
-- (void)reloadData
-{
-    [self resetFetchedResultController];
-    [super reloadData];
-}
-
-
-- (void)refetch
-{
-    [self resetFetchedResultController];
-    NSError *error = nil;
-    [self.fetchedResultsController performFetch:&error];
-#ifdef DEBUG
-    if (error) [error showErrorForUserDomains];
-#endif
-}
-
-#pragma mark -
-#pragma mark ISCDListTableViewController
-
-- (void)setUpEntityAndAttributeIfNeeds
-{
-    self.entityName = @"Session";
-    self.displayKey = @"title";
-    self.sectionNameKeyPath = @"time";
-
-    self.detailedTableViewControllerClassName = @"SessionDetailedTableViewController";
-    self.hasDetailView = YES;
-    
-
-    region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
-    [region retain];
-
-    self.navigationItem.titleView = dateSecmentedController;
-    [self buildSearchDisplayController];
-    [self buildDateSecmentedController];
-
-    if ([region.sortedDays count]) {
-        self.masterObject = [region.sortedDays objectAtIndex:0];
-    }
-    
-}
-
-
-#pragma mark -
-#pragma mark actions
-
-- (void)selectDayAction:(id)sender
-{
-    self.masterObject = [region.sortedDays objectAtIndex:dateSecmentedController.selectedSegmentIndex];
-}
 
 
 #pragma mark -
@@ -223,74 +119,67 @@
     return [NSPredicate predicateWithFormat:@"%K LIKE[c] %@", key, str];
 }
 
-- (BOOL)buildSearchPredicateAndRefetchIfNeeds
+- (NSArray *)sessoinsBySessionQuery
 {
-    if (self.searchScopes && [self.searchString length]) {
-        NSMutableArray *predicates = [NSMutableArray array];
-        for (NSString *scope in self.searchScopes) {
-            [predicates addObject:[self likePredicateForKey:scope string:self.searchString]];
+    NSMutableArray *predicates = [NSMutableArray array];
+    NSArray *keys = [NSArray arrayWithObjects:@"title", @"summary", nil];
+    for (NSString *key in keys) {
+        [predicates addObject:[self likePredicateForKey:key string:self.searchString]];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    predicates = [NSMutableArray arrayWithObject:predicate];
+    [predicates addObject:[NSPredicate predicateWithFormat:@"day.region = %@", self.region]];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+    
+    NSError *error = nil;
+    NSArray *sessions = [Session findAllWithPredicate:predicate error:&error];
+#ifdef DEBUG
+    if (error) [error showErrorForUserDomains];
+#endif
+    return sessions;
+}
+
+- (NSArray *)sessionsBySpeakerQuery
+{
+    NSMutableArray *predicates = [NSMutableArray array];
+    [predicates addObject:[NSPredicate predicateWithFormat:@"region = %@", self.region]];
+    [predicates addObject:[self likePredicateForKey:@"name" string:self.searchString]];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+    NSError *error = nil;
+    NSArray *speakers = [Speaker findAllWithPredicate:predicate error:&error];
+#ifdef DEBUG
+    if (error) [error showErrorForUserDomains];
+#endif
+
+    NSMutableSet *sessions = [NSMutableSet set];
+    for (Speaker *speaker in speakers) {
+        [sessions addObjectsFromArray:[speaker.sessions allObjects]];
+    }
+    return [sessions allObjects];
+}
+
+- (void)reloadData
+{
+    if ([self.searchString length]) {
+        NSMutableSet *sessions = [NSMutableSet set];
+        if (scopeType == SearchScopeAll || scopeType == SearchScopeSession) {
+            [sessions addObjectsFromArray:[self sessoinsBySessionQuery]];
         }
-        self.searchPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+        if (scopeType == SearchScopeAll || scopeType == SearchScopeSpeaker) {
+            [sessions addObjectsFromArray:[self sessionsBySpeakerQuery]];
+        }
+        [self setArrayControllerWithSessions:[NSSet setWithArray:[sessions allObjects]]];
     } else {
-        self.searchPredicate = nil;
+        [self setArrayControllerWithSessions:[NSSet setWithArray:[NSArray array]]];
     }
-
-    BOOL needsRefetch = self.searchPredicate ? YES : NO;
-    if (needsRefetch) {
-        // table viewのreloadDataはUISearchDisplayDelegateが行うのでfetchだけにする
-        // table viewもやってしまうとScopeを切替えた時に、セクションタイトルが二重に表示されたりする
-        [self refetch];
-        // が行が多い状態から検索で少なくなり、フリックで下を表示しようとすると
-        // ストックされてるセルを再表示しようとしてデータがなくてExceptionが発生するので
-        // reloadDataに戻す
-        // がSerchBarをfirstResponderにしてなかった為だったので再度refetchのみ
-        // [self reloadData];
-    }
-    return needsRefetch;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)aSearchString
-{
-    self.searchString = aSearchString;
-    return [self buildSearchPredicateAndRefetchIfNeeds];
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
-    switch (searchOption) {
-    case 0: // ALL
-        self.searchScopes = nil;
-        break;
-    case 1: // Session
-        self.searchScopes = [NSArray arrayWithObjects:@"title", @"summary", nil];
-        break;
-    case 2: // Speaker
-        self.searchScopes = [NSArray arrayWithObjects:@"profile", @"speakerRawData", nil];
-        break;
-    }
-    return [self buildSearchPredicateAndRefetchIfNeeds];
-}
-
-- (NSArray *)searchScopes
-{
-    if (searchScopes == nil || [searchScopes count] == 0) {
-        self.searchScopes = [NSArray arrayWithObjects:@"title", @"profile", @"summary", @"speakerRawData", nil];
-    }
-    return searchScopes;
+    [self.tableView reloadData];
 }
 
 #pragma mark -
 #pragma mark UISearchBarDelegate
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    self.searchPredicate = nil;
-    [self reloadData];
-}
 
 - (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
 {
-    [self.searchDisplayController.searchBar becomeFirstResponder];
-
     UINavigationController *navigationController = [HistoryTableViewController navigationController];
     HistoryTableViewController *controller = (HistoryTableViewController *)navigationController.visibleViewController;
     controller.propertyKey = @"sessionSearchHistories";
@@ -299,9 +188,17 @@
     [self presentModalViewController:navigationController animated:YES];
 }
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSString *key = searchBar.text;
+    self.searchString = searchText;
+    [self reloadData];
+}
+
+
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar
+{
+    NSString *key = aSearchBar.text;
     if ([key length]) {
         Property *property = [Property sharedProperty];
         NSMutableArray *array = [[[property sessionSearchHistories] mutableCopy] autorelease];
@@ -311,47 +208,36 @@
         [array insertObject:key atIndex:0];
         property.sessionSearchHistories = array;
     }
+    [aSearchBar resignFirstResponder];
 }
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    scopeType = selectedScope;
+    [self reloadData];
+}
+
+- (BOOL)searchBar:(UISearchBar *)aSearchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [aSearchBar resignFirstResponder];
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+
+
 
 #pragma mark -
 #pragma mark HistoryTableViewControllerDelegate
 
 - (void)didSelectHistoryItem:(NSString *)item
 {
-    self.searchDisplayController.searchBar.text = item;
+    searchBar.text = item;
 }
 
-#pragma mark -
-
-- (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
-{
-    return [SessionTableViewCell sessionTableViewCellWithIdentifier:cellIdentifier];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *cellIdentifier = @"Cell";
-    
-    SessionTableViewCell *cell = (SessionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = (SessionTableViewCell *)[self createCellWithIdentifier:cellIdentifier];
-    }
-    cell.session = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50.0;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-        [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    }
-}
 
 
 @end

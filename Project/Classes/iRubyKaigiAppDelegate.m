@@ -13,6 +13,7 @@
 #import "SettingTableViewController.h"
 #import "FavoriteSessionTableViewController.h"
 #import "FindTableViewController.h"
+#import "UIColorIRK.h"
 
 #import "TestDataImporter.h"
 
@@ -53,7 +54,8 @@
         tabBarItem.image = [UIImage imageNamed:[iconEnumerator nextObject]];
     }
     
-        
+    
+    window.backgroundColor = [UIColor normalSessionColor];
     [window addSubview:tabBarController.view];
     [window makeKeyAndVisible];
     

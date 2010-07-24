@@ -28,6 +28,8 @@
     
     UIBarButtonItem *backButton = [[[UIBarButtonItem alloc] initWithTitle:self.navigationItem.backBarButtonItem.title style:UIBarButtonItemStylePlain target:self action:@selector(backAction)] autorelease];
     self.navigationItem.leftBarButtonItem = backButton;
+
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)backAction

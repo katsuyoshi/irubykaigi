@@ -7,6 +7,7 @@
 //
 
 #import "RoomTableViewCell.h"
+#import "UIColorIRK.h"
 
 
 @implementation RoomTableViewCell
@@ -26,6 +27,8 @@
         roomColorView = [[RoomColorView alloc] initWithFrame:CGRectZero];
         [self.contentView addSubview:roomColorView];
         
+        self.backgroundView = [[UIView new] autorelease];
+        self.backgroundView.backgroundColor = [UIColor normalSessionColor];
     }
     return self;
 }

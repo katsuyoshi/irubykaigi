@@ -7,38 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ISCDListTableViewController.h"
+#import "SessionBySomethingTableViewController.h"
 #import "Region.h"
 #import "HistoryTableViewController.h"
 
+typedef enum {
+    SearchScopeAll,
+    SearchScopeSession,
+    SearchScopeSpeaker
+} SearchScopeType;
 
-@interface FindTableViewController : ISCDListTableViewController <UISearchDisplayDelegate, UISearchBarDelegate, HistoryTableViewControllerDelegate>  {
-
-    IBOutlet UISegmentedControl *dateSecmentedController;
+@interface FindTableViewController : SessionBySomethingTableViewController <UISearchDisplayDelegate, UISearchBarDelegate, HistoryTableViewControllerDelegate>  {
     
-    NSPredicate *datePredicate;
-    NSPredicate *roomPredicate;
-    NSPredicate *searchPredicate;
     NSString *searchString;
-    NSArray *searchScopes;
+    SearchScopeType scopeType;
     
-    Region *region;
+    IBOutlet UISearchBar *searchBar;
 }
 
 + (UINavigationController *)navigationController;
-+ (FindTableViewController *)sessionViewController;
++ (FindTableViewController *)findViewController;
 
-@property (retain) NSPredicate *datePredicate;
-@property (retain) NSPredicate *roomPredicate;
-@property (retain) NSPredicate *searchPredicate;
 
 @property (copy) NSString *searchString;
-@property (retain) NSArray *searchScopes;
 
-
-// FIXME: @property (assign, readonly) NSPredicate *sessionPredicate;
-
-- (IBAction)selectDayAction:(id)sender;
 
 
 @end

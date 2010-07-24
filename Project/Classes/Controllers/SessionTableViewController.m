@@ -22,10 +22,9 @@
 
 @implementation SessionTableViewController
 
-@synthesize datePredicate, roomPredicate, searchPredicate;
+@synthesize datePredicate, roomPredicate;
 // FIXM: @dynamic sessionPredicate;
 
-@synthesize searchString, searchScopes;
 
 
 + (UINavigationController *)navigationController
@@ -38,6 +37,10 @@
     return [[[SessionTableViewController alloc] initWithNibName:@"SessionTableViewController" bundle:nil] autorelease];
 }
 
+- (NSString *)title
+{
+    return NSLocalizedString(@"Date", nil);
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -45,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Date", nil);
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)buildSearchDisplayController
@@ -103,15 +106,11 @@
 #pragma mark Memory management
 
 
-- (void)dealloc {
-    [searchString release];
-    [searchScopes release];
-    
+- (void)dealloc {    
     [region release];
     
     [datePredicate release];
     [roomPredicate release];
-    [searchPredicate release];
     
     [dateSecmentedController release];
     [super dealloc];
@@ -130,10 +129,6 @@
     [self reloadData];
 }
 
-- (NSPredicate *)predicate
-{
-    return self.searchPredicate;
-}
 
 /* FIXME:
 - (NSPredicate *)sessionPredicate
@@ -224,103 +219,7 @@
     return [NSPredicate predicateWithFormat:@"%K LIKE[c] %@", key, str];
 }
 
-- (BOOL)buildSearchPredicateAndRefetchIfNeeds
-{
-    if (self.searchScopes && [self.searchString length]) {
-        NSMutableArray *predicates = [NSMutableArray array];
-        for (NSString *scope in self.searchScopes) {
-            [predicates addObject:[self likePredicateForKey:scope string:self.searchString]];
-        }
-        self.searchPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
-    } else {
-        self.searchPredicate = nil;
-    }
 
-    BOOL needsRefetch = self.searchPredicate ? YES : NO;
-    if (needsRefetch) {
-        // table viewのreloadDataはUISearchDisplayDelegateが行うのでfetchだけにする
-        // table viewもやってしまうとScopeを切替えた時に、セクションタイトルが二重に表示されたりする
-        [self refetch];
-        // が行が多い状態から検索で少なくなり、フリックで下を表示しようとすると
-        // ストックされてるセルを再表示しようとしてデータがなくてExceptionが発生するので
-        // reloadDataに戻す
-        // がSerchBarをfirstResponderにしてなかった為だったので再度refetchのみ
-        // [self reloadData];
-    }
-    return needsRefetch;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)aSearchString
-{
-    self.searchString = aSearchString;
-    return [self buildSearchPredicateAndRefetchIfNeeds];
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
-    switch (searchOption) {
-    case 0: // ALL
-        self.searchScopes = nil;
-        break;
-    case 1: // Session
-        self.searchScopes = [NSArray arrayWithObjects:@"title", @"summary", nil];
-        break;
-    case 2: // Speaker
-        self.searchScopes = [NSArray arrayWithObjects:@"profile", @"speakerRawData", nil];
-        break;
-    }
-    return [self buildSearchPredicateAndRefetchIfNeeds];
-}
-
-- (NSArray *)searchScopes
-{
-    if (searchScopes == nil || [searchScopes count] == 0) {
-        self.searchScopes = [NSArray arrayWithObjects:@"title", @"profile", @"summary", @"speakerRawData", nil];
-    }
-    return searchScopes;
-}
-
-#pragma mark -
-#pragma mark UISearchBarDelegate
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    self.searchPredicate = nil;
-    [self reloadData];
-}
-
-- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
-{
-    [self.searchDisplayController.searchBar becomeFirstResponder];
-
-    UINavigationController *navigationController = [HistoryTableViewController navigationController];
-    HistoryTableViewController *controller = (HistoryTableViewController *)navigationController.visibleViewController;
-    controller.propertyKey = @"sessionSearchHistories";
-    controller.delegate = self;
-    
-    [self presentModalViewController:navigationController animated:YES];
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    NSString *key = searchBar.text;
-    if ([key length]) {
-        Property *property = [Property sharedProperty];
-        NSMutableArray *array = [[[property sessionSearchHistories] mutableCopy] autorelease];
-        if ([array containsObject:key]) {
-            [array removeObject:key];
-        }
-        [array insertObject:key atIndex:0];
-        property.sessionSearchHistories = array;
-    }
-}
-
-#pragma mark -
-#pragma mark HistoryTableViewControllerDelegate
-
-- (void)didSelectHistoryItem:(NSString *)item
-{
-    self.searchDisplayController.searchBar.text = item;
-}
 
 #pragma mark -
 

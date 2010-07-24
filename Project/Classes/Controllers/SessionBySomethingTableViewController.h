@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CiderCoreData.h"
+#import "Region.h"
 
 
 @interface SessionBySomethingTableViewController : UITableViewController {
@@ -15,6 +16,8 @@
     ISSectionedArrayController *arrayController;
 
 }
+
+@property (assign, readonly) Region *region;
 
 + (UINavigationController *)navigationController;
 + (id)sessionTableViewController;

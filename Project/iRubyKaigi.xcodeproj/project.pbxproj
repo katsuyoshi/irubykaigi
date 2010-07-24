@@ -46,6 +46,8 @@
 		46178E9F11F9D011000BFA1C /* ISSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178E8311F9D011000BFA1C /* ISSelectionTableViewController.m */; };
 		46178EA011F9D011000BFA1C /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178E8511F9D011000BFA1C /* ISTableViewCell.m */; };
 		46178F5611F9D4AB000BFA1C /* FindTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F5511F9D4AB000BFA1C /* FindTableViewController.m */; };
+		46178F8011FAD12A000BFA1C /* FindTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46178F7F11FAD12A000BFA1C /* FindTableViewController.xib */; };
+		4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4617916511FB268E000BFA1C /* UIColorIRK.m */; };
 		46218A8A11DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */; };
 		46218A8B11DBA47E00CBBADF /* session_by_date_icon_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */; };
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
@@ -177,6 +179,9 @@
 		46178E8511F9D011000BFA1C /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
 		46178F5411F9D4AB000BFA1C /* FindTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindTableViewController.h; sourceTree = "<group>"; };
 		46178F5511F9D4AB000BFA1C /* FindTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindTableViewController.m; sourceTree = "<group>"; };
+		46178F7F11FAD12A000BFA1C /* FindTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindTableViewController.xib; sourceTree = "<group>"; };
+		4617916411FB268E000BFA1C /* UIColorIRK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorIRK.h; sourceTree = "<group>"; };
+		4617916511FB268E000BFA1C /* UIColorIRK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorIRK.m; sourceTree = "<group>"; };
 		46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "session_by_date_icon_30x30@2x.png"; sourceTree = "<group>"; };
 		46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = session_by_date_icon_30x30.png; sourceTree = "<group>"; };
 		4621C44710070EB60052495F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -387,6 +392,7 @@
 				4668831A11E2E9BA00D344C7 /* SettingTableViewController.m */,
 				46178F5411F9D4AB000BFA1C /* FindTableViewController.h */,
 				46178F5511F9D4AB000BFA1C /* FindTableViewController.m */,
+				46178F7F11FAD12A000BFA1C /* FindTableViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -568,6 +574,8 @@
 				4668845411E31E1300D344C7 /* RoomColorView.m */,
 				46C96CF511E40CEC00680067 /* RoomTableViewCell.h */,
 				46C96CF611E40CEC00680067 /* RoomTableViewCell.m */,
+				4617916411FB268E000BFA1C /* UIColorIRK.h */,
+				4617916511FB268E000BFA1C /* UIColorIRK.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -694,6 +702,7 @@
 				46BEE06E11E637990096B1B3 /* icon@2x.png in Resources */,
 				46178E9711F9D011000BFA1C /* ISDateTimeInputViewController.xib in Resources */,
 				46178E9E11F9D011000BFA1C /* cider.strings in Resources */,
+				46178F8011FAD12A000BFA1C /* FindTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +763,7 @@
 				46178E9F11F9D011000BFA1C /* ISSelectionTableViewController.m in Sources */,
 				46178EA011F9D011000BFA1C /* ISTableViewCell.m in Sources */,
 				46178F5611F9D4AB000BFA1C /* FindTableViewController.m in Sources */,
+				4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,15 +12,11 @@
 #import "HistoryTableViewController.h"
 
 
-@interface SessionTableViewController : ISCDListTableViewController <UISearchDisplayDelegate, UISearchBarDelegate, HistoryTableViewControllerDelegate> {
+@interface SessionTableViewController : ISCDListTableViewController {
 
     IBOutlet UISegmentedControl *dateSecmentedController;
     
     NSPredicate *datePredicate;
-    NSPredicate *roomPredicate;
-    NSPredicate *searchPredicate;
-    NSString *searchString;
-    NSArray *searchScopes;
     
     Region *region;
 }
@@ -30,13 +26,7 @@
 
 @property (retain) NSPredicate *datePredicate;
 @property (retain) NSPredicate *roomPredicate;
-@property (retain) NSPredicate *searchPredicate;
 
-@property (copy) NSString *searchString;
-@property (retain) NSArray *searchScopes;
-
-
-// FIXME: @property (assign, readonly) NSPredicate *sessionPredicate;
 
 - (IBAction)selectDayAction:(id)sender;
 

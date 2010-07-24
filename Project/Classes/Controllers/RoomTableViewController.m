@@ -37,6 +37,12 @@
     [super dealloc];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
+}
+
 
 #pragma mark -
 #pragma mark ISCDListTableViewController

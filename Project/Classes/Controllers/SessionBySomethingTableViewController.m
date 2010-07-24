@@ -9,7 +9,7 @@
 #import "SessionBySomethingTableViewController.h"
 #import "SessionTableViewCell.h"
 #import "SessionDetailedTableViewController.h"
-
+#import "Property.h"
 
 
 @implementation SessionBySomethingTableViewController
@@ -30,6 +30,12 @@
     [super dealloc];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
+}
+
 - (void)setArrayControllerWithSessions:(NSSet *)sessions
 {
     [arrayController release];
@@ -37,6 +43,14 @@
     arrayController.sectionTitleName = @"self";
 }
 
+
+#pragma mark -
+#pragma mark properties
+
+- (Region *)region
+{
+    return [Property sharedProperty].japanese ? [Region japanese] : [Region english];
+}
 
 #pragma mark -
 #pragma mark UITableViewDataSource/UITableViewDelegate
