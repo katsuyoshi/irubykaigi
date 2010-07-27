@@ -11,20 +11,12 @@
 
 @implementation LightningTalk
 
-- (void)setRoom:(NSManagedObject *)aRoom
-{
-    [self setValue:aRoom forKeyPath:@"session.room"];
-}
+@dynamic position;
+@dynamic summary;
+@dynamic title;
 
-- (NSManagedObject *)room
-{
-    return [self valueForKeyPath:@"session.room"];
-}
-
-- (NSString *)time
-{
-    return [self valueForKeyPath:@"session.time"];
-}
+@dynamic session;
+@dynamic speakers;
 
 
 @end

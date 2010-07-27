@@ -50,22 +50,17 @@
     return @"region";
 }
 
-+ (Speaker *)findByName:(NSString *)name
++ (Speaker *)findByName:(NSString *)name region:(Region *)region
 {
-    return [self findByName:name inManagedObjectContext:nil];
+    return [self findByName:name region:region inManagedObjectContext:nil];
 }
 
-+ (Speaker *)findByName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context
++ (Speaker *)findByName:(NSString *)name region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context
 {
     ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
-    condition.predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    condition.predicate = [NSPredicate predicateWithFormat:@"name = %@ and region = %@", name, region];
     condition.managedObjectContext = context;
     return [Speaker find:condition error:NULL];
-}
-
-- (NSString *)indexTitle
-{
-    return [self.name substringToIndex:1];
 }
 
 - (NSArray *)sortedSession
@@ -74,6 +69,22 @@
     return [self.sessions sortedArrayUsingDescriptors:sortDescriptors];
 }
 
+- (NSString *)firstLetterOfName
+{
+    if ([self.name length]) {
+        NSString *str = [self.upperCaseName substringToIndex:1];
+        str = [str uppercaseString];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES '^[A-Z]$'"];
+        return [predicate evaluateWithObject:str] ? str : @"#";
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)upperCaseName
+{
+    return [self.name uppercaseString];
+}
 
 
 @end

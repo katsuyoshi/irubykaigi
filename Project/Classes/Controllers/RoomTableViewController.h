@@ -13,11 +13,13 @@
 
 @interface RoomTableViewController : ISCDListTableViewController {
 
-    Region *region;
+    UISegmentedControl *dateSecmentedController;
     
 }
 
 + (UINavigationController *)navigationController;
 + (RoomTableViewController *)sessionByRoomTableViewController;
+
+@property (assign, readonly) Region *region;
 
 @end

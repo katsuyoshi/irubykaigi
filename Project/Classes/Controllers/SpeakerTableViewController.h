@@ -11,12 +11,11 @@
 #import "Region.h"
 
 
-@interface SpeakerTableViewController : ISCDListTableViewController {
+@interface SpeakerTableViewController : UITableViewController {
 
-    Region *region;
     NSArray *indexTitles;
     
-    NSMutableArray *fetchedResultsControllers;
+    ISSectionedArrayController *arrayController;
 }
 
 + (UINavigationController *)navigationController;
@@ -25,5 +24,7 @@
 @property (retain) Region *region;
 
 @property (retain) NSArray *indexTitles;
+
+- (void)reloadData;
 
 @end

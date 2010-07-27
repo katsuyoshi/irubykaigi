@@ -14,10 +14,12 @@
 @implementation SessionByRoomTableViewController
 
 @synthesize room;
+@synthesize day;
 
 - (void)dealloc
 {
     [room release];
+    [day release];
     [super dealloc];
 }
 
@@ -27,9 +29,24 @@
     room = [aRoom retain];
     
     self.title = room.roomDescription;
-    [self setArrayControllerWithSessions:room.sessions];
+    [self reloadData];
 }
 
+- (void)setDay:(Day *)aDay
+{
+    [day release];
+    day = [aDay retain];
+    
+    [self reloadData];
+}
+
+- (void)reloadData
+{
+    if (self.day && self.room) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day = %@", self.day];
+        [self setArrayControllerWithSessionSet:[room.sessions filteredSetUsingPredicate:predicate]];
+    }
+}
 
 
 @end

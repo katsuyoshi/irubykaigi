@@ -30,7 +30,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code in %@", region, property.favoriteSessons];
     NSArray *sessions = [Session findAllWithPredicate:predicate error:NULL];
     
-    [self setArrayControllerWithSessions:[NSSet setWithArray:sessions]];
+    [self setArrayControllerWithSessionArray:sessions];
     
     [self.tableView reloadData];
 }

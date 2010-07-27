@@ -12,6 +12,7 @@
 #import "SessionByRoomTableViewController.h"
 #import "RoomTableViewCell.h"
 #import "Room.h"
+#import "Day.h"
 
 
 @implementation RoomTableViewController
@@ -33,14 +34,49 @@
 
 - (void)dealloc
 {
-    [region release];
+    [dateSecmentedController release];
     [super dealloc];
 }
+
+- (void)buildDateSecmentedController
+{
+    int i = 0;    
+    dateSecmentedController = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+    dateSecmentedController.segmentedControlStyle = UISegmentedControlStyleBar;
+    for (Day *day in self.region.sortedDays) {
+        [dateSecmentedController insertSegmentWithTitle:day.title atIndex:i animated:NO];
+        if ([day.date isEqual:[[NSDate date] beginningOfDay]]) {
+            dateSecmentedController.selectedSegmentIndex = i;
+        }
+        i++;
+    }
+    if (dateSecmentedController.selectedSegmentIndex == -1) {
+        dateSecmentedController.selectedSegmentIndex = 0;
+    }
+    
+    self.navigationItem.titleView = dateSecmentedController;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
+    
+    [self buildDateSecmentedController];
+}
+
+#pragma mark -
+#pragma mark properties
+
+- (Region *)region
+{
+    return [Property sharedProperty].japanese ? [Region japanese] : [Region english];
+}
+
+- (Day *)selectedDay
+{
+    return [self.region.sortedDays objectAtIndex:dateSecmentedController.selectedSegmentIndex];
 }
 
 
@@ -58,15 +94,18 @@
     
     self.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"floor, name"];
     
-    region = [Property sharedProperty].japanese ? [Region japanese] : [Region english];
-    [region retain];
-
-    self.predicate = [NSPredicate predicateWithFormat:@"region = %@", region];
+    self.predicate = [NSPredicate predicateWithFormat:@"region = %@", self.region];
+    self.hasEditButtonItem = NO;
 }
 
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
 {
     return [RoomTableViewCell roomTableViewCellWithIdentifier:cellIdentifier];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -82,6 +121,7 @@
 {
     SessionByRoomTableViewController *controller = [SessionByRoomTableViewController sessionTableViewController];
     controller.room = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    controller.day = [self selectedDay];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

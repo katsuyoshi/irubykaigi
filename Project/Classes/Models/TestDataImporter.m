@@ -13,11 +13,13 @@
 #import "Session.h"
 #import "Speaker.h"
 #import "Room.h"
+#import "LightningTalk.h"
 
 
 @interface TestDataImporter(IRKPrivate)
 
 - (void)importSessionsFromCsvFile:(NSString *)fileName region:(Region *)region managedObjectContext:(NSManagedObjectContext *)context;
+- (void)importLightningTalksFromCsvFile:(NSString *)fileName region:(Region *)region managedObjectContext:(NSManagedObjectContext *)context;
 
 @end
 
@@ -31,11 +33,16 @@
         [self clearAllData];
         
         context = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];
-
-// DELETEME:        [self prepareDaysWithManagedObjectContext:context];
+//        context = [NSManagedObjectContext defaultManagedObjectContext];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
         [self importSessionsFromCsvFile:path region:[Region japaneseInManagedObjectContext:context] managedObjectContext:context];
+
+//        [self save:context];
+//        [context reset];
+
+        path = [[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"];
+        [self importLightningTalksFromCsvFile:path region:[Region japaneseInManagedObjectContext:context] managedObjectContext:context];
 
         [self save:context];
     } @finally {
@@ -58,7 +65,7 @@
                 int index = 0;
                 Session *session = [Session createWithManagedObjectContext:context];
 
-                NSArray *attributeKeys = [NSArray arrayWithObjects:@"date", @"room", @"floor", @"speaker", @"break", @"abstract", @"attention", nil];
+                NSArray *attributeKeys = [NSArray arrayWithObjects:@"date", @"room", @"floor", @"speaker", @"break", @"abstract", @"attention", @"title", nil];
                 
                 Day *day;
                 NSString *roomName = nil;
@@ -107,7 +114,7 @@
                                     belonging = [belonging stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@")"]];
                                 }
                                 if ([name length]) {
-                                    Speaker *speaker = [Speaker findByName:name inManagedObjectContext:context];
+                                    Speaker *speaker = [Speaker findByName:name region:region inManagedObjectContext:context];
                                     if (speaker == nil) {
                                         speaker = [Speaker createWithManagedObjectContext:context];
                                         speaker.name = name;
@@ -135,75 +142,113 @@
                             session.sessionType = [NSNumber numberWithInt:SessionTypeCodeAnnouncement];
                         }
                         break;
+                    case 7: /* title */
+                        if ([element rangeOfString:@"Lightning Talks"].location != NSNotFound) {
+                            session.sessionType = [NSNumber numberWithInt:SessionTypeCodeLightningTalks];
+                        }
+                        [session setValue:element forKey:key];
                     default:
                         [session setValue:element forKey:key];
                         break;
                     }
                     index++;
                 }
-/*
-                    if ([key isEqualToString:@"date"]) {
-                        day = [self dayForDate:element managedObjectContext:context];
-                        [[day  mutableSetValueForKey:@"sessions"] addObject:eo];
-                    } else
-                    if ([key isEqualToString:@"room"]) {
-                        roomName = element;
-                    } else
-                    if ([key isEqualToString:@"floor"]) {
-                        floorName = element;
-                    } else
-                    if ([key isEqualToString:@"speaker"]) {
-                        int index = 0;
-                        NSArray *speakerInfos = [element componentsSeparatedByString:@"、"];
-                        if ([speakerInfos count] == 1) {
-                            speakerInfos = [element componentsSeparatedByString:@" and "];
-                        }
-                        for (NSString *speakerInfo in speakerInfos) {
-                            NSArray *infos = [speakerInfo componentsSeparatedByString:@"("];
-                            NSString *name = [infos objectAtIndex:0];
-                            name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                            NSString *belonging = nil;
-                            if ([infos count] == 2) {
-                                belonging = [infos objectAtIndex:1];
-                                belonging = [belonging stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@")"]];
-                            }
-                            if ([name length]) {
-                                NSManagedObject *speaker = [NSEntityDescription insertNewObjectForEntityForName:@"Speaker" inManagedObjectContext:context];
-                                [speaker setValue:name forKey:@"name"];
-                                if (belonging) {
-                                    [speaker setValue:belonging forKey:@"belonging"];
-                                }
-                                [speaker setValue:[NSNumber numberWithInt:index++] forKey:@"position"];
-                                [[eo mutableSetValueForKey:@"speakers"] addObject:speaker];
-                            }
-                        }
-                    } else
-                    if ([key isEqualToString:@"break"]) {
-                        [eo setValue:[NSNumber numberWithBool:[element isEqualToString:@"true"]] forKey:key];
-                    } else {
-                        if ([element length]) {
-                            [eo setValue:element forKey:key];
-                        }
-                    }
-
-                    if ([roomName length] && [floorName length] && ![[eo valueForKey:@"break"] boolValue]) {
-                        NSManagedObject *room = [self roomForName:roomName floor:floorName managedObjectContext:context];
-                        [eo setValue:room forKey:@"room"];
-                        roomName = floorName = nil;
-                    }
-
-                    index++;
-                }
-                // codeがない場合はポジションの値を用いる
-                if ([eo valueForKey:@"code"] == nil) {
-                    [eo setValue:[[eo valueForKey:@"position"] description] forKey:@"code"];
-                }
-*/
             }
         }
     }
 }
 
+
+- (void)importLightningTalksFromCsvFile:(NSString *)fileName region:(Region *)region managedObjectContext:(NSManagedObjectContext *)context
+{
+    ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+    condition.managedObjectContext = context;
+    condition.predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and sessionType = %@", region, [NSNumber numberWithInt:SessionTypeCodeLightningTalks]];
+//    condition.predicate = [NSPredicate predicateWithFormat:@"sessionType = %@", [NSNumber numberWithInt:SessionTypeCodeLightningTalks]];
+    NSArray *sessions = [Session findAll:condition error:NULL];
+Session *aSession = [sessions lastObject];
+NSLog(@"%@", aSession.title);
+NSLog(@"%@", [aSession valueForKey:@"intermission"]);
+NSLog(@"%@", [aSession valueForKey:@"profile"]);
+NSLog(@"%@", [aSession valueForKey:@"attention"]);
+NSLog(@"%@", [aSession valueForKey:@"summary"]);
+NSLog(@"%@", [aSession valueForKey:@"position"]);
+NSLog(@"%@", [aSession valueForKey:@"code"]);
+NSLog(@"%@", [aSession valueForKey:@"speakers"]);
+NSLog(@"%@", [aSession valueForKey:@"day"]);
+NSLog(@"%@", [aSession valueForKey:@"sessionType"]);
+NSLog(@"%@", NSStringFromClass([[aSession valueForKey:@"talks"] class]));
+NSLog(@"%@", [aSession valueForKey:@"time"]);
+NSLog(@"%@", aSession);
+
+    NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
+    BOOL isFirst = YES;
+    NSArray *keys;
+    for (NSString *line in [contents componentsSeparatedByString:@"\n"]) {
+        if ([line length]) {
+            if (isFirst) {
+                isFirst = NO;
+                keys = [line componentsSeparatedByString:@"\t"];
+            } else {
+                int index = 0;
+                LightningTalk *lightningTalk = [LightningTalk createWithManagedObjectContext:context];
+
+                NSArray *attributeKeys = [NSArray arrayWithObjects:@"date", @"title", @"speaker", @"belonging", nil];
+                
+                Day *day;
+                for (NSString *element in [line componentsSeparatedByString:@"\t"]) {
+                    NSString *key = [keys objectAtIndex:index];
+                    switch ([attributeKeys indexOfObject:key]) {
+                    case 0: /* date */
+                        {
+                            NSArray *e = [element componentsSeparatedByString:@"-"];
+                            int year = [[e objectAtIndex:0] intValue];
+                            int month = [[e objectAtIndex:1] intValue];
+                            int dayOfMonth = [[e objectAtIndex:2] intValue];
+                            NSDate *date = [NSDate dateWithYear:year month:month day:dayOfMonth hour:0 minute:0 second:0];
+                            day = [region dayForDate:date];
+                            
+                            for (Session *session in sessions) {
+                                if (session.day == day) {
+                                    [lightningTalk setSession:session];
+//                                    lightningTalk.session = session;
+                                    break;
+                                }
+                            }
+                            // sessionが決まらないと順番を付けられない
+                            [lightningTalk setListNumber];
+                        }
+                        break;
+                    case 1: /* title */
+                        lightningTalk.title = element;
+                        break;
+                    case 2: /* speaker */
+                        {
+                            Speaker *speaker = [Speaker findByName:element region:region inManagedObjectContext:context];
+                            if (speaker == nil) {
+                                speaker = [Speaker createWithManagedObjectContext:context];
+                                speaker.name = element;
+                                speaker.region = region;
+                                [speaker setListNumber];
+                                // codeの代わり
+                                speaker.code = [speaker.position stringValue];
+                            }
+                            [lightningTalk addSpeakersObject:speaker];
+                        }
+                        break;
+                    case 4: /* belonging */
+                        if ([lightningTalk.speakers count]) {
+                            Speaker *speaker = [lightningTalk.speakers anyObject];
+                            speaker.belonging = element;
+                        }
+                        break;
+                    }
+                    index++;
+                }
+            }
+        }
+    }
+}
 
 
 @end

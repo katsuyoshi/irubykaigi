@@ -23,7 +23,7 @@
 @dynamic speakers;
 @dynamic day;
 @dynamic room;
-@dynamic lightningTalks;
+@dynamic talks;
 @dynamic speakerRawData;
 @dynamic sessionType;
 
@@ -39,7 +39,22 @@
 
 - (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
 {
-    return [NSArray arrayWithObjects:@"title", @"speakers.name", @"room.roomDescription", @"summary", @"profile", nil];
+    NSMutableArray *array = [NSMutableArray arrayWithObject:@"title"];
+    if ([self.speakers count]) {
+        [array addObject:@"speakers.name"];
+    }
+    if (self.room) {
+        [array addObject:@"room.roomDescription"];
+    }
+    if ([self.summary length]) {
+        [array addObject:@"summary"];
+    }
+/*
+    if ([self.profile length]) {
+        [array addObject:@"profile"];
+    }
+*/
+    return array;
 }
 
 - (NSString *)dayTimeTitle
@@ -62,5 +77,9 @@
     return ([self.sessionType intValue] / 100) == 2;
 }
 
+- (BOOL)isLightningTalks
+{
+    return [self.sessionType intValue] == SessionTypeCodeLightningTalks;
+}
 
 @end

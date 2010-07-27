@@ -28,8 +28,12 @@
     speaker = [aSpeaker retain];
     
     self.title = speaker.name;
-    [self setArrayControllerWithSessions:speaker.sessions];
+    [self reloadData];
 }
 
+- (void)reloadData
+{
+    [self setArrayControllerWithSessionSet:speaker.sessions];
+}
 
 @end

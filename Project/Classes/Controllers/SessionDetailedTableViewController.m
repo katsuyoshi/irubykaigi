@@ -7,6 +7,8 @@
 //
 
 #import "SessionDetailedTableViewController.h"
+#import "Room.h"
+
 
 #define TITLE_SECTION           0
 #define SPEAKERS_SECTION        1
@@ -31,6 +33,34 @@
 
     self.view.backgroundColor = [UIColor clearColor];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+        
+    if (self.session) {
+        if (self.session.room) {
+            if (self.session.room.roomColor) {
+                self.tableView.backgroundColor = self.session.room.roomColor;
+            }
+        }
+    }
+}
+
+/*
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.window.backgroundColor = self.originalWindowBackbroundColor;
+}
+*/
+
+- (Session *)session
+{
+    return (Session *)self.detailedObject;
+}
+
 
 - (void)backAction
 {

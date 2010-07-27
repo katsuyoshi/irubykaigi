@@ -10,6 +10,8 @@
 #import "CiderCoreData.h"
 #import "Region.h"
 #import "Session.h"
+#import "UIColorIRK.h"
+
 
 @implementation Room 
 
@@ -68,31 +70,31 @@
     return [self roomByName:name floor:floor region:region inManagedObjectContext:context];
 }
 
+
 - (UIColor *)roomColor
 {
     switch ([self.position intValue]) {
     case 1:
-        return [UIColor redColor];
+        return UICOLOR_MAKE(255, 102, 102, 1.0);    // red
     case 2:
-        return [UIColor greenColor];
+        return UICOLOR_MAKE(204, 255, 102, 1.0);    // green
     case 3:
-        return [UIColor blueColor];
+        return UICOLOR_MAKE(178, 204, 255, 1.0);    // blue
     case 4:
-        return [UIColor cyanColor];
+        return UICOLOR_MAKE(150, 150, 255, 1.0);    // cyan
     case 5:
-        return [UIColor yellowColor];
+        return UICOLOR_MAKE(255, 255, 150, 1.0);    // yellow
     case 6:
-        return [UIColor magentaColor];
+        return UICOLOR_MAKE(255, 150, 255, 1.0);    // magenta
     case 7:
-        return [UIColor orangeColor];
+        return UICOLOR_MAKE(255, 202, 174, 1.0);    // orange
     case 8:
-        return [UIColor purpleColor];
+        return UICOLOR_MAKE(195, 150, 206, 1.0);    // purple
     case 9:
-        return [UIColor brownColor];
+        return UICOLOR_MAKE(208, 187, 142, 1.0);    // brown
     case 10:
-        return [UIColor lightGrayColor];
     default:
-        return [UIColor whiteColor];
+        return UICOLOR_MAKE(227, 227, 227, 1.0);    // brown
     }
 }
 

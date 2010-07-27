@@ -168,9 +168,9 @@
         if (scopeType == SearchScopeAll || scopeType == SearchScopeSpeaker) {
             [sessions addObjectsFromArray:[self sessionsBySpeakerQuery]];
         }
-        [self setArrayControllerWithSessions:[NSSet setWithArray:[sessions allObjects]]];
+        [self setArrayControllerWithSessionSet:sessions];
     } else {
-        [self setArrayControllerWithSessions:[NSSet setWithArray:[NSArray array]]];
+        [self setArrayControllerWithSessionSet:[NSSet set]];
     }
     [self.tableView reloadData];
 }
@@ -236,8 +236,8 @@
 - (void)didSelectHistoryItem:(NSString *)item
 {
     searchBar.text = item;
+    [self searchBar:searchBar textDidChange:searchBar.text];
 }
-
 
 
 @end

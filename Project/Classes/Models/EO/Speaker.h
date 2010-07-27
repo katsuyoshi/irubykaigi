@@ -24,17 +24,17 @@
 @property (nonatomic, retain) NSSet* sessions;
 @property (nonatomic, retain) Region * region;
 
-@property (assign, readonly) NSString *indexTitle;
+@property (assign, readonly) NSArray *sortedSession;
+@property (assign, readonly) NSString *firstLetterOfName;
+@property (assign, readonly) NSString *upperCaseName;
 
 
 
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region;
 
-+ (Speaker *)findByName:(NSString *)name;
-+ (Speaker *)findByName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
-
-@property (assign, readonly) NSArray *sortedSession;
++ (Speaker *)findByName:(NSString *)name region:(Region *)region;
++ (Speaker *)findByName:(NSString *)name region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 
 @end
 

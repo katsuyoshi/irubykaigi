@@ -11,6 +11,7 @@
 @class LightningTalk;
 @class Room;
 @class Day;
+@class Speaker;
 
 typedef enum {
     SessionTypeCodeNormal = 1,
@@ -44,7 +45,7 @@ typedef enum {
 @property (nonatomic, retain) NSSet* speakers;
 @property (nonatomic, retain) Day * day;
 @property (nonatomic, retain) Room * room;
-@property (nonatomic, retain) NSSet* lightningTalks;
+@property (nonatomic, retain) NSSet* talks;
 @property (nonatomic, retain) NSNumber * sessionType;
 
 /** NSFetchResultsControllerで対多の検索が出来ないので、検索の為にスピーカー名の生データを持つ. */
@@ -57,13 +58,15 @@ typedef enum {
 @property (readonly) BOOL isBreak;
 @property (readonly) BOOL isAnnouncement;
 
+@property (readonly) BOOL isLightningTalks;
+
 
 @end
 
 
 @interface Session (CoreDataGeneratedAccessors)
-- (void)addSpeakersObject:(NSManagedObject *)value;
-- (void)removeSpeakersObject:(NSManagedObject *)value;
+- (void)addSpeakersObject:(Speaker *)value;
+- (void)removeSpeakersObject:(Speaker *)value;
 - (void)addSpeakers:(NSSet *)value;
 - (void)removeSpeakers:(NSSet *)value;
 

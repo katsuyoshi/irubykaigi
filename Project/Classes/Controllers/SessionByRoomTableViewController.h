@@ -14,10 +14,12 @@
 @interface SessionByRoomTableViewController : SessionBySomethingTableViewController {
 
     Room *room;
+    Day *day;
 
 }
 
 @property (retain) Room *room;
+@property (retain) Day *day;
 
 
 @end

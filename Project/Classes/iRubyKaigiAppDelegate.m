@@ -30,17 +30,18 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 
     NSArray *iconNames = [NSArray arrayWithObjects:
-                                @"session_by_date_icon_30x30.png",
+//                                @"session_by_date_icon_30x30.png",
                                 @"session_by_room_icon_30x30.png",
                                 @"session_by_speaker_icon_30x30.png",
                                 @"favorite_30x30.png",
+                                @"find_30x30.png",
                                 @"setting_icon_30x30.png",
                                 nil];
                                 
     [[[TestDataImporter new] autorelease] import];
 
     NSArray *tabBarControllers = [NSArray arrayWithObjects:
-                                    [SessionTableViewController navigationController],
+// DELETEME:                                    [SessionTableViewController navigationController],
                                     [RoomTableViewController navigationController],
                                     [SpeakerTableViewController navigationController],
                                     [FavoriteSessionTableViewController navigationController],
@@ -59,7 +60,7 @@
     [window addSubview:tabBarController.view];
     [window makeKeyAndVisible];
     
-    
+    [application setStatusBarHidden:NO animated:YES];
     
 }
 

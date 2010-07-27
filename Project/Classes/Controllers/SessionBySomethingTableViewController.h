@@ -22,6 +22,9 @@
 + (UINavigationController *)navigationController;
 + (id)sessionTableViewController;
 
-- (void)setArrayControllerWithSessions:(NSSet *)sessions;
+- (void)setArrayControllerWithSessionArray:(NSArray *)sessions;
+- (void)setArrayControllerWithSessionSet:(NSSet *)sessions;
+
+- (void)reloadData;
 
 @end

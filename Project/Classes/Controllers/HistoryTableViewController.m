@@ -217,7 +217,7 @@
 - (Property *)property
 {
     if (property == nil) {
-        property = [Property sharedProperty];
+        property = [[Property sharedProperty] retain];
     }
     return property;
 }

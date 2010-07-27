@@ -48,6 +48,8 @@
 		46178F5611F9D4AB000BFA1C /* FindTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F5511F9D4AB000BFA1C /* FindTableViewController.m */; };
 		46178F8011FAD12A000BFA1C /* FindTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46178F7F11FAD12A000BFA1C /* FindTableViewController.xib */; };
 		4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4617916511FB268E000BFA1C /* UIColorIRK.m */; };
+		461792F411FC0B85000BFA1C /* LightningTalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */; };
+		4617930F11FC0DE1000BFA1C /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 461407F71004B9CB00964C01 /* LightningTalk.m */; };
 		46218A8A11DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */; };
 		46218A8B11DBA47E00CBBADF /* session_by_date_icon_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */; };
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
@@ -79,8 +81,6 @@
 		4682504611E1BF3E00D73D84 /* SessionByRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */; };
 		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		4692CB4E11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */; };
-		4692CBBA11ACEBD50098ADE1 /* SessionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4692CBB811ACEBD50098ADE1 /* SessionTableViewController.xib */; };
-		4692CC7911AD1AB20098ADE1 /* SessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4692CC7811AD1AB20098ADE1 /* SessionTableViewController.m */; };
 		46A0B8331008194B006B355A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
 		46B73BBC11AD355700D04842 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BB911AD355700D04842 /* Session.m */; };
 		46B73BFA11ADD21A00D04842 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BF911ADD21A00D04842 /* Importer.m */; };
@@ -112,8 +112,6 @@
 		461405041003996C00964C01 /* get_lightning_talks.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_lightning_talks.rb; sourceTree = "<group>"; };
 		461405071003AE9D00964C01 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/lightning_talks_info.csv; sourceTree = "<group>"; };
 		461405141003AF2C00964C01 /* English */ = {isa = PBXFileReference; lastKnownFileType = text; name = English; path = English.lproj/lightning_talks_info.csv; sourceTree = "<group>"; };
-		461407CC1004B83800964C01 /* LightningTalksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksTableViewController.h; sourceTree = "<group>"; };
-		461407CD1004B83800964C01 /* LightningTalksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalksTableViewController.m; sourceTree = "<group>"; };
 		461407F61004B9CB00964C01 /* LightningTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalk.h; sourceTree = "<group>"; };
 		461407F71004B9CB00964C01 /* LightningTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalk.m; sourceTree = "<group>"; };
 		461408361004BC4D00964C01 /* LightningTalksDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksDetailTableViewController.h; sourceTree = "<group>"; };
@@ -182,6 +180,8 @@
 		46178F7F11FAD12A000BFA1C /* FindTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindTableViewController.xib; sourceTree = "<group>"; };
 		4617916411FB268E000BFA1C /* UIColorIRK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorIRK.h; sourceTree = "<group>"; };
 		4617916511FB268E000BFA1C /* UIColorIRK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorIRK.m; sourceTree = "<group>"; };
+		461792F211FC0B85000BFA1C /* LightningTalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkTableViewController.h; sourceTree = "<group>"; };
+		461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewController.m; sourceTree = "<group>"; };
 		46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "session_by_date_icon_30x30@2x.png"; sourceTree = "<group>"; };
 		46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = session_by_date_icon_30x30.png; sourceTree = "<group>"; };
 		4621C44710070EB60052495F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -368,20 +368,18 @@
 				4692CC7711AD1AB20098ADE1 /* SessionTableViewController.h */,
 				4692CC7811AD1AB20098ADE1 /* SessionTableViewController.m */,
 				4692CBB811ACEBD50098ADE1 /* SessionTableViewController.xib */,
+				46824FC911E1B6B500D73D84 /* RoomTableViewController.h */,
+				46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */,
 				466882C711E2E25300D344C7 /* SessionBySomethingTableViewController.h */,
 				466882C811E2E25300D344C7 /* SessionBySomethingTableViewController.m */,
 				466301B311DC7CC7008FEB6D /* SpeakerTableViewController.h */,
 				466301B411DC7CC7008FEB6D /* SpeakerTableViewController.m */,
 				4628F9D511DD68F400EFB272 /* SessionBySpeakerTableViewController.h */,
 				4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */,
-				46824FC911E1B6B500D73D84 /* RoomTableViewController.h */,
-				46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */,
 				4682504411E1BF3E00D73D84 /* SessionByRoomTableViewController.h */,
 				4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */,
 				466883FB11E3177600D344C7 /* FavoriteSessionTableViewController.h */,
 				466883FC11E3177600D344C7 /* FavoriteSessionTableViewController.m */,
-				461407CC1004B83800964C01 /* LightningTalksTableViewController.h */,
-				461407CD1004B83800964C01 /* LightningTalksTableViewController.m */,
 				461408361004BC4D00964C01 /* LightningTalksDetailTableViewController.h */,
 				461408371004BC4D00964C01 /* LightningTalksDetailTableViewController.m */,
 				465BB9D311CA573000770325 /* HistoryTableViewController.h */,
@@ -393,6 +391,8 @@
 				46178F5411F9D4AB000BFA1C /* FindTableViewController.h */,
 				46178F5511F9D4AB000BFA1C /* FindTableViewController.m */,
 				46178F7F11FAD12A000BFA1C /* FindTableViewController.xib */,
+				461792F211FC0B85000BFA1C /* LightningTalkTableViewController.h */,
+				461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -681,7 +681,6 @@
 				4621C51610072C4D0052495F /* iTunesArtwork in Resources */,
 				46A0B8331008194B006B355A /* Entitlements.plist in Resources */,
 				468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */,
-				4692CBBA11ACEBD50098ADE1 /* SessionTableViewController.xib in Resources */,
 				46218A8A11DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png in Resources */,
 				46218A8B11DBA47E00CBBADF /* session_by_date_icon_30x30.png in Resources */,
 				4663019E11DC7965008FEB6D /* session_by_speaker_icon_30x30.png in Resources */,
@@ -716,7 +715,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* iRubyKaigiAppDelegate.m in Sources */,
 				4692CB4E11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel in Sources */,
-				4692CC7911AD1AB20098ADE1 /* SessionTableViewController.m in Sources */,
 				46B73BBC11AD355700D04842 /* Session.m in Sources */,
 				46B73BFA11ADD21A00D04842 /* Importer.m in Sources */,
 				46B73BFE11ADD31400D04842 /* TestDataImporter.m in Sources */,
@@ -764,6 +762,8 @@
 				46178EA011F9D011000BFA1C /* ISTableViewCell.m in Sources */,
 				46178F5611F9D4AB000BFA1C /* FindTableViewController.m in Sources */,
 				4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */,
+				461792F411FC0B85000BFA1C /* LightningTalkTableViewController.m in Sources */,
+				4617930F11FC0DE1000BFA1C /* LightningTalk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

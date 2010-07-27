@@ -57,13 +57,13 @@
 - (void)addDays:(NSSet *)value;
 - (void)removeDays:(NSSet *)value;
 
-- (void)addRoomsObject:(NSManagedObject *)value;
-- (void)removeRoomsObject:(NSManagedObject *)value;
+- (void)addRoomsObject:(Room *)value;
+- (void)removeRoomsObject:(Room *)value;
 - (void)addRooms:(NSSet *)value;
 - (void)removeRooms:(NSSet *)value;
 
-- (void)addSpeakersObject:(NSManagedObject *)value;
-- (void)removeSpeakersObject:(NSManagedObject *)value;
+- (void)addSpeakersObject:(Speaker *)value;
+- (void)removeSpeakersObject:(Speaker *)value;
 - (void)addSpeakers:(NSSet *)value;
 - (void)removeSpeakers:(NSSet *)value;
 

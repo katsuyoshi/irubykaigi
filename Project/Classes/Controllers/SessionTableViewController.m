@@ -11,6 +11,7 @@
 #import "Region.h"
 #import "Day.h"
 #import "SessionTableViewCell.h"
+#import "LightningTalkTableViewController.h"
 
 
 
@@ -249,7 +250,14 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-        [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+        Session *session = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if (session.isLightningTalks) {
+            LightningTalkTableViewController *controller = [LightningTalkTableViewController lightningTalksTableViewController];
+            controller.masterObject = session;
+            [self.navigationController pushViewController:controller animated:YES];
+        } else {
+            [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+        }
     }
 }
 

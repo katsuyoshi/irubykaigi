@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CiderCoreData.h"
+#import "Session.h"
 
 
 @interface SessionDetailedTableViewController : ISCDDetailedTableViewController {
@@ -16,5 +17,6 @@
 
 + (SessionDetailedTableViewController *)sessionDetailedTableViewController;
 
+@property (assign, readonly) Session *session;
 
 @end

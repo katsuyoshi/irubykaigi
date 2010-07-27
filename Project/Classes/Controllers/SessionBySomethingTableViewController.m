@@ -36,7 +36,12 @@
     self.view.backgroundColor = [UIColor clearColor];
 }
 
-- (void)setArrayControllerWithSessions:(NSSet *)sessions
+- (void)setArrayControllerWithSessionArray:(NSArray *)sessions
+{
+    [self setArrayControllerWithSessionSet:[NSSet setWithArray:sessions]];
+}
+
+- (void)setArrayControllerWithSessionSet:(NSSet *)sessions
 {
     [arrayController release];
     arrayController = [[ISSectionedArrayController alloc] initWithSet:sessions sectionName:@"dayTimeTitle" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"day.date, time, position"]];
@@ -96,6 +101,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 50.0;
+}
+
+
+- (void)reloadData
+{
 }
 
 
