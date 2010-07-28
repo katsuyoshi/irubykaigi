@@ -245,8 +245,6 @@
 		46C96CF611E40CEC00680067 /* RoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewCell.m; sourceTree = "<group>"; };
 		46C96D3411E43CEE00680067 /* blank_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_30x30.png; sourceTree = "<group>"; };
 		46C96D3511E43CEE00680067 /* blank_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank_30x30@2x.png"; sourceTree = "<group>"; };
-		46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
-		46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
 		46D35E57100B4B3E00C0A428 /* simple-json.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "simple-json.rb"; sourceTree = "<group>"; };
 		46D4430311AEC09E0076E28B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		46D4430411AEC09E0076E28B /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
@@ -256,12 +254,6 @@
 		46D4472711B133F40076E28B /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		46D8286111DDEF3E00D1D0AE /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
 		46D8286211DDEF3E00D1D0AE /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
-		46EE14370FFE53D1000224D0 /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		46EE14380FFE53D1000224D0 /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
-		46EE14390FFE53D1000224D0 /* NSManagedObjectContextExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextExtension.h; sourceTree = "<group>"; };
-		46EE143A0FFE53D1000224D0 /* NSManagedObjectContextExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextExtension.m; sourceTree = "<group>"; };
-		46EE143B0FFE53D1000224D0 /* PredicateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PredicateCondition.h; sourceTree = "<group>"; };
-		46EE143C0FFE53D1000224D0 /* PredicateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PredicateCondition.m; sourceTree = "<group>"; };
 		46EE144F0FFE53FA000224D0 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46EE14510FFE5406000224D0 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iRubyKaigi-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iRubyKaigi-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -602,14 +594,6 @@
 			isa = PBXGroup;
 			children = (
 				461407F51004B9CB00964C01 /* EO */,
-				46EE14370FFE53D1000224D0 /* Document.h */,
-				46EE14380FFE53D1000224D0 /* Document.m */,
-				46EE14390FFE53D1000224D0 /* NSManagedObjectContextExtension.h */,
-				46EE143A0FFE53D1000224D0 /* NSManagedObjectContextExtension.m */,
-				46D2A89D0FFF59FA00E15600 /* NSManagedObjectExtension.h */,
-				46D2A89E0FFF59FA00E15600 /* NSManagedObjectExtension.m */,
-				46EE143B0FFE53D1000224D0 /* PredicateCondition.h */,
-				46EE143C0FFE53D1000224D0 /* PredicateCondition.m */,
 				46B73BF811ADD21A00D04842 /* Importer.h */,
 				46B73BF911ADD21A00D04842 /* Importer.m */,
 				46B73BFC11ADD31400D04842 /* TestDataImporter.h */,
