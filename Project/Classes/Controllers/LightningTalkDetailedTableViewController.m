@@ -1,14 +1,13 @@
 //
-//  SessionDetailedTableViewController.m
-//  iRubyKaigi
+//  LightningTalksDetailTableViewController.m
+//  iRubyKaigi2009
 //
-//  Created by Katsuyoshi Ito on 10/07/02.
-//  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
+//  Created by Katsuyoshi Ito on 09/07/08.
+//  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
-#import "SessionDetailedTableViewController.h"
+#import "LightningTalkDetailedTableViewController.h"
 #import "Room.h"
-
 
 #define TITLE_SECTION           0
 #define SPEAKERS_SECTION        1
@@ -16,27 +15,29 @@
 #define ABSTRACT_SECTION        3
 
 
-@implementation SessionDetailedTableViewController
 
-+ (SessionDetailedTableViewController *)sessionDetailedTableViewController
+@implementation LightningTalkDetailedTableViewController
+
++ (LightningTalkDetailedTableViewController *)lightningTalkDetailedTableViewController
 {
     return [[[self alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 }
 
-/*
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    self.window.backgroundColor = self.originalWindowBackbroundColor;
-}
-*/
 
 - (Session *)session
 {
-    return (Session *)self.detailedObject;
+    return self.lightningTalk.session;
 }
 
+- (LightningTalk *)lightningTalk
+{
+    return (LightningTalk *)self.detailedObject;
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
 
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView inSection:(NSInteger)section
 {
@@ -87,7 +88,6 @@
         return 44.0;
     }
 }
-
 
 
 @end

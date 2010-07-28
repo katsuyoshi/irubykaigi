@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IRKTableViewController.h"
 
 
-@interface SettingTableViewController : UITableViewController {
+@interface SettingTableViewController : IRKTableViewController {
 
 }
 

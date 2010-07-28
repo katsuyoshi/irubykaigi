@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "CiderCoreData.h"
 #import "Session.h"
+#import "AbstractSessionDetaildTableViewController.h"
 
 
-@interface SessionDetailedTableViewController : ISCDDetailedTableViewController {
+@interface SessionDetailedTableViewController : AbstractSessionDetaildTableViewController {
 
 }
 

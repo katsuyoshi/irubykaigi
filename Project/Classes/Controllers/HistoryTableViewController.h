@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Property.h"
+#import "IRKTableViewController.h"
 
 
 @protocol HistoryTableViewControllerDelegate
@@ -15,7 +16,7 @@
 @end
 
 
-@interface HistoryTableViewController : UITableViewController {
+@interface HistoryTableViewController : IRKTableViewController {
 
     NSString *propertyKey;
     

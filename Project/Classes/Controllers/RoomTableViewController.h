@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CiderCoreData.h"
+#import "IRKListTableViewController.h"
 
 @class Region;
 
-@interface RoomTableViewController : ISCDListTableViewController {
+@interface RoomTableViewController : IRKListTableViewController {
 
     UISegmentedControl *dateSecmentedController;
     

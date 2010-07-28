@@ -6,7 +6,6 @@
 //  Copyright ITO SOFT DESIGN Inc 2009. All rights reserved.
 //
 #import "SessionTableViewController.h"
-#import "Document.h"
 
 
 @interface iRubyKaigiAppDelegate : NSObject <UIApplicationDelegate> {

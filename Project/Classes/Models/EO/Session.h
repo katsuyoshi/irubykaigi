@@ -60,6 +60,9 @@ typedef enum {
 
 @property (readonly) BOOL isLightningTalks;
 
+@property (assign, readonly) NSString *startAt;
+@property (assign, readonly) NSString *endAt;
+
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "LightningTalkTableViewController.h"
+#import "LightningTalkTableViewCell.h"
 
 
 @implementation LightningTalkTableViewController
@@ -21,14 +22,32 @@
 
 - (void)setUpEntityAndAttributeIfNeeds
 {
-    self.entityName = @"LightningTalks";
+    self.entityName = @"LightningTalk";
     self.displayKey = @"title";
+    self.detailedTableViewControllerClassName = @"LightningTalkDetailedTableViewController";
+}
 
-//    self.detailedTableViewControllerClassName = @"SessionDetailedTableViewController";
-//    self.hasDetailView = YES;
-    
+- (NSString *)title
+{
+    return [self.masterObject valueForKey:@"title"];
 }
 
 
+- (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
+{
+    return [LightningTalkTableViewCell lightningTalkTableViewCellWithIdentifier:cellIdentifier];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    LightningTalkTableViewCell *aCell = (LightningTalkTableViewCell *)cell;
+    
+    aCell.lightningTalk = [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50.0;
+}
 
 @end

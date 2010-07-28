@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CiderCoreData.h"
+#import "IRKListTableViewController.h"
 
 
-@interface LightningTalkTableViewController : ISCDListTableViewController {
+@interface LightningTalkTableViewController : IRKListTableViewController {
 
 }
 

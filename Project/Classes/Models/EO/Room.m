@@ -94,7 +94,7 @@
         return UICOLOR_MAKE(208, 187, 142, 1.0);    // brown
     case 10:
     default:
-        return UICOLOR_MAKE(227, 227, 227, 1.0);    // brown
+        return UICOLOR_MAKE(227, 227, 227, 1.0);    // gray
     }
 }
 
@@ -107,7 +107,7 @@
 
 - (NSString *)roomDescription
 {
-    return [NSString stringWithFormat:@"%@(%@)", self.name, self.floor];
+    return self.name;
 }
 
 

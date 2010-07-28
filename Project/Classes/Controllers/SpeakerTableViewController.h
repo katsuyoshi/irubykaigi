@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "CiderCoreData.h"
 #import "Region.h"
+#import "IRKTableViewController.h"
 
 
-@interface SpeakerTableViewController : UITableViewController {
+@interface SpeakerTableViewController : IRKTableViewController {
 
     NSArray *indexTitles;
     

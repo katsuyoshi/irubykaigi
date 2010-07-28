@@ -82,4 +82,28 @@
     return [self.sessionType intValue] == SessionTypeCodeLightningTalks;
 }
 
+
+- (NSString *)startAt
+{
+    if ([self.time length]) {
+        NSArray *array = [self.time componentsSeparatedByString:@" - "];
+        if ([array count]) {
+            return [array objectAtIndex:0];
+        }
+    }
+    return nil;
+}
+
+- (NSString *)endAt
+{
+    if ([self.time length]) {
+        NSArray *array = [self.time componentsSeparatedByString:@" - "];
+        if ([array count] >= 2) {
+            return [array objectAtIndex:1];
+        }
+    }
+    return nil;
+}
+
+
 @end

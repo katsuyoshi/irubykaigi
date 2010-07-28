@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "CiderCoreData.h"
 #import "Region.h"
+#import "IRKTableViewController.h"
 
 
-@interface SessionBySomethingTableViewController : UITableViewController {
+@interface SessionBySomethingTableViewController : IRKTableViewController {
 
     ISSectionedArrayController *arrayController;
 
@@ -24,6 +25,8 @@
 
 - (void)setArrayControllerWithSessionArray:(NSArray *)sessions;
 - (void)setArrayControllerWithSessionSet:(NSSet *)sessions;
+
+- (void)setArrayControllerWithSessionSet:(NSSet *)sessions sortDescriptors:(NSArray *)sortDescriptors;
 
 - (void)reloadData;
 

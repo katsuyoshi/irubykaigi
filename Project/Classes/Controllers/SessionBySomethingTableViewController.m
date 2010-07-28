@@ -10,6 +10,7 @@
 #import "SessionTableViewCell.h"
 #import "SessionDetailedTableViewController.h"
 #import "Property.h"
+#import "LightningTalkTableViewController.h"
 
 
 @implementation SessionBySomethingTableViewController
@@ -43,8 +44,16 @@
 
 - (void)setArrayControllerWithSessionSet:(NSSet *)sessions
 {
+    [self setArrayControllerWithSessionSet:sessions sortDescriptors:nil];
+}
+
+- (void)setArrayControllerWithSessionSet:(NSSet *)sessions sortDescriptors:(NSArray *)sortDescriptors
+{
+    if (sortDescriptors == nil) {
+        sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"day.date, time, position"];
+    }
     [arrayController release];
-    arrayController = [[ISSectionedArrayController alloc] initWithSet:sessions sectionName:@"dayTimeTitle" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"day.date, time, position"]];
+    arrayController = [[ISSectionedArrayController alloc] initWithSet:sessions sectionName:@"dayTimeTitle" sortDescriptors:sortDescriptors];
     arrayController.sectionTitleName = @"self";
 }
 
@@ -89,13 +98,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    SessionDetailedTableViewController *controller = [SessionDetailedTableViewController sessionDetailedTableViewController];
-
-    controller.editingMode = NO;
-
-    controller.detailedObject = [arrayController objectAtIndexPath:indexPath];
-
-    [self.navigationController pushViewController:controller animated:YES];
+    SessionTableViewCell *cell = (SessionTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if (cell.session.isLightningTalks == NO) {
+        SessionDetailedTableViewController *controller = [SessionDetailedTableViewController sessionDetailedTableViewController];
+        controller.editingMode = NO;
+        controller.detailedObject = [arrayController objectAtIndexPath:indexPath];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        LightningTalkTableViewController *controller = [LightningTalkTableViewController lightningTalksTableViewController];
+        controller.masterObject = cell.session;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

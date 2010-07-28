@@ -15,6 +15,7 @@
 
     Speaker *speaker;
     
+    ISSectionedArrayController *lightnigTalkArrayController;
 }
 
 @property (retain) Speaker *speaker;
