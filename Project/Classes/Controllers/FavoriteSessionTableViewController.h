@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SessionBySomethingTableViewController.h"
+#import "SessionAndLightningTalkBySomethingTableViewController.h"
 
 
-@interface FavoriteSessionTableViewController : SessionBySomethingTableViewController {
+@interface FavoriteSessionTableViewController : SessionAndLightningTalkBySomethingTableViewController {
 
 }
 

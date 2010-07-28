@@ -7,7 +7,6 @@
 //
 
 #import "iRubyKaigiAppDelegate.h"
-#import "SessionTableViewController.h"
 #import "SpeakerTableViewController.h"
 #import "RoomTableViewController.h"
 #import "SettingTableViewController.h"
@@ -30,7 +29,6 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 
     NSArray *iconNames = [NSArray arrayWithObjects:
-//                                @"session_by_date_icon_30x30.png",
                                 @"session_by_room_icon_30x30.png",
                                 @"session_by_speaker_icon_30x30.png",
                                 @"favorite_30x30.png",
@@ -41,7 +39,6 @@
     [[[TestDataImporter new] autorelease] import];
 
     NSArray *tabBarControllers = [NSArray arrayWithObjects:
-// DELETEME:                                    [SessionTableViewController navigationController],
                                     [RoomTableViewController navigationController],
                                     [SpeakerTableViewController navigationController],
                                     [FavoriteSessionTableViewController navigationController],
@@ -60,6 +57,7 @@
     [window addSubview:tabBarController.view];
     [window makeKeyAndVisible];
     
+    [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
     [application setStatusBarHidden:NO animated:YES];
     
 }

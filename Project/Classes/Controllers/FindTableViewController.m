@@ -12,6 +12,7 @@
 #import "Day.h"
 #import "SessionTableViewCell.h"
 #import "Speaker.h"
+#import "LightningTalk.h"
 
 
 @interface FindTableViewController(IRKPrivate)
@@ -139,6 +140,26 @@
     return sessions;
 }
 
+- (NSArray *)lightningTalksBySessionQuery
+{
+    NSMutableArray *predicates = [NSMutableArray array];
+    NSArray *keys = [NSArray arrayWithObjects:@"title", @"summary", nil];
+    for (NSString *key in keys) {
+        [predicates addObject:[self likePredicateForKey:key string:self.searchString]];
+    }
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    predicates = [NSMutableArray arrayWithObject:predicate];
+    [predicates addObject:[NSPredicate predicateWithFormat:@"session.day.region = %@", self.region]];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+    
+    NSError *error = nil;
+    NSArray *lightningTalks = [LightningTalk findAllWithPredicate:predicate error:&error];
+#ifdef DEBUG
+    if (error) [error showErrorForUserDomains];
+#endif
+    return lightningTalks;
+}
+
 - (NSArray *)sessionsBySpeakerQuery
 {
     NSMutableArray *predicates = [NSMutableArray array];
@@ -154,6 +175,7 @@
     NSMutableSet *sessions = [NSMutableSet set];
     for (Speaker *speaker in speakers) {
         [sessions addObjectsFromArray:[speaker.sessions allObjects]];
+        [sessions addObjectsFromArray:[speaker.lightningTalks allObjects]];
     }
     return [sessions allObjects];
 }
@@ -164,6 +186,7 @@
         NSMutableSet *sessions = [NSMutableSet set];
         if (scopeType == SearchScopeAll || scopeType == SearchScopeSession) {
             [sessions addObjectsFromArray:[self sessoinsBySessionQuery]];
+            [sessions addObjectsFromArray:[self lightningTalksBySessionQuery]];
         }
         if (scopeType == SearchScopeAll || scopeType == SearchScopeSpeaker) {
             [sessions addObjectsFromArray:[self sessionsBySpeakerQuery]];

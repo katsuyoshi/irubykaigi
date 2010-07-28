@@ -5,7 +5,6 @@
 //  Created by Katsuyoshi Ito on 09/07/01.
 //  Copyright ITO SOFT DESIGN Inc 2009. All rights reserved.
 //
-#import "SessionTableViewController.h"
 
 
 @interface iRubyKaigiAppDelegate : NSObject <UIApplicationDelegate> {

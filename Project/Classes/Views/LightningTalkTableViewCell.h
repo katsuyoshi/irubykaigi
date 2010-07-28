@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RoomColorView.h"
 #import "lightningTalk.h"
+#import "SessionTableViewCell.h"
 
-
-@interface LightningTalkTableViewCell : UITableViewCell {
-
-    RoomColorView *roomColorView;
+@interface LightningTalkTableViewCell : SessionTableViewCell {
 
     LightningTalk *lightningTalk;
 }

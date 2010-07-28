@@ -10,6 +10,7 @@
 #import "Property.h"
 #import "Region.h"
 #import "Session.h"
+#import "LightningTalk.h"
 
 
 @implementation FavoriteSessionTableViewController
@@ -29,8 +30,13 @@
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code in %@", region, property.favoriteSessons];
     NSArray *sessions = [Session findAllWithPredicate:predicate error:NULL];
-    
-    [self setArrayControllerWithSessionArray:sessions];
+
+    predicate = [NSPredicate predicateWithFormat:@"session.day.region = %@", region];
+    NSArray *lightningTalks = [LightningTalk findAllWithPredicate:predicate error:NULL];
+    predicate = [NSPredicate predicateWithFormat:@"code in %@", property.favoriteLightningTalks];
+    lightningTalks = [lightningTalks filteredArrayUsingPredicate:predicate];
+
+    [self setArrayControllerWithSessionArray:[sessions arrayByAddingObjectsFromArray:lightningTalks]];
     
     [self.tableView reloadData];
 }

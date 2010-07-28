@@ -50,8 +50,6 @@
 		4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4617916511FB268E000BFA1C /* UIColorIRK.m */; };
 		461792F411FC0B85000BFA1C /* LightningTalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */; };
 		4617930F11FC0DE1000BFA1C /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 461407F71004B9CB00964C01 /* LightningTalk.m */; };
-		46218A8A11DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */; };
-		46218A8B11DBA47E00CBBADF /* session_by_date_icon_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */; };
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
 		4621C49E100718610052495F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C49D100718610052495F /* Default.png */; };
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
@@ -97,6 +95,9 @@
 		46D1622112000147008FF7CD /* LightningTalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D1622012000147008FF7CD /* LightningTalkTableViewCell.m */; };
 		46D1628112000810008FF7CD /* LightningTalkDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461408371004BC4D00964C01 /* LightningTalkDetailedTableViewController.m */; };
 		46D162A2120009CB008FF7CD /* AbstractSessionDetaildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D162A1120009CB008FF7CD /* AbstractSessionDetaildTableViewController.m */; };
+		46D163AB12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D163AA12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m */; };
+		46D164FE1200336A008FF7CD /* find_30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D164FC1200336A008FF7CD /* find_30x30.png */; };
+		46D164FF1200336A008FF7CD /* find_30x30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D164FD1200336A008FF7CD /* find_30x30@2x.png */; };
 		46D4430711AEC09E0076E28B /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4430411AEC09E0076E28B /* Day.m */; };
 		46D4430811AEC09E0076E28B /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4430611AEC09E0076E28B /* Region.m */; };
 		46D4472811B133F40076E28B /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4472711B133F40076E28B /* Property.m */; };
@@ -236,9 +237,6 @@
 		468A2B1C100C9A2000942FE4 /* update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = iRubyKaigi.xcdatamodel; path = ../../iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4692CB4F11ACE3950098ADE1 /* iRubyKaigi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi_Prefix.pch; sourceTree = "<group>"; };
-		4692CBB811ACEBD50098ADE1 /* SessionTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionTableViewController.xib; sourceTree = "<group>"; };
-		4692CC7711AD1AB20098ADE1 /* SessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewController.h; sourceTree = "<group>"; };
-		4692CC7811AD1AB20098ADE1 /* SessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewController.m; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		46B73BB811AD355700D04842 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		46B73BB911AD355700D04842 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
@@ -264,6 +262,10 @@
 		46D1622012000147008FF7CD /* LightningTalkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewCell.m; sourceTree = "<group>"; };
 		46D162A0120009CB008FF7CD /* AbstractSessionDetaildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractSessionDetaildTableViewController.h; sourceTree = "<group>"; };
 		46D162A1120009CB008FF7CD /* AbstractSessionDetaildTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractSessionDetaildTableViewController.m; sourceTree = "<group>"; };
+		46D163A912002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionAndLightningTalkBySomethingTableViewController.h; sourceTree = "<group>"; };
+		46D163AA12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionAndLightningTalkBySomethingTableViewController.m; sourceTree = "<group>"; };
+		46D164FC1200336A008FF7CD /* find_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_30x30.png; sourceTree = "<group>"; };
+		46D164FD1200336A008FF7CD /* find_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "find_30x30@2x.png"; sourceTree = "<group>"; };
 		46D35E57100B4B3E00C0A428 /* simple-json.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "simple-json.rb"; sourceTree = "<group>"; };
 		46D4430311AEC09E0076E28B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		46D4430411AEC09E0076E28B /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
@@ -383,9 +385,6 @@
 				46D1621C12000097008FF7CD /* find */,
 				46D1621E120000EF008FF7CD /* setting */,
 				46D1621D120000D5008FF7CD /* share */,
-				4692CC7711AD1AB20098ADE1 /* SessionTableViewController.h */,
-				4692CC7811AD1AB20098ADE1 /* SessionTableViewController.m */,
-				4692CBB811ACEBD50098ADE1 /* SessionTableViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -538,6 +537,8 @@
 		46218A8411DBA47E00CBBADF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				46D164FC1200336A008FF7CD /* find_30x30.png */,
+				46D164FD1200336A008FF7CD /* find_30x30@2x.png */,
 				46C96D3411E43CEE00680067 /* blank_30x30.png */,
 				46C96D3511E43CEE00680067 /* blank_30x30@2x.png */,
 				466883F711E3174100D344C7 /* favorite_30x30.png */,
@@ -604,6 +605,8 @@
 				46D161E111FFFC51008FF7CD /* IRKDetaildTableViewController.m */,
 				466882C711E2E25300D344C7 /* SessionBySomethingTableViewController.h */,
 				466882C811E2E25300D344C7 /* SessionBySomethingTableViewController.m */,
+				46D163A912002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.h */,
+				46D163AA12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m */,
 			);
 			name = abstact;
 			sourceTree = "<group>";
@@ -752,8 +755,6 @@
 				4621C51610072C4D0052495F /* iTunesArtwork in Resources */,
 				46A0B8331008194B006B355A /* Entitlements.plist in Resources */,
 				468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */,
-				46218A8A11DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png in Resources */,
-				46218A8B11DBA47E00CBBADF /* session_by_date_icon_30x30.png in Resources */,
 				4663019E11DC7965008FEB6D /* session_by_speaker_icon_30x30.png in Resources */,
 				4663019F11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png in Resources */,
 				466301A211DC7B1B008FEB6D /* session_by_room_icon_30x30.png in Resources */,
@@ -773,6 +774,8 @@
 				46178E9711F9D011000BFA1C /* ISDateTimeInputViewController.xib in Resources */,
 				46178E9E11F9D011000BFA1C /* cider.strings in Resources */,
 				46178F8011FAD12A000BFA1C /* FindTableViewController.xib in Resources */,
+				46D164FE1200336A008FF7CD /* find_30x30.png in Resources */,
+				46D164FF1200336A008FF7CD /* find_30x30@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +845,7 @@
 				46D1622112000147008FF7CD /* LightningTalkTableViewCell.m in Sources */,
 				46D1628112000810008FF7CD /* LightningTalkDetailedTableViewController.m in Sources */,
 				46D162A2120009CB008FF7CD /* AbstractSessionDetaildTableViewController.m in Sources */,
+				46D163AB12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SessionBySomethingTableViewController.h"
+#import "SessionAndLightningTalkBySomethingTableViewController.h"
 #import "Speaker.h"
 
 
-@interface SessionBySpeakerTableViewController : SessionBySomethingTableViewController {
+@interface SessionBySpeakerTableViewController : SessionAndLightningTalkBySomethingTableViewController {
 
     Speaker *speaker;
     

@@ -18,6 +18,11 @@
     return [[[self alloc] initWithStyle:UITableViewStylePlain] autorelease];
 }
 
+- (NSString *)title
+{
+    return NSLocalizedString(@"Present sessions", nil);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

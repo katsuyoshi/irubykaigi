@@ -11,6 +11,7 @@
 @class Session;
 @class Speaker;
 @class Room;
+@class Day;
 
 @interface LightningTalk : NSManagedObject {
 
@@ -23,6 +24,11 @@
 @property (nonatomic, retain) Session * session;
 @property (nonatomic, retain) NSSet* speakers;
 
+@property (assign, readonly) NSString *code;
+
+// Session
+@property (assign, readonly) Day *day;
+@property (assign, readonly) NSString *time;
 @property (assign, readonly) NSString *dayTimeTitle;
 @property (assign, readonly) Room *room;
 

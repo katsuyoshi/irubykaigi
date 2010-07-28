@@ -50,4 +50,17 @@
 }
 
 
+
+- (void)setFavoriteLightningTalks:(NSArray *)array
+{
+    [self setArray:array forKey:@"favoriteLightningTalks"];
+}
+
+
+- (NSArray *)favoriteLightningTalks
+{
+    return [self arrayForKey:@"favoriteLightningTalks"];
+}
+
+
 @end

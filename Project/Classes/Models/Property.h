@@ -21,4 +21,6 @@
 
 @property (assign) NSArray *favoriteSessons;
 
+@property (assign) NSArray *favoriteLightningTalks;
+
 @end

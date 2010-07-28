@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Room.h"
 #import "UIColorIRK.h"
+#import "Property.h"
 
 
 @implementation LightningTalkTableViewCell
@@ -23,22 +24,19 @@
 }
 
 
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         // Initialization code
        
-        roomColorView = [[RoomColorView alloc] initWithFrame:CGRectZero];
-        [self.contentView addSubview:roomColorView];
-        
-        self.backgroundView = [[UIView new] autorelease];
         self.backgroundView.backgroundColor = [UIColor normalSessionColor];
+        self.detailTextLabel.textColor = [UIColor blackColor];
                 
     }
     return self;
 }
 
+/*
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -65,6 +63,7 @@
 
     // Configure the view for the selected state
 }
+*/
 
 - (void)setLightningTalk:(LightningTalk *)talk
 {
@@ -76,6 +75,9 @@
         self.detailTextLabel.text = [[[lightningTalk.speakers allObjects] valueForKey:@"name"] componentsJoinedByString:@","];
 
         roomColorView.color = self.lightningTalk.session.room.roomColor;
+
+        NSArray *array = [Property sharedProperty].favoriteLightningTalks;
+        self.imageView.image = [array containsObject:lightningTalk.code] ? [self favolitImage] : [self notFavolitImage];
     }
 }
 
@@ -84,6 +86,23 @@
 - (void)dealloc {
     [lightningTalk release];
     [super dealloc];
+}
+
+
+- (void)didTouchUpFavorite:(id)sender
+{
+    if ([lightningTalk.code length]) {
+        Property *property = [Property sharedProperty];
+        NSMutableArray *array = [[property.favoriteLightningTalks mutableCopy] autorelease];
+        if ([array containsObject:lightningTalk.code]) {
+            [array removeObject:lightningTalk.code];
+            self.imageView.image = [self notFavolitImage];
+        } else {
+            [array addObject:lightningTalk.code];
+            self.imageView.image = [self favolitImage];
+        }
+        [property setFavoriteLightningTalks:array];
+    }
 }
 
 

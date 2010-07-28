@@ -36,12 +36,23 @@
     if ([self.summary length]) {
         [array addObject:@"summary"];
     }
-/*
-    if ([self.profile length]) {
-        [array addObject:@"profile"];
-    }
-*/
+
     return array;
+}
+
+- (Day *)day
+{
+    return self.session.day;
+}
+
+- (NSString *)time
+{
+    return self.session.time;
+}
+
+- (NSString *)code
+{
+    return [NSString stringWithFormat:@"%@:%@", self.session.code, self.position];
 }
 
 - (NSString *)dayTimeTitle

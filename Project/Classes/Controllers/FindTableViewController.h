@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SessionBySomethingTableViewController.h"
+#import "SessionAndLightningTalkBySomethingTableViewController.h"
 #import "Region.h"
 #import "HistoryTableViewController.h"
 
@@ -17,7 +17,7 @@ typedef enum {
     SearchScopeSpeaker
 } SearchScopeType;
 
-@interface FindTableViewController : SessionBySomethingTableViewController <UISearchDisplayDelegate, UISearchBarDelegate, HistoryTableViewControllerDelegate>  {
+@interface FindTableViewController : SessionAndLightningTalkBySomethingTableViewController <UISearchDisplayDelegate, UISearchBarDelegate, HistoryTableViewControllerDelegate>  {
     
     NSString *searchString;
     SearchScopeType scopeType;
