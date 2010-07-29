@@ -18,7 +18,6 @@
 
 }
 
-@property (assign, readonly) Region *region;
 
 + (UINavigationController *)navigationController;
 + (id)sessionTableViewController;
@@ -28,6 +27,5 @@
 
 - (void)setArrayControllerWithSessionSet:(NSSet *)sessions sortDescriptors:(NSArray *)sortDescriptors;
 
-- (void)reloadData;
 
 @end

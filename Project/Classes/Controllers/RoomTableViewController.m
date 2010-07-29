@@ -41,9 +41,14 @@
 
 - (void)buildDateSecmentedController
 {
-    int i = 0;    
-    dateSecmentedController = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
-    dateSecmentedController.segmentedControlStyle = UISegmentedControlStyleBar;
+    int i = 0;
+    
+    if (dateSecmentedController == nil) {
+        dateSecmentedController = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+        dateSecmentedController.segmentedControlStyle = UISegmentedControlStyleBar;
+    }
+    [dateSecmentedController removeAllSegments];
+    
     for (Day *day in self.region.sortedDays) {
         [dateSecmentedController insertSegmentWithTitle:day.title atIndex:i animated:NO];
         if ([day.date isEqual:[[NSDate date] beginningOfDay]]) {
@@ -70,11 +75,6 @@
 #pragma mark -
 #pragma mark properties
 
-- (Region *)region
-{
-    return [Property sharedProperty].japanese ? [Region japanese] : [Region english];
-}
-
 - (Day *)selectedDay
 {
     return [self.region.sortedDays objectAtIndex:dateSecmentedController.selectedSegmentIndex];
@@ -94,7 +94,8 @@
     
 //    self.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"floor, name"];
     
-    self.predicate = [NSPredicate predicateWithFormat:@"region = %@", self.region];
+    self.masterObject = self.region;
+// DELETEME:    self.predicate = [NSPredicate predicateWithFormat:@"region = %@", self.region];
     self.hasEditButtonItem = NO;
 }
 
@@ -181,5 +182,31 @@
     }
 }
 
+
+/* DELETEME:
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == [Property sharedProperty]) {
+        if (keyPath == @"japanese") {
+            int index = dateSecmentedController.selectedSegmentIndex;
+            [self buildDateSecmentedController];
+            dateSecmentedController.selectedSegmentIndex = index;
+            
+            self.masterObject = self.region;
+            [self reloadData];
+        }
+    }
+}
+*/
+
+- (void)didChangeRegion
+{
+    int index = dateSecmentedController.selectedSegmentIndex;
+    [self buildDateSecmentedController];
+    dateSecmentedController.selectedSegmentIndex = index;
+            
+    self.masterObject = self.region;
+    [self reloadData];
+}
 
 @end

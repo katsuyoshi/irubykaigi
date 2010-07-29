@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "CiderCoreData.h"
+#import "Region.h"
 
 
 @interface IRKListTableViewController : ISCDListTableViewController {
 
 }
+
+@property (assign, readonly) Region *region;
+
+- (void)didChangeRegion;
 
 @end

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "IRKListTableViewController.h"
 
-@class Region;
 
 @interface RoomTableViewController : IRKListTableViewController {
 
@@ -19,7 +18,5 @@
 
 + (UINavigationController *)navigationController;
 + (RoomTableViewController *)sessionByRoomTableViewController;
-
-@property (assign, readonly) Region *region;
 
 @end

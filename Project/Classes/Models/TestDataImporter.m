@@ -21,6 +21,8 @@
 - (void)importSessionsFromCsvFile:(NSString *)fileName region:(Region *)region managedObjectContext:(NSManagedObjectContext *)context;
 - (void)importLightningTalksFromCsvFile:(NSString *)fileName region:(Region *)region managedObjectContext:(NSManagedObjectContext *)context;
 
+- (void)importWithLocation:(NSString *)location;
+
 @end
 
 
@@ -28,28 +30,44 @@
 
 - (void)import
 {
+    [self clearAllData];
+
+    [self importWithLocation:@"ja"];
+    [self importWithLocation:@"en"];
+
+}
+
+- (void)importWithLocation:(NSString *)location
+{
     NSManagedObjectContext *context = nil;
+    NSAutoreleasePool *pool = nil;
     @try {
-        [self clearAllData];
+        pool = [NSAutoreleasePool new];
         
         context = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];
 //        context = [NSManagedObjectContext defaultManagedObjectContext];
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"session_info" ofType:@"csv"];
-        [self importSessionsFromCsvFile:path region:[Region japaneseInManagedObjectContext:context] managedObjectContext:context];
+        Region *region = nil;
+        if ([location isEqualToString:@"ja"]) {
+            region = [Region japaneseInManagedObjectContext:context];
+        } else {
+            region = [Region englishInManagedObjectContext:context];
+        }
+        
+        NSString *path = [NSString stringWithFormat:@"session_info_%@", location];
+        path = [[NSBundle mainBundle] pathForResource:path ofType:@"csv"];
+        [self importSessionsFromCsvFile:path region:region managedObjectContext:context];
 
-//        [self save:context];
-//        [context reset];
-
-        path = [[NSBundle mainBundle] pathForResource:@"lightning_talks_info" ofType:@"csv"];
-        [self importLightningTalksFromCsvFile:path region:[Region japaneseInManagedObjectContext:context] managedObjectContext:context];
+        path = [NSString stringWithFormat:@"lightning_talks_info_%@", location];
+        path = [[NSBundle mainBundle] pathForResource:path ofType:@"csv"];
+        [self importLightningTalksFromCsvFile:path region:region managedObjectContext:context];
 
         [self save:context];
     } @finally {
+        [pool drain];
         [context release];
     }
 }
-
 
 - (void)importSessionsFromCsvFile:(NSString *)fileName region:(Region *)region managedObjectContext:(NSManagedObjectContext *)context
 {
@@ -164,22 +182,7 @@
     ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
     condition.managedObjectContext = context;
     condition.predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and sessionType = %@", region, [NSNumber numberWithInt:SessionTypeCodeLightningTalks]];
-//    condition.predicate = [NSPredicate predicateWithFormat:@"sessionType = %@", [NSNumber numberWithInt:SessionTypeCodeLightningTalks]];
     NSArray *sessions = [Session findAll:condition error:NULL];
-Session *aSession = [sessions lastObject];
-NSLog(@"%@", aSession.title);
-NSLog(@"%@", [aSession valueForKey:@"intermission"]);
-NSLog(@"%@", [aSession valueForKey:@"profile"]);
-NSLog(@"%@", [aSession valueForKey:@"attention"]);
-NSLog(@"%@", [aSession valueForKey:@"summary"]);
-NSLog(@"%@", [aSession valueForKey:@"position"]);
-NSLog(@"%@", [aSession valueForKey:@"code"]);
-NSLog(@"%@", [aSession valueForKey:@"speakers"]);
-NSLog(@"%@", [aSession valueForKey:@"day"]);
-NSLog(@"%@", [aSession valueForKey:@"sessionType"]);
-NSLog(@"%@", NSStringFromClass([[aSession valueForKey:@"talks"] class]));
-NSLog(@"%@", [aSession valueForKey:@"time"]);
-NSLog(@"%@", aSession);
 
     NSString *contents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     BOOL isFirst = YES;

@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Region.h"
 
 
 @interface IRKTableViewController : UITableViewController {
 
 }
+
+@property (assign, readonly) Region *region;
+
+- (void)reloadData;
+- (void)didChangeRegion;
 
 @end

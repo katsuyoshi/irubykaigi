@@ -31,8 +31,9 @@
     Room *room = [Room find:condition error:NULL];
     if (room == nil) {
         room = [Room createWithManagedObjectContext:context];
-        room.code = code;
         room.region = region;
+        room.code = code;
+        [room setListNumber];
     }
     return room;
 }
@@ -52,9 +53,9 @@
         Room *room = [Room find:condition error:NULL];
         if (room == nil) {
             room = [Room createWithManagedObjectContext:context];
+            room.region = region;
             [room setListNumber];
             room.code = [room.position stringValue];
-            room.region = region;
             room.name = name;
             room.floor = floor;
         }
@@ -68,6 +69,11 @@
 {
     NSManagedObjectContext *context = [NSManagedObjectContext defaultManagedObjectContext];
     return [self roomByName:name floor:floor region:region inManagedObjectContext:context];
+}
+
++ (NSString *)listScopeName
+{
+    return @"region";
 }
 
 

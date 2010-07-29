@@ -13,7 +13,6 @@
 
 @implementation SpeakerTableViewController
 
-@synthesize region;
 @synthesize indexTitles;
 
 
@@ -29,7 +28,6 @@
 
 - (void)dealloc
 {
-    [region release];
     [indexTitles release];
     [super dealloc];
 }
@@ -47,49 +45,6 @@
     [self reloadData];
 }
 
-
-#pragma mark -
-#pragma mark ISCDListTableViewController
-
-
-- (Region *)region
-{
-    return [Property sharedProperty].japanese ? [Region japanese] : [Region english];
-}
-
-/*
-- (void)setRegion:(Region *)aRegion
-{
-    [region release];
-    
-    region = [aRegion retain];
-    self.indexTitles = [[@"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z #" componentsSeparatedByString:@" "] retain];
-
-    fetchedResultsControllers = [NSMutableArray new];
-    for (NSString *indexTitle in self.indexTitles) {
-
-        NSPredicate *regionPredicate = [NSPredicate predicateWithFormat:@"region = %@", region];
-        if ([indexTitle isEqualToString:@"#"] == NO) {
-            NSPredicate *indexTitlePredicate = [NSPredicate predicateWithFormat:@"name beginswith[c] %@", indexTitle];
-            self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:regionPredicate, indexTitlePredicate, nil]];
-        } else {
-            NSMutableArray *predicates = [NSMutableArray array];
-            NSString *lastIndexTitle = [self.indexTitles lastObject];
-            for (NSString *indexTitle2 in self.indexTitles) {
-                if (indexTitle2 != lastIndexTitle) {
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name beginswith[c] %@", indexTitle2];
-                    [predicates addObject:[NSCompoundPredicate notPredicateWithSubpredicate:predicate]];
-                }
-            }
-            [predicates addObject:regionPredicate]; 
-            self.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
-        }
-
-        [self resetFetchedResultController];
-        [fetchedResultsControllers addObject:self.fetchedResultsController];
-    }
-}
-*/
 
 #pragma mark -
 #pragma mark UITableViewDataSource/UITableViewDelegate

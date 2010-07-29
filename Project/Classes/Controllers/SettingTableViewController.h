@@ -10,7 +10,7 @@
 #import "IRKTableViewController.h"
 
 
-@interface SettingTableViewController : IRKTableViewController {
+@interface SettingTableViewController : UITableViewController {
 
 }
 

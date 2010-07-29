@@ -32,10 +32,16 @@
 
 - (void)reloadData
 {
-    NSMutableSet *sessions = [speaker.sessions mutableCopy];
-    [sessions addObjectsFromArray:[speaker.lightningTalks allObjects]];
+    NSMutableSet *sessions = [self.speaker.sessions mutableCopy];
+    [sessions addObjectsFromArray:[self.speaker.lightningTalks allObjects]];
     
     [self setArrayControllerWithSessionSet:sessions];
 }
+
+- (void)didChangeRegion
+{
+    self.speaker = [self.speaker speakerForRegion:self.region];
+}
+
 
 @end

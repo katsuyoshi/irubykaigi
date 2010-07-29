@@ -36,6 +36,8 @@
 + (Speaker *)findByName:(NSString *)name region:(Region *)region;
 + (Speaker *)findByName:(NSString *)name region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 
+- (Speaker *)speakerForRegion:(Region *)region;
+
 @end
 
 // coalesce these into one @interface Speaker (CoreDataGeneratedAccessors) section

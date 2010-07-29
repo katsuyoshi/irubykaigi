@@ -86,5 +86,11 @@
     return [self.name uppercaseString];
 }
 
+- (Speaker *)speakerForRegion:(Region *)region
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"region = %@ and code = %@", region, self.code];
+    return [Speaker findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
+}
+
 
 @end

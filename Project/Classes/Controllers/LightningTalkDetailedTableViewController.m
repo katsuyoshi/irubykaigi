@@ -89,5 +89,14 @@
     }
 }
 
+- (void)didChangeRegion
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session.day.region = %@ and code = %@", self.region, self.lightningTalk.code];
+    NSArray *talks = [LightningTalk findAll:nil error:NULL];
+    talks = [talks filteredArrayUsingPredicate:predicate];
+    self.detailedObject = [talks lastObject];
+    [self reloadData];
+}
+
 
 @end

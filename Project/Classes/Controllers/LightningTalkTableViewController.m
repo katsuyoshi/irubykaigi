@@ -32,6 +32,10 @@
     return [self.masterObject valueForKey:@"title"];
 }
 
+- (Session *)session
+{
+    return (Session *)self.masterObject;
+}
 
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
 {
@@ -49,5 +53,13 @@
 {
     return 50.0;
 }
+
+- (void)didChangeRegion
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", self.region, self.session.code];
+    self.masterObject = [Session findWithPredicate:predicate error:NULL];
+    [self reloadData];
+}
+
 
 @end

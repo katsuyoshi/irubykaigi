@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "IRKListTableViewController.h"
+#import "Session.h"
 
 
 @interface LightningTalkTableViewController : IRKListTableViewController {
@@ -16,5 +17,6 @@
 
 + (LightningTalkTableViewController *)lightningTalksTableViewController;
 
+@property (assign, readonly) Session *session;
 
 @end

@@ -22,7 +22,6 @@
 + (UINavigationController *)navigationController;
 + (SpeakerTableViewController *)speakerTableViewController;
 
-@property (retain) Region *region;
 
 @property (retain) NSArray *indexTitles;
 

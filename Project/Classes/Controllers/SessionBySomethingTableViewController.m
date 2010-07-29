@@ -55,16 +55,9 @@
     [arrayController release];
     arrayController = [[ISSectionedArrayController alloc] initWithSet:sessions sectionName:@"dayTimeTitle" sortDescriptors:sortDescriptors];
     arrayController.sectionTitleName = @"self";
+    [self.tableView reloadData];
 }
 
-
-#pragma mark -
-#pragma mark properties
-
-- (Region *)region
-{
-    return [Property sharedProperty].japanese ? [Region japanese] : [Region english];
-}
 
 #pragma mark -
 #pragma mark UITableViewDataSource/UITableViewDelegate
@@ -117,10 +110,6 @@
     return 50.0;
 }
 
-
-- (void)reloadData
-{
-}
 
 
 @end
