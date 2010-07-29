@@ -24,6 +24,9 @@
 + (Day *)dayWithDate:(NSDate *)date region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Day *)dayWithDate:(NSDate *)date region:(Region *)region;
 
+- (Day *)dayForRegion:(Region *)region;
+
+
 @end
 
 

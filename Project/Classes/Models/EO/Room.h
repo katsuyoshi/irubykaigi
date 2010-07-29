@@ -33,6 +33,8 @@
 
 @property (assign, readonly) UIColor *roomColor;
 
+- (Room *)roomForRegion:(Region *)region;
+
 @end
 
 

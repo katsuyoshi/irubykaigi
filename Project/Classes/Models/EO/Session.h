@@ -12,6 +12,7 @@
 @class Room;
 @class Day;
 @class Speaker;
+@class Region;
 
 typedef enum {
     SessionTypeCodeNormal = 1,
@@ -63,6 +64,7 @@ typedef enum {
 @property (assign, readonly) NSString *startAt;
 @property (assign, readonly) NSString *endAt;
 
+- (Session *)sessionForRegion:(Region *)region;
 
 @end
 

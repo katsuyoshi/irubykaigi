@@ -12,6 +12,7 @@
 @class Speaker;
 @class Room;
 @class Day;
+@class Region;
 
 @interface LightningTalk : NSManagedObject {
 
@@ -31,6 +32,8 @@
 @property (assign, readonly) NSString *time;
 @property (assign, readonly) NSString *dayTimeTitle;
 @property (assign, readonly) Room *room;
+
+- (LightningTalk *)lightningTalkForRegion:(Region *)region;
 
 @end
 

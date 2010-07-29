@@ -45,4 +45,10 @@
     return [self.region.dateFormatter stringFromDate:self.date];
 }
 
+- (Day *)dayForRegion:(Region *)region
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"region = %@ and date = %@", region, self.date];
+    return [Day findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
+}
+
 @end

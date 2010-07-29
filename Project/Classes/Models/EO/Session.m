@@ -9,6 +9,8 @@
 #import "Session.h"
 #import "Day.h"
 #import "LightningTalk.h"
+#import "CiderCoreData.h"
+
 
 @implementation Session 
 
@@ -103,6 +105,12 @@
         }
     }
     return nil;
+}
+
+- (Session *)sessionForRegion:(Region *)region
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", region, self.code];
+    return [Session findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
 }
 
 

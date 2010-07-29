@@ -8,6 +8,7 @@
 
 #import "LightningTalk.h"
 #import "Session.h"
+#import "CiderCoreData.h"
 
 
 @implementation LightningTalk
@@ -65,5 +66,13 @@
     return self.session.room;
 }
 
+
+- (LightningTalk *)lightningTalkForRegion:(Region *)region
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session.day.region = %@ and code = %@", region, self.code];
+    NSArray *talks = [LightningTalk findAll:nil error:NULL];
+    return [[talks filteredArrayUsingPredicate:predicate] lastObject];
+    
+}
 
 @end

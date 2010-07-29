@@ -123,5 +123,12 @@
     return [self.sessions sortedArrayUsingDescriptors:sortDescriptors];
 }
 
+- (Room *)roomForRegion:(Region *)region
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"region = %@ and code = %@", region, self.code];
+    return [Room findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
+}
+
+
 
 @end

@@ -56,8 +56,7 @@
 
 - (void)didChangeRegion
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", self.region, self.session.code];
-    self.masterObject = [Session findWithPredicate:predicate error:NULL];
+    self.masterObject = [self.session sessionForRegion:self.region];
     [self reloadData];
 }
 
