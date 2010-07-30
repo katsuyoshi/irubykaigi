@@ -8,3 +8,4 @@ psd
 *.psd
 *.pxf
 *.pxm
+script/*.json
