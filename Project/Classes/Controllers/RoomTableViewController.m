@@ -91,11 +91,8 @@
 
     self.detailedTableViewControllerClassName = @"SessionDetailedTableViewController";
     self.hasDetailView = YES;
-    
-//    self.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"floor, name"];
-    
+        
     self.masterObject = self.region;
-// DELETEME:    self.predicate = [NSPredicate predicateWithFormat:@"region = %@", self.region];
     self.hasEditButtonItem = NO;
 }
 
@@ -182,22 +179,6 @@
     }
 }
 
-
-/* DELETEME:
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == [Property sharedProperty]) {
-        if (keyPath == @"japanese") {
-            int index = dateSecmentedController.selectedSegmentIndex;
-            [self buildDateSecmentedController];
-            dateSecmentedController.selectedSegmentIndex = index;
-            
-            self.masterObject = self.region;
-            [self reloadData];
-        }
-    }
-}
-*/
 
 - (void)didChangeRegion
 {

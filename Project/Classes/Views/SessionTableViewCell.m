@@ -130,7 +130,7 @@
             self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             self.selectionStyle = UITableViewCellSelectionStyleBlue;
         } else {
-            self.imageView.image = nil; // DELETEME: [self blankImage];
+            self.imageView.image = nil;
             favoritButton.userInteractionEnabled = NO;
             self.accessoryType = UITableViewCellAccessoryNone;
             self.selectionStyle = UITableViewCellSelectionStyleNone;
