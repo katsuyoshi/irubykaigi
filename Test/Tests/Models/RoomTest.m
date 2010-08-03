@@ -61,7 +61,7 @@
 
     room.floor = nil;
     room.name = @"Hall";
-    ASSERT(![room validateForInsert:NULL]);
+    ASSERT([room validateForInsert:NULL]);
 
     room.floor = @"2F";
     room.name = @"Hall";

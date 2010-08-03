@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSSet* sessions;
 
 @property (assign, readonly) NSString *title;
+@property (assign, readonly) NSString *dayString;
 
 + (Day *)dayWithDate:(NSDate *)date region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Day *)dayWithDate:(NSDate *)date region:(Region *)region;

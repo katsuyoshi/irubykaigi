@@ -15,6 +15,8 @@
 #import "UIColorIRK.h"
 
 #import "TestDataImporter.h"
+#import "JsonCrudeImporter.h"
+
 
 @implementation iRubyKaigiAppDelegate
 
@@ -36,7 +38,8 @@
                                 @"setting_icon_30x30.png",
                                 nil];
                                 
-    [[[TestDataImporter new] autorelease] import];
+//    [[[TestDataImporter new] autorelease] import];
+    [[[JsonCrudeImporter new] autorelease] import];
 
     NSArray *tabBarControllers = [NSArray arrayWithObjects:
                                     [RoomTableViewController navigationController],

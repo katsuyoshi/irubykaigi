@@ -1,8 +1,8 @@
 //
-//  SessionTypeTest.h
+//  JsonCrudeImporterTest.h
 //  iRubyKaigiTest
 //
-//  Created by Katsuyoshi Ito on 10/05/31.
+//  Created by Katsuyoshi Ito on 10/07/31.
 //  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "ModelTest.h"
 
 
-@interface SessionTypeTest : ModelTest {
+@interface JsonCrudeImporterTest : ModelTest {
 
 }
 

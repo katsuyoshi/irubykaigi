@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SessionTableViewController.h"
+#import "SettingTableViewController.h"
 
 
-@interface SessionByDateTableViewController : SessionTableViewController {
+@interface SessionByDateTableViewController : SettingTableViewController {
 
 }
 

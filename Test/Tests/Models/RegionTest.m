@@ -12,6 +12,7 @@
 #import "CiderCoreData.h"
 #import "Room.h"
 #import "Speaker.h"
+#import "Session.h"
 
 
 @implementation RegionTest
@@ -111,15 +112,6 @@
     
     ASSERT_EQUAL(date, day.date);
     ASSERT_SAME(day, [region dayForDate:date]);
-}
-
-- (void)testSessionTypeForCode
-{
-    Region *region = [Region japanese];
-    SessionType *type = [region sessionTypeForCode:SessionTypeCodeNormal];
-    
-    ASSERT_EQUAL_INT(SessionTypeCodeNormal, [type.code intValue]);
-    ASSERT_SAME(type, [region sessionTypeForCode:SessionTypeCodeNormal]);
 }
 
 - (void)testRoomForCode

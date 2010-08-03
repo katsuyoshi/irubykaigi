@@ -8,7 +8,6 @@
 
 #import "ImporterTest.h"
 #import "Region.h"
-#import "SessionType.h"
 #import "Importer.h"
 
 
@@ -41,16 +40,6 @@
 #pragma mark Tests
 
 
-- (void)testPrepareSissionTypesWithManagedObjectContext
-{
-    ASSERT_EQUAL_INT(0, [[SessionType findAll:nil error:NULL] count]);
-    
-    [importer prepareSissionTypesWithManagedObjectContext:DEFAULT_MANAGED_OBJECT_CONTEXT];
-
-    ASSERT_EQUAL_INT(20, [[SessionType findAll:nil error:NULL] count]);
-    ASSERT_EQUAL_INT(10, [[Region japanese].sessionTypes count]);
-    ASSERT_EQUAL_INT(10, [[Region english].sessionTypes count]);
-}
 
 
 #pragma mark -

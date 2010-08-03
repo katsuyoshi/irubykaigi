@@ -48,6 +48,13 @@
 		4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4617916511FB268E000BFA1C /* UIColorIRK.m */; };
 		461792F411FC0B85000BFA1C /* LightningTalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */; };
 		4617930F11FC0DE1000BFA1C /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 461407F71004B9CB00964C01 /* LightningTalk.m */; };
+		4620EA15120317F6008BB2BC /* timetable.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA14120317F6008BB2BC /* timetable.json */; };
+		4620EA18120318A5008BB2BC /* JsonCrudeImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA17120318A5008BB2BC /* JsonCrudeImporter.m */; };
+		4620EA26120319AF008BB2BC /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA1D120319AF008BB2BC /* NSObject+SBJSON.m */; };
+		4620EA27120319AF008BB2BC /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA1F120319AF008BB2BC /* NSString+SBJSON.m */; };
+		4620EA28120319AF008BB2BC /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA21120319AF008BB2BC /* SBJsonBase.m */; };
+		4620EA29120319AF008BB2BC /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA23120319AF008BB2BC /* SBJsonParser.m */; };
+		4620EA2A120319AF008BB2BC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA25120319AF008BB2BC /* SBJsonWriter.m */; };
 		4621C44810070EB60052495F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C44710070EB60052495F /* icon.png */; };
 		4621C49E100718610052495F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4621C49D100718610052495F /* Default.png */; };
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
@@ -117,7 +124,6 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		461405041003996C00964C01 /* get_lightning_talks.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_lightning_talks.rb; sourceTree = "<group>"; };
 		461407F61004B9CB00964C01 /* LightningTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalk.h; sourceTree = "<group>"; };
 		461407F71004B9CB00964C01 /* LightningTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalk.m; sourceTree = "<group>"; };
 		461408361004BC4D00964C01 /* LightningTalkDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkDetailedTableViewController.h; sourceTree = "<group>"; };
@@ -188,6 +194,23 @@
 		4617916511FB268E000BFA1C /* UIColorIRK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorIRK.m; sourceTree = "<group>"; };
 		461792F211FC0B85000BFA1C /* LightningTalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkTableViewController.h; sourceTree = "<group>"; };
 		461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewController.m; sourceTree = "<group>"; };
+		4620EA14120317F6008BB2BC /* timetable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetable.json; sourceTree = "<group>"; };
+		4620EA16120318A5008BB2BC /* JsonCrudeImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonCrudeImporter.h; sourceTree = "<group>"; };
+		4620EA17120318A5008BB2BC /* JsonCrudeImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonCrudeImporter.m; sourceTree = "<group>"; };
+		4620EA1B120319AF008BB2BC /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		4620EA1C120319AF008BB2BC /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		4620EA1D120319AF008BB2BC /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		4620EA1E120319AF008BB2BC /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		4620EA1F120319AF008BB2BC /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		4620EA20120319AF008BB2BC /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		4620EA21120319AF008BB2BC /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		4620EA22120319AF008BB2BC /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		4620EA23120319AF008BB2BC /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		4620EA24120319AF008BB2BC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		4620EA25120319AF008BB2BC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		4620EA8B120323F9008BB2BC /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
+		4620EA8C120323F9008BB2BC /* simple-json.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "simple-json.rb"; sourceTree = "<group>"; };
+		4620EA8D120323F9008BB2BC /* update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update; sourceTree = "<group>"; };
 		46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "session_by_date_icon_30x30@2x.png"; sourceTree = "<group>"; };
 		46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = session_by_date_icon_30x30.png; sourceTree = "<group>"; };
 		4621C44710070EB60052495F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -198,7 +221,6 @@
 		4628FA3A11DD76EA00EFB272 /* SessionDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailedTableViewController.h; sourceTree = "<group>"; };
 		4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailedTableViewController.m; sourceTree = "<group>"; };
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
-		4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
 		465BB4CE11C9A25400770325 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		465BB4CF11C9A25400770325 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		465BB4D011C9A25400770325 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
@@ -232,7 +254,6 @@
 		4682504411E1BF3E00D73D84 /* SessionByRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionByRoomTableViewController.h; sourceTree = "<group>"; };
 		4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionByRoomTableViewController.m; sourceTree = "<group>"; };
 		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		468A2B1C100C9A2000942FE4 /* update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = iRubyKaigi.xcdatamodel; path = ../../iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4692CB4F11ACE3950098ADE1 /* iRubyKaigi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi_Prefix.pch; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -268,7 +289,6 @@
 		46D1653612007283008FF7CD /* lightning_talks_info_ja.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lightning_talks_info_ja.csv; sourceTree = "<group>"; };
 		46D1653712007283008FF7CD /* session_info_en.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = session_info_en.csv; sourceTree = "<group>"; };
 		46D1653812007283008FF7CD /* session_info_ja.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = session_info_ja.csv; sourceTree = "<group>"; };
-		46D35E57100B4B3E00C0A428 /* simple-json.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "simple-json.rb"; sourceTree = "<group>"; };
 		46D4430311AEC09E0076E28B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		46D4430411AEC09E0076E28B /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		46D4430511AEC09E0076E28B /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
@@ -300,7 +320,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				46178E4511F9D011000BFA1C /* cider */,
+				4620EA1912031997008BB2BC /* vendor */,
 				460A79E90FFDA94400DD0775 /* Controllers */,
 				46EE14360FFE53D1000224D0 /* Models */,
 				4628FB1911DD94CE00EFB272 /* Views */,
@@ -326,6 +346,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				4692CB0311ACB8040098ADE1 /* Resources-iPad */,
+				4620EA8A120323F9008BB2BC /* script */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -344,6 +365,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4620EA14120317F6008BB2BC /* timetable.json */,
 				46D1653512007283008FF7CD /* lightning_talks_info_en.csv */,
 				46D1653612007283008FF7CD /* lightning_talks_info_ja.csv */,
 				46D1653712007283008FF7CD /* session_info_en.csv */,
@@ -357,7 +379,6 @@
 				461409DB1004D97300964C01 /* favorite_on_red.png */,
 				461409121004CB4900964C01 /* favorite_off.png */,
 				461409131004CB4900964C01 /* favorite_on_green.png */,
-				4658DA8C1000EC1C00CBBFEE /* script */,
 				46EE144E0FFE53FA000224D0 /* Localizable.strings */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* iRubyKaigi-Info.plist */,
@@ -538,6 +559,45 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		4620EA1912031997008BB2BC /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				4620EA1A120319AF008BB2BC /* json */,
+				46178E4511F9D011000BFA1C /* cider */,
+			);
+			name = vendor;
+			sourceTree = "<group>";
+		};
+		4620EA1A120319AF008BB2BC /* json */ = {
+			isa = PBXGroup;
+			children = (
+				4620EA1B120319AF008BB2BC /* JSON.h */,
+				4620EA1C120319AF008BB2BC /* NSObject+SBJSON.h */,
+				4620EA1D120319AF008BB2BC /* NSObject+SBJSON.m */,
+				4620EA1E120319AF008BB2BC /* NSString+SBJSON.h */,
+				4620EA1F120319AF008BB2BC /* NSString+SBJSON.m */,
+				4620EA20120319AF008BB2BC /* SBJsonBase.h */,
+				4620EA21120319AF008BB2BC /* SBJsonBase.m */,
+				4620EA22120319AF008BB2BC /* SBJsonParser.h */,
+				4620EA23120319AF008BB2BC /* SBJsonParser.m */,
+				4620EA24120319AF008BB2BC /* SBJsonWriter.h */,
+				4620EA25120319AF008BB2BC /* SBJsonWriter.m */,
+			);
+			name = json;
+			path = "vendor/json-framework/Classes";
+			sourceTree = SOURCE_ROOT;
+		};
+		4620EA8A120323F9008BB2BC /* script */ = {
+			isa = PBXGroup;
+			children = (
+				4620EA8B120323F9008BB2BC /* get_timetable.rb */,
+				4620EA8C120323F9008BB2BC /* simple-json.rb */,
+				4620EA8D120323F9008BB2BC /* update */,
+			);
+			name = script;
+			path = ../script;
+			sourceTree = SOURCE_ROOT;
+		};
 		46218A8411DBA47E00CBBADF /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,17 +638,6 @@
 				4617916511FB268E000BFA1C /* UIColorIRK.m */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		4658DA8C1000EC1C00CBBFEE /* script */ = {
-			isa = PBXGroup;
-			children = (
-				468A2B1C100C9A2000942FE4 /* update */,
-				46D35E57100B4B3E00C0A428 /* simple-json.rb */,
-				4658DA8D1000EC1C00CBBFEE /* get_timetable.rb */,
-				461405041003996C00964C01 /* get_lightning_talks.rb */,
-			);
-			path = script;
 			sourceTree = "<group>";
 		};
 		4692CB0311ACB8040098ADE1 /* Resources-iPad */ = {
@@ -695,6 +744,8 @@
 				4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */,
 				46D4472611B133F40076E28B /* Property.h */,
 				46D4472711B133F40076E28B /* Property.m */,
+				4620EA16120318A5008BB2BC /* JsonCrudeImporter.h */,
+				4620EA17120318A5008BB2BC /* JsonCrudeImporter.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -782,6 +833,7 @@
 				46D1653A12007283008FF7CD /* lightning_talks_info_ja.csv in Resources */,
 				46D1653B12007283008FF7CD /* session_info_en.csv in Resources */,
 				46D1653C12007283008FF7CD /* session_info_ja.csv in Resources */,
+				4620EA15120317F6008BB2BC /* timetable.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +904,12 @@
 				46D1628112000810008FF7CD /* LightningTalkDetailedTableViewController.m in Sources */,
 				46D162A2120009CB008FF7CD /* AbstractSessionDetaildTableViewController.m in Sources */,
 				46D163AB12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m in Sources */,
+				4620EA18120318A5008BB2BC /* JsonCrudeImporter.m in Sources */,
+				4620EA26120319AF008BB2BC /* NSObject+SBJSON.m in Sources */,
+				4620EA27120319AF008BB2BC /* NSString+SBJSON.m in Sources */,
+				4620EA28120319AF008BB2BC /* SBJsonBase.m in Sources */,
+				4620EA29120319AF008BB2BC /* SBJsonParser.m in Sources */,
+				4620EA2A120319AF008BB2BC /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

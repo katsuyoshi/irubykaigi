@@ -15,8 +15,6 @@
 		460633950F55AC9000A33C8B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 460633940F55AC9000A33C8B /* Settings.bundle */; };
 		460633A20F55B5F900A33C8B /* isd_logo_60x40_w.png in Resources */ = {isa = PBXBuildFile; fileRef = 460633A10F55B5F900A33C8B /* isd_logo_60x40_w.png */; };
 		4608BDE00F56FA430011302D /* IUTPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = 4608BDDF0F56FA430011302D /* IUTPreference.m */; };
-		460EA45111B3A5D8009F5AAB /* SessionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EA45011B3A5D8009F5AAB /* SessionType.m */; };
-		460EA47711B3A748009F5AAB /* SessionTypeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EA47611B3A748009F5AAB /* SessionTypeTest.m */; };
 		460EA4BA11B3B0A0009F5AAB /* ImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EA4B911B3B0A0009F5AAB /* ImporterTest.m */; };
 		46178EFB11F9D0E3000BFA1C /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178EBF11F9D0E2000BFA1C /* NSErrorCoreDataExtension.m */; };
 		46178EFC11F9D0E3000BFA1C /* NSFetchedResultsControllerSortedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178EC211F9D0E2000BFA1C /* NSFetchedResultsControllerSortedObject.m */; };
@@ -45,8 +43,6 @@
 		46178F1311F9D0E3000BFA1C /* cider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46178EF311F9D0E3000BFA1C /* cider.strings */; };
 		46178F1411F9D0E3000BFA1C /* ISSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178EF811F9D0E3000BFA1C /* ISSelectionTableViewController.m */; };
 		46178F1511F9D0E3000BFA1C /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178EFA11F9D0E3000BFA1C /* ISTableViewCell.m */; };
-		46178F2711F9D152000BFA1C /* SessionDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F1A11F9D152000BFA1C /* SessionDetailTableViewController.m */; };
-		46178F2811F9D152000BFA1C /* SessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F1C11F9D152000BFA1C /* SessionTableViewController.m */; };
 		46178F2911F9D152000BFA1C /* FavoriteSessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F1E11F9D152000BFA1C /* FavoriteSessionTableViewController.m */; };
 		46178F2A11F9D152000BFA1C /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F2011F9D152000BFA1C /* RoomTableViewController.m */; };
 		46178F2B11F9D152000BFA1C /* SessionByRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F2211F9D152000BFA1C /* SessionByRoomTableViewController.m */; };
@@ -56,6 +52,26 @@
 		46178F3311F9D181000BFA1C /* RoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178F3111F9D181000BFA1C /* RoomTableViewCell.m */; };
 		4617B7F00F57B76100D94BF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4617B7EF0F57B76100D94BF1 /* Default.png */; };
 		4620593D0F28CB5700857D87 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4620593C0F28CB5700857D87 /* DetailView.xib */; };
+		4620EBAE12039999008BB2BC /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBA512039999008BB2BC /* NSObject+SBJSON.m */; };
+		4620EBAF12039999008BB2BC /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBA712039999008BB2BC /* NSString+SBJSON.m */; };
+		4620EBB012039999008BB2BC /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBA912039999008BB2BC /* SBJsonBase.m */; };
+		4620EBB112039999008BB2BC /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBAB12039999008BB2BC /* SBJsonParser.m */; };
+		4620EBB212039999008BB2BC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBAD12039999008BB2BC /* SBJsonWriter.m */; };
+		4620EBB7120399BE008BB2BC /* LightningTalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBB4120399BE008BB2BC /* LightningTalkTableViewCell.m */; };
+		4620EBB8120399BE008BB2BC /* UIColorIRK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBB6120399BE008BB2BC /* UIColorIRK.m */; };
+		4620EBD1120399D4008BB2BC /* AbstractSessionDetaildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBBA120399D4008BB2BC /* AbstractSessionDetaildTableViewController.m */; };
+		4620EBD4120399D4008BB2BC /* FindTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4620EBC0120399D4008BB2BC /* FindTableViewController.xib */; };
+		4620EBD5120399D4008BB2BC /* FindTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBC2120399D4008BB2BC /* FindTableViewController.m */; };
+		4620EBD6120399D4008BB2BC /* IRKDetaildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBC4120399D4008BB2BC /* IRKDetaildTableViewController.m */; };
+		4620EBD7120399D4008BB2BC /* IRKListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBC6120399D4008BB2BC /* IRKListTableViewController.m */; };
+		4620EBD8120399D4008BB2BC /* IRKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBC8120399D4008BB2BC /* IRKTableViewController.m */; };
+		4620EBD9120399D4008BB2BC /* LightningTalkDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBCA120399D4008BB2BC /* LightningTalkDetailedTableViewController.m */; };
+		4620EBDA120399D4008BB2BC /* LightningTalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBCC120399D4008BB2BC /* LightningTalkTableViewController.m */; };
+		4620EBDB120399D4008BB2BC /* PresentSessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBCE120399D4008BB2BC /* PresentSessionTableViewController.m */; };
+		4620EBDC120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBD0120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.m */; };
+		4620EBDF120399EE008BB2BC /* JsonCrudeImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBDE120399EE008BB2BC /* JsonCrudeImporter.m */; };
+		4620EBE112039A13008BB2BC /* timetable.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EBE012039A13008BB2BC /* timetable.json */; };
+		4620EC2B12039EC7008BB2BC /* JsonCrudeImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EC2A12039EC7008BB2BC /* JsonCrudeImporterTest.m */; };
 		462AC4B40FEAFF2400B587D6 /* UIViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */; };
 		462AC5A30FEB29B200B587D6 /* UITableViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC5A20FEB29B200B587D6 /* UITableViewBasedTest.m */; };
 		465B04250F2056FF000E8FE2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465B04240F2056FF000E8FE2 /* TestView.xib */; };
@@ -83,22 +99,14 @@
 		46C6AB610F2DBE7E00BA1B73 /* IUTTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB540F2DBE7E00BA1B73 /* IUTTestRunner.m */; };
 		46C6AB620F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */; };
 		46C6ADCA0F2DDFC800BA1B73 /* isd_logo_60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */; };
-		46D4450F11AED0DC0076E28B /* SessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4437E11AED0DB0076E28B /* SessionTableViewController.m */; };
-		46D4451011AED0DC0076E28B /* SessionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D4437F11AED0DB0076E28B /* SessionTableViewController.xib */; };
 		46D4451111AED0DC0076E28B /* iRubyKaigiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4438111AED0DB0076E28B /* iRubyKaigiAppDelegate.m */; };
-		46D4451211AED0DC0076E28B /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4438411AED0DB0076E28B /* Document.m */; };
 		46D4451311AED0DC0076E28B /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4438711AED0DB0076E28B /* Day.m */; };
 		46D4451411AED0DC0076E28B /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4438911AED0DB0076E28B /* LightningTalk.m */; };
 		46D4451611AED0DC0076E28B /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4438D11AED0DB0076E28B /* Region.m */; };
 		46D4451711AED0DC0076E28B /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4438F11AED0DB0076E28B /* Session.m */; };
 		46D4451811AED0DC0076E28B /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4439111AED0DB0076E28B /* Importer.m */; };
-		46D4451911AED0DC0076E28B /* NSManagedObjectContextExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4439311AED0DB0076E28B /* NSManagedObjectContextExtension.m */; };
-		46D4451A11AED0DC0076E28B /* NSManagedObjectExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4439511AED0DB0076E28B /* NSManagedObjectExtension.m */; };
-		46D4451B11AED0DC0076E28B /* PredicateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4439711AED0DB0076E28B /* PredicateCondition.m */; };
 		46D4451C11AED0DC0076E28B /* TestDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4439911AED0DB0076E28B /* TestDataImporter.m */; };
-		46D4451E11AED0DC0076E28B /* lightning_talks_info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 46D4439B11AED0DC0076E28B /* lightning_talks_info.csv */; };
 		46D4451F11AED0DC0076E28B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46D4439D11AED0DC0076E28B /* Localizable.strings */; };
-		46D4452011AED0DC0076E28B /* session_info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 46D4439F11AED0DC0076E28B /* session_info.csv */; };
 		46D4452111AED0DC0076E28B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A111AED0DC0076E28B /* Entitlements.plist */; };
 		46D4452211AED0DC0076E28B /* favorite_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A211AED0DC0076E28B /* favorite_off.png */; };
 		46D4452311AED0DC0076E28B /* favorite_on_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A311AED0DC0076E28B /* favorite_on_blue.png */; };
@@ -128,10 +136,6 @@
 		4608BDDE0F56FA430011302D /* IUTPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTPreference.h; sourceTree = "<group>"; };
 		4608BDDF0F56FA430011302D /* IUTPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTPreference.m; sourceTree = "<group>"; };
 		460A782F0FFD08CE00DD0775 /* UITableViewControllerTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewControllerTestHelper.h; sourceTree = "<group>"; };
-		460EA44F11B3A5D8009F5AAB /* SessionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionType.h; sourceTree = "<group>"; };
-		460EA45011B3A5D8009F5AAB /* SessionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionType.m; sourceTree = "<group>"; };
-		460EA47511B3A748009F5AAB /* SessionTypeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTypeTest.h; sourceTree = "<group>"; };
-		460EA47611B3A748009F5AAB /* SessionTypeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTypeTest.m; sourceTree = "<group>"; };
 		460EA4B811B3B0A0009F5AAB /* ImporterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImporterTest.h; sourceTree = "<group>"; };
 		460EA4B911B3B0A0009F5AAB /* ImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImporterTest.m; sourceTree = "<group>"; };
 		46178EBB11F9D0E2000BFA1C /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
@@ -189,10 +193,6 @@
 		46178EF811F9D0E3000BFA1C /* ISSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSelectionTableViewController.m; sourceTree = "<group>"; };
 		46178EF911F9D0E3000BFA1C /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
 		46178EFA11F9D0E3000BFA1C /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
-		46178F1911F9D152000BFA1C /* SessionDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailTableViewController.h; sourceTree = "<group>"; };
-		46178F1A11F9D152000BFA1C /* SessionDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailTableViewController.m; sourceTree = "<group>"; };
-		46178F1B11F9D152000BFA1C /* SessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewController.h; sourceTree = "<group>"; };
-		46178F1C11F9D152000BFA1C /* SessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewController.m; sourceTree = "<group>"; };
 		46178F1D11F9D152000BFA1C /* FavoriteSessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteSessionTableViewController.h; sourceTree = "<group>"; };
 		46178F1E11F9D152000BFA1C /* FavoriteSessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteSessionTableViewController.m; sourceTree = "<group>"; };
 		46178F1F11F9D152000BFA1C /* RoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewController.h; sourceTree = "<group>"; };
@@ -209,6 +209,45 @@
 		46178F3111F9D181000BFA1C /* RoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewCell.m; sourceTree = "<group>"; };
 		4617B7EF0F57B76100D94BF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4620593C0F28CB5700857D87 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		4620EBA312039999008BB2BC /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		4620EBA412039999008BB2BC /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		4620EBA512039999008BB2BC /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		4620EBA612039999008BB2BC /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		4620EBA712039999008BB2BC /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		4620EBA812039999008BB2BC /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		4620EBA912039999008BB2BC /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		4620EBAA12039999008BB2BC /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		4620EBAB12039999008BB2BC /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		4620EBAC12039999008BB2BC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		4620EBAD12039999008BB2BC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		4620EBB3120399BE008BB2BC /* LightningTalkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkTableViewCell.h; sourceTree = "<group>"; };
+		4620EBB4120399BE008BB2BC /* LightningTalkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewCell.m; sourceTree = "<group>"; };
+		4620EBB5120399BE008BB2BC /* UIColorIRK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorIRK.h; sourceTree = "<group>"; };
+		4620EBB6120399BE008BB2BC /* UIColorIRK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorIRK.m; sourceTree = "<group>"; };
+		4620EBB9120399D4008BB2BC /* AbstractSessionDetaildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractSessionDetaildTableViewController.h; sourceTree = "<group>"; };
+		4620EBBA120399D4008BB2BC /* AbstractSessionDetaildTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractSessionDetaildTableViewController.m; sourceTree = "<group>"; };
+		4620EBC0120399D4008BB2BC /* FindTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindTableViewController.xib; sourceTree = "<group>"; };
+		4620EBC1120399D4008BB2BC /* FindTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindTableViewController.h; sourceTree = "<group>"; };
+		4620EBC2120399D4008BB2BC /* FindTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindTableViewController.m; sourceTree = "<group>"; };
+		4620EBC3120399D4008BB2BC /* IRKDetaildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRKDetaildTableViewController.h; sourceTree = "<group>"; };
+		4620EBC4120399D4008BB2BC /* IRKDetaildTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKDetaildTableViewController.m; sourceTree = "<group>"; };
+		4620EBC5120399D4008BB2BC /* IRKListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRKListTableViewController.h; sourceTree = "<group>"; };
+		4620EBC6120399D4008BB2BC /* IRKListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKListTableViewController.m; sourceTree = "<group>"; };
+		4620EBC7120399D4008BB2BC /* IRKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRKTableViewController.h; sourceTree = "<group>"; };
+		4620EBC8120399D4008BB2BC /* IRKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRKTableViewController.m; sourceTree = "<group>"; };
+		4620EBC9120399D4008BB2BC /* LightningTalkDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkDetailedTableViewController.h; sourceTree = "<group>"; };
+		4620EBCA120399D4008BB2BC /* LightningTalkDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkDetailedTableViewController.m; sourceTree = "<group>"; };
+		4620EBCB120399D4008BB2BC /* LightningTalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkTableViewController.h; sourceTree = "<group>"; };
+		4620EBCC120399D4008BB2BC /* LightningTalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewController.m; sourceTree = "<group>"; };
+		4620EBCD120399D4008BB2BC /* PresentSessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentSessionTableViewController.h; sourceTree = "<group>"; };
+		4620EBCE120399D4008BB2BC /* PresentSessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentSessionTableViewController.m; sourceTree = "<group>"; };
+		4620EBCF120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionAndLightningTalkBySomethingTableViewController.h; sourceTree = "<group>"; };
+		4620EBD0120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionAndLightningTalkBySomethingTableViewController.m; sourceTree = "<group>"; };
+		4620EBDD120399EE008BB2BC /* JsonCrudeImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonCrudeImporter.h; sourceTree = "<group>"; };
+		4620EBDE120399EE008BB2BC /* JsonCrudeImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonCrudeImporter.m; sourceTree = "<group>"; };
+		4620EBE012039A13008BB2BC /* timetable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetable.json; sourceTree = "<group>"; };
+		4620EC2912039EC7008BB2BC /* JsonCrudeImporterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonCrudeImporterTest.h; sourceTree = "<group>"; };
+		4620EC2A12039EC7008BB2BC /* JsonCrudeImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonCrudeImporterTest.m; sourceTree = "<group>"; };
 		462AC4B20FEAFF2400B587D6 /* UIViewBasedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewBasedTest.h; sourceTree = "<group>"; };
 		462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewBasedTest.m; sourceTree = "<group>"; };
 		462AC5A10FEB29B200B587D6 /* UITableViewBasedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewBasedTest.h; sourceTree = "<group>"; };
@@ -261,17 +300,8 @@
 		46C6AB550F2DBE7E00BA1B73 /* IUTTestRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTTestRunnerViewController.h; sourceTree = "<group>"; };
 		46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTTestRunnerViewController.m; sourceTree = "<group>"; };
 		46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = isd_logo_60x40.png; sourceTree = "<group>"; };
-		46D4437911AED0DB0076E28B /* LightningTalksDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksDetailTableViewController.h; sourceTree = "<group>"; };
-		46D4437A11AED0DB0076E28B /* LightningTalksDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalksDetailTableViewController.m; sourceTree = "<group>"; };
-		46D4437B11AED0DB0076E28B /* LightningTalksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalksTableViewController.h; sourceTree = "<group>"; };
-		46D4437C11AED0DB0076E28B /* LightningTalksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalksTableViewController.m; sourceTree = "<group>"; };
-		46D4437D11AED0DB0076E28B /* SessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewController.h; sourceTree = "<group>"; };
-		46D4437E11AED0DB0076E28B /* SessionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewController.m; sourceTree = "<group>"; };
-		46D4437F11AED0DB0076E28B /* SessionTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionTableViewController.xib; sourceTree = "<group>"; };
 		46D4438011AED0DB0076E28B /* iRubyKaigiAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigiAppDelegate.h; sourceTree = "<group>"; };
 		46D4438111AED0DB0076E28B /* iRubyKaigiAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRubyKaigiAppDelegate.m; sourceTree = "<group>"; };
-		46D4438311AED0DB0076E28B /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
-		46D4438411AED0DB0076E28B /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		46D4438611AED0DB0076E28B /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		46D4438711AED0DB0076E28B /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		46D4438811AED0DB0076E28B /* LightningTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalk.h; sourceTree = "<group>"; };
@@ -282,26 +312,16 @@
 		46D4438F11AED0DB0076E28B /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		46D4439011AED0DB0076E28B /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
 		46D4439111AED0DB0076E28B /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
-		46D4439211AED0DB0076E28B /* NSManagedObjectContextExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextExtension.h; sourceTree = "<group>"; };
-		46D4439311AED0DB0076E28B /* NSManagedObjectContextExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextExtension.m; sourceTree = "<group>"; };
-		46D4439411AED0DB0076E28B /* NSManagedObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectExtension.h; sourceTree = "<group>"; };
-		46D4439511AED0DB0076E28B /* NSManagedObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectExtension.m; sourceTree = "<group>"; };
-		46D4439611AED0DB0076E28B /* PredicateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PredicateCondition.h; sourceTree = "<group>"; };
-		46D4439711AED0DB0076E28B /* PredicateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PredicateCondition.m; sourceTree = "<group>"; };
 		46D4439811AED0DB0076E28B /* TestDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDataImporter.h; sourceTree = "<group>"; };
 		46D4439911AED0DB0076E28B /* TestDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDataImporter.m; sourceTree = "<group>"; };
-		46D4439C11AED0DC0076E28B /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/lightning_talks_info.csv; sourceTree = "<group>"; };
 		46D4439E11AED0DC0076E28B /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		46D443A011AED0DC0076E28B /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English; path = English.lproj/session_info.csv; sourceTree = "<group>"; };
 		46D443A111AED0DC0076E28B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		46D443A211AED0DC0076E28B /* favorite_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_off.png; sourceTree = "<group>"; };
 		46D443A311AED0DC0076E28B /* favorite_on_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on_blue.png; sourceTree = "<group>"; };
 		46D443A411AED0DC0076E28B /* favorite_on_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on_green.png; sourceTree = "<group>"; };
 		46D443A511AED0DC0076E28B /* favorite_on_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on_red.png; sourceTree = "<group>"; };
 		46D443A811AED0DC0076E28B /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
-		46D443AE11AED0DC0076E28B /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/lightning_talks_info.csv; sourceTree = "<group>"; };
 		46D443AF11AED0DC0076E28B /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
-		46D443B011AED0DC0076E28B /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Japanese; path = Japanese.lproj/session_info.csv; sourceTree = "<group>"; };
 		46D4465911AED1C80076E28B /* ModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTest.h; sourceTree = "<group>"; };
 		46D4465A11AED1C80076E28B /* ModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTest.m; sourceTree = "<group>"; };
 		46D4466C11AED41E0076E28B /* RegionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionTest.h; sourceTree = "<group>"; };
@@ -520,20 +540,32 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		46178F1811F9D152000BFA1C /* dis */ = {
+		4620EBA212039999008BB2BC /* json */ = {
 			isa = PBXGroup;
 			children = (
-				46178F1911F9D152000BFA1C /* SessionDetailTableViewController.h */,
-				46178F1A11F9D152000BFA1C /* SessionDetailTableViewController.m */,
-				46178F1B11F9D152000BFA1C /* SessionTableViewController.h */,
-				46178F1C11F9D152000BFA1C /* SessionTableViewController.m */,
+				4620EBA312039999008BB2BC /* JSON.h */,
+				4620EBA412039999008BB2BC /* NSObject+SBJSON.h */,
+				4620EBA512039999008BB2BC /* NSObject+SBJSON.m */,
+				4620EBA612039999008BB2BC /* NSString+SBJSON.h */,
+				4620EBA712039999008BB2BC /* NSString+SBJSON.m */,
+				4620EBA812039999008BB2BC /* SBJsonBase.h */,
+				4620EBA912039999008BB2BC /* SBJsonBase.m */,
+				4620EBAA12039999008BB2BC /* SBJsonParser.h */,
+				4620EBAB12039999008BB2BC /* SBJsonParser.m */,
+				4620EBAC12039999008BB2BC /* SBJsonWriter.h */,
+				4620EBAD12039999008BB2BC /* SBJsonWriter.m */,
 			);
-			path = dis;
-			sourceTree = "<group>";
+			name = json;
+			path = "../Project/vendor/json-framework/Classes";
+			sourceTree = SOURCE_ROOT;
 		};
 		46824F5D11E1AAFB00D73D84 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4620EBB3120399BE008BB2BC /* LightningTalkTableViewCell.h */,
+				4620EBB4120399BE008BB2BC /* LightningTalkTableViewCell.m */,
+				4620EBB5120399BE008BB2BC /* UIColorIRK.h */,
+				4620EBB6120399BE008BB2BC /* UIColorIRK.m */,
 				46178F2E11F9D181000BFA1C /* RoomColorView.h */,
 				46178F2F11F9D181000BFA1C /* RoomColorView.m */,
 				46178F3011F9D181000BFA1C /* RoomTableViewCell.h */,
@@ -547,6 +579,7 @@
 		46C20FD50F256E610053F9B9 /* TargetClasses */ = {
 			isa = PBXGroup;
 			children = (
+				4620EBA212039999008BB2BC /* json */,
 				46178EBA11F9D0E2000BFA1C /* cider */,
 				46D4436E11AED0DB0076E28B /* Project */,
 			);
@@ -626,10 +659,9 @@
 		46D4436E11AED0DB0076E28B /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				4620EBE012039A13008BB2BC /* timetable.json */,
 				46D4436F11AED0DB0076E28B /* Classes */,
-				46D4439B11AED0DC0076E28B /* lightning_talks_info.csv */,
 				46D4439D11AED0DC0076E28B /* Localizable.strings */,
-				46D4439F11AED0DC0076E28B /* session_info.csv */,
 				46D443A111AED0DC0076E28B /* Entitlements.plist */,
 				46D443A211AED0DC0076E28B /* favorite_off.png */,
 				46D443A311AED0DC0076E28B /* favorite_on_blue.png */,
@@ -657,7 +689,25 @@
 		46D4437011AED0DB0076E28B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				46178F1811F9D152000BFA1C /* dis */,
+				4620EBB9120399D4008BB2BC /* AbstractSessionDetaildTableViewController.h */,
+				4620EBBA120399D4008BB2BC /* AbstractSessionDetaildTableViewController.m */,
+				4620EBC0120399D4008BB2BC /* FindTableViewController.xib */,
+				4620EBC1120399D4008BB2BC /* FindTableViewController.h */,
+				4620EBC2120399D4008BB2BC /* FindTableViewController.m */,
+				4620EBC3120399D4008BB2BC /* IRKDetaildTableViewController.h */,
+				4620EBC4120399D4008BB2BC /* IRKDetaildTableViewController.m */,
+				4620EBC5120399D4008BB2BC /* IRKListTableViewController.h */,
+				4620EBC6120399D4008BB2BC /* IRKListTableViewController.m */,
+				4620EBC7120399D4008BB2BC /* IRKTableViewController.h */,
+				4620EBC8120399D4008BB2BC /* IRKTableViewController.m */,
+				4620EBC9120399D4008BB2BC /* LightningTalkDetailedTableViewController.h */,
+				4620EBCA120399D4008BB2BC /* LightningTalkDetailedTableViewController.m */,
+				4620EBCB120399D4008BB2BC /* LightningTalkTableViewController.h */,
+				4620EBCC120399D4008BB2BC /* LightningTalkTableViewController.m */,
+				4620EBCD120399D4008BB2BC /* PresentSessionTableViewController.h */,
+				4620EBCE120399D4008BB2BC /* PresentSessionTableViewController.m */,
+				4620EBCF120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.h */,
+				4620EBD0120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.m */,
 				46178F1D11F9D152000BFA1C /* FavoriteSessionTableViewController.h */,
 				46178F1E11F9D152000BFA1C /* FavoriteSessionTableViewController.m */,
 				46178F1F11F9D152000BFA1C /* RoomTableViewController.h */,
@@ -678,13 +728,6 @@
 				46824F7611E1AB1D00D73D84 /* SessionDetailedTableViewController.m */,
 				46824F7711E1AB1D00D73D84 /* SpeakerTableViewController.h */,
 				46824F7811E1AB1D00D73D84 /* SpeakerTableViewController.m */,
-				46D4437911AED0DB0076E28B /* LightningTalksDetailTableViewController.h */,
-				46D4437A11AED0DB0076E28B /* LightningTalksDetailTableViewController.m */,
-				46D4437B11AED0DB0076E28B /* LightningTalksTableViewController.h */,
-				46D4437C11AED0DB0076E28B /* LightningTalksTableViewController.m */,
-				46D4437D11AED0DB0076E28B /* SessionTableViewController.h */,
-				46D4437E11AED0DB0076E28B /* SessionTableViewController.m */,
-				46D4437F11AED0DB0076E28B /* SessionTableViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -692,19 +735,13 @@
 		46D4438211AED0DB0076E28B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4620EBDD120399EE008BB2BC /* JsonCrudeImporter.h */,
+				4620EBDE120399EE008BB2BC /* JsonCrudeImporter.m */,
 				46D447A211B13BBB0076E28B /* Property.h */,
 				46D447A311B13BBB0076E28B /* Property.m */,
-				46D4438311AED0DB0076E28B /* Document.h */,
-				46D4438411AED0DB0076E28B /* Document.m */,
 				46D4438511AED0DB0076E28B /* EO */,
 				46D4439011AED0DB0076E28B /* Importer.h */,
 				46D4439111AED0DB0076E28B /* Importer.m */,
-				46D4439211AED0DB0076E28B /* NSManagedObjectContextExtension.h */,
-				46D4439311AED0DB0076E28B /* NSManagedObjectContextExtension.m */,
-				46D4439411AED0DB0076E28B /* NSManagedObjectExtension.h */,
-				46D4439511AED0DB0076E28B /* NSManagedObjectExtension.m */,
-				46D4439611AED0DB0076E28B /* PredicateCondition.h */,
-				46D4439711AED0DB0076E28B /* PredicateCondition.m */,
 				46D4439811AED0DB0076E28B /* TestDataImporter.h */,
 				46D4439911AED0DB0076E28B /* TestDataImporter.m */,
 			);
@@ -722,8 +759,6 @@
 				46D4438911AED0DB0076E28B /* LightningTalk.m */,
 				46D4438E11AED0DB0076E28B /* Session.h */,
 				46D4438F11AED0DB0076E28B /* Session.m */,
-				460EA44F11B3A5D8009F5AAB /* SessionType.h */,
-				460EA45011B3A5D8009F5AAB /* SessionType.m */,
 				46D4891411B53D650063B689 /* Room.h */,
 				46D4891511B53D650063B689 /* Room.m */,
 				46D4891611B53D650063B689 /* Speaker.h */,
@@ -748,14 +783,14 @@
 				46D4466D11AED41E0076E28B /* RegionTest.m */,
 				46D4469E11B0D8090076E28B /* DayTest.h */,
 				46D4469F11B0D8090076E28B /* DayTest.m */,
-				460EA47511B3A748009F5AAB /* SessionTypeTest.h */,
-				460EA47611B3A748009F5AAB /* SessionTypeTest.m */,
 				46D4892911B55F690063B689 /* RoomTest.h */,
 				46D4892A11B55F690063B689 /* RoomTest.m */,
 				46D4893A11B562AB0063B689 /* SpeakerTest.h */,
 				46D4893B11B562AB0063B689 /* SpeakerTest.m */,
 				460EA4B811B3B0A0009F5AAB /* ImporterTest.h */,
 				460EA4B911B3B0A0009F5AAB /* ImporterTest.m */,
+				4620EC2912039EC7008BB2BC /* JsonCrudeImporterTest.h */,
+				4620EC2A12039EC7008BB2BC /* JsonCrudeImporterTest.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -763,9 +798,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* iRubyKaigi2009Test */ = {
+		1D6058900D05DD3D006BFB54 /* iRubyKaigiTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2009Test" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigiTest" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -775,7 +810,7 @@
 			);
 			dependencies = (
 			);
-			name = iRubyKaigi2009Test;
+			name = iRubyKaigiTest;
 			productName = iRubyKaigi2009Test;
 			productReference = 1D6058910D05DD3D006BFB54 /* iRubyKaigi2009Test.app */;
 			productType = "com.apple.product-type.application";
@@ -799,7 +834,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* iRubyKaigi2009Test */,
+				1D6058900D05DD3D006BFB54 /* iRubyKaigiTest */,
 			);
 		};
 /* End PBXProject section */
@@ -817,10 +852,7 @@
 				460633950F55AC9000A33C8B /* Settings.bundle in Resources */,
 				460633A20F55B5F900A33C8B /* isd_logo_60x40_w.png in Resources */,
 				4617B7F00F57B76100D94BF1 /* Default.png in Resources */,
-				46D4451011AED0DC0076E28B /* SessionTableViewController.xib in Resources */,
-				46D4451E11AED0DC0076E28B /* lightning_talks_info.csv in Resources */,
 				46D4451F11AED0DC0076E28B /* Localizable.strings in Resources */,
-				46D4452011AED0DC0076E28B /* session_info.csv in Resources */,
 				46D4452111AED0DC0076E28B /* Entitlements.plist in Resources */,
 				46D4452211AED0DC0076E28B /* favorite_off.png in Resources */,
 				46D4452311AED0DC0076E28B /* favorite_on_blue.png in Resources */,
@@ -828,6 +860,8 @@
 				46D4452511AED0DC0076E28B /* favorite_on_red.png in Resources */,
 				46178F0C11F9D0E3000BFA1C /* ISDateTimeInputViewController.xib in Resources */,
 				46178F1311F9D0E3000BFA1C /* cider.strings in Resources */,
+				4620EBD4120399D4008BB2BC /* FindTableViewController.xib in Resources */,
+				4620EBE112039A13008BB2BC /* timetable.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,25 +891,18 @@
 				469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */,
 				462AC4B40FEAFF2400B587D6 /* UIViewBasedTest.m in Sources */,
 				462AC5A30FEB29B200B587D6 /* UITableViewBasedTest.m in Sources */,
-				46D4450F11AED0DC0076E28B /* SessionTableViewController.m in Sources */,
 				46D4451111AED0DC0076E28B /* iRubyKaigiAppDelegate.m in Sources */,
-				46D4451211AED0DC0076E28B /* Document.m in Sources */,
 				46D4451311AED0DC0076E28B /* Day.m in Sources */,
 				46D4451411AED0DC0076E28B /* LightningTalk.m in Sources */,
 				46D4451611AED0DC0076E28B /* Region.m in Sources */,
 				46D4451711AED0DC0076E28B /* Session.m in Sources */,
 				46D4451811AED0DC0076E28B /* Importer.m in Sources */,
-				46D4451911AED0DC0076E28B /* NSManagedObjectContextExtension.m in Sources */,
-				46D4451A11AED0DC0076E28B /* NSManagedObjectExtension.m in Sources */,
-				46D4451B11AED0DC0076E28B /* PredicateCondition.m in Sources */,
 				46D4451C11AED0DC0076E28B /* TestDataImporter.m in Sources */,
 				46D4452811AED0DC0076E28B /* iRubyKaigi.xcdatamodel in Sources */,
 				46D4465B11AED1C80076E28B /* ModelTest.m in Sources */,
 				46D4466E11AED41E0076E28B /* RegionTest.m in Sources */,
 				46D446A011B0D8090076E28B /* DayTest.m in Sources */,
 				46D447A411B13BBB0076E28B /* Property.m in Sources */,
-				460EA45111B3A5D8009F5AAB /* SessionType.m in Sources */,
-				460EA47711B3A748009F5AAB /* SessionTypeTest.m in Sources */,
 				460EA4BA11B3B0A0009F5AAB /* ImporterTest.m in Sources */,
 				46D4891811B53D650063B689 /* Room.m in Sources */,
 				46D4891911B53D650063B689 /* Speaker.m in Sources */,
@@ -912,8 +939,6 @@
 				46178F1211F9D0E3000BFA1C /* UIColorExtension.m in Sources */,
 				46178F1411F9D0E3000BFA1C /* ISSelectionTableViewController.m in Sources */,
 				46178F1511F9D0E3000BFA1C /* ISTableViewCell.m in Sources */,
-				46178F2711F9D152000BFA1C /* SessionDetailTableViewController.m in Sources */,
-				46178F2811F9D152000BFA1C /* SessionTableViewController.m in Sources */,
 				46178F2911F9D152000BFA1C /* FavoriteSessionTableViewController.m in Sources */,
 				46178F2A11F9D152000BFA1C /* RoomTableViewController.m in Sources */,
 				46178F2B11F9D152000BFA1C /* SessionByRoomTableViewController.m in Sources */,
@@ -921,6 +946,24 @@
 				46178F2D11F9D152000BFA1C /* SettingTableViewController.m in Sources */,
 				46178F3211F9D181000BFA1C /* RoomColorView.m in Sources */,
 				46178F3311F9D181000BFA1C /* RoomTableViewCell.m in Sources */,
+				4620EBAE12039999008BB2BC /* NSObject+SBJSON.m in Sources */,
+				4620EBAF12039999008BB2BC /* NSString+SBJSON.m in Sources */,
+				4620EBB012039999008BB2BC /* SBJsonBase.m in Sources */,
+				4620EBB112039999008BB2BC /* SBJsonParser.m in Sources */,
+				4620EBB212039999008BB2BC /* SBJsonWriter.m in Sources */,
+				4620EBB7120399BE008BB2BC /* LightningTalkTableViewCell.m in Sources */,
+				4620EBB8120399BE008BB2BC /* UIColorIRK.m in Sources */,
+				4620EBD1120399D4008BB2BC /* AbstractSessionDetaildTableViewController.m in Sources */,
+				4620EBD5120399D4008BB2BC /* FindTableViewController.m in Sources */,
+				4620EBD6120399D4008BB2BC /* IRKDetaildTableViewController.m in Sources */,
+				4620EBD7120399D4008BB2BC /* IRKListTableViewController.m in Sources */,
+				4620EBD8120399D4008BB2BC /* IRKTableViewController.m in Sources */,
+				4620EBD9120399D4008BB2BC /* LightningTalkDetailedTableViewController.m in Sources */,
+				4620EBDA120399D4008BB2BC /* LightningTalkTableViewController.m in Sources */,
+				4620EBDB120399D4008BB2BC /* PresentSessionTableViewController.m in Sources */,
+				4620EBDC120399D4008BB2BC /* SessionAndLightningTalkBySomethingTableViewController.m in Sources */,
+				4620EBDF120399EE008BB2BC /* JsonCrudeImporter.m in Sources */,
+				4620EC2B12039EC7008BB2BC /* JsonCrudeImporterTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,15 +979,6 @@
 			name = cider.strings;
 			sourceTree = "<group>";
 		};
-		46D4439B11AED0DC0076E28B /* lightning_talks_info.csv */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46D4439C11AED0DC0076E28B /* English */,
-				46D443AE11AED0DC0076E28B /* Japanese */,
-			);
-			name = lightning_talks_info.csv;
-			sourceTree = "<group>";
-		};
 		46D4439D11AED0DC0076E28B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -952,15 +986,6 @@
 				46D443AF11AED0DC0076E28B /* Japanese */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		46D4439F11AED0DC0076E28B /* session_info.csv */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46D443A011AED0DC0076E28B /* English */,
-				46D443B011AED0DC0076E28B /* Japanese */,
-			);
-			name = session_info.csv;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1013,7 +1038,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphonesimulator4.0;
 			};
 			name = Debug;
 		};
@@ -1026,14 +1051,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphonesimulator4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigi2009Test" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iRubyKaigiTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

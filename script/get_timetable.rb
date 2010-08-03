@@ -26,22 +26,21 @@ def get_sessions timetable
     if row == 0
       rooms = tr.search('th').collect{|e| e.inner_text.gsub("\n", "").strip}
       rooms.shift
-#p rooms
     else
       col = 0
       tr.search('td').each_with_index do |td, i|
         
         # rowspan割当分colを進める
-        unless rowspan_flags[row][col].nil?
-#p rowspan_flags[row][col]
+        until rowspan_flags[row][col].nil?
           col += 1
         end
-#puts "#{row}, #{col}"
+
         # マーク
         rowspan = td[:rowspan] ? td[:rowspan].to_i : 1
         rowspan.times {|i| rowspan_flags[row + i][col] = 1 }
 
-#p [row, col]        
+        session = nil
+
         case td[:class]
         when "room", "room_hall"
           s = td.search('div.session')
@@ -53,8 +52,6 @@ def get_sessions timetable
             :room => rooms[col],
             :type => 'session'
           }
-#puts "#{row}, #{col}, #{session[:title]}"
-          sessions << session
         when "break"
           s = td.search('div.session')
           session = {
@@ -64,22 +61,17 @@ def get_sessions timetable
             :room => rooms[col],
             :type => 'break'
           }
-
-#puts "#{row}, #{col}, #{session[:title]}"
-
-# puts col, rooms[col]
-          sessions << session
         when "empty"
         else
           $stderr.puts "unknown class '#{td[:class]}'"
-        end 
+        end
         
-        col += 1
+        sessions << session if session
         
       end
     end
   end
-  sessions
+  return sessions, rooms
 end
 
 def get_timetables uri
@@ -90,18 +82,23 @@ def get_timetables uri
   agent.get(uri)
   page = agent.page
   
-  days = ['8/27', '8/28', '8/29']
+  days = ['2010/8/27', '2010/8/28', '2010/8/29']
 
+  rooms = nil
   page.search('table.timetable').each_with_index do |timetable, i|
+    sessions, rooms = get_sessions(timetable)
     timetables << { :day => days[i],
-                    :sessions => get_sessions(timetable) }
+                    :sessions => sessions  }
   end
   
-  { :timetables => timetables }
+  { :timetables => timetables,
+    :rooms => rooms }
+end
+
+def get_all_timetables
+   { :ja => get_timetables('http://rubykaigi.org/2010/ja/timetable'),
+               :en => get_timetables('http://rubykaigi.org/2010/en/timetable') }
 end
 
 
-h = { :ja => get_timetables('http://rubykaigi.org/2010/ja/timetable'),
-               :en => get_timetables('http://rubykaigi.org/2010/en/timetable') }
-
-puts WebAPI::JsonBuilder.new.build(h)
+puts WebAPI::JsonBuilder.new.build(get_all_timetables)

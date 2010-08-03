@@ -51,4 +51,11 @@
     return [Day findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
 }
 
+- (NSString *)dayString
+{
+    NSDate *aDate = self.date;
+    return [NSString stringWithFormat:@"%04d/%02d/%02d", [aDate year], [aDate month], [aDate day]];
+}
+
+
 @end
