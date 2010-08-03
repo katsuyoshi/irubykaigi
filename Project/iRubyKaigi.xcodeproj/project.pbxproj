@@ -60,6 +60,7 @@
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
 		4628F9D711DD68F400EFB272 /* SessionBySpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */; };
 		4628FA3C11DD76EA00EFB272 /* SessionDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */; };
+		4641FD6C1207C25200317642 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD6B1207C25200317642 /* WebViewController.m */; };
 		465BB4D211C9A25400770325 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4CF11C9A25400770325 /* Room.m */; };
 		465BB4D311C9A25400770325 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4D111C9A25400770325 /* Speaker.m */; };
 		465BB9D511CA573000770325 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB9D411CA573000770325 /* HistoryTableViewController.m */; };
@@ -221,6 +222,8 @@
 		4628FA3A11DD76EA00EFB272 /* SessionDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailedTableViewController.h; sourceTree = "<group>"; };
 		4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailedTableViewController.m; sourceTree = "<group>"; };
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
+		4641FD6A1207C25200317642 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		4641FD6B1207C25200317642 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		465BB4CE11C9A25400770325 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		465BB4CF11C9A25400770325 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		465BB4D011C9A25400770325 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
@@ -720,6 +723,8 @@
 				461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */,
 				461408361004BC4D00964C01 /* LightningTalkDetailedTableViewController.h */,
 				461408371004BC4D00964C01 /* LightningTalkDetailedTableViewController.m */,
+				4641FD6A1207C25200317642 /* WebViewController.h */,
+				4641FD6B1207C25200317642 /* WebViewController.m */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -910,6 +915,7 @@
 				4620EA28120319AF008BB2BC /* SBJsonBase.m in Sources */,
 				4620EA29120319AF008BB2BC /* SBJsonParser.m in Sources */,
 				4620EA2A120319AF008BB2BC /* SBJsonWriter.m in Sources */,
+				4641FD6C1207C25200317642 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

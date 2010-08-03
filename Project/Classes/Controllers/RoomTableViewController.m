@@ -14,6 +14,7 @@
 #import "Room.h"
 #import "Day.h"
 #import "PresentSessionTableViewController.h"
+#import "WebViewController.h"
 
 
 @implementation RoomTableViewController
@@ -118,7 +119,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2; //3;
+    return 2;//3;
 }
 
 
@@ -175,7 +176,18 @@
         }
         break;
     case 2:
-        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+        {
+            NSString *cellIdentifier = @"Floor Guid";
+            UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
+        
+            cell.textLabel.text = NSLocalizedString(@"Floor Guid", nil);
+            return cell;
+        }
+        break;
     }
     return nil;
 }
@@ -192,19 +204,34 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        SessionByRoomTableViewController *controller = [SessionByRoomTableViewController sessionTableViewController];
-        controller.room = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        controller.day = [self selectedDay];
-        [self.navigationController pushViewController:controller animated:YES];
-    } else {
-        PresentSessionTableViewController *controller = [PresentSessionTableViewController presentSessionTableViewController];
-        if (indexPath.row == 0) {
-            [controller setDateNow];
-        } else {
-            [controller setDateNext];
+    switch (indexPath.section) {
+    case 0:
+        {
+            SessionByRoomTableViewController *controller = [SessionByRoomTableViewController sessionTableViewController];
+            controller.room = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            controller.day = [self selectedDay];
+            [self.navigationController pushViewController:controller animated:YES];
         }
-        [self.navigationController pushViewController:controller animated:YES];
+        break;
+    case 1:
+        {
+            PresentSessionTableViewController *controller = [PresentSessionTableViewController presentSessionTableViewController];
+            if (indexPath.row == 0) {
+                [controller setDateNow];
+            } else {
+                [controller setDateNext];
+            }
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        break;
+    case 2:
+        {
+            WebViewController *controller = [WebViewController webViewController];
+            controller.url = [NSURL URLWithString:@"http://www.epochal.or.jp/floor_guide/index.html"];
+            controller.domainUrl = [NSURL URLWithString:@"http://www.epochal.or.jp/"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        break;
     }
 }
 
