@@ -1,2 +1,2 @@
 #!/bin/sh
-scan-build -k -V xcodebuild -configuration Debug -sdk iphonesimulator3.0
+scan-build -k -V xcodebuild -configuration Debug -sdk iphonesimulator4.0

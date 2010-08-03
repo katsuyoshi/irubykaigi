@@ -27,7 +27,6 @@
 
 - (Day *)dayForRegion:(Region *)region;
 
-
 @end
 
 

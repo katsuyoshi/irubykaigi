@@ -120,5 +120,22 @@
 
 
 
+- (NSArray *)sessionsForDate:(NSDate *)date
+{
+    NSDate *today = [date beginningOfDay];
+    NSSet *days = [self.days filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", today]];
+    Day *day = [days anyObject];
+    
+    if (day) {
+        NSString *targetTime = [NSString stringWithFormat:@"%02d:%02d", [date hour], [date minute]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"startAt <= %@ and endAt > %@", targetTime, targetTime];
+        NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"room.position, position"];
+        return [[[day.sessions filteredSetUsingPredicate:predicate] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    } else {
+        return [NSArray array];
+    }
+}
+
+
 
 @end

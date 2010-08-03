@@ -12,8 +12,18 @@
 
 @interface PresentSessionTableViewController : SessionBySomethingTableViewController {
 
+	NSDate *date;
+    
 }
 
 + (PresentSessionTableViewController *)presentSessionTableViewController;
+
+@property (retain) NSDate *date;
+
+- (void)setDateNow;
+- (void)setDateNext;
+
+// for test
+- (void)setNextDateOf:(NSDate *)date;
 
 @end

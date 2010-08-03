@@ -47,6 +47,7 @@
 // access for speaker
 - (Speaker *)speakerForCode:(NSString *)code;
 
+- (NSArray *)sessionsForDate:(NSDate *)date;
 
 @end
 

@@ -20,7 +20,9 @@
 - (void)setUp
 {
     [super setUp];
-    [[[JsonCrudeImporter new] autorelease] import];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"JsonCrudeImporterTest" ofType:@"json"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    [[[JsonCrudeImporter new] autorelease] importWithURL:url];
 }
 
 - (void)tearDown

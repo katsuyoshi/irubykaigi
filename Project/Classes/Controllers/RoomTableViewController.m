@@ -118,16 +118,21 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 2; //3;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
+    switch (section) {
+    case 0:
         return [super tableView:tableView numberOfRowsInSection:section];
-    } else {
+    case 1:
+        return 2;
+    case 2:
         return 1;
+    default:
+        return 0;
     }
 }
 
@@ -141,19 +146,38 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    switch (indexPath.section) {
+    case 0:
         return [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    } else {
-        NSString *cellIdentifier = @"Now";
-        UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
+    case 1:
+        {
+            if (indexPath.row == 0) {
+                NSString *cellIdentifier = @"Now";
+                UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil) {
+                    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                }
         
-        cell.textLabel.text = NSLocalizedString(@"Present sessions", nil);
-        return cell;
+                cell.textLabel.text = NSLocalizedString(@"Present sessions", nil);
+                return cell;
+            } else {
+                NSString *cellIdentifier = @"Next";
+                UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil) {
+                    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                }
+        
+                cell.textLabel.text = NSLocalizedString(@"Next sessions", nil);
+                return cell;
+            }
+        }
+        break;
+    case 2:
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
     }
+    return nil;
 }
 
 
@@ -175,6 +199,11 @@
         [self.navigationController pushViewController:controller animated:YES];
     } else {
         PresentSessionTableViewController *controller = [PresentSessionTableViewController presentSessionTableViewController];
+        if (indexPath.row == 0) {
+            [controller setDateNow];
+        } else {
+            [controller setDateNext];
+        }
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
