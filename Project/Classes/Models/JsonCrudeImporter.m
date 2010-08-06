@@ -123,6 +123,15 @@
 {
     if ([name isEqualToString:@"break"]) {
         return SessionTypeCodeBreak;
+    } else
+    if ([name isEqualToString:@"opening"]) {
+        return SessionTypeCodeOpening;
+    } else
+    if ([name isEqualToString:@"closing"]) {
+        return SessionTypeCodeClosing;
+    } else
+    if ([name isEqualToString:@"lightning_talks"]) {
+        return SessionTypeCodeLightningTalks;
     } else {
         return SessionTypeCodeNormal;
     }
@@ -134,7 +143,10 @@
     for (id sessionsDict in object) {
         Day *day = [self dayForString:[sessionsDict valueForKey:@"day"] region:region];
         for (id dict in [sessionsDict valueForKey:@"sessions"]) {
-            NSString *code = [NSString stringWithFormat:@"%@/%@/%@", [dict valueForKey:@"room"], [dict valueForKey:@"start_at"], [dict valueForKey:@"end_at"]];
+            NSString *code = [dict valueForKey:@"code"];
+            if (code == nil) {
+                code = [NSString stringWithFormat:@"%@/%@/%@", [dict valueForKey:@"room"], [dict valueForKey:@"start_at"], [dict valueForKey:@"end_at"]];
+            }
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", region, code];
             Session *session = [Session findWithPredicate:predicate sortDescriptors:nil managedObjectContext:context error:NULL];
             if (session == nil) {
@@ -143,20 +155,41 @@
                 [session setListNumber];
                 session.code = [NSString stringWithFormat:@"%@@%@", session.day.dayString, session.position];
                 session.title = [dict valueForKey:@"title"];
+                session.summary = [dict valueForKey:@"summary"];
                 session.time = [NSString stringWithFormat:@"%@ - %@", [dict valueForKey:@"start_at"], [dict valueForKey:@"end_at"]];
                 session.room = [self roomForName:[dict valueForKey:@"room"] region:region];
                 session.sessionType = [NSNumber numberWithInt:[self sessionTypeCodeForName:[dict valueForKey:@"type"]]];
-                for (NSString *name in [dict valueForKey:@"speakers"]) {
+                for (NSDictionary *speakerDict in [dict valueForKey:@"speakers"]) {
+                    NSString *name = [speakerDict valueForKey:@"name"];
                     if ([name length]) {
                         [session addSpeakersObject:[self speakerForName:name region:region]];
 //                    } else {
 // NSLog(@"");
                     }
                 }
+                if ([session.sessionType intValue] == SessionTypeCodeLightningTalks) {
+                    int index = 1;
+                    for (id lightningTalksDict in [dict valueForKey:@"lightning_talks"]) {
+                        NSNumber *position = [NSNumber numberWithInt:index++];
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session = %@ and position = %@", session, position];
+                        LightningTalk *talk = [LightningTalk findWithPredicate:predicate sortDescriptors:nil managedObjectContext:context error:NULL];
+                        if (talk == nil) {
+                            talk = [LightningTalk createWithManagedObjectContext:context];
+                            talk.title = [lightningTalksDict valueForKey:@"title"];
+                            talk.position = position;
+                            talk.session = session;
+                            for (id speakerDict in [lightningTalksDict valueForKey:@"speakers"]) {
+                                Speaker *speaker = [self speakerForName:[speakerDict valueForKey:@"name"] region:region];
+                                [talk addSpeakersObject:speaker];
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
+
 
 - (Speaker *)speakerForName:(id)name region:(Region *)region
 {

@@ -16,6 +16,7 @@ class ParseTest < Test::Unit::TestCase
     a
   end
   
+=begin
   def test_ja
     
     sessions = @h[:ja][:timetables][0][:sessions]
@@ -75,5 +76,16 @@ class ParseTest < Test::Unit::TestCase
     assert_equal 0, gather(sessions, "201-A").size
     assert_equal 1, gather(sessions, "Foyer").size
   end
+=end
 
+  def test_get_lightningtalks
+    url = "http://rubykaigi.org/2010/ja/events/38"
+    agent = WWW::Mechanize.new
+    agent.get(url)
+    page = agent.page
+    content = page.search("div#content")[0]
+    
+    get_lightningtalks context
+  end
+  
 end

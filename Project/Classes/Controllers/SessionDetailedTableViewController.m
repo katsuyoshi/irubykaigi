@@ -10,10 +10,11 @@
 #import "Room.h"
 
 
-#define TITLE_SECTION           0
-#define SPEAKERS_SECTION        1
-#define ROOM_SECTION            2
-#define ABSTRACT_SECTION        3
+#define TIME_SECTON             0
+#define TITLE_SECTION           1
+#define SPEAKERS_SECTION        2
+#define ROOM_SECTION            3
+#define ABSTRACT_SECTION        4
 
 
 @implementation SessionDetailedTableViewController
@@ -50,7 +51,7 @@
             cell.textLabel.numberOfLines = 10;
         }
     } else
-    if (section == SPEAKERS_SECTION || section == ROOM_SECTION) {
+    if (section == SPEAKERS_SECTION || section == ROOM_SECTION || section == TIME_SECTON) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"HasDetailCell"];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"HasDetailCell"] autorelease];
@@ -74,7 +75,6 @@
     }
     return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

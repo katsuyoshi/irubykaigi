@@ -259,6 +259,7 @@
 		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = iRubyKaigi.xcdatamodel; path = ../../iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4692CB4F11ACE3950098ADE1 /* iRubyKaigi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi_Prefix.pch; sourceTree = "<group>"; };
+		469B805F120B61D5007CDCF2 /* get_timetable_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable_test.rb; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		46B73BB811AD355700D04842 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		46B73BB911AD355700D04842 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
@@ -593,6 +594,7 @@
 		4620EA8A120323F9008BB2BC /* script */ = {
 			isa = PBXGroup;
 			children = (
+				469B805F120B61D5007CDCF2 /* get_timetable_test.rb */,
 				4620EA8B120323F9008BB2BC /* get_timetable.rb */,
 				4620EA8C120323F9008BB2BC /* simple-json.rb */,
 				4620EA8D120323F9008BB2BC /* update */,

@@ -41,7 +41,7 @@
 
 - (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
 {
-    NSMutableArray *array = [NSMutableArray arrayWithObject:@"title"];
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@"dayTimeTitle", @"title", nil];
     if ([self.speakers count]) {
         [array addObject:@"speakers.name"];
     }
