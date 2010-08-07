@@ -54,13 +54,6 @@
 #else
     [self setNextDateOf:[NSDate date]];
 #endif
-/* DELETEME:
-    NSDate *aDate = [NSDate date];
-    aDate = [NSDate dateWithTimeInterval:30 * 60 sinceDate:aDate];
-    int m = [aDate minute];
-    m = (m / 30) * 30;
-    self.date = [NSDate dateWithYear:[aDate year] month:[aDate month] day:[aDate day] hour:[aDate hour] minute:m second:0];
-*/
 }
 
 - (void)setNextDateOf:(NSDate *)aDate

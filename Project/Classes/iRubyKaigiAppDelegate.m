@@ -100,7 +100,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (context == [Importer defaultImporter]) {
-/* DELETEME:
+/* FIXME: データが削除された時の場合に備えてだが、exception発生してしまう。
         for (UIViewController *controller in tabBarController.viewControllers) {
             if ([controller isKindOfClass:[UINavigationController class]]) {
                 [(UINavigationController *)controller popToRootViewControllerAnimated:NO];

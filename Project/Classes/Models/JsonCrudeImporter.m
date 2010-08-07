@@ -53,7 +53,7 @@
 - (NSURL *)mainSiteURL
 {
     if (mainSiteURL == nil) {
-        NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/2010/timetables.json";
+        NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/20100/timetables.json";
         mainSiteURL = [[NSURL alloc] initWithString:urlString];
     }
     return mainSiteURL;
@@ -232,26 +232,6 @@
             }
             if ([session.sessionType intValue] == SessionTypeCodeLightningTalks) {
                 [self parseLightningTalksWithObject:[dict valueForKey:@"lightning_talks"] inSession:session]; 
-
-/* DELETEME:
-                int index = 1;
-                for (id lightningTalksDict in [dict valueForKey:@"lightning_talks"]) {
-                    NSNumber *position = [NSNumber numberWithInt:index++];
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session = %@ and position = %@", session, position];
-                    LightningTalk *talk = [LightningTalk findWithPredicate:predicate sortDescriptors:nil managedObjectContext:context error:NULL];
-                    if (talk == nil) {
-                        talk = [LightningTalk createWithManagedObjectContext:context];
-                        talk.position = position;
-                        talk.session = session;
-                    }
-                    talk.title = [lightningTalksDict valueForKey:@"title"];
-                    [talk removeSpeakers:talk.speakers];
-                    for (id speakerDict in [lightningTalksDict valueForKey:@"speakers"]) {
-                        Speaker *speaker = [self speakerForName:[speakerDict valueForKey:@"name"] region:region];
-                        [talk addSpeakersObject:speaker];
-                    }
-                }
-*/
             }
         }
     }
