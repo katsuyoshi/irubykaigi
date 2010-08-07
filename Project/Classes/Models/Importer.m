@@ -11,7 +11,7 @@
 #import "Region.h"
 #import "Session.h"
 #import "LightningTalk.h"
-#import "JsonCrudeImporter.h"
+#import "JsonImporter.h"
 
 
 @implementation Importer
@@ -34,7 +34,7 @@ static id defaultImporter = nil;
 + (id)defaultImporter
 {
     if (defaultImporter == nil) {
-        defaultImporter = [[JsonCrudeImporter sharedImporter] retain];
+        defaultImporter = [[JsonImporter sharedImporter] retain];
     }
     return defaultImporter;
 }

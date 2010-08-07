@@ -6,7 +6,7 @@
 //  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
-#import "JsonCrudeImporter.h"
+#import "JsonImporter.h"
 #import "JSON.h"
 #import "CiderCoreData.h"
 #import "Day.h"
@@ -19,7 +19,7 @@
 
 
 
-@interface JsonCrudeImporter(IRKPrivate)
+@interface JsonImporter(IRKPrivate)
 
 - (void)parseTimeline:(id)object;
 - (void)parseTimelineWithObject:(id)object region:(Region *)region;
@@ -37,7 +37,7 @@
 @end
 
 
-@implementation JsonCrudeImporter
+@implementation JsonImporter
 
 @synthesize mainSiteURL;
 @synthesize backupSiteURL;
@@ -53,7 +53,7 @@
 - (NSURL *)mainSiteURL
 {
     if (mainSiteURL == nil) {
-        NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/20100/timetables.json";
+        NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/2010/timetables.json";
         mainSiteURL = [[NSURL alloc] initWithString:urlString];
     }
     return mainSiteURL;
@@ -109,7 +109,9 @@
     // 更新日付が更新されたら更新する
     Property *property = [Property sharedProperty];
     NSDate *updatedAt = property.updatedAt;
-    NSDate *newUpdatedAt = [object valueForKey:@"updated_at"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+    NSDate *newUpdatedAt = [dateFormatter dateFromString:[object valueForKey:@"updated_at"]];
 
     if (updatedAt == nil || newUpdatedAt == nil || [updatedAt earlierDate:newUpdatedAt] == updatedAt) {  
       

@@ -49,7 +49,7 @@
 		461792F411FC0B85000BFA1C /* LightningTalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */; };
 		4617930F11FC0DE1000BFA1C /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 461407F71004B9CB00964C01 /* LightningTalk.m */; };
 		4620EA15120317F6008BB2BC /* timetable.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA14120317F6008BB2BC /* timetable.json */; };
-		4620EA18120318A5008BB2BC /* JsonCrudeImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA17120318A5008BB2BC /* JsonCrudeImporter.m */; };
+		4620EA18120318A5008BB2BC /* JsonImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA17120318A5008BB2BC /* JsonImporter.m */; };
 		4620EA26120319AF008BB2BC /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA1D120319AF008BB2BC /* NSObject+SBJSON.m */; };
 		4620EA27120319AF008BB2BC /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA1F120319AF008BB2BC /* NSString+SBJSON.m */; };
 		4620EA28120319AF008BB2BC /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA21120319AF008BB2BC /* SBJsonBase.m */; };
@@ -196,8 +196,8 @@
 		461792F211FC0B85000BFA1C /* LightningTalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkTableViewController.h; sourceTree = "<group>"; };
 		461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewController.m; sourceTree = "<group>"; };
 		4620EA14120317F6008BB2BC /* timetable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetable.json; sourceTree = "<group>"; };
-		4620EA16120318A5008BB2BC /* JsonCrudeImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonCrudeImporter.h; sourceTree = "<group>"; };
-		4620EA17120318A5008BB2BC /* JsonCrudeImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonCrudeImporter.m; sourceTree = "<group>"; };
+		4620EA16120318A5008BB2BC /* JsonImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporter.h; sourceTree = "<group>"; };
+		4620EA17120318A5008BB2BC /* JsonImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporter.m; sourceTree = "<group>"; };
 		4620EA1B120319AF008BB2BC /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		4620EA1C120319AF008BB2BC /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		4620EA1D120319AF008BB2BC /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -755,8 +755,8 @@
 				4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */,
 				46D4472611B133F40076E28B /* Property.h */,
 				46D4472711B133F40076E28B /* Property.m */,
-				4620EA16120318A5008BB2BC /* JsonCrudeImporter.h */,
-				4620EA17120318A5008BB2BC /* JsonCrudeImporter.m */,
+				4620EA16120318A5008BB2BC /* JsonImporter.h */,
+				4620EA17120318A5008BB2BC /* JsonImporter.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -914,7 +914,7 @@
 				46D1628112000810008FF7CD /* LightningTalkDetailedTableViewController.m in Sources */,
 				46D162A2120009CB008FF7CD /* AbstractSessionDetaildTableViewController.m in Sources */,
 				46D163AB12002163008FF7CD /* SessionAndLightningTalkBySomethingTableViewController.m in Sources */,
-				4620EA18120318A5008BB2BC /* JsonCrudeImporter.m in Sources */,
+				4620EA18120318A5008BB2BC /* JsonImporter.m in Sources */,
 				4620EA26120319AF008BB2BC /* NSObject+SBJSON.m in Sources */,
 				4620EA27120319AF008BB2BC /* NSString+SBJSON.m in Sources */,
 				4620EA28120319AF008BB2BC /* SBJsonBase.m in Sources */,

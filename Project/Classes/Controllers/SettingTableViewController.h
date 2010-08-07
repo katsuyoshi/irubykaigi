@@ -12,11 +12,14 @@
 
 @interface SettingTableViewController : UITableViewController {
 
+    NSArray *links;
+    NSArray *acknowledgements;
+    NSArray *frameworks;
+    
 }
 
 + (UINavigationController *)navigationController;
 + (SettingTableViewController *)settingTableViewController;
-
 
 - (void)didChangeRegion:(id)sender;
 

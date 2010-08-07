@@ -10,7 +10,7 @@
 #import "Importer.h"
 
 
-@interface JsonCrudeImporter : Importer {
+@interface JsonImporter : Importer {
 
     NSURL *mainSiteURL;
     NSURL *backupSiteURL;

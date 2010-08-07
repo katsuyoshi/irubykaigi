@@ -10,10 +10,13 @@
 #import "Property.h"
 
 
-#define REGION_SECTION      0
-#define UPDATE_URL_SECTION  1
+#define REGION_SECTION              0
+#define INFORMATION_SECTION         1
+#define LINK_SECTION                2
+#define ACKNOWLEDGEMENT_SECTION     3
+#define FRAMEWORK_SECTION           4
 
-#define COUNT_OF_SECTIONS   2
+#define COUNT_OF_SECTIONS           5
 
 @implementation SettingTableViewController
 
@@ -45,14 +48,36 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    links = [[NSArray alloc] initWithObjects:
+                [NSDictionary dictionaryWithObjectsAndKeys:@"RubyKaigi 2010", @"title", @"http://rubykaigi.org/2010/", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Tsukuba International Congress Center ", @"title", @"http://www.epochal.or.jp/", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"ITO SOFT DESIGN Inc.", @"title", @"http://iphone.itosoft.com/", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"myPhotoViewer", @"title", @"http://itunes.apple.com/jp/app/myphotoviewer/id354874588?mt=8", @"url", nil],
+                nil];
+                
+                
+    acknowledgements = [[NSArray alloc] initWithObjects:
+                [NSDictionary dictionaryWithObjectsAndKeys:@"The RubyKaigi 2010 Team", @"title",
+                                                           @"icon, opening image", @"subtitle",
+                                                           @"http://rubykaigi.org/2010/", @"url", nil],
+                        nil];
+                        
+    frameworks = [[NSArray alloc] initWithObjects:
+                [NSDictionary dictionaryWithObjectsAndKeys:@"JSON Framework", @"title",
+                                                           @"stig (Stig Brautaset)", @"subtitle",
+                                                           @"http://github.com/stig/json-framework", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Cider", @"title",
+                                                           @"Katsuyoshi Ito", @"subtitle",
+                                                           @"http://github.com/katsuyoshi/cider", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"iUnitTest", @"title",
+                                                           @"Katsuyoshi Ito", @"subtitle",
+                                                           @"http://github.com/katsuyoshi/iunittest", @"url", nil],
+                        nil];
+
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,17 +109,49 @@
 
 
 #pragma mark -
+
+- (NSArray *)dataSourceForSection:(int)section
+{
+    NSArray *dataSource = nil;
+
+    switch (section) {
+    case LINK_SECTION:
+        dataSource = links;
+        break;
+    case ACKNOWLEDGEMENT_SECTION:
+        dataSource = acknowledgements;
+        break;
+    case FRAMEWORK_SECTION:
+        dataSource = frameworks;
+        break;
+    }
+    return dataSource;
+}
+
+#pragma mark -
 #pragma mark Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return COUNT_OF_SECTIONS;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return COUNT_OF_SECTIONS;
+    switch (section) {
+    case REGION_SECTION:
+        return 1;
+    case INFORMATION_SECTION:
+        return 1;
+    case LINK_SECTION:
+        return [links count];
+    case ACKNOWLEDGEMENT_SECTION:
+        return [acknowledgements count];
+    case FRAMEWORK_SECTION:
+        return [frameworks count];
+    }
+    return 0;
 }
 
 
@@ -103,14 +160,20 @@
     switch (section) {
     case REGION_SECTION:
         return NSLocalizedString(@"Language", nil);
-    case UPDATE_URL_SECTION:
-        return NSLocalizedString(@"Update", nil);
+    case INFORMATION_SECTION:
+        return NSLocalizedString(@"Information", nil);
+    case LINK_SECTION:
+        return NSLocalizedString(@"Links", nil);
+    case ACKNOWLEDGEMENT_SECTION:
+        return NSLocalizedString(@"Acknowledgement", nil);
+    case FRAMEWORK_SECTION:
+        return NSLocalizedString(@"Frameworks", nil);
     }
     return nil;
 }
 
 
-- (UITableViewCell *)regionCellInTableView:(UITableView *)tableView
+- (UITableViewCell *)regionCellInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Region";
     
@@ -124,11 +187,43 @@
         aSwitch.on = ![Property sharedProperty].japanese;
         [aSwitch addTarget:self action:@selector(didChangeRegion:) forControlEvents:UIControlEventValueChanged];
     }
-    
-    // Configure the cell...
-    
     return cell;
 }
+
+- (UITableViewCell *)informationCellInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Information";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    cell.textLabel.text = NSLocalizedString(@"Last updated at", nil);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    cell.detailTextLabel.text = [dateFormatter stringFromDate:[Property sharedProperty].updatedAt];
+    return cell;
+}
+
+- (UITableViewCell *)linkCellInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Link";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
+    
+    NSDictionary *dict = [[self dataSourceForSection:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = NSLocalizedString([dict valueForKey:@"title"], nil);
+    cell.detailTextLabel.text = [dict valueForKey:@"subtitle"];
+    return cell;
+}
+
 
 
 // Customize the appearance of table view cells.
@@ -136,7 +231,13 @@
     
     switch (indexPath.section) {
     case REGION_SECTION:
-        return [self regionCellInTableView:tableView];
+        return [self regionCellInTableView:tableView indexPath:indexPath];
+    case INFORMATION_SECTION:
+        return [self informationCellInTableView:tableView indexPath:indexPath];
+    case LINK_SECTION:
+    case ACKNOWLEDGEMENT_SECTION:
+    case FRAMEWORK_SECTION:
+        return [self linkCellInTableView:tableView indexPath:indexPath];
     }
     return nil;
 }
@@ -186,14 +287,18 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+
+    NSArray *dataSource = [self dataSourceForSection:indexPath.section];
+
+    if (dataSource) {
+        NSURL *url = [NSURL URLWithString:[[dataSource objectAtIndex:indexPath.row] valueForKey:@"url"]];
+        UIApplication *application = [UIApplication sharedApplication];
+        if ([application canOpenURL:url]) {
+            [application openURL:url];
+        }
+    }
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -214,6 +319,9 @@
 
 
 - (void)dealloc {
+    [links release];
+    [acknowledgements release];
+    [frameworks release];
     [super dealloc];
 }
 
