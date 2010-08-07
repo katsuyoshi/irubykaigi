@@ -23,4 +23,6 @@
 
 @property (assign) NSArray *favoriteLightningTalks;
 
+@property (assign) NSDate *updatedAt;
+
 @end

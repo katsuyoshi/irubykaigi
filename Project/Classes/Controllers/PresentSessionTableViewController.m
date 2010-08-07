@@ -74,20 +74,6 @@
 - (void)reloadData
 {
     [self setArrayControllerWithSessionArray:[self.region sessionsForDate:self.date]];
-/* DELETEME:
-    NSDate *today = [self.date beginningOfDay];
-    NSSet *days = [self.region.days filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", today]];
-    Day *day = [days anyObject];
-    
-    if (day) {
-        NSString *targetTime = [NSString stringWithFormat:@"%02d:%02d", [self.date hour], [self.date minute]];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"startAt <= %@ and endAt > %@", targetTime, targetTime];
-        NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"room.position, position"];
-        [self setArrayControllerWithSessionSet:[day.sessions filteredSetUsingPredicate:predicate] sortDescriptors:sortDescriptors];
-    } else {
-        [self setArrayControllerWithSessionSet:[NSSet set]];
-    }
-*/
     [self.tableView reloadData];
 }
 

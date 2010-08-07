@@ -85,10 +85,10 @@
 		4682504611E1BF3E00D73D84 /* SessionByRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */; };
 		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		4692CB4E11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */; };
+		469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */; };
 		46A0B8331008194B006B355A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
 		46B73BBC11AD355700D04842 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BB911AD355700D04842 /* Session.m */; };
 		46B73BFA11ADD21A00D04842 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BF911ADD21A00D04842 /* Importer.m */; };
-		46B73BFE11ADD31400D04842 /* TestDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BFD11ADD31400D04842 /* TestDataImporter.m */; };
 		46BEE06D11E637990096B1B3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BEE06B11E637990096B1B3 /* Default@2x.png */; };
 		46BEE06E11E637990096B1B3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BEE06C11E637990096B1B3 /* icon@2x.png */; };
 		46C96CF711E40CEC00680067 /* RoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C96CF611E40CEC00680067 /* RoomTableViewCell.m */; };
@@ -260,6 +260,8 @@
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = iRubyKaigi.xcdatamodel; path = ../../iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4692CB4F11ACE3950098ADE1 /* iRubyKaigi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi_Prefix.pch; sourceTree = "<group>"; };
 		469B805F120B61D5007CDCF2 /* get_timetable_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable_test.rb; sourceTree = "<group>"; };
+		469B8147120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueDefaultQueue.h; sourceTree = "<group>"; };
+		469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueDefaultQueue.m; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		46B73BB811AD355700D04842 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		46B73BB911AD355700D04842 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
@@ -528,6 +530,8 @@
 		46178E7011F9D011000BFA1C /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				469B8147120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.h */,
+				469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */,
 				46178E7111F9D011000BFA1C /* ISProperty.h */,
 				46178E7211F9D011000BFA1C /* ISProperty.m */,
 				46178E7311F9D011000BFA1C /* ISSectionedArrayController.h */,
@@ -856,7 +860,6 @@
 				4692CB4E11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel in Sources */,
 				46B73BBC11AD355700D04842 /* Session.m in Sources */,
 				46B73BFA11ADD21A00D04842 /* Importer.m in Sources */,
-				46B73BFE11ADD31400D04842 /* TestDataImporter.m in Sources */,
 				46D4430711AEC09E0076E28B /* Day.m in Sources */,
 				46D4430811AEC09E0076E28B /* Region.m in Sources */,
 				46D4472811B133F40076E28B /* Property.m in Sources */,
@@ -918,6 +921,7 @@
 				4620EA29120319AF008BB2BC /* SBJsonParser.m in Sources */,
 				4620EA2A120319AF008BB2BC /* SBJsonWriter.m in Sources */,
 				4641FD6C1207C25200317642 /* WebViewController.m in Sources */,
+				469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

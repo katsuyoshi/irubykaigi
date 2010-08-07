@@ -23,7 +23,8 @@
 
 - (BOOL)japanese
 {
-    return [self boolValueForKey:@"japanese" defaultValue:YES];
+    BOOL isJapanese = [[[NSLocale currentLocale] localeIdentifier] isEqualToString:@"ja_JP"];
+    return [self boolValueForKey:@"japanese" defaultValue:isJapanese];
 }
 
 - (void)setSessionSearchHistories:(NSArray *)array
@@ -60,6 +61,17 @@
 - (NSArray *)favoriteLightningTalks
 {
     return [self arrayForKey:@"favoriteLightningTalks"];
+}
+
+
+- (void)setUpdatedAt:(NSDate *)date
+{
+    [self setDate:date forKey:@"lastUpdated"];
+}
+
+- (NSDate *)updatedAt
+{
+    return [self dateForKey:@"lastUpdated"];
 }
 
 

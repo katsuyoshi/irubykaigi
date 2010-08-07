@@ -8,6 +8,7 @@
 
 #import "IRKListTableViewController.h"
 #import "Property.h"
+#import "Importer.h"
 
 
 @implementation IRKListTableViewController
@@ -22,14 +23,21 @@
 
     Property *property = [Property sharedProperty];
     [property addObserver:self forKeyPath:@"japanese" options:NSKeyValueObservingOptionNew context:property];
+    Importer *importer = [Importer defaultImporter];
+    [importer addObserver:self forKeyPath:@"isUpdated" options:NSKeyValueObservingOptionNew context:importer];
 }
 
 - (void)dealloc
 {
+    [[Importer defaultImporter] removeObserver:self forKeyPath:@"isUpdated"];
+
     [[Property sharedProperty] removeObserver:self forKeyPath:@"japanese"];
     [super dealloc];
 }
 
+
+#pragma mark -
+#pragma mark NSKeyValueObserving
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -37,6 +45,9 @@
         if (keyPath == @"japanese") {
             [self didChangeRegion];
         }
+    }
+    if (context == [Importer defaultImporter]) {
+        [self reloadData];
     }
 }
 
@@ -60,7 +71,12 @@
 
 - (void)didChangeRegion
 {
-    [self reloadData];
+    @try {
+        [self reloadData];
+    }
+    @catch (NSException * e) {
+        NSLog(@"%@", e);
+    }
 }
 
 

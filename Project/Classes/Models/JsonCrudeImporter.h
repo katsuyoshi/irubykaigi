@@ -12,8 +12,16 @@
 
 @interface JsonCrudeImporter : Importer {
 
+    NSURL *mainSiteURL;
+    NSURL *backupSiteURL;
+
 }
 
-- (void)importWithURL:(NSURL *)url;
+@property (retain) NSURL *mainSiteURL;
+@property (retain) NSURL *backupSiteURL;
+
+
+- (BOOL)importWithURL:(NSURL *)url;
+
 
 @end

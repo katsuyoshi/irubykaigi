@@ -32,10 +32,14 @@
 
 - (void)reloadData
 {
-    NSMutableSet *sessions = [self.speaker.sessions mutableCopy];
-    [sessions addObjectsFromArray:[self.speaker.lightningTalks allObjects]];
-    
-    [self setArrayControllerWithSessionSet:sessions];
+    @try {
+        NSMutableSet *sessions = [[self.speaker.sessions mutableCopy] autorelease];
+        [sessions addObjectsFromArray:[self.speaker.lightningTalks allObjects]];
+        [self setArrayControllerWithSessionSet:sessions];
+    }
+    @catch (NSException * e) {
+        NSLog(@"%@", e);
+    }
 }
 
 - (void)didChangeRegion

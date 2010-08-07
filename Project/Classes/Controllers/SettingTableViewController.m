@@ -10,8 +10,10 @@
 #import "Property.h"
 
 
-#define REGION_SECTION  0
+#define REGION_SECTION      0
+#define UPDATE_URL_SECTION  1
 
+#define COUNT_OF_SECTIONS   2
 
 @implementation SettingTableViewController
 
@@ -92,15 +94,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return COUNT_OF_SECTIONS;
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     switch (section) {
-    case 0:
+    case REGION_SECTION:
         return NSLocalizedString(@"Language", nil);
+    case UPDATE_URL_SECTION:
+        return NSLocalizedString(@"Update", nil);
     }
     return nil;
 }

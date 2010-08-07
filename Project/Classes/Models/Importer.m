@@ -10,16 +10,94 @@
 #import "CiderCoreData.h"
 #import "Region.h"
 #import "Session.h"
+#import "LightningTalk.h"
+#import "JsonCrudeImporter.h"
 
 
 @implementation Importer
+
+@synthesize updating;
+@synthesize delegate;
+
+
++ (id)sharedImporter
+{
+    static id importer = nil;
+    if (importer == nil) {
+        importer = [self new];
+    }
+    return importer;
+}
+
+static id defaultImporter = nil;
+
++ (id)defaultImporter
+{
+    if (defaultImporter == nil) {
+        defaultImporter = [[JsonCrudeImporter sharedImporter] retain];
+    }
+    return defaultImporter;
+}
+
++ (void)setDefaultImporter:(Importer *)importer
+{
+    [defaultImporter release];
+    defaultImporter = [importer retain];
+}
+
+- (void)dealloc
+{
+    [(id)delegate release];
+    [super dealloc];
+}
+
+- (void)setUpdated:(BOOL)flag
+{
+    [self willChangeValueForKey:@"isUpdated"];
+    updated = flag;
+    [self didChangeValueForKey:@"isUpdated"];
+}
+
+- (NSNumber *)isUpdated
+{
+    return [NSNumber numberWithBool:updated];
+}
+
+
 
 - (void)clearAllData
 {
     [NSManagedObjectContext clearDefaultManagedObjectContextAndDeleteStoreFile];
 }
 
+- (void)beginImport
+{
+    if (updating == NO) {
+        updating = YES;
+        hasChanges = NO;
+        [self setUpdated:NO];
+        NSOperation *operation = [[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(import) object:nil] autorelease];
+        [operation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew context:operation];
+        [[NSOperationQueue defaultQueue] addOperation:operation];
+    }
+}
+
 - (void)import
+{
+}
+
+- (void)beginUpdate
+{
+    if (updating == NO) {
+        updating = YES;
+        hasChanges = NO;
+        NSOperation *operation = [[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(update) object:nil] autorelease];
+        [operation addObserver:self forKeyPath:@"isFinished" options:NSKeyValueObservingOptionNew context:operation];
+        [[NSOperationQueue defaultQueue] addOperation:operation];
+    }
+}
+
+- (void)update
 {
 }
 
@@ -38,43 +116,10 @@
 }
 
 
-#if 0
-- (void)prepareSissionTypesWithManagedObjectContext:(NSManagedObjectContext *)context
-{
-    SessionTypeCode codes[] = { SessionTypeCodeNormal, SessionTypeCodeKeynote, SessionTypeCodeOpening, SessionTypeCodeClosing, SessionTypeCodeLightningTalks,
-                    SessionTypeCodeOpenAndAdmission, SessionTypeCodeBreak, SessionTypeCodeLunch, SessionTypeCodeParty,
-                    SessionTypeCodeAnnouncement };
-/*                    
-    NSArray *sessionTypesInJapanese = [NSArray arrayWithObjects:
-                                @"セッション", @"基調講演", @"オープニング", @"クロージング", @"ライトニングトークス",
-                                @"会場・受付", @"休憩", @"昼休み", @"懇親会",
-                                @"アナウンス",
-                                nil];
-
-    NSArray *sessionTypesInEnglish = [NSArray arrayWithObjects:
-                                @"Session", @"Keynote", @"Opening", @"Closing", @"Lightning Talks",
-                                @"Open & Addmission", @"Break", @"Lunch Break", @"Party",
-                                @"Announcement",
-                                nil];
-*/
-
-    NSArray *regions = [NSArray arrayWithObjects:[Region japaneseInManagedObjectContext:context], [Region englishInManagedObjectContext:context], nil];
-    
-    for (Region *region in regions) {
-        int i;
-        int count = sizeof(codes) / sizeof(codes[0]);
-        for (i = 0; i < count; i++) {
-            [SessionType sessionTypeWithCode:codes[i] region:region];
-        }
-    }
-        
-}
-#endif
-
-
-- (void)save:(NSManagedObjectContext *)context
+- (BOOL)save:(NSManagedObjectContext *)context
 {
     if ([context hasChanges]) {
+        hasChanges = YES;
         @try {
             [context setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
             [context.persistentStoreCoordinator lock];
@@ -83,11 +128,62 @@
 #if DEBUG
             if (error) [error showErrorForUserDomains];
 #endif
+            return error ? NO : YES;
         } @finally {
             [context.persistentStoreCoordinator unlock];
         }
     }
+    return NO;
 }
+
+- (void)importerDidUpdate
+{
+    NSManagedObjectContext *context = DEFAULT_MANAGED_OBJECT_CONTEXT;
+    for (NSManagedObject *eo in [context registeredObjects]) {
+        [context refreshObject:eo mergeChanges:NO];
+    }
+    if ([(id)delegate respondsToSelector:@selector(importerDidUpdate)]) {
+        [delegate importerDidUpdate];
+    }
+    updating = NO;
+    [self setUpdated:hasChanges];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSOperation *operation = (NSOperation *)context;
+    [operation removeObserver:self forKeyPath:@"isFinished"];
+    
+    if ([NSThread isMainThread]) {
+        [self importerDidUpdate];
+    } else {
+        [self performSelectorOnMainThread:@selector(importerDidUpdate) withObject:nil waitUntilDone:YES];
+    }
+}
+
+- (void)deleteAllSessionsInManagedObjectContext:(NSManagedObjectContext *)context
+{
+    ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+    condition.managedObjectContext = context;
+    NSArray *sessions = [Session findAll:condition error:NULL];
+    for (Session *session in sessions) {
+        [context deleteObject:session];
+    }
+}
+
+
+- (void)cleanUp
+{
+    NSManagedObjectContext *context = DEFAULT_MANAGED_OBJECT_CONTEXT;
+    for (Session *session in [Session findAllWithPredicate:[NSPredicate predicateWithFormat:@"day = nil"] error:NULL]) {
+        [context deleteObject:session];
+    }
+    for (LightningTalk *talk in [LightningTalk findAllWithPredicate:[NSPredicate predicateWithFormat:@"session = nil"] error:NULL]) {
+        [context deleteObject:talk];
+    }
+    [self save:context];
+}
+
 
 
 @end

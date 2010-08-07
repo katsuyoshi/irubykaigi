@@ -8,6 +8,7 @@
 
 #import "IRKDetaildTableViewController.h"
 #import "Property.h"
+#import "Importer.h"
 
 
 @implementation IRKDetaildTableViewController
@@ -22,6 +23,8 @@
 
     Property *property = [Property sharedProperty];
     [property addObserver:self forKeyPath:@"japanese" options:NSKeyValueObservingOptionNew context:property];
+    Importer *importer = [Importer defaultImporter];
+    [importer addObserver:self forKeyPath:@"isUpdated" options:NSKeyValueObservingOptionNew context:importer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -34,6 +37,7 @@
 - (void)dealloc
 {
     [[Property sharedProperty] removeObserver:self forKeyPath:@"japanese"];
+    [[Importer defaultImporter] removeObserver:self forKeyPath:@"isUpdated"];
     [super dealloc];
 }
 
@@ -44,11 +48,19 @@
             [self didChangeRegion];
         }
     }
+    if (context == [Importer defaultImporter]) {
+        [self reloadData];
+    }
 }
 
 - (void)reloadData
 {
-    [self.tableView reloadData];
+    @try {
+        [self.tableView reloadData];
+    }
+    @catch (NSException * e) {
+        NSLog(@"%@", e);
+    }
 }
 
 #pragma mark -

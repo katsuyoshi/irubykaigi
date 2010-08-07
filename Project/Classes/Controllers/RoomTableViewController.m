@@ -15,6 +15,12 @@
 #import "Day.h"
 #import "PresentSessionTableViewController.h"
 #import "WebViewController.h"
+#import "Importer.h"
+
+
+@interface RoomTableViewController(ISPrivate)
+- (void)validateControls;
+@end
 
 
 @implementation RoomTableViewController
@@ -36,20 +42,25 @@
 
 - (void)dealloc
 {
+    [updateTabBarButton release];
     [dateSecmentedController release];
     [super dealloc];
 }
 
 - (void)buildDateSecmentedController
 {
-    int i = 0;
+    int index = 0;
     
     if (dateSecmentedController == nil) {
         dateSecmentedController = [[UISegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
         dateSecmentedController.segmentedControlStyle = UISegmentedControlStyleBar;
+        self.navigationItem.titleView = dateSecmentedController;
+    } else {
+        index = dateSecmentedController.selectedSegmentIndex;
     }
     [dateSecmentedController removeAllSegments];
     
+    int i = 0;
     for (Day *day in self.region.sortedDays) {
         [dateSecmentedController insertSegmentWithTitle:day.title atIndex:i animated:NO];
         if ([day.date isEqual:[[NSDate date] beginningOfDay]]) {
@@ -57,11 +68,8 @@
         }
         i++;
     }
-    if (dateSecmentedController.selectedSegmentIndex == -1) {
-        dateSecmentedController.selectedSegmentIndex = 0;
-    }
     
-    self.navigationItem.titleView = dateSecmentedController;
+    dateSecmentedController.selectedSegmentIndex = (index < dateSecmentedController.numberOfSegments) ? index : 0;
 }
 
 
@@ -70,7 +78,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor clearColor];
     
+    updateTabBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self  action:@selector(updateAction:)];
+    self.navigationItem.leftBarButtonItem = updateTabBarButton;
+
     [self buildDateSecmentedController];
+    
+    [self validateControls];
 }
 
 #pragma mark -
@@ -238,12 +251,30 @@
 
 - (void)didChangeRegion
 {
-    int index = dateSecmentedController.selectedSegmentIndex;
+    [self reloadData];
+}
+
+- (void)updateAction:(id)sender
+{
+    Importer *importer = [Importer defaultImporter];
+    [importer beginUpdate];
+    [self validateControls];
+}
+
+- (void)validateControls
+{
+    Importer *importer = [Importer defaultImporter];
+    updateTabBarButton.enabled = !importer.updating;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = importer.updating;
+}
+
+- (void)reloadData
+{
     [self buildDateSecmentedController];
-    dateSecmentedController.selectedSegmentIndex = index;
             
     self.masterObject = self.region;
-    [self reloadData];
+    [super reloadData];
+    [self validateControls];
 }
 
 @end

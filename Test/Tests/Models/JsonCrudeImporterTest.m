@@ -108,7 +108,8 @@
     NSArray *days = region.sortedDays;
     
     Day *day = [days objectAtIndex:0];
-    
+
+NSLog(@"%@", [self sessionsWithDay:day roomName:@"Main Convention Hall"]);
     ASSERT_EQUAL_INT(10, [[self sessionsWithDay:day roomName:@"Main Convention Hall"] count]);
     ASSERT_EQUAL_INT(10, [[self sessionsWithDay:day roomName:@"Convention Hall 200"] count]);
     ASSERT_EQUAL_INT(1, [[self sessionsWithDay:day roomName:@"202-B"] count]);

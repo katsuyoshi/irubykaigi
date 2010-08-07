@@ -140,9 +140,7 @@
 - (void)reloadData
 {
     [arrayController release];
-    arrayController = [[ISSectionedArrayController alloc] initWithSet:self.region.speakers sectionName:@"firstLetterOfName" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"upperCaseName, position"]];
-//    arrayController.sectionTitleName = @"SELF";
-    
+    arrayController = [[ISSectionedArrayController alloc] initWithSet:self.region.speakers sectionName:@"firstLetterOfName" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"upperCaseName, position"]];    
     [self.tableView reloadData];
 }
 

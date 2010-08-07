@@ -15,7 +15,7 @@
 #import "UIColorIRK.h"
 
 #import "TestDataImporter.h"
-#import "JsonCrudeImporter.h"
+#import "Importer.h"
 
 
 @implementation iRubyKaigiAppDelegate
@@ -30,6 +30,17 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Tokyo"]];
+    
+    // 未登録の場合は初期データをインポートする
+
+    Importer *importer = [Importer defaultImporter];
+    [importer addObserver:self forKeyPath:@"isUpdated" options:NSKeyValueObservingOptionNew context:importer];
+//    [importer cleanUp];
+    if ([Property sharedProperty].updatedAt == nil) {
+        [[Importer defaultImporter] beginImport];
+    }
+
     NSArray *iconNames = [NSArray arrayWithObjects:
                                 @"session_by_room_icon_30x30.png",
                                 @"session_by_speaker_icon_30x30.png",
@@ -37,10 +48,7 @@
                                 @"find_30x30.png",
                                 @"setting_icon_30x30.png",
                                 nil];
-                                
-//    [[[TestDataImporter new] autorelease] import];
-    [[[JsonCrudeImporter new] autorelease] import];
-
+    
     NSArray *tabBarControllers = [NSArray arrayWithObjects:
                                     [RoomTableViewController navigationController],
                                     [SpeakerTableViewController navigationController],
@@ -78,10 +86,28 @@
 #pragma mark Memory management
 
 - (void)dealloc {
+    [[Importer defaultImporter] removeObserver:self forKeyPath:@"isUpdated"];
+
 	[tabBarController release];
 	[navigationController release];
 	[window release];
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark NSKeyValueObserving
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == [Importer defaultImporter]) {
+/* DELETEME:
+        for (UIViewController *controller in tabBarController.viewControllers) {
+            if ([controller isKindOfClass:[UINavigationController class]]) {
+                [(UINavigationController *)controller popToRootViewControllerAnimated:NO];
+            }
+        }
+*/
+    }
 }
 
 

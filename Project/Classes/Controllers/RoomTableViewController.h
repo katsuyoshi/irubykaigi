@@ -13,10 +13,13 @@
 @interface RoomTableViewController : IRKListTableViewController {
 
     UISegmentedControl *dateSecmentedController;
+    UIBarButtonItem *updateTabBarButton;
     
 }
 
 + (UINavigationController *)navigationController;
 + (RoomTableViewController *)sessionByRoomTableViewController;
+
+- (void)updateAction:(id)sender;
 
 @end

@@ -246,7 +246,8 @@ end
 
 def get_all_timetables
    { :ja => get_timetables('http://rubykaigi.org/2010/ja/timetable'),
-               :en => get_timetables('http://rubykaigi.org/2010/en/timetable') }
+     :en => get_timetables('http://rubykaigi.org/2010/en/timetable'),
+     :updated_at => Time.now }
 end
 
   def test_get_lightningtalks
