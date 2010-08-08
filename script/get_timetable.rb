@@ -4,7 +4,9 @@ require 'open-uri'
 require File.expand_path(File.dirname(__FILE__) + '/simple-json')
 
 @base_dir = File.expand_path(File.dirname(__FILE__))
-@store_dir = @base_dir + "/.."
+#@store_dir = @base_dir + "/../../../public/irubykaigi/2010/"
+@store_dir = @base_dir + "/"
+@filename = @store_dir + "timetables.json"
 
 class String
   def strip_ns
@@ -32,6 +34,21 @@ def get_lightningtalks content
 end
 
 
+def get_foot_section content
+  th = content.search('th').text
+  return nil if th == ""
+  
+  a = th.strip_ns.split('-')
+  session = { :start_at => a[0].strip_ns, :end_at => a[1].strip_ns }
+  
+  a = content.search('td').text.strip_ns.split(',')
+  session[:title] = a[0].strip_ns
+  /([^\(]+)(\([^\)]+\))?/ =~ a[1].strip_ns.gsub("於 ", "").gsub(/\s*at\s*/, "")
+  session[:room] = $1;
+  session[:summary] = $2 if $2
+  session
+end
+
 def get_session href
   url = "http://rubykaigi.org" + href
   agent = WWW::Mechanize.new
@@ -56,7 +73,7 @@ def get_session href
       when "Closing"
         session[:type] = 'closing'
       end
-p session
+#p session
       key = nil
     when "h2"
       case c.text.strip_ns
@@ -96,60 +113,17 @@ p session
 
   session[:lightning_talks] = get_lightningtalks content if session[:type] == "lightning_talks"
 
-=begin
-  ps = content.search("p")
-ps.each {|p| p p}
-  t = ps[3].text.strip_ns.split(' ')
-  t = [ t[1], t[3]]
-p ps[3]
-p t
-  {
-    :id => url.split("/").last,
-    :title => content.search("h1").text.strip_ns,
-    :speaker => ps[0].text,
-    :summary => ps[2].text.strip_ns,
-    :start_at => t[0].strip_ns,
-    :end_at => t[0].strip_ns,
-    :room => ps[4].text.strip_ns
-  }
-=end
   session
 end
 
 
 def get_sessions timetable
 
-=begin
-  rooms = []
-  sessions = []
-  
-  rooms = timetable.search('tr')[0].search('th').collect{|e| e.inner_text.strip_ns}
-  rooms.shift
-
-  timetable.search('td').each do |td|
-
-    session = nil
-        
-    case td[:class]
-    when "room", "room_hall", "break"
-      a = td.search('a')
-      session = get_session(a.first[:href]) if a && a.first
-    when "empty", nil
-    else
-      $stderr.puts "unknown class '#{td[:class]}'"
-    end
-        
-    sessions << session if session
-
-  end
-=end
-
   times = []
   sessions = []
   rooms = nil
   
-  times = timetable.search('tr').collect{|l| l.search('th').text }
-  times.shift
+  times = timetable.search('tbody').search('tr').collect{|l| l.search('th').text }
   times.collect! do |l|
     a = l.split("|");
     if a.size == 2
@@ -159,64 +133,62 @@ def get_sessions timetable
     end
   end
   
-  lines = timetable.search('tr')
+  rooms = timetable.search('thead').search('th').collect{|e| e.inner_text.strip_ns}
+  rooms.shift  
+  
+  lines = timetable.search('tbody').search('tr')
 
   cols = lines[0].search('th').size
   rowspan_flags = Array.new(lines.size) { Array.new(cols) }
   
   lines.each_with_index do |tr, row|
-    if row == 0
-      rooms = tr.search('th').collect{|e| e.inner_text.strip_ns}
-      rooms.shift
-    else
-      col = 0
-      tr.search('td').each_with_index do |td, i|
+    col = 0
+    tr.search('td').each_with_index do |td, i|
 
-        # rowspan割当分colを進める
-        until rowspan_flags[row][col].nil?
-          col += 1
-        end
+      # rowspan割当分colを進める
+      until rowspan_flags[row][col].nil?
+        col += 1
+      end
 
-        # マーク
-        rowspan = td[:rowspan] ? td[:rowspan].to_i : 1
-        rowspan.times {|i| rowspan_flags[row + i][col] = 1 }
+      # マーク
+      rowspan = td[:rowspan] ? td[:rowspan].to_i : 1
+      rowspan.times {|i| rowspan_flags[row + i][col] = 1 }
 
-        session = nil
+      session = nil
 
-        case td[:class]
-        when "room", "room_hall"
-          a = td.search('a')
-          session = get_session(a.first[:href]) if a && a.first
-          session[:speakers] = td.search('p.speaker').text.split("/").collect{|e| { :name => e.strip_ns } } if session
-p session
-=begin
-          s = td.search('div.session')
-          session = {
-            :title => s.search('p.title').text.strip_ns,
-            :speakers => s.search('p.speaker').text.split("/").collect{|e| e.strip_ns},
-            :start_at => times[row - 1][:start_at],
-            :end_at => times[row + rowspan - 2][:end_at],
-            :room => rooms[col],
-            :type => 'session'
-          }
-=end
-        when "break"
-          s = td.search('div.session')
-          session = {
+      case td[:class]
+      when "room", "room_hall"
+        a = td.search('a')
+        session = get_session(a.first[:href]) if a && a.first
+        session[:speakers] = td.search('p.speaker').text.split("/").collect{|e| { :name => e.strip_ns } } if session
+#p session
+      when "break"
+        s = td.search('div.session')
+        session = {
             :title => s.search('p.title').text.strip_ns,
             :start_at => times[row - 1][:start_at],
             :end_at => times[row + rowspan - 2][:end_at],
             :room => rooms[col],
             :type => 'break'
-          }
-        when "empty", nil
-        else
-          $stderr.puts "unknown class '#{td[:class]}'"
-        end
-        
-        sessions << session if session
-        
+        }
+      when "empty", nil
+      else
+        $stderr.puts "unknown class '#{td[:class]}'"
       end
+        
+      sessions << session if session
+        
+    end
+  end
+  
+  foot = timetable.search("tfoot")
+  unless foot == ""
+    session = get_foot_section foot
+#p session
+    if session
+      rooms << session[:room] unless rooms.include? session[:room]
+#puts rooms
+      sessions << session
     end
   end
 
@@ -247,18 +219,14 @@ end
 def get_all_timetables
    { :ja => get_timetables('http://rubykaigi.org/2010/ja/timetable'),
      :en => get_timetables('http://rubykaigi.org/2010/en/timetable'),
-     :updated_at => Time.now }
+     :updated_at => Time.now.strftime("%Y-%m-%d %X %z") }
 end
 
-  def test_get_lightningtalks
-    url = "http://rubykaigi.org/2010/ja/events/38"
-    agent = WWW::Mechanize.new
-    agent.get(url)
-    page = agent.page
-    content = page.search("div#content")[0]
-    
-    get_lightningtalks content
-  end
 
-#puts WebAPI::JsonBuilder.new.build(test_get_lightningtalks)
-puts WebAPI::JsonBuilder.new.build(get_all_timetables)
+timetables = get_all_timetables
+old_timetables = File.exists?(@filename) ? WebAPI::JsonParser.new.parse(File.read(@filename)) : {}
+unless timetables[:ja] == old_timetables["ja"] && timetables[:en] == old_timetables["en"]
+  File.open(@filename, 'w') do |f|
+    f.write(WebAPI::JsonBuilder.new.build(timetables))
+  end
+end
