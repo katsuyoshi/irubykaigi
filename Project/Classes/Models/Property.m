@@ -16,6 +16,12 @@
     return (Property *)[super sharedProperty];
 }
 
+- (void)dealloc
+{
+    [iOS4 release];
+    [super dealloc];
+}
+
 - (void)setJapanese:(BOOL)value
 {
     [self setBoolValue:value forKey:@"japanese"];
