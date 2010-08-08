@@ -20,6 +20,8 @@
 
 @implementation SettingTableViewController
 
+@synthesize clickedURL;
+
 
 + (UINavigationController *)navigationController
 {
@@ -68,13 +70,13 @@
                         
     frameworks = [[NSArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"JSON Framework", @"title",
-                                                           @"Stig Brautaset, BSD license.", @"subtitle",
+                                                           @"Stig Brautaset", @"subtitle",
                                                            @"http://github.com/stig/json-framework", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Cider", @"title",
-                                                           @"ITO SOFT DESIGN Inc., BSD license.", @"subtitle",
+                                                           @"ITO SOFT DESIGN Inc.", @"subtitle",
                                                            @"http://github.com/katsuyoshi/cider", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"iUnitTest", @"title",
-                                                           @"ITO SOFT DESIGN Inc., BSD license.", @"subtitle",
+                                                           @"ITO SOFT DESIGN Inc.", @"subtitle",
                                                            @"http://github.com/katsuyoshi/iunittest", @"url", nil],
                         nil];
 
@@ -290,12 +292,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSArray *dataSource = [self dataSourceForSection:indexPath.section];
-
     if (dataSource) {
-        NSURL *url = [NSURL URLWithString:[[dataSource objectAtIndex:indexPath.row] valueForKey:@"url"]];
-        UIApplication *application = [UIApplication sharedApplication];
-        if ([application canOpenURL:url]) {
-            [application openURL:url];
+        self.clickedURL = [NSURL URLWithString:[[dataSource objectAtIndex:indexPath.row] valueForKey:@"url"]];
+        if ([Property sharedProperty].isIOS4) {
+            [self openClickedURL];
+        } else {
+            NSString *title = NSLocalizedString(@"", nil);
+            NSString *message = NSLocalizedString(@"This action will close iRubyKaigi2010 and open Safari. Are you sure to go on?", nil);
+            NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
+            NSString *otherButtonTitles = NSLocalizedString(@"OK", nil);
+            UIAlertView *alartView = [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil] autorelease];
+            [alartView show];
         }
     }
 
@@ -320,6 +327,7 @@
 
 
 - (void)dealloc {
+    [clickedURL release];
     [links release];
     [acknowledgements release];
     [frameworks release];
@@ -336,6 +344,29 @@
 {
     UISwitch *aSwitch = (UISwitch *)sender;
     [Property sharedProperty].japanese = !aSwitch.on;
+}
+
+
+
+- (void)openClickedURL
+{
+    if (self.clickedURL) {
+        UIApplication *application = [UIApplication sharedApplication];
+        if ([application canOpenURL:self.clickedURL]) {
+            [application openURL:self.clickedURL];
+        }
+    }
+}
+
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == [alertView firstOtherButtonIndex]) {
+        [self openClickedURL];
+    }
 }
 
 @end

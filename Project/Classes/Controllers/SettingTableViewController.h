@@ -16,12 +16,18 @@
     NSArray *acknowledgements;
     NSArray *frameworks;
     
+    NSURL *clickedURL;
 }
 
 + (UINavigationController *)navigationController;
 + (SettingTableViewController *)settingTableViewController;
 
+@property (retain) NSURL *clickedURL;
+
+
 - (void)didChangeRegion:(id)sender;
+
+- (void)openClickedURL;
 
 
 @end

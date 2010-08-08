@@ -34,7 +34,7 @@ def get_lightningtalks content
 end
 
 
-def get_foot_section content
+def get_foot_section content, day
   th = content.search('th').text
   return nil if th == ""
   
@@ -46,6 +46,8 @@ def get_foot_section content
   /([^\(]+)(\([^\)]+\))?/ =~ a[1].strip_ns.gsub("於 ", "").gsub(/\s*at\s*/, "")
   session[:room] = $1;
   session[:summary] = $2 if $2
+  session[:type] = 'party'
+  session[:code] = "#{day}|#{$1}|#{session[:start_at]}"
   session
 end
 
@@ -112,12 +114,12 @@ def get_session href
   end
 
   session[:lightning_talks] = get_lightningtalks content if session[:type] == "lightning_talks"
-
+  
   session
 end
 
 
-def get_sessions timetable
+def get_sessions timetable, day
 
   times = []
   sessions = []
@@ -166,10 +168,11 @@ def get_sessions timetable
         s = td.search('div.session')
         session = {
             :title => s.search('p.title').text.strip_ns,
-            :start_at => times[row - 1][:start_at],
-            :end_at => times[row + rowspan - 2][:end_at],
+            :start_at => times[row][:start_at],
+            :end_at => times[row + rowspan - 1][:end_at],
             :room => rooms[col],
-            :type => 'break'
+            :type => 'break',
+            :code => "#{day}|#{rooms[col]}|#{times[row - 1][:start_at]}"
         }
       when "empty", nil
       else
@@ -183,7 +186,7 @@ def get_sessions timetable
   
   foot = timetable.search("tfoot")
   unless foot == ""
-    session = get_foot_section foot
+    session = get_foot_section foot, day
 #p session
     if session
       rooms << session[:room] unless rooms.include? session[:room]
@@ -207,7 +210,7 @@ def get_timetables url
 
   rooms = nil
   page.search('table.timetable').each_with_index do |timetable, i|
-    sessions, rooms = get_sessions(timetable)
+    sessions, rooms = get_sessions(timetable, days[i])
     timetables << { :day => days[i],
                     :sessions => sessions  }
   end

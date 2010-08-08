@@ -75,4 +75,13 @@
 }
 
 
+- (BOOL)iOS4
+{
+    if (iOS4 == nil) {
+        NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
+        iOS4 = [NSNumber numberWithBool:[components respondsToSelector:@selector(timeZone)]];
+    }
+    return [iOS4 boolValue];
+}
+
 @end

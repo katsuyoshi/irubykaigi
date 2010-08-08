@@ -11,6 +11,8 @@
 
 @interface Property : ISProperty {
 
+    NSNumber *iOS4;
+    
 }
 
 + (Property *)sharedProperty;
@@ -24,5 +26,7 @@
 @property (assign) NSArray *favoriteLightningTalks;
 
 @property (assign) NSDate *updatedAt;
+
+@property (getter=iOS4, readonly) BOOL isIOS4;
 
 @end

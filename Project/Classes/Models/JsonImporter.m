@@ -81,10 +81,7 @@
 
 - (void)update
 {
-    updating = YES;
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"timetable" ofType:@"json"];
-//    [self importWithURL:[NSURL fileURLWithPath:path]];
-    
+    updating = YES;    
     if ([self importWithURL:self.mainSiteURL] == NO) {
         [self importWithURL:self.backupSiteURL];
     }
@@ -193,6 +190,9 @@
     } else
     if ([name isEqualToString:@"lightning_talks"]) {
         return SessionTypeCodeLightningTalks;
+    } else
+    if ([name isEqualToString:@"party"]) {
+        return SessionTypeCodeParty;
     } else {
         return SessionTypeCodeNormal;
     }
@@ -207,9 +207,11 @@
         Day *day = [self dayForString:[sessionsDict valueForKey:@"day"] region:region];
         for (id dict in [sessionsDict valueForKey:@"sessions"]) {
             NSString *code = [dict valueForKey:@"code"];
+/* DELETEME:
             if (code == nil) {
                 code = [NSString stringWithFormat:@"%@%@/%@/%@", day.date, [dict valueForKey:@"room"], [dict valueForKey:@"start_at"], [dict valueForKey:@"end_at"]];
             }
+*/
             [codes addObject:code]; // 削除された場合の処理
             
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", region, code];

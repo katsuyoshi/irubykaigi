@@ -125,6 +125,7 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4606BDC8120E644B00BA2A7F /* timetables.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetables.json; sourceTree = "<group>"; };
 		461407F61004B9CB00964C01 /* LightningTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalk.h; sourceTree = "<group>"; };
 		461407F71004B9CB00964C01 /* LightningTalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalk.m; sourceTree = "<group>"; };
 		461408361004BC4D00964C01 /* LightningTalkDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkDetailedTableViewController.h; sourceTree = "<group>"; };
@@ -598,6 +599,7 @@
 		4620EA8A120323F9008BB2BC /* script */ = {
 			isa = PBXGroup;
 			children = (
+				4606BDC8120E644B00BA2A7F /* timetables.json */,
 				469B805F120B61D5007CDCF2 /* get_timetable_test.rb */,
 				4620EA8B120323F9008BB2BC /* get_timetable.rb */,
 				4620EA8C120323F9008BB2BC /* simple-json.rb */,

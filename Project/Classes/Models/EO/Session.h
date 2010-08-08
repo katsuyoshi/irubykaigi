@@ -20,11 +20,11 @@ typedef enum {
     SessionTypeCodeOpening,
     SessionTypeCodeClosing,
     SessionTypeCodeLightningTalks,
+    SessionTypeCodeParty,
 
     SessionTypeCodeOpenAndAdmission = 100,
     SessionTypeCodeBreak,
     SessionTypeCodeLunch,
-    SessionTypeCodeParty,
     
     SessionTypeCodeAnnouncement = 200
 } SessionTypeCode;
