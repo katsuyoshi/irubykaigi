@@ -11,3 +11,4 @@ psd
 script/*.json
 archive
 *.tmp
+release
