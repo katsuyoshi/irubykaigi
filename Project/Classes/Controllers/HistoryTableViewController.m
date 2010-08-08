@@ -47,9 +47,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = NSLocalizedString(@"History", nil);
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    if ([self.dataSource count]) {
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    } else {
+        UIView *view = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+        view.backgroundColor = [UIColor clearColor];
+        UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320 - 10 * 2, 44)] autorelease];
+        label.text = NSLocalizedString(@"There is no history.", ni);
+        label.backgroundColor = [UIColor clearColor];
+        [view addSubview:label];
+        self.tableView.tableHeaderView = view;
+    }
     
     closeItemBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
     self.navigationItem.rightBarButtonItem = closeItemBarButton;
