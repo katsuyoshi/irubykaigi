@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IRKTableViewController.h"
+#import "Property.h"
 
 
 @interface SettingTableViewController : UITableViewController {
@@ -17,6 +18,8 @@
     NSArray *frameworks;
     
     NSURL *clickedURL;
+    
+    Property *property;
 }
 
 + (UINavigationController *)navigationController;

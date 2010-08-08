@@ -73,13 +73,15 @@
                                                            @"Stig Brautaset", @"subtitle",
                                                            @"http://github.com/stig/json-framework", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Cider", @"title",
-                                                           @"ITO SOFT DESIGN Inc.", @"subtitle",
+                                                           @"ITO SOFT DESIGN Inc. ", @"subtitle",
                                                            @"http://github.com/katsuyoshi/cider", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"iUnitTest", @"title",
-                                                           @"ITO SOFT DESIGN Inc.", @"subtitle",
+                                                           @"ITO SOFT DESIGN Inc. ", @"subtitle",
                                                            @"http://github.com/katsuyoshi/iunittest", @"url", nil],
                         nil];
-
+                        
+    property = [[Property sharedProperty] retain];
+    [property addObserver:self forKeyPath:@"updatedAt" options:NSKeyValueObservingOptionNew context:property];
 }
 
 /*
@@ -327,6 +329,9 @@
 
 
 - (void)dealloc {
+    [property removeObserver:self forKeyPath:@"updatedAt"];
+
+    [property release];
     [clickedURL release];
     [links release];
     [acknowledgements release];
@@ -367,6 +372,14 @@
     if (buttonIndex == [alertView firstOtherButtonIndex]) {
         [self openClickedURL];
     }
+}
+
+#pragma mark -
+#pragma mark NSKeyValueObserving
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.tableView reloadData];
 }
 
 @end
