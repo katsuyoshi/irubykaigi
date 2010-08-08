@@ -10,3 +10,4 @@ psd
 *.pxm
 script/*.json
 archive
+*.tmp
