@@ -50,10 +50,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 
     links = [[NSArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"RubyKaigi 2010", @"title", @"http://rubykaigi.org/2010/", @"url", nil],
-                [NSDictionary dictionaryWithObjectsAndKeys:@"Tsukuba International Congress Center ", @"title", @"http://www.epochal.or.jp/", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Tsukuba International Congress Center", @"title", @"http://www.epochal.or.jp/", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"ITO SOFT DESIGN Inc.", @"title", @"http://iphone.itosoft.com/", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"myPhotoViewer", @"title", @"http://itunes.apple.com/jp/app/myphotoviewer/id354874588?mt=8", @"url", nil],
                 nil];
@@ -67,13 +68,13 @@
                         
     frameworks = [[NSArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"JSON Framework", @"title",
-                                                           @"stig (Stig Brautaset)", @"subtitle",
+                                                           @"Stig Brautaset, BSD license.", @"subtitle",
                                                            @"http://github.com/stig/json-framework", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Cider", @"title",
-                                                           @"Katsuyoshi Ito", @"subtitle",
+                                                           @"ITO SOFT DESIGN Inc., BSD license.", @"subtitle",
                                                            @"http://github.com/katsuyoshi/cider", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"iUnitTest", @"title",
-                                                           @"Katsuyoshi Ito", @"subtitle",
+                                                           @"ITO SOFT DESIGN Inc., BSD license.", @"subtitle",
                                                            @"http://github.com/katsuyoshi/iunittest", @"url", nil],
                         nil];
 
@@ -167,7 +168,7 @@
     case ACKNOWLEDGEMENT_SECTION:
         return NSLocalizedString(@"Acknowledgement", nil);
     case FRAMEWORK_SECTION:
-        return NSLocalizedString(@"Frameworks", nil);
+        return NSLocalizedString(@"Copyright", nil);
     }
     return nil;
 }
@@ -220,7 +221,7 @@
     
     NSDictionary *dict = [[self dataSourceForSection:indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = NSLocalizedString([dict valueForKey:@"title"], nil);
-    cell.detailTextLabel.text = [dict valueForKey:@"subtitle"];
+    cell.detailTextLabel.text = NSLocalizedString([dict valueForKey:@"subtitle"], nil);
     return cell;
 }
 
