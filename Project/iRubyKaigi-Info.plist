@@ -26,8 +26,6 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	<key>NSMainNibFile~ipad</key>
-	<string>MainWindow-iPad</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>CFBundleIconFiles</key>
