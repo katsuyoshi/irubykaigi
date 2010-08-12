@@ -10,6 +10,7 @@
 #import "Day.h"
 #import "LightningTalk.h"
 #import "CiderCoreData.h"
+#import "CiderCoreData.h"
 
 
 @implementation Session 
@@ -111,6 +112,12 @@
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", region, self.code];
     return [Session findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
+}
+
+- (NSArray *)sortedSpeakers
+{
+    NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"position"];
+    return [self.speakers sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 

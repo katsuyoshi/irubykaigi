@@ -64,6 +64,9 @@ typedef enum {
 @property (assign, readonly) NSString *startAt;
 @property (assign, readonly) NSString *endAt;
 
+@property (assign, readonly) NSArray *sortedSpeakers;
+
+
 - (Session *)sessionForRegion:(Region *)region;
 
 @end

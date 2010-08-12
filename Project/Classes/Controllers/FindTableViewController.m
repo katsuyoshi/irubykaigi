@@ -218,6 +218,10 @@
 }
 
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)aSearchBar
+{
+    [aSearchBar setShowsCancelButton:YES animated:YES];
+}
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)aSearchBar
 {
@@ -232,6 +236,7 @@
         property.sessionSearchHistories = array;
     }
     [aSearchBar resignFirstResponder];
+    [aSearchBar setShowsCancelButton:NO animated:YES];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
@@ -250,6 +255,10 @@
     }
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)aSearchBar
+{
+    [aSearchBar resignFirstResponder];
+}
 
 
 

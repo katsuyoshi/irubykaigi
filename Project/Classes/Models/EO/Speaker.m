@@ -23,6 +23,7 @@
 @dynamic lightningTalks;
 @dynamic sessions;
 @dynamic region;
+@dynamic profile;
 
 
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context
@@ -90,6 +91,28 @@
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"region = %@ and code = %@", region, self.code];
     return [Speaker findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
+}
+
+- (NSArray *)belongings
+{
+    if ([self.belonging length]) {
+        return [self.belonging componentsSeparatedByString:@","];
+    } else {
+        return [NSArray array];
+    }
+}
+
+
+- (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
+{
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@"name", nil];
+    if ([self.belonging length]) {
+        [array addObject:@"belonging"];
+    }
+    if ([self.profile length]) {
+        [array addObject:@"profile"];
+    }
+    return array;
 }
 
 

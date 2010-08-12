@@ -23,11 +23,13 @@
 @property (nonatomic, retain) NSSet* lightningTalks;
 @property (nonatomic, retain) NSSet* sessions;
 @property (nonatomic, retain) Region * region;
+@property (nonatomic, retain) NSString * profile;
 
 @property (assign, readonly) NSArray *sortedSession;
 @property (assign, readonly) NSString *firstLetterOfName;
 @property (assign, readonly) NSString *upperCaseName;
 
+@property (assign, readonly) NSArray *belongings;
 
 
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;

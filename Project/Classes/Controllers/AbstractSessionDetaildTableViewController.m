@@ -44,7 +44,7 @@
 - (CGFloat)cellHeightForTableView:(UITableView *)tableView text:(NSString *)text indexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self cellForTableView:tableView inSection:indexPath.section];
-    UIFont *fount = [UIFont fontWithName:cell.textLabel.font.fontName size:17];
+    UIFont *fount = cell.textLabel.font; // DELETEME: [UIFont fontWithName:cell.textLabel.font.fontName size:17];
     CGSize size = [text sizeWithFont:fount constrainedToSize:CGSizeMake(cell.bounds.size.width, 44.0 * 300)];
     float height = size.height + 44.0;
 
@@ -57,6 +57,7 @@
     UITableViewCell *cell = [super tableView:tableView  cellForRowAtIndexPath:indexPath];
     cell.textLabel.font = referenceCell.textLabel.font;
     cell.textLabel.numberOfLines = 0;
+NSLog(@"%@", indexPath);
     return cell;
 }
 

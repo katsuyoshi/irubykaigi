@@ -32,8 +32,18 @@
 
     [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Tokyo"]];
     
+    // モデルの更新
+    @try {
+        DEFAULT_MANAGED_OBJECT_CONTEXT;
+    }
+    @catch (NSException * e) {
+NSLog(@"%@", e);
+    }
+    @finally {
+        
+    }
+    
     // 未登録の場合は初期データをインポートする
-
     Importer *importer = [Importer defaultImporter];
     [importer addObserver:self forKeyPath:@"isUpdated" options:NSKeyValueObservingOptionNew context:importer];
 //    [importer cleanUp];

@@ -32,7 +32,7 @@
 - (Room *)roomForName:(NSString *)name region:(Region *)region;
 - (Day *)dayForString:(NSString *)dayString region:(Region *)region;
 - (SessionTypeCode)sessionTypeCodeForName:(NSString *)name;
-- (Speaker *)speakerForName:(id)name region:(Region *)region;
+- (Speaker *)speakerForName:(id)name info:(NSDictionary *)info region:(Region *)region;
 
 @end
 
@@ -53,8 +53,13 @@
 - (NSURL *)mainSiteURL
 {
     if (mainSiteURL == nil) {
+#ifdef DEBUG
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"timetable_update" ofType:@"json"];
+        mainSiteURL = [[NSURL alloc] initFileURLWithPath:path];
+#else
         NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/2010/timetables.json";
         mainSiteURL = [[NSURL alloc] initWithString:urlString];
+#endif
     }
     return mainSiteURL;
 }
@@ -72,7 +77,7 @@
 - (void)import
 {
     updating = YES;
-    [self clearAllData];
+// DELETEME:    [self clearAllData];
 
     NSString *path = [[NSBundle mainBundle] pathForResource:@"timetable" ofType:@"json"];
     [self importWithURL:[NSURL fileURLWithPath:path]];
@@ -110,7 +115,11 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
     NSDate *newUpdatedAt = [dateFormatter dateFromString:[object valueForKey:@"updated_at"]];
 
-    if (updatedAt == nil || newUpdatedAt == nil || [updatedAt earlierDate:newUpdatedAt] == updatedAt) {  
+#ifdef DEBUG
+    if (YES) {
+#else
+    if (updatedAt == nil || newUpdatedAt == nil || [updatedAt laterDate:newUpdatedAt] != updatedAt) { 
+#endif
       
         NSManagedObjectContext *context = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];        
         [self parseTimelineWithObject:[object valueForKey:@"ja"] region:[Region japaneseInManagedObjectContext:context]];
@@ -231,7 +240,7 @@
             for (NSDictionary *speakerDict in [dict valueForKey:@"speakers"]) {
                 NSString *name = [speakerDict valueForKey:@"name"];
                 if ([name length]) {
-                    [session addSpeakersObject:[self speakerForName:name region:region]];
+                    [session addSpeakersObject:[self speakerForName:name info:speakerDict region:region]];
                 }
             }
             if ([session.sessionType intValue] == SessionTypeCodeLightningTalks) {
@@ -274,7 +283,8 @@
             talk.title = [lightningTalksDict valueForKey:@"title"];
             [talk removeSpeakers:talk.speakers];
             for (id speakerDict in [lightningTalksDict valueForKey:@"speakers"]) {
-                Speaker *speaker = [self speakerForName:[speakerDict valueForKey:@"name"] region:region];
+NSLog(@"%@", speakerDict);
+                Speaker *speaker = [self speakerForName:[speakerDict valueForKey:@"name"] info:speakerDict region:region];
                 [talk addSpeakersObject:speaker];
             }
         }
@@ -291,7 +301,7 @@
 
 
 
-- (Speaker *)speakerForName:(id)name region:(Region *)region
+- (Speaker *)speakerForName:(id)name info:(NSDictionary *)info region:(Region *)region
 {
     NSManagedObjectContext *context = region.managedObjectContext;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"region = %@ and name = %@", region, name];
@@ -303,6 +313,16 @@
         [speaker setListNumber];
         speaker.code = [speaker.position stringValue];
     }
+    
+    NSString *belonging = [info valueForKey:@"belonging"];
+    if (belonging && (NSNull *)belonging != [NSNull null]) {
+        speaker.belonging = belonging;
+    }
+    NSString *profile = [info valueForKey:@"profile"];
+    if (profile && (NSNull *)belonging != [NSNull null]) {
+        speaker.profile = profile;
+    }
+
     return speaker;
 }
 
