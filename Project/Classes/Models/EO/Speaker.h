@@ -18,18 +18,18 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * code;
-@property (nonatomic, retain) NSString * belonging;
 @property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSSet* lightningTalks;
 @property (nonatomic, retain) NSSet* sessions;
 @property (nonatomic, retain) Region * region;
 @property (nonatomic, retain) NSString * profile;
+@property (nonatomic, retain) NSSet* belongings;
 
 @property (assign, readonly) NSArray *sortedSession;
 @property (assign, readonly) NSString *firstLetterOfName;
 @property (assign, readonly) NSString *upperCaseName;
 
-@property (assign, readonly) NSArray *belongings;
+@property (assign, readonly) NSArray* sortedBelongings;
 
 
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
@@ -37,6 +37,8 @@
 
 + (Speaker *)findByName:(NSString *)name region:(Region *)region;
 + (Speaker *)findByName:(NSString *)name region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (NSArray *)belongingsFromString:(NSString *)string;
 
 - (Speaker *)speakerForRegion:(Region *)region;
 
@@ -53,6 +55,10 @@
 - (void)removeLightningTalksObject:(LightningTalk *)value;
 - (void)addLightningTalks:(NSSet *)value;
 - (void)removeLightningTalks:(NSSet *)value;
-@end
 
+- (void)addBelongingsObject:(NSManagedObject *)value;
+- (void)removeBelongingsObject:(NSManagedObject *)value;
+- (void)addBelongings:(NSSet *)value;
+- (void)removeBelongings:(NSSet *)value;
+@end
 

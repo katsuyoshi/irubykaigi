@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JsonCrudeImporterTest.h"
+#import "JsonImporterTest.h"
 
 
-@interface RegionSeesionsForDateTest : JsonCrudeImporterTest {
+@interface RegionSeesionsForDateTest : JsonImporterTest {
 
 }
 

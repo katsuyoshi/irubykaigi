@@ -18,12 +18,13 @@
 
 @dynamic name;
 @dynamic code;
-@dynamic belonging;
 @dynamic position;
 @dynamic lightningTalks;
 @dynamic sessions;
 @dynamic region;
 @dynamic profile;
+@dynamic belongings;
+
 
 
 + (Speaker *)speakerWithCode:(NSString *)code region:(Region *)region inManagedObjectContext:(NSManagedObjectContext *)context
@@ -93,21 +94,55 @@
     return [Speaker findWithPredicate:predicate sortDescriptors:nil managedObjectContext:self.managedObjectContext error:NULL];
 }
 
-- (NSArray *)belongings
++ (NSString *)stripWithString:(NSString *)string
 {
-    if ([self.belonging length]) {
-        return [self.belonging componentsSeparatedByString:@","];
+    while([string characterAtIndex:0] == ' ') {
+        string = [string substringFromIndex:1];
+    }
+    while ([string length]) {
+        int index = [string length] - 1;
+        if ([string characterAtIndex:index] == ' ') {
+            string = [string substringToIndex:index];
+        } else {
+            break;
+        }
+    }
+    return string;
+}
+
++ (NSArray *)belongingsFromString:(NSString *)string
+{
+    if ([string length]) {
+        NSMutableArray *result = [NSMutableArray array];
+        for (NSString *str in [string componentsSeparatedByString:@","]) {
+            str = [self stripWithString:str];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] '^(inc|ltd|uk).*'"];
+            if ([predicate evaluateWithObject:str]) {
+                int index = [result count] - 1;
+                if (index >= 0) {
+                    NSArray *array = [NSArray arrayWithObjects:[result lastObject], str, nil];
+                    [result replaceObjectAtIndex:index withObject:[array componentsJoinedByString:@","]];
+                }
+            } else {
+                [result addObject:str];
+            }
+        }
+        return result;
     } else {
         return [NSArray array];
     }
 }
 
+- (NSArray *)sortedBelongings
+{
+    return [self.belongings sortedArrayUsingDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"position"]];
+}
 
 - (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
 {
     NSMutableArray *array = [NSMutableArray arrayWithObjects:@"name", nil];
-    if ([self.belonging length]) {
-        [array addObject:@"belonging"];
+    if ([self.belongings count]) {
+        [array addObject:@"belongings.title"];
     }
     if ([self.profile length]) {
         [array addObject:@"profile"];

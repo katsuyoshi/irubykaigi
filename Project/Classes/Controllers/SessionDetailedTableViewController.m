@@ -115,7 +115,7 @@
         NSArray *speakers = self.session.sortedSpeakers;
         if ([speakers count]) {
             Speaker *speaker = [speakers objectAtIndex:indexPath.row];
-            BOOL hasDisclosure = [speaker.profile length] || [speaker.belonging length];
+            BOOL hasDisclosure = [speaker.profile length] || [speaker.belongings count];
             cell.accessoryType = hasDisclosure ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
             cell.selectionStyle = hasDisclosure ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
         } else {
@@ -127,12 +127,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == SPEAKERS_SECTION) {
-        SpeakerDetaildTableViewController *controller = [SpeakerDetaildTableViewController speakerDetailedTableViewController];
-        Speaker *speaker = [self.session.sortedSpeakers objectAtIndex:indexPath.row];
-        controller.detailedObject = speaker;
-        controller.tableView.backgroundColor = self.tableView.backgroundColor;
-        [self.navigationController pushViewController:controller animated:YES];
+    NSInteger section = [self sectionTypeForSection:indexPath.section];
+    if (section == SPEAKERS_SECTION) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if (cell.accessoryType != UITableViewCellAccessoryNone) {
+            SpeakerDetaildTableViewController *controller = [SpeakerDetaildTableViewController speakerDetailedTableViewController];
+            Speaker *speaker = [self.session.sortedSpeakers objectAtIndex:indexPath.row];
+            controller.detailedObject = speaker;
+            controller.tableView.backgroundColor = self.tableView.backgroundColor;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
     } else {
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }

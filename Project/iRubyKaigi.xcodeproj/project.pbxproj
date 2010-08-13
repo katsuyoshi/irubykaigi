@@ -16,7 +16,6 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		4613666D1212E40E00801913 /* timetable_update.json in Resources */ = {isa = PBXBuildFile; fileRef = 4613666C1212E40E00801913 /* timetable_update.json */; };
 		461367351213BC7900801913 /* iRubyKaigi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 461366E01213B6BD00801913 /* iRubyKaigi.xcdatamodeld */; };
-		461367BF1213C21000801913 /* V1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 461367BE1213C21000801913 /* V1To2.xcmappingmodel */; };
 		4613682C1213CA4800801913 /* SpeakerDetaildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4613682B1213CA4800801913 /* SpeakerDetaildTableViewController.m */; };
 		46178E8611F9D011000BFA1C /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178E4A11F9D011000BFA1C /* NSErrorCoreDataExtension.m */; };
 		46178E8711F9D011000BFA1C /* NSFetchedResultsControllerSortedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 46178E4D11F9D011000BFA1C /* NSFetchedResultsControllerSortedObject.m */; };
@@ -63,6 +62,8 @@
 		4628F9D711DD68F400EFB272 /* SessionBySpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */; };
 		4628FA3C11DD76EA00EFB272 /* SessionDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */; };
 		4641FD6C1207C25200317642 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD6B1207C25200317642 /* WebViewController.m */; };
+		465600EF12150CF9003A3B3B /* Belonging.m in Sources */ = {isa = PBXBuildFile; fileRef = 465600EE12150CF9003A3B3B /* Belonging.m */; };
+		465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */; };
 		465BB4D211C9A25400770325 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4CF11C9A25400770325 /* Room.m */; };
 		465BB4D311C9A25400770325 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4D111C9A25400770325 /* Speaker.m */; };
 		465BB9D511CA573000770325 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB9D411CA573000770325 /* HistoryTableViewController.m */; };
@@ -126,10 +127,8 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4606BDC8120E644B00BA2A7F /* timetables.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetables.json; sourceTree = "<group>"; };
 		4613666C1212E40E00801913 /* timetable_update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetable_update.json; sourceTree = "<group>"; };
 		461366E21213B6BD00801913 /* iRubyKaigi 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iRubyKaigi 2.xcdatamodel"; sourceTree = "<group>"; };
-		461367BE1213C21000801913 /* V1To2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V1To2.xcmappingmodel; sourceTree = "<group>"; };
 		4613682A1213CA4800801913 /* SpeakerDetaildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDetaildTableViewController.h; sourceTree = "<group>"; };
 		4613682B1213CA4800801913 /* SpeakerDetaildTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDetaildTableViewController.m; sourceTree = "<group>"; };
 		461407F61004B9CB00964C01 /* LightningTalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalk.h; sourceTree = "<group>"; };
@@ -216,9 +215,6 @@
 		4620EA23120319AF008BB2BC /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		4620EA24120319AF008BB2BC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		4620EA25120319AF008BB2BC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		4620EA8B120323F9008BB2BC /* get_timetable.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable.rb; sourceTree = "<group>"; };
-		4620EA8C120323F9008BB2BC /* simple-json.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "simple-json.rb"; sourceTree = "<group>"; };
-		4620EA8D120323F9008BB2BC /* update */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = update; sourceTree = "<group>"; };
 		46218A8711DBA47E00CBBADF /* session_by_date_icon_30x30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "session_by_date_icon_30x30@2x.png"; sourceTree = "<group>"; };
 		46218A8811DBA47E00CBBADF /* session_by_date_icon_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = session_by_date_icon_30x30.png; sourceTree = "<group>"; };
 		4621C44710070EB60052495F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -231,6 +227,9 @@
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
 		4641FD6A1207C25200317642 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		4641FD6B1207C25200317642 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		465600ED12150CF9003A3B3B /* Belonging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Belonging.h; sourceTree = "<group>"; };
+		465600EE12150CF9003A3B3B /* Belonging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Belonging.m; sourceTree = "<group>"; };
+		465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V1To2.xcmappingmodel; sourceTree = "<group>"; };
 		465BB4CE11C9A25400770325 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		465BB4CF11C9A25400770325 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
 		465BB4D011C9A25400770325 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
@@ -266,7 +265,6 @@
 		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4692CB4F11ACE3950098ADE1 /* iRubyKaigi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi_Prefix.pch; sourceTree = "<group>"; };
-		469B805F120B61D5007CDCF2 /* get_timetable_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = get_timetable_test.rb; sourceTree = "<group>"; };
 		469B8147120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueDefaultQueue.h; sourceTree = "<group>"; };
 		469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueDefaultQueue.m; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				4692CB0311ACB8040098ADE1 /* Resources-iPad */,
-				4620EA8A120323F9008BB2BC /* script */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -431,7 +428,7 @@
 		461366EA1213B73500801913 /* Migrations */ = {
 			isa = PBXGroup;
 			children = (
-				461367BE1213C21000801913 /* V1To2.xcmappingmodel */,
+				465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -439,6 +436,8 @@
 		461407F51004B9CB00964C01 /* EO */ = {
 			isa = PBXGroup;
 			children = (
+				465600ED12150CF9003A3B3B /* Belonging.h */,
+				465600EE12150CF9003A3B3B /* Belonging.m */,
 				465BB4CE11C9A25400770325 /* Room.h */,
 				465BB4CF11C9A25400770325 /* Room.m */,
 				465BB4D011C9A25400770325 /* Speaker.h */,
@@ -609,19 +608,6 @@
 			);
 			name = json;
 			path = "vendor/json-framework/Classes";
-			sourceTree = SOURCE_ROOT;
-		};
-		4620EA8A120323F9008BB2BC /* script */ = {
-			isa = PBXGroup;
-			children = (
-				4606BDC8120E644B00BA2A7F /* timetables.json */,
-				469B805F120B61D5007CDCF2 /* get_timetable_test.rb */,
-				4620EA8B120323F9008BB2BC /* get_timetable.rb */,
-				4620EA8C120323F9008BB2BC /* simple-json.rb */,
-				4620EA8D120323F9008BB2BC /* update */,
-			);
-			name = script;
-			path = ../script;
 			sourceTree = SOURCE_ROOT;
 		};
 		46218A8411DBA47E00CBBADF /* images */ = {
@@ -941,8 +927,9 @@
 				4641FD6C1207C25200317642 /* WebViewController.m in Sources */,
 				469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */,
 				461367351213BC7900801913 /* iRubyKaigi.xcdatamodeld in Sources */,
-				461367BF1213C21000801913 /* V1To2.xcmappingmodel in Sources */,
 				4613682C1213CA4800801913 /* SpeakerDetaildTableViewController.m in Sources */,
+				465600EF12150CF9003A3B3B /* Belonging.m in Sources */,
+				465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

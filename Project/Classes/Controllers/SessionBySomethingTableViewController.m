@@ -92,14 +92,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     SessionTableViewCell *cell = (SessionTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    if (cell.session.isLightningTalks == NO) {
+    if (cell.session.isLightningTalks) {
+        LightningTalkTableViewController *controller = [LightningTalkTableViewController lightningTalksTableViewController];
+        controller.masterObject = cell.session;
+        [self.navigationController pushViewController:controller animated:YES];
+    } else
+    if (cell.session.isBreak == NO) {
         SessionDetailedTableViewController *controller = [SessionDetailedTableViewController sessionDetailedTableViewController];
         controller.editingMode = NO;
         controller.detailedObject = [arrayController objectAtIndexPath:indexPath];
-        [self.navigationController pushViewController:controller animated:YES];
-    } else {
-        LightningTalkTableViewController *controller = [LightningTalkTableViewController lightningTalksTableViewController];
-        controller.masterObject = cell.session;
         [self.navigationController pushViewController:controller animated:YES];
     }
     

@@ -140,7 +140,9 @@
 - (void)reloadData
 {
     [arrayController release];
-    arrayController = [[ISSectionedArrayController alloc] initWithSet:self.region.speakers sectionName:@"firstLetterOfName" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"upperCaseName, position"]];    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"sessions.@count != 0"];
+    NSSet *speakers = [self.region.speakers filteredSetUsingPredicate:predicate];
+    arrayController = [[ISSectionedArrayController alloc] initWithSet:speakers sectionName:@"firstLetterOfName" sortDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"upperCaseName, position"]];    
     [self.tableView reloadData];
 }
 

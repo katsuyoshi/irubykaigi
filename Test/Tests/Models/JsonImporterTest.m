@@ -6,23 +6,24 @@
 //  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
-#import "JsonCrudeImporterTest.h"
-#import "JsonCrudeImporter.h"
+#import "JsonImporterTest.h"
+#import "JsonImporter.h"
 #import "Room.h"
 #import "Region.h"
 #import "Day.h"
 #import "Session.h"
+#import "Speaker.h"
 
 
 
-@implementation JsonCrudeImporterTest
+@implementation JsonImporterTest
 
 - (void)setUp
 {
     [super setUp];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"JsonCrudeImporterTest" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"JsonImporterTest" ofType:@"json"];
     NSURL *url = [NSURL fileURLWithPath:path];
-    [[[JsonCrudeImporter new] autorelease] importWithURL:url];
+    [[[JsonImporter new] autorelease] importWithURL:url forceUpdate:YES];
 }
 
 - (void)tearDown
@@ -53,7 +54,7 @@
 - (void)testJaRooms
 {
     Region *region = [Region japanese];
-    ASSERT_EQUAL_INT(7, [region.rooms count]);
+    ASSERT_EQUAL_INT(8, [region.rooms count]);
 }
 
 - (void)testJaSessions
@@ -64,7 +65,7 @@
     Day *day = [days objectAtIndex:0];
     
     ASSERT_EQUAL_INT(10, [[self sessionsWithDay:day roomName:@"大ホール"] count]);
-    ASSERT_EQUAL_INT(10, [[self sessionsWithDay:day roomName:@"中ホール200"] count]);
+    ASSERT_EQUAL_INT(9, [[self sessionsWithDay:day roomName:@"中ホール200"] count]);
     ASSERT_EQUAL_INT(1, [[self sessionsWithDay:day roomName:@"202-B"] count]);
     ASSERT_EQUAL_INT(3, [[self sessionsWithDay:day roomName:@"202-A"] count]);
     ASSERT_EQUAL_INT(0, [[self sessionsWithDay:day roomName:@"201-B"] count]);
@@ -99,7 +100,7 @@
 - (void)testEnRooms
 {
     Region *region = [Region english];
-    ASSERT_EQUAL_INT(7, [region.rooms count]);
+    ASSERT_EQUAL_INT(8, [region.rooms count]);
 }
 
 - (void)testEnSessions
@@ -111,7 +112,7 @@
 
 NSLog(@"%@", [self sessionsWithDay:day roomName:@"Main Convention Hall"]);
     ASSERT_EQUAL_INT(10, [[self sessionsWithDay:day roomName:@"Main Convention Hall"] count]);
-    ASSERT_EQUAL_INT(10, [[self sessionsWithDay:day roomName:@"Convention Hall 200"] count]);
+    ASSERT_EQUAL_INT(9, [[self sessionsWithDay:day roomName:@"Convention Hall 200"] count]);
     ASSERT_EQUAL_INT(1, [[self sessionsWithDay:day roomName:@"202-B"] count]);
     ASSERT_EQUAL_INT(3, [[self sessionsWithDay:day roomName:@"202-A"] count]);
     ASSERT_EQUAL_INT(0, [[self sessionsWithDay:day roomName:@"201-B"] count]);

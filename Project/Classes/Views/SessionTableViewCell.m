@@ -115,11 +115,11 @@
         self.textLabel.text = [session valueForKey:@"title"];
 
         NSMutableArray *subTitles = [NSMutableArray array];
+        [subTitles addObjectsFromArray:[session.speakers valueForKey:@"name"]];
         NSString *room = session.room.name;
         if (room) {
             [subTitles addObject:room];
         }
-        [subTitles addObjectsFromArray:[session.speakers valueForKey:@"name"]];
         self.detailTextLabel.text = [subTitles componentsJoinedByString:@" "];
         
         NSArray *array = [Property sharedProperty].favoriteSessons;

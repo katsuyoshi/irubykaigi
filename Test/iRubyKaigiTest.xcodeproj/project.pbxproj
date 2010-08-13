@@ -20,7 +20,7 @@
 		4620EBB012039999008BB2BC /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBA912039999008BB2BC /* SBJsonBase.m */; };
 		4620EBB112039999008BB2BC /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBAB12039999008BB2BC /* SBJsonParser.m */; };
 		4620EBB212039999008BB2BC /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EBAD12039999008BB2BC /* SBJsonWriter.m */; };
-		4620EC2B12039EC7008BB2BC /* JsonCrudeImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EC2A12039EC7008BB2BC /* JsonCrudeImporterTest.m */; };
+		4620EC2B12039EC7008BB2BC /* JsonImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EC2A12039EC7008BB2BC /* JsonImporterTest.m */; };
 		4641FBE51207ABF800317642 /* PresentSessionTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FBE41207ABF800317642 /* PresentSessionTableViewControllerTest.m */; };
 		4641FC2B1207AD5D00317642 /* AppAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FBFF1207AD5D00317642 /* AppAgent.m */; };
 		4641FC2C1207AD5D00317642 /* UINavigationBarBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC031207AD5D00317642 /* UINavigationBarBasedTest.m */; };
@@ -70,9 +70,7 @@
 		4641FCB31207AE0800317642 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC821207AE0800317642 /* Session.m */; };
 		4641FCB41207AE0800317642 /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC841207AE0800317642 /* Speaker.m */; };
 		4641FCB51207AE0800317642 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC861207AE0800317642 /* Importer.m */; };
-		4641FCB61207AE0800317642 /* JsonCrudeImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC881207AE0800317642 /* JsonCrudeImporter.m */; };
 		4641FCB71207AE0800317642 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC8A1207AE0800317642 /* Property.m */; };
-		4641FCB81207AE0800317642 /* TestDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC8C1207AE0800317642 /* TestDataImporter.m */; };
 		4641FCB91207AE0800317642 /* LightningTalkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC8F1207AE0800317642 /* LightningTalkTableViewCell.m */; };
 		4641FCBA1207AE0800317642 /* RoomColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC911207AE0800317642 /* RoomColorView.m */; };
 		4641FCBB1207AE0800317642 /* RoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FC931207AE0800317642 /* RoomTableViewCell.m */; };
@@ -83,6 +81,13 @@
 		4641FCE01207AF1900317642 /* IUTTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4641FCDD1207AF1900317642 /* IUTTestView.xib */; };
 		4641FCE61207AF8300317642 /* IUTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FCE51207AF8300317642 /* IUTAppDelegate.m */; };
 		4641FD141207BBF100317642 /* RegionSeesionsForDateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD131207BBF100317642 /* RegionSeesionsForDateTest.m */; };
+		465600E712150B1A003A3B3B /* Belonging.m in Sources */ = {isa = PBXBuildFile; fileRef = 465600E612150B1A003A3B3B /* Belonging.m */; };
+		4656010E12150DDD003A3B3B /* V1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4656010D12150DDD003A3B3B /* V1To2.xcmappingmodel */; };
+		4656FF221214B86A003A3B3B /* iRubyKaigi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4656FF1F1214B86A003A3B3B /* iRubyKaigi.xcdatamodeld */; };
+		4656FF271214B880003A3B3B /* JsonImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656FF241214B880003A3B3B /* JsonImporter.m */; };
+		4656FF2B1214B89B003A3B3B /* SpeakerDetaildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656FF2A1214B89B003A3B3B /* SpeakerDetaildTableViewController.m */; };
+		4656FFDB1214E980003A3B3B /* JsonImporterVer2Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656FFDA1214E980003A3B3B /* JsonImporterVer2Test.m */; };
+		4656FFDD1214EA6C003A3B3B /* JsonImporterVer2Test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4656FFDC1214EA6C003A3B3B /* JsonImporterVer2Test.json */; };
 		46655FD6120CB4CF00694D25 /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655F98120CB4CF00694D25 /* NSErrorCoreDataExtension.m */; };
 		46655FD7120CB4CF00694D25 /* NSFetchedResultsControllerSortedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655F9B120CB4CF00694D25 /* NSFetchedResultsControllerSortedObject.m */; };
 		46655FD8120CB4CF00694D25 /* ISFetchRequestCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655F9E120CB4CF00694D25 /* ISFetchRequestCondition.m */; };
@@ -112,7 +117,7 @@
 		46655FF0120CB4CF00694D25 /* ISSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655FD3120CB4CF00694D25 /* ISSelectionTableViewController.m */; };
 		46655FF1120CB4CF00694D25 /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655FD5120CB4CF00694D25 /* ISTableViewCell.m */; };
 		46655FF6120CB4FA00694D25 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46655FF5120CB4FA00694D25 /* WebViewController.m */; };
-		46655FFE120CB55F00694D25 /* JsonCrudeImporterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 46655FFD120CB55F00694D25 /* JsonCrudeImporterTest.json */; };
+		46655FFE120CB55F00694D25 /* JsonImporterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 46655FFD120CB55F00694D25 /* JsonImporterTest.json */; };
 		466AF4DE0F2F02A3004A649A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 466AF4DD0F2F02A3004A649A /* icon.png */; };
 		4681C7E80FFAB9690023DACB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4681C7E70FFAB9690023DACB /* CoreData.framework */; };
 		46C6ADCA0F2DDFC800BA1B73 /* isd_logo_60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */; };
@@ -122,7 +127,6 @@
 		46D4452311AED0DC0076E28B /* favorite_on_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A311AED0DC0076E28B /* favorite_on_blue.png */; };
 		46D4452411AED0DC0076E28B /* favorite_on_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A411AED0DC0076E28B /* favorite_on_green.png */; };
 		46D4452511AED0DC0076E28B /* favorite_on_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A511AED0DC0076E28B /* favorite_on_red.png */; };
-		46D4452811AED0DC0076E28B /* iRubyKaigi.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 46D443A811AED0DC0076E28B /* iRubyKaigi.xcdatamodel */; };
 		46D4465B11AED1C80076E28B /* ModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4465A11AED1C80076E28B /* ModelTest.m */; };
 		46D4466E11AED41E0076E28B /* RegionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4466D11AED41E0076E28B /* RegionTest.m */; };
 		46D446A011B0D8090076E28B /* DayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4469F11B0D8090076E28B /* DayTest.m */; };
@@ -132,7 +136,7 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* iRubyKaigi2009Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRubyKaigi2009Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* iRubyKaigiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRubyKaigiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,8 +157,8 @@
 		4620EBAB12039999008BB2BC /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		4620EBAC12039999008BB2BC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		4620EBAD12039999008BB2BC /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		4620EC2912039EC7008BB2BC /* JsonCrudeImporterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonCrudeImporterTest.h; sourceTree = "<group>"; };
-		4620EC2A12039EC7008BB2BC /* JsonCrudeImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonCrudeImporterTest.m; sourceTree = "<group>"; };
+		4620EC2912039EC7008BB2BC /* JsonImporterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporterTest.h; sourceTree = "<group>"; };
+		4620EC2A12039EC7008BB2BC /* JsonImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporterTest.m; sourceTree = "<group>"; };
 		4641FBE31207ABF800317642 /* PresentSessionTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentSessionTableViewControllerTest.h; sourceTree = "<group>"; };
 		4641FBE41207ABF800317642 /* PresentSessionTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentSessionTableViewControllerTest.m; sourceTree = "<group>"; };
 		4641FBFE1207AD5D00317642 /* AppAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAgent.h; sourceTree = "<group>"; };
@@ -256,8 +260,6 @@
 		4641FC841207AE0800317642 /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
 		4641FC851207AE0800317642 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
 		4641FC861207AE0800317642 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Importer.m; sourceTree = "<group>"; };
-		4641FC871207AE0800317642 /* JsonCrudeImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonCrudeImporter.h; sourceTree = "<group>"; };
-		4641FC881207AE0800317642 /* JsonCrudeImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonCrudeImporter.m; sourceTree = "<group>"; };
 		4641FC891207AE0800317642 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
 		4641FC8A1207AE0800317642 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		4641FC8B1207AE0800317642 /* TestDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDataImporter.h; sourceTree = "<group>"; };
@@ -279,6 +281,18 @@
 		4641FCE51207AF8300317642 /* IUTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTAppDelegate.m; sourceTree = "<group>"; };
 		4641FD121207BBF100317642 /* RegionSeesionsForDateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionSeesionsForDateTest.h; sourceTree = "<group>"; };
 		4641FD131207BBF100317642 /* RegionSeesionsForDateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionSeesionsForDateTest.m; sourceTree = "<group>"; };
+		465600E512150B1A003A3B3B /* Belonging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Belonging.h; sourceTree = "<group>"; };
+		465600E612150B1A003A3B3B /* Belonging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Belonging.m; sourceTree = "<group>"; };
+		4656010D12150DDD003A3B3B /* V1To2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V1To2.xcmappingmodel; sourceTree = "<group>"; };
+		4656FF201214B86A003A3B3B /* iRubyKaigi 2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = "iRubyKaigi 2.xcdatamodel"; sourceTree = "<group>"; };
+		4656FF211214B86A003A3B3B /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
+		4656FF231214B880003A3B3B /* JsonImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporter.h; sourceTree = "<group>"; };
+		4656FF241214B880003A3B3B /* JsonImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporter.m; sourceTree = "<group>"; };
+		4656FF291214B89B003A3B3B /* SpeakerDetaildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDetaildTableViewController.h; sourceTree = "<group>"; };
+		4656FF2A1214B89B003A3B3B /* SpeakerDetaildTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDetaildTableViewController.m; sourceTree = "<group>"; };
+		4656FFD91214E980003A3B3B /* JsonImporterVer2Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporterVer2Test.h; sourceTree = "<group>"; };
+		4656FFDA1214E980003A3B3B /* JsonImporterVer2Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporterVer2Test.m; sourceTree = "<group>"; };
+		4656FFDC1214EA6C003A3B3B /* JsonImporterVer2Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JsonImporterVer2Test.json; sourceTree = "<group>"; };
 		46655F94120CB4CF00694D25 /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
 		46655F95120CB4CF00694D25 /* CiderCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiderCoreData.h; sourceTree = "<group>"; };
 		46655F97120CB4CF00694D25 /* NSErrorCoreDataExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorCoreDataExtension.h; sourceTree = "<group>"; };
@@ -338,7 +352,7 @@
 		46655FD5120CB4CF00694D25 /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
 		46655FF4120CB4FA00694D25 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		46655FF5120CB4FA00694D25 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		46655FFD120CB55F00694D25 /* JsonCrudeImporterTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JsonCrudeImporterTest.json; sourceTree = "<group>"; };
+		46655FFD120CB55F00694D25 /* JsonImporterTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JsonImporterTest.json; sourceTree = "<group>"; };
 		466AF4DD0F2F02A3004A649A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		4681C7E70FFAB9690023DACB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = isd_logo_60x40.png; sourceTree = "<group>"; };
@@ -348,7 +362,6 @@
 		46D443A311AED0DC0076E28B /* favorite_on_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on_blue.png; sourceTree = "<group>"; };
 		46D443A411AED0DC0076E28B /* favorite_on_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on_green.png; sourceTree = "<group>"; };
 		46D443A511AED0DC0076E28B /* favorite_on_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite_on_red.png; sourceTree = "<group>"; };
-		46D443A811AED0DC0076E28B /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		46D443AF11AED0DC0076E28B /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46D4465911AED1C80076E28B /* ModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelTest.h; sourceTree = "<group>"; };
 		46D4465A11AED1C80076E28B /* ModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelTest.m; sourceTree = "<group>"; };
@@ -381,7 +394,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* iRubyKaigi2009Test.app */,
+				1D6058910D05DD3D006BFB54 /* iRubyKaigiTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -538,6 +551,8 @@
 		4641FC481207AE0800317642 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4656FF291214B89B003A3B3B /* SpeakerDetaildTableViewController.h */,
+				4656FF2A1214B89B003A3B3B /* SpeakerDetaildTableViewController.m */,
 				46655FF4120CB4FA00694D25 /* WebViewController.h */,
 				46655FF5120CB4FA00694D25 /* WebViewController.m */,
 				4641FC491207AE0800317642 /* AbstractSessionDetaildTableViewController.h */,
@@ -586,11 +601,12 @@
 		4641FC771207AE0800317642 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4656FF251214B880003A3B3B /* Migrations */,
 				4641FC781207AE0800317642 /* EO */,
 				4641FC851207AE0800317642 /* Importer.h */,
 				4641FC861207AE0800317642 /* Importer.m */,
-				4641FC871207AE0800317642 /* JsonCrudeImporter.h */,
-				4641FC881207AE0800317642 /* JsonCrudeImporter.m */,
+				4656FF231214B880003A3B3B /* JsonImporter.h */,
+				4656FF241214B880003A3B3B /* JsonImporter.m */,
 				4641FC891207AE0800317642 /* Property.h */,
 				4641FC8A1207AE0800317642 /* Property.m */,
 				4641FC8B1207AE0800317642 /* TestDataImporter.h */,
@@ -602,6 +618,8 @@
 		4641FC781207AE0800317642 /* EO */ = {
 			isa = PBXGroup;
 			children = (
+				465600E512150B1A003A3B3B /* Belonging.h */,
+				465600E612150B1A003A3B3B /* Belonging.m */,
 				4641FC791207AE0800317642 /* Day.h */,
 				4641FC7A1207AE0800317642 /* Day.m */,
 				4641FC7B1207AE0800317642 /* LightningTalk.h */,
@@ -633,6 +651,14 @@
 				4641FC971207AE0800317642 /* UIColorIRK.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4656FF251214B880003A3B3B /* Migrations */ = {
+			isa = PBXGroup;
+			children = (
+				4656010D12150DDD003A3B3B /* V1To2.xcmappingmodel */,
+			);
+			path = Migrations;
 			sourceTree = "<group>";
 		};
 		46655F93120CB4CF00694D25 /* cider */ = {
@@ -766,7 +792,8 @@
 		46655FF9120CB52F00694D25 /* files */ = {
 			isa = PBXGroup;
 			children = (
-				46655FFD120CB55F00694D25 /* JsonCrudeImporterTest.json */,
+				4656FFDC1214EA6C003A3B3B /* JsonImporterVer2Test.json */,
+				46655FFD120CB55F00694D25 /* JsonImporterTest.json */,
 			);
 			path = files;
 			sourceTree = "<group>";
@@ -803,6 +830,7 @@
 		46D4436E11AED0DB0076E28B /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				4656FF1F1214B86A003A3B3B /* iRubyKaigi.xcdatamodeld */,
 				4641FC471207AE0800317642 /* Classes */,
 				46D4439D11AED0DC0076E28B /* Localizable.strings */,
 				46D443A111AED0DC0076E28B /* Entitlements.plist */,
@@ -810,7 +838,6 @@
 				46D443A311AED0DC0076E28B /* favorite_on_blue.png */,
 				46D443A411AED0DC0076E28B /* favorite_on_green.png */,
 				46D443A511AED0DC0076E28B /* favorite_on_red.png */,
-				46D443A811AED0DC0076E28B /* iRubyKaigi.xcdatamodel */,
 				46D443B311AED0DC0076E28B /* Resources-iPad */,
 			);
 			name = Project;
@@ -839,8 +866,10 @@
 				46D4893B11B562AB0063B689 /* SpeakerTest.m */,
 				460EA4B811B3B0A0009F5AAB /* ImporterTest.h */,
 				460EA4B911B3B0A0009F5AAB /* ImporterTest.m */,
-				4620EC2912039EC7008BB2BC /* JsonCrudeImporterTest.h */,
-				4620EC2A12039EC7008BB2BC /* JsonCrudeImporterTest.m */,
+				4620EC2912039EC7008BB2BC /* JsonImporterTest.h */,
+				4620EC2A12039EC7008BB2BC /* JsonImporterTest.m */,
+				4656FFD91214E980003A3B3B /* JsonImporterVer2Test.h */,
+				4656FFDA1214E980003A3B3B /* JsonImporterVer2Test.m */,
 				4641FD121207BBF100317642 /* RegionSeesionsForDateTest.h */,
 				4641FD131207BBF100317642 /* RegionSeesionsForDateTest.m */,
 				46655FF9120CB52F00694D25 /* files */,
@@ -865,7 +894,7 @@
 			);
 			name = iRubyKaigiTest;
 			productName = iRubyKaigi2009Test;
-			productReference = 1D6058910D05DD3D006BFB54 /* iRubyKaigi2009Test.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* iRubyKaigiTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -914,7 +943,8 @@
 				4641FCE01207AF1900317642 /* IUTTestView.xib in Resources */,
 				46655FE7120CB4CF00694D25 /* ISDateTimeInputViewController.xib in Resources */,
 				46655FEF120CB4CF00694D25 /* cider.strings in Resources */,
-				46655FFE120CB55F00694D25 /* JsonCrudeImporterTest.json in Resources */,
+				46655FFE120CB55F00694D25 /* JsonImporterTest.json in Resources */,
+				4656FFDD1214EA6C003A3B3B /* JsonImporterVer2Test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -926,7 +956,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				46D4452811AED0DC0076E28B /* iRubyKaigi.xcdatamodel in Sources */,
 				46D4465B11AED1C80076E28B /* ModelTest.m in Sources */,
 				46D4466E11AED41E0076E28B /* RegionTest.m in Sources */,
 				46D446A011B0D8090076E28B /* DayTest.m in Sources */,
@@ -938,7 +967,7 @@
 				4620EBB012039999008BB2BC /* SBJsonBase.m in Sources */,
 				4620EBB112039999008BB2BC /* SBJsonParser.m in Sources */,
 				4620EBB212039999008BB2BC /* SBJsonWriter.m in Sources */,
-				4620EC2B12039EC7008BB2BC /* JsonCrudeImporterTest.m in Sources */,
+				4620EC2B12039EC7008BB2BC /* JsonImporterTest.m in Sources */,
 				4641FBE51207ABF800317642 /* PresentSessionTableViewControllerTest.m in Sources */,
 				4641FC2B1207AD5D00317642 /* AppAgent.m in Sources */,
 				4641FC2C1207AD5D00317642 /* UINavigationBarBasedTest.m in Sources */,
@@ -987,9 +1016,7 @@
 				4641FCB31207AE0800317642 /* Session.m in Sources */,
 				4641FCB41207AE0800317642 /* Speaker.m in Sources */,
 				4641FCB51207AE0800317642 /* Importer.m in Sources */,
-				4641FCB61207AE0800317642 /* JsonCrudeImporter.m in Sources */,
 				4641FCB71207AE0800317642 /* Property.m in Sources */,
-				4641FCB81207AE0800317642 /* TestDataImporter.m in Sources */,
 				4641FCB91207AE0800317642 /* LightningTalkTableViewCell.m in Sources */,
 				4641FCBA1207AE0800317642 /* RoomColorView.m in Sources */,
 				4641FCBB1207AE0800317642 /* RoomTableViewCell.m in Sources */,
@@ -1024,6 +1051,12 @@
 				46655FF0120CB4CF00694D25 /* ISSelectionTableViewController.m in Sources */,
 				46655FF1120CB4CF00694D25 /* ISTableViewCell.m in Sources */,
 				46655FF6120CB4FA00694D25 /* WebViewController.m in Sources */,
+				4656FF221214B86A003A3B3B /* iRubyKaigi.xcdatamodeld in Sources */,
+				4656FF271214B880003A3B3B /* JsonImporter.m in Sources */,
+				4656FF2B1214B89B003A3B3B /* SpeakerDetaildTableViewController.m in Sources */,
+				4656FFDB1214E980003A3B3B /* JsonImporterVer2Test.m in Sources */,
+				465600E712150B1A003A3B3B /* Belonging.m in Sources */,
+				4656010E12150DDD003A3B3B /* V1To2.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,7 +1100,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = iRubyKaigi2009Test;
+				PRODUCT_NAME = iRubyKaigiTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphonesimulator4.0;
 			};
@@ -1083,7 +1116,7 @@
 				GCC_PREFIX_HEADER = iUnitTest_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				OTHER_CFLAGS = "";
-				PRODUCT_NAME = iRubyKaigi2009Test;
+				PRODUCT_NAME = iRubyKaigiTest;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "015FD9E7-03D2-482E-8BF0-526AFEFF0A8C";
 				SDKROOT = iphonesimulator2.2;
 			};
@@ -1138,6 +1171,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4656FF1F1214B86A003A3B3B /* iRubyKaigi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4656FF201214B86A003A3B3B /* iRubyKaigi 2.xcdatamodel */,
+				4656FF211214B86A003A3B3B /* iRubyKaigi.xcdatamodel */,
+			);
+			currentVersion = 4656FF201214B86A003A3B3B /* iRubyKaigi 2.xcdatamodel */;
+			path = iRubyKaigi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

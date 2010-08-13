@@ -46,7 +46,7 @@
     if ([title isEqualToString:NSLocalizedString(@"Speaker:name", nil)]) {
         return NAME_SECTON;
     } else
-    if ([title isEqualToString:NSLocalizedString(@"Speaker:belonging", nil)]) {
+    if ([title isEqualToString:NSLocalizedString(@"Speaker:belongings", nil)]) {
         return BELONGING_SECTION;
     } else
     if ([title isEqualToString:NSLocalizedString(@"Speaker:profile", nil)]) {
@@ -62,7 +62,7 @@
     case NAME_SECTON:
         return [self cellHeightForTableView:tableView text:self.speaker.name indexPath:indexPath];
     case BELONGING_SECTION:
-        return [self cellHeightForTableView:tableView text:[self.speaker.belongings objectAtIndex:indexPath.row] indexPath:indexPath];
+        return [self cellHeightForTableView:tableView text:[[self.speaker.sortedBelongings objectAtIndex:indexPath.row] valueForKey:@"title"] indexPath:indexPath];
     case PROFILE_SECTION:
         return [self cellHeightForTableView:tableView text:self.speaker.profile indexPath:indexPath];
     default:
@@ -102,20 +102,21 @@
     return cell;
 }
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     if (indexPath.section == BELONGING_SECTION) {
-        NSArray *belongings = self.speaker.belongings;
+        NSArray *belongings = self.speaker.sortedBelongings;
         if ([belongings count]) {
-            cell.textLabel.text = [belongings objectAtIndex:indexPath.row];
+            cell.textLabel.text = [belongings objectAtIndex:indexPath.row] valueForKey:@"title";
         } else {
             // セルの高さを計算する為にダミーのセルを返すのでnilの場合がある
         }
     }
     return cell;
 }
-
+*/
 
 
 @end

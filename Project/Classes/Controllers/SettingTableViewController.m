@@ -56,6 +56,7 @@
 
     links = [[NSArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"RubyKaigi 2010", @"title", @"http://rubykaigi.org/2010/", @"url", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"日本 Ruby 会議 2010 直前特集号", @"title", @"http://jp.rubyist.net/magazine/?preRubyKaigi2010", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"Tsukuba International Congress Center", @"title", @"http://www.epochal.or.jp/", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"ITO SOFT DESIGN Inc.", @"title", @"http://iphone.itosoft.com/", @"url", nil],
                 [NSDictionary dictionaryWithObjectsAndKeys:@"myPhotoViewer", @"title", @"http://itunes.apple.com/jp/app/myphotoviewer/id354874588?mt=8", @"url", nil],

@@ -1,8 +1,8 @@
 //
-//  JsonCrudeImporterTest.h
+//  JsonImporterVer2Test.h
 //  iRubyKaigiTest
 //
-//  Created by Katsuyoshi Ito on 10/07/31.
+//  Created by Katsuyoshi Ito on 10/08/13.
 //  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "ModelTest.h"
 
 
-@interface JsonCrudeImporterTest : ModelTest {
+@interface JsonImporterVer2Test : ModelTest {
 
 }
 

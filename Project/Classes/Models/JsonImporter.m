@@ -16,6 +16,7 @@
 #import "Room.h"
 #import "LightningTalk.h"
 #import "Property.h"
+#import "Belonging.h"
 
 
 
@@ -57,7 +58,7 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"timetable_update" ofType:@"json"];
         mainSiteURL = [[NSURL alloc] initFileURLWithPath:path];
 #else
-        NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/2010/timetables.json";
+        NSString *urlString = @"http://iphone.itosoft.com/irubykaigi/2010/timetables2.json";
         mainSiteURL = [[NSURL alloc] initWithString:urlString];
 #endif
     }
@@ -67,7 +68,7 @@
 - (NSURL *)backupSiteURL
 {
     if (backupSiteURL == nil) {
-        NSString *urlString = @"https://files.me.com/gutskun/e1bty2";
+        NSString *urlString = @"https://files.me.com/gutskun/uh5n9i";
         backupSiteURL = [[NSURL alloc] initWithString:urlString];
     }
     return backupSiteURL;
@@ -77,8 +78,6 @@
 - (void)import
 {
     updating = YES;
-// DELETEME:    [self clearAllData];
-
     NSString *path = [[NSBundle mainBundle] pathForResource:@"timetable" ofType:@"json"];
     [self importWithURL:[NSURL fileURLWithPath:path]];
     updating = NO;
@@ -93,7 +92,7 @@
     updating = NO;
 }
 
-- (BOOL)importWithURL:(NSURL *)url
+- (BOOL)importWithURL:(NSURL *)url forceUpdate:(BOOL)force
 {
     // jsonファイル読込み
     NSError *error = nil;
@@ -118,7 +117,7 @@
 #ifdef DEBUG
     if (YES) {
 #else
-    if (updatedAt == nil || newUpdatedAt == nil || [updatedAt laterDate:newUpdatedAt] != updatedAt) { 
+    if (force || updatedAt == nil || newUpdatedAt == nil || [updatedAt laterDate:newUpdatedAt] != updatedAt) { 
 #endif
       
         NSManagedObjectContext *context = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];        
@@ -132,6 +131,11 @@
         [context release];
     }
     return YES;
+}
+
+- (BOOL)importWithURL:(NSURL *)url
+{
+    return [self importWithURL:url forceUpdate:NO];
 }
 
 - (void)parseTimelineWithObject:(id)object region:(Region *)region
@@ -216,11 +220,7 @@
         Day *day = [self dayForString:[sessionsDict valueForKey:@"day"] region:region];
         for (id dict in [sessionsDict valueForKey:@"sessions"]) {
             NSString *code = [dict valueForKey:@"code"];
-/* DELETEME:
-            if (code == nil) {
-                code = [NSString stringWithFormat:@"%@%@/%@/%@", day.date, [dict valueForKey:@"room"], [dict valueForKey:@"start_at"], [dict valueForKey:@"end_at"]];
-            }
-*/
+
             [codes addObject:code]; // 削除された場合の処理
             
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day.region = %@ and code = %@", region, code];
@@ -283,7 +283,6 @@
             talk.title = [lightningTalksDict valueForKey:@"title"];
             [talk removeSpeakers:talk.speakers];
             for (id speakerDict in [lightningTalksDict valueForKey:@"speakers"]) {
-NSLog(@"%@", speakerDict);
                 Speaker *speaker = [self speakerForName:[speakerDict valueForKey:@"name"] info:speakerDict region:region];
                 [talk addSpeakersObject:speaker];
             }
@@ -299,8 +298,6 @@ NSLog(@"%@", speakerDict);
 }
 
 
-
-
 - (Speaker *)speakerForName:(id)name info:(NSDictionary *)info region:(Region *)region
 {
     NSManagedObjectContext *context = region.managedObjectContext;
@@ -314,12 +311,20 @@ NSLog(@"%@", speakerDict);
         speaker.code = [speaker.position stringValue];
     }
     
-    NSString *belonging = [info valueForKey:@"belonging"];
-    if (belonging && (NSNull *)belonging != [NSNull null]) {
-        speaker.belonging = belonging;
+    NSArray *belongings = [Speaker belongingsFromString:[info valueForKey:@"belonging"]];
+    if ([belongings count]) {
+        for (NSString *title in belongings) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"speaker = %@ and title = %@", speaker, title];
+            if ([[speaker.belongings filteredSetUsingPredicate:predicate] count] == 0) {
+                Belonging *belonging = [Belonging createWithManagedObjectContext:context];
+                [speaker addBelongingsObject:belonging];
+                belonging.title = title;
+                [belonging setListNumber];
+            }
+        }
     }
     NSString *profile = [info valueForKey:@"profile"];
-    if (profile && (NSNull *)belonging != [NSNull null]) {
+    if (profile) {
         speaker.profile = profile;
     }
 

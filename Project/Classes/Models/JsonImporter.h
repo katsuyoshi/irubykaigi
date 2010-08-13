@@ -22,6 +22,7 @@
 
 
 - (BOOL)importWithURL:(NSURL *)url;
+- (BOOL)importWithURL:(NSURL *)url forceUpdate:(BOOL)force;
 
 
 @end
