@@ -33,6 +33,8 @@
 @property (assign, readonly) NSString *dayTimeTitle;
 @property (assign, readonly) Room *room;
 
+@property (assign, readonly) NSArray *sortedSpeakers;
+
 - (LightningTalk *)lightningTalkForRegion:(Region *)region;
 
 @end

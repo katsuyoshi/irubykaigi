@@ -104,4 +104,19 @@
     ASSERT([[belongings valueForKey:@"title"] containsObject:@"New Bamboo (London,UK)"]);
 }
 
+- (void)testYoshihiko
+{
+    Region *region = [Region japanese];
+    Speaker *speaker;
+    NSSet *belongings;
+    
+    // case ,Inc.
+    speaker = [self speakerForName:@"Yoshihiko Hara" region:region];
+    belongings = speaker.belongings;
+    ASSERT_EQUAL_INT(2, [belongings count]);
+    ASSERT([[belongings valueForKey:@"title"] containsObject:@"Japan OSS Promotion Forum Application Sub Committee Ruby Application Task Force"]);
+    ASSERT([[belongings valueForKey:@"title"] containsObject:@"FUJITSU SOCIAL SCIENCE LABORATORY LIMITED"]);
+}
+
+
 @end

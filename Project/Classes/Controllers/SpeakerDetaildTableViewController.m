@@ -102,21 +102,11 @@
     return cell;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)didChangeRegion
 {
-    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    if (indexPath.section == BELONGING_SECTION) {
-        NSArray *belongings = self.speaker.sortedBelongings;
-        if ([belongings count]) {
-            cell.textLabel.text = [belongings objectAtIndex:indexPath.row] valueForKey:@"title";
-        } else {
-            // セルの高さを計算する為にダミーのセルを返すのでnilの場合がある
-        }
-    }
-    return cell;
+    self.detailedObject = [self.speaker speakerForRegion:self.region];
+    [self reloadData];
 }
-*/
 
 
 @end
