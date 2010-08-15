@@ -149,7 +149,7 @@
     case REGION_SECTION:
         return 1;
     case INFORMATION_SECTION:
-        return 1;
+        return 2;
     case LINK_SECTION:
         return [links count];
     case ACKNOWLEDGEMENT_SECTION:
@@ -206,11 +206,16 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    cell.textLabel.text = NSLocalizedString(@"Last updated at", nil);
-    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    cell.detailTextLabel.text = [dateFormatter stringFromDate:[Property sharedProperty].updatedAt];
+    if (indexPath.row == 0) {
+        cell.textLabel.text = NSLocalizedString(@"Version", nil);
+        cell.detailTextLabel.text = [Property sharedProperty].version;
+    } else {
+        cell.textLabel.text = NSLocalizedString(@"Last updated at", nil);
+        NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        cell.detailTextLabel.text = [dateFormatter stringFromDate:[Property sharedProperty].updatedAt];
+    }
     return cell;
 }
 

@@ -90,4 +90,10 @@
     return [iOS4 boolValue];
 }
 
+- (NSString *)version
+{
+    return [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"];
+}
+
+
 @end

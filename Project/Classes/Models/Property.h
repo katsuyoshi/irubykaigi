@@ -29,4 +29,6 @@
 
 @property (getter=iOS4, readonly) BOOL isIOS4;
 
+@property (assign, readonly) NSString *version;
+
 @end

@@ -61,7 +61,6 @@
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
 		4628F9D711DD68F400EFB272 /* SessionBySpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */; };
 		4628FA3C11DD76EA00EFB272 /* SessionDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */; };
-		4641FD6C1207C25200317642 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD6B1207C25200317642 /* WebViewController.m */; };
 		465600EF12150CF9003A3B3B /* Belonging.m in Sources */ = {isa = PBXBuildFile; fileRef = 465600EE12150CF9003A3B3B /* Belonging.m */; };
 		465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */; };
 		465BB4D211C9A25400770325 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4CF11C9A25400770325 /* Room.m */; };
@@ -89,6 +88,7 @@
 		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */; };
 		46A0B8331008194B006B355A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
+		46AF91F21217777A0094F232 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD6B1207C25200317642 /* WebViewController.m */; };
 		46B73BBC11AD355700D04842 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BB911AD355700D04842 /* Session.m */; };
 		46B73BFA11ADD21A00D04842 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BF911ADD21A00D04842 /* Importer.m */; };
 		46BEE06D11E637990096B1B3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BEE06B11E637990096B1B3 /* Default@2x.png */; };
@@ -924,12 +924,12 @@
 				4620EA28120319AF008BB2BC /* SBJsonBase.m in Sources */,
 				4620EA29120319AF008BB2BC /* SBJsonParser.m in Sources */,
 				4620EA2A120319AF008BB2BC /* SBJsonWriter.m in Sources */,
-				4641FD6C1207C25200317642 /* WebViewController.m in Sources */,
 				469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */,
 				461367351213BC7900801913 /* iRubyKaigi.xcdatamodeld in Sources */,
 				4613682C1213CA4800801913 /* SpeakerDetaildTableViewController.m in Sources */,
 				465600EF12150CF9003A3B3B /* Belonging.m in Sources */,
 				465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */,
+				46AF91F21217777A0094F232 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
