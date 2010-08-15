@@ -115,6 +115,7 @@
         NSArray *speakers = self.session.sortedSpeakers;
         if ([speakers count]) {
             Speaker *speaker = [speakers objectAtIndex:indexPath.row];
+            cell.textLabel.text = speaker.name;
             BOOL hasDisclosure = [speaker.profile length] || [speaker.belongings count];
             cell.accessoryType = hasDisclosure ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
             cell.selectionStyle = hasDisclosure ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
