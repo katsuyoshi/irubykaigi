@@ -13,6 +13,8 @@
 #import "SessionTableViewCell.h"
 #import "Speaker.h"
 #import "LightningTalk.h"
+#import "Belonging.h"
+
 
 
 @interface FindTableViewController(IRKPrivate)
@@ -65,6 +67,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    // viewをpushして戻ってくると、たまにsearchBarとの接続が切れてしまう時があるので再設定
+    // iOSのバグ？
+    if (self.tableView.tableHeaderView == nil) {
+        self.tableView.tableHeaderView = searchBar;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -162,10 +170,29 @@
 
 - (NSArray *)sessionsBySpeakerQuery
 {
-    NSMutableArray *predicates = [NSMutableArray array];
-    [predicates addObject:[NSPredicate predicateWithFormat:@"region = %@", self.region]];
-    [predicates addObject:[self likePredicateForKey:@"name" string:self.searchString]];
-    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+    NSMutableArray *andPredicates = nil;
+    NSMutableArray *orPredicates = nil;
+    NSPredicate *predicate = nil;
+    
+    andPredicates = [NSMutableArray array];
+    orPredicates = [NSMutableArray array];
+
+    // from belongings
+    predicate = [self likePredicateForKey:@"title" string:self.searchString];
+    NSArray *belongings = [Belonging findAllWithPredicate:predicate error:NULL];
+    if ([belongings count]) {
+        [orPredicates addObject:[NSPredicate predicateWithFormat:@"SELF in %@", [belongings valueForKey:@"speaker"]]];
+    }
+    // name
+    [orPredicates addObject:[self likePredicateForKey:@"name" string:self.searchString]];
+    // profile
+    [orPredicates addObject:[self likePredicateForKey:@"profile" string:self.searchString]];
+    
+    // conbine predicates
+    [andPredicates addObject:[NSCompoundPredicate orPredicateWithSubpredicates:orPredicates]];
+    [andPredicates addObject:[NSPredicate predicateWithFormat:@"region = %@", self.region]];
+    predicate = [NSCompoundPredicate andPredicateWithSubpredicates:andPredicates];
+
     NSError *error = nil;
     NSArray *speakers = [Speaker findAllWithPredicate:predicate error:&error];
 #ifdef DEBUG
