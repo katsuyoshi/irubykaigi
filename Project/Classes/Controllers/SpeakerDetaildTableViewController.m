@@ -8,6 +8,8 @@
 
 #import "SpeakerDetaildTableViewController.h"
 #import "Speaker.h"
+#import "SummaryViewController.h"
+
 
 
 #define NAME_SECTON             0
@@ -96,11 +98,40 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileCell"] autorelease];
             cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:16.0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.numberOfLines = 0;
         }
     }
     return cell;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    switch (indexPath.section) {
+    case PROFILE_SECTION:
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        break;
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = [self sectionTypeForSection:indexPath.section];
+    switch (section) {
+    case PROFILE_SECTION:
+        {
+            SummaryViewController *controller = [SummaryViewController summaryViewController];
+            controller.text = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        break;
+    default:
+        [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+}
+
 
 - (void)didChangeRegion
 {

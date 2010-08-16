@@ -183,6 +183,7 @@
     if ([belongings count]) {
         [orPredicates addObject:[NSPredicate predicateWithFormat:@"SELF in %@", [belongings valueForKey:@"speaker"]]];
     }
+    
     // name
     [orPredicates addObject:[self likePredicateForKey:@"name" string:self.searchString]];
     // profile

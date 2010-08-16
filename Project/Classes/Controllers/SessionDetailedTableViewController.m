@@ -11,6 +11,7 @@
 #import "Speaker.h"
 #import "SpeakerDetaildTableViewController.h"
 #import "CiderCoreData.h"
+#import "SummaryViewController.h"
 
 
 
@@ -96,6 +97,7 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AbstractCell"] autorelease];
             cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:16.0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.numberOfLines = 0;
         }
     } else {
@@ -111,17 +113,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    if (indexPath.section == SPEAKERS_SECTION) {
-        NSArray *speakers = self.session.sortedSpeakers;
-        if ([speakers count]) {
-            Speaker *speaker = [speakers objectAtIndex:indexPath.row];
-            cell.textLabel.text = speaker.name;
-            BOOL hasDisclosure = [speaker.profile length] || [speaker.belongings count];
-            cell.accessoryType = hasDisclosure ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
-            cell.selectionStyle = hasDisclosure ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
-        } else {
-            // セルの高さを計算する為にダミーのセルを返すのでnilの場合がある
+    switch (indexPath.section) {
+    case SPEAKERS_SECTION:
+        {
+                NSArray *speakers = self.session.sortedSpeakers;
+            if ([speakers count]) {
+                Speaker *speaker = [speakers objectAtIndex:indexPath.row];
+                cell.textLabel.text = speaker.name;
+                BOOL hasDisclosure = [speaker.profile length] || [speaker.belongings count];
+                cell.accessoryType = hasDisclosure ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+                cell.selectionStyle = hasDisclosure ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
+            } else {
+                // セルの高さを計算する為にダミーのセルを返すのでnilの場合がある
+            }
         }
+        break;
+    case ABSTRACT_SECTION:
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        break;
     }
     return cell;
 }
@@ -129,16 +138,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = [self sectionTypeForSection:indexPath.section];
-    if (section == SPEAKERS_SECTION) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        if (cell.accessoryType != UITableViewCellAccessoryNone) {
-            SpeakerDetaildTableViewController *controller = [SpeakerDetaildTableViewController speakerDetailedTableViewController];
-            Speaker *speaker = [self.session.sortedSpeakers objectAtIndex:indexPath.row];
-            controller.detailedObject = speaker;
-            controller.tableView.backgroundColor = self.tableView.backgroundColor;
+    switch (section) {
+    case SPEAKERS_SECTION:
+        {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            if (cell.accessoryType != UITableViewCellAccessoryNone) {
+                SpeakerDetaildTableViewController *controller = [SpeakerDetaildTableViewController speakerDetailedTableViewController];
+                Speaker *speaker = [self.session.sortedSpeakers objectAtIndex:indexPath.row];
+                controller.detailedObject = speaker;
+                controller.tableView.backgroundColor = self.tableView.backgroundColor;
+                [self.navigationController pushViewController:controller animated:YES];
+            }
+        }
+        break;
+    case ABSTRACT_SECTION:
+        {
+            SummaryViewController *controller = [SummaryViewController summaryViewController];
+            controller.text = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
             [self.navigationController pushViewController:controller animated:YES];
         }
-    } else {
+        break;
+    default:
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
 }
