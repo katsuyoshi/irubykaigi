@@ -114,6 +114,8 @@
 		46D4430811AEC09E0076E28B /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4430611AEC09E0076E28B /* Region.m */; };
 		46D4472811B133F40076E28B /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4472711B133F40076E28B /* Property.m */; };
 		46D8286311DDEF3E00D1D0AE /* SessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D8286211DDEF3E00D1D0AE /* SessionTableViewCell.m */; };
+		46DDEDAC1218F8CC0046F022 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DDEDAA1218F8CC0046F022 /* SummaryViewController.m */; };
+		46DDEDAD1218F8CC0046F022 /* SummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46DDEDAB1218F8CC0046F022 /* SummaryViewController.xib */; };
 		46EE14500FFE53FA000224D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EE144E0FFE53FA000224D0 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -308,6 +310,9 @@
 		46D4472711B133F40076E28B /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		46D8286111DDEF3E00D1D0AE /* SessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTableViewCell.h; sourceTree = "<group>"; };
 		46D8286211DDEF3E00D1D0AE /* SessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTableViewCell.m; sourceTree = "<group>"; };
+		46DDEDA91218F8CC0046F022 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		46DDEDAA1218F8CC0046F022 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		46DDEDAB1218F8CC0046F022 /* SummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryViewController.xib; sourceTree = "<group>"; };
 		46EE144F0FFE53FA000224D0 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46EE14510FFE5406000224D0 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iRubyKaigi-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iRubyKaigi-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -736,6 +741,9 @@
 				461408371004BC4D00964C01 /* LightningTalkDetailedTableViewController.m */,
 				4641FD6A1207C25200317642 /* WebViewController.h */,
 				4641FD6B1207C25200317642 /* WebViewController.m */,
+				46DDEDA91218F8CC0046F022 /* SummaryViewController.h */,
+				46DDEDAA1218F8CC0046F022 /* SummaryViewController.m */,
+				46DDEDAB1218F8CC0046F022 /* SummaryViewController.xib */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -850,6 +858,7 @@
 				46D1653C12007283008FF7CD /* session_info_ja.csv in Resources */,
 				4620EA15120317F6008BB2BC /* timetable.json in Resources */,
 				4613666D1212E40E00801913 /* timetable_update.json in Resources */,
+				46DDEDAD1218F8CC0046F022 /* SummaryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,6 +939,7 @@
 				465600EF12150CF9003A3B3B /* Belonging.m in Sources */,
 				465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */,
 				46AF91F21217777A0094F232 /* WebViewController.m in Sources */,
+				46DDEDAC1218F8CC0046F022 /* SummaryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

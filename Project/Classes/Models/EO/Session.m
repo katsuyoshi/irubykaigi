@@ -117,7 +117,7 @@
 - (NSArray *)sortedSpeakers
 {
     NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"position"];
-    return [self.speakers sortedArrayUsingDescriptors:sortDescriptors];
+    return [[self.speakers allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 

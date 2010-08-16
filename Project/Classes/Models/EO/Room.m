@@ -120,7 +120,7 @@
 - (NSArray *)sortedSession
 {
     NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"day.date, time"];
-    return [self.sessions sortedArrayUsingDescriptors:sortDescriptors];
+    return [[self.sessions allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 - (Room *)roomForRegion:(Region *)region

@@ -68,7 +68,7 @@
 - (NSArray *)sortedSession
 {
     NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"day.date, time"];
-    return [self.sessions sortedArrayUsingDescriptors:sortDescriptors];
+    return [[self.sessions allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 - (NSString *)firstLetterOfName
@@ -135,7 +135,7 @@
 
 - (NSArray *)sortedBelongings
 {
-    return [self.belongings sortedArrayUsingDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"position"]];
+    return [[self.belongings allObjects] sortedArrayUsingDescriptors:[NSSortDescriptor sortDescriptorsWithString:@"position"]];
 }
 
 - (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
