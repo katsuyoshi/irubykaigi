@@ -132,6 +132,9 @@
 		46D446A011B0D8090076E28B /* DayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4469F11B0D8090076E28B /* DayTest.m */; };
 		46D4892B11B55F690063B689 /* RoomTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4892A11B55F690063B689 /* RoomTest.m */; };
 		46D4893C11B562AB0063B689 /* SpeakerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D4893B11B562AB0063B689 /* SpeakerTest.m */; };
+		46F8436A121D7593009BE688 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F84369121D7593009BE688 /* SummaryViewController.m */; };
+		46F8436F121D7643009BE688 /* JsonImporterVer3Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F8436E121D7643009BE688 /* JsonImporterVer3Test.m */; };
+		46F84371121D76D0009BE688 /* JsonImporterVer3Test.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F84370121D76D0009BE688 /* JsonImporterVer3Test.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -373,6 +376,11 @@
 		46D4892A11B55F690063B689 /* RoomTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTest.m; sourceTree = "<group>"; };
 		46D4893A11B562AB0063B689 /* SpeakerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerTest.h; sourceTree = "<group>"; };
 		46D4893B11B562AB0063B689 /* SpeakerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerTest.m; sourceTree = "<group>"; };
+		46F84368121D7593009BE688 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		46F84369121D7593009BE688 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
+		46F8436D121D7643009BE688 /* JsonImporterVer3Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporterVer3Test.h; sourceTree = "<group>"; };
+		46F8436E121D7643009BE688 /* JsonImporterVer3Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporterVer3Test.m; sourceTree = "<group>"; };
+		46F84370121D76D0009BE688 /* JsonImporterVer3Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JsonImporterVer3Test.json; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -551,6 +559,8 @@
 		4641FC481207AE0800317642 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				46F84368121D7593009BE688 /* SummaryViewController.h */,
+				46F84369121D7593009BE688 /* SummaryViewController.m */,
 				4656FF291214B89B003A3B3B /* SpeakerDetaildTableViewController.h */,
 				4656FF2A1214B89B003A3B3B /* SpeakerDetaildTableViewController.m */,
 				46655FF4120CB4FA00694D25 /* WebViewController.h */,
@@ -792,6 +802,7 @@
 		46655FF9120CB52F00694D25 /* files */ = {
 			isa = PBXGroup;
 			children = (
+				46F84370121D76D0009BE688 /* JsonImporterVer3Test.json */,
 				4656FFDC1214EA6C003A3B3B /* JsonImporterVer2Test.json */,
 				46655FFD120CB55F00694D25 /* JsonImporterTest.json */,
 			);
@@ -873,6 +884,8 @@
 				4641FD121207BBF100317642 /* RegionSeesionsForDateTest.h */,
 				4641FD131207BBF100317642 /* RegionSeesionsForDateTest.m */,
 				46655FF9120CB52F00694D25 /* files */,
+				46F8436D121D7643009BE688 /* JsonImporterVer3Test.h */,
+				46F8436E121D7643009BE688 /* JsonImporterVer3Test.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -945,6 +958,7 @@
 				46655FEF120CB4CF00694D25 /* cider.strings in Resources */,
 				46655FFE120CB55F00694D25 /* JsonImporterTest.json in Resources */,
 				4656FFDD1214EA6C003A3B3B /* JsonImporterVer2Test.json in Resources */,
+				46F84371121D76D0009BE688 /* JsonImporterVer3Test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1071,8 @@
 				4656FFDB1214E980003A3B3B /* JsonImporterVer2Test.m in Sources */,
 				465600E712150B1A003A3B3B /* Belonging.m in Sources */,
 				4656010E12150DDD003A3B3B /* V1To2.xcmappingmodel in Sources */,
+				46F8436A121D7593009BE688 /* SummaryViewController.m in Sources */,
+				46F8436F121D7643009BE688 /* JsonImporterVer3Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

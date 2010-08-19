@@ -65,6 +65,13 @@
     return [Speaker find:condition error:NULL];
 }
 
+- (NSSet *)sessions
+{
+    NSMutableSet *sessions = [self primitiveValueForKey:@"sessions"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"day != nil"];
+    return [sessions filteredSetUsingPredicate:predicate];
+}
+
 - (NSArray *)sortedSession
 {
     NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"day.date, time"];

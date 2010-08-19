@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "ModelTest.h"
 
+@class Speaker;
+@class Region;
 
 @interface JsonImporterVer2Test : ModelTest {
 
 }
+
+- (Speaker *)speakerForName:(NSString *)name region:(Region *)region;
 
 @end
