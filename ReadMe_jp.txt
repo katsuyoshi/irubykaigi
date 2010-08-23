@@ -1,14 +1,14 @@
 This is Japanese descripton.
 
-iRubyKaigi2010
+iRubyKaigi
 
-　　　　　　　　　　　　　　　　　　　　　　　　　　有限会社伊藤ソフトデザイン http://www.itosoft.com/
+　　　　　　　　　　　　　　　　　　　　　　　　　　有限会社伊藤ソフトデザイン http://iphone.itosoft.com/
 　　　　　　　　　　　　　　　　　　　　　　　　　　伊藤勝良 <kito@itosoft.com>
-　　　　　　　　　　　　　　　　　　　　　　　　　　2010/08/16
+　　　　　　　　　　　　　　　　　　　　　　　　　　2010/08/24
 
 ■概要
 
-iRubyKaigi2010は、日本Ruby会議2010(http://rubykaigi.org/2010/)のセッション情報を表示する
+iRubyKaigiは、日本Ruby会議(http://rubykaigi.org/)のセッション情報を表示する
 iPhoneアプリケーションです。
 
 ■必要な環境

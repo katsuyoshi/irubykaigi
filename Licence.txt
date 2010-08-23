@@ -1,4 +1,4 @@
-iRubyKaigi2009
+iRubyKaigi
 Copyright (c) 2009, ITO SOFT DESIGN Inc.
 All rights reserved.
 
