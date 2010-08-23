@@ -63,15 +63,6 @@
     return (Speaker *)self.detailedObject;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == BELONGING_SECTION) {
-        return [self.speaker.belongings count];
-    } else {
-        return [super tableView:tableView numberOfRowsInSection:section];
-    }
-}
-
 - (NSInteger)sectionTypeForSection:(NSInteger)section
 {
     NSString *title = [self tableView:nil titleForHeaderInSection:section];
@@ -85,6 +76,16 @@
         return PROFILE_SECTION;
     }
     return 0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger aSection = [self sectionTypeForSection:section];
+    if (aSection == BELONGING_SECTION) {
+        return [self.speaker.belongings count];
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
