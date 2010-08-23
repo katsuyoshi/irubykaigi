@@ -47,6 +47,7 @@
 - (BOOL)save:(NSManagedObjectContext *)context;
 - (void)deleteAllSessionsInManagedObjectContext:(NSManagedObjectContext *)context;
 
+- (void)cleanUpWithManagedObject:(NSManagedObjectContext *)context;
 - (void)cleanUp;
 
 

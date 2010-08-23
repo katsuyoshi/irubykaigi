@@ -45,8 +45,8 @@ NSLog(@"%@", e);
     
     // 未登録の場合は初期データをインポートする
     Importer *importer = [Importer defaultImporter];
+    [importer cleanUp];
     [importer addObserver:self forKeyPath:@"isUpdated" options:NSKeyValueObservingOptionNew context:importer];
-//    [importer cleanUp];
     if ([Property sharedProperty].updatedAt == nil) {
         [[Importer defaultImporter] beginImport];
     }

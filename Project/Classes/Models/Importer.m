@@ -172,9 +172,8 @@ static id defaultImporter = nil;
 }
 
 
-- (void)cleanUp
+- (void)cleanUpWithManagedObject:(NSManagedObjectContext *)context
 {
-    NSManagedObjectContext *context = DEFAULT_MANAGED_OBJECT_CONTEXT;
     for (Session *session in [Session findAllWithPredicate:[NSPredicate predicateWithFormat:@"day = nil"] error:NULL]) {
         [context deleteObject:session];
     }
@@ -184,6 +183,10 @@ static id defaultImporter = nil;
     [self save:context];
 }
 
+- (void)cleanUp
+{
+    [self cleanUpWithManagedObject:DEFAULT_MANAGED_OBJECT_CONTEXT];
+}
 
 
 @end
