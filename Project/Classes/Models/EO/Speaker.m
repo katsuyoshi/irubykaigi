@@ -150,24 +150,27 @@
 + (NSArray *)belongingsFromString:(NSString *)string
 {
     if ([string length]) {
-        NSMutableArray *result = [NSMutableArray array];
-        for (NSString *str in [string componentsSeparatedByString:@","]) {
-            str = [self stripWithString:str];
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] '^(inc|ltd|uk).*'"];
-            if ([predicate evaluateWithObject:str]) {
-                int index = [result count] - 1;
-                if (index >= 0) {
-                    NSArray *array = [NSArray arrayWithObjects:[result lastObject], str, nil];
-                    [result replaceObjectAtIndex:index withObject:[array componentsJoinedByString:@","]];
+        // 1.0.で所属がない場合にプロフィールが表示されない不具合を回避する為に
+        // 所属無しの場合は所属データに'　'のダミーを入れていたので、その判定
+        if ([string isEqualToString:@"　"] == NO) {
+            NSMutableArray *result = [NSMutableArray array];
+            for (NSString *str in [string componentsSeparatedByString:@","]) {
+                str = [self stripWithString:str];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] '^(inc|ltd|uk).*'"];
+                if ([predicate evaluateWithObject:str]) {
+                    int index = [result count] - 1;
+                    if (index >= 0) {
+                        NSArray *array = [NSArray arrayWithObjects:[result lastObject], str, nil];
+                        [result replaceObjectAtIndex:index withObject:[array componentsJoinedByString:@","]];
+                    }
+                } else {
+                    [result addObject:str];
                 }
-            } else {
-                [result addObject:str];
             }
+            return result;
         }
-        return result;
-    } else {
-        return [NSArray array];
     }
+    return [NSArray array];
 }
 
 - (NSArray *)sortedBelongings

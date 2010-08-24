@@ -353,6 +353,12 @@
             }
         }
     }
+    // 1.0.1の不具合を回避する為に入れたダミーの削除
+    NSSet *dummyBelonging = [speaker.belongings filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"title = %@", @"　"]];
+    if ([dummyBelonging count]) {
+        [speaker removeBelongings:dummyBelonging];
+    }
+    
     NSString *profile = [info valueForKey:@"profile"];
     if (profile) {
         speaker.profile = profile;
