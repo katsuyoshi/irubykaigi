@@ -23,9 +23,9 @@ iOS SDK 4.0以降
 ■ビルドの仕方
 
 外部ライブラリーを追加するため、Terminal.appでclone_vendorsを実行しします。
+(gitが使える事を前提としています。)
 
 > ./clone_vendors
 
 後は通常通りXcodeでビルドします。
-
-(gitが使える事を前提としています。)
+Debugビルドはテスト用のデータで更新しますので、Releaseビルドを行って下さい。
