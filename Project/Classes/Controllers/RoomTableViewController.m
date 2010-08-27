@@ -264,6 +264,7 @@
             } else {
                 [controller setDateNext];
             }
+            controller.title = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
             [self.navigationController pushViewController:controller animated:YES];
         }
         break;

@@ -56,11 +56,6 @@
     [super dealloc];
 }
 
-- (NSString *)title
-{
-    return NSLocalizedString(@"Present sessions", nil);
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
