@@ -168,12 +168,14 @@ static id defaultImporter = nil;
 
 - (void)importerDidUpdate
 {
-    NSManagedObjectContext *context = DEFAULT_MANAGED_OBJECT_CONTEXT;
-    for (NSManagedObject *eo in [context registeredObjects]) {
-        [context refreshObject:eo mergeChanges:NO];
-    }
-    if ([(id)delegate respondsToSelector:@selector(importerDidUpdate)]) {
-        [delegate importerDidUpdate];
+    if (hasChanges) {
+        NSManagedObjectContext *context = DEFAULT_MANAGED_OBJECT_CONTEXT;
+        for (NSManagedObject *eo in [context registeredObjects]) {
+            [context refreshObject:eo mergeChanges:NO];
+        }
+        if ([(id)delegate respondsToSelector:@selector(importerDidUpdate)]) {
+            [delegate importerDidUpdate];
+        }
     }
     updating = NO;
     [self setUpdated:hasChanges];

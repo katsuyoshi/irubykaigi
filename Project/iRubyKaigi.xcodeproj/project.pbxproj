@@ -89,8 +89,8 @@
 		46824FCB11E1B6B500D73D84 /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */; };
 		4682504611E1BF3E00D73D84 /* SessionByRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */; };
 		469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */; };
-		46A0B8331008194B006B355A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
 		46AA7E341237DE4000A469F4 /* V2To3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7E331237DE4000A469F4 /* V2To3.xcmappingmodel */; };
+		46AA7ED71237F21600A469F4 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
 		46AF91F21217777A0094F232 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD6B1207C25200317642 /* WebViewController.m */; };
 		46B73BBC11AD355700D04842 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BB911AD355700D04842 /* Session.m */; };
 		46B73BFA11ADD21A00D04842 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BF911ADD21A00D04842 /* Importer.m */; };
@@ -843,7 +843,6 @@
 				4621C44810070EB60052495F /* icon.png in Resources */,
 				4621C49E100718610052495F /* Default.png in Resources */,
 				4621C51610072C4D0052495F /* iTunesArtwork in Resources */,
-				46A0B8331008194B006B355A /* Entitlements.plist in Resources */,
 				4663019E11DC7965008FEB6D /* session_by_speaker_icon_30x30.png in Resources */,
 				4663019F11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png in Resources */,
 				466301A211DC7B1B008FEB6D /* session_by_room_icon_30x30.png in Resources */,
@@ -873,6 +872,7 @@
 				4613666D1212E40E00801913 /* timetable_update.json in Resources */,
 				46DDEDAD1218F8CC0046F022 /* SummaryViewController.xib in Resources */,
 				464F6C4B1234BB7A008B1B61 /* archives.json in Resources */,
+				46AA7ED71237F21600A469F4 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
