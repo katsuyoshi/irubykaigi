@@ -42,7 +42,7 @@
 #import "SpeakerDetaildTableViewController.h"
 #import "CiderCoreData.h"
 #import "SummaryViewController.h"
-
+#import "Archive.h"
 
 
 #define TIME_SECTON             0
@@ -50,6 +50,7 @@
 #define SPEAKERS_SECTION        2
 #define ROOM_SECTION            3
 #define ABSTRACT_SECTION        4
+#define ARCHIVE_SECTION         5
 
 
 @implementation SessionDetailedTableViewController
@@ -90,10 +91,24 @@
     } else
     if ([title isEqualToString:NSLocalizedString(@"Session:summary", nil)]) {
         return ABSTRACT_SECTION;
+    } else
+    if ([title isEqualToString:NSLocalizedString(@"Session:archives", nil)]) {
+        return ARCHIVE_SECTION;
     }
+    
     return 0;
 }
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger aSection = [self sectionTypeForSection:section];
+    if (aSection == ARCHIVE_SECTION) {
+        return [self.session.archives count];
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
 
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView inSection:(NSInteger)section
 {
@@ -143,10 +158,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    switch (indexPath.section) {
+    NSInteger section = [self sectionTypeForSection:indexPath.section];
+    switch (section) {
     case SPEAKERS_SECTION:
         {
-                NSArray *speakers = self.session.sortedSpeakers;
+            NSArray *speakers = self.session.sortedSpeakers;
             if ([speakers count]) {
                 Speaker *speaker = [speakers objectAtIndex:indexPath.row];
                 cell.textLabel.text = speaker.name;
@@ -160,6 +176,13 @@
         break;
     case ABSTRACT_SECTION:
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        break;
+    case ARCHIVE_SECTION:
+        {
+            NSArray *archives = self.session.sortedArchives;
+            cell.textLabel.text = [[archives objectAtIndex:indexPath.row] title];
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        }
         break;
     }
     return cell;
@@ -186,6 +209,18 @@
             SummaryViewController *controller = [SummaryViewController summaryViewController];
             controller.text = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
             [self.navigationController pushViewController:controller animated:YES];
+        }
+        break;
+    case ARCHIVE_SECTION:
+        {
+            NSArray *archives = self.session.sortedArchives;
+            NSURL *url = [NSURL URLWithString:[[archives objectAtIndex:indexPath.row] url]];
+            UIApplication *application = [UIApplication sharedApplication];
+            if ([application canOpenURL:url]) {
+                [application openURL:url];
+            } else {
+                // TODO: show alert
+            }
         }
         break;
     default:

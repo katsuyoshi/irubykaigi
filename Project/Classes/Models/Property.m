@@ -111,6 +111,19 @@
 }
 
 
+- (void)setArchiveUpdatedAt:(NSDate *)date
+{
+    [self setDate:date forKey:@"archiveUpdatedAt"];
+}
+
+- (NSDate *)archiveUpdatedAt
+{
+    return [self dateForKey:@"archiveUpdatedAt"];
+}
+
+
+
+
 - (BOOL)iOS4
 {
     if (iOS4 == nil) {

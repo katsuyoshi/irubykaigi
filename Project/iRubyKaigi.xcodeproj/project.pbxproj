@@ -49,6 +49,7 @@
 		4617916611FB268E000BFA1C /* UIColorIRK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4617916511FB268E000BFA1C /* UIColorIRK.m */; };
 		461792F411FC0B85000BFA1C /* LightningTalkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */; };
 		4617930F11FC0DE1000BFA1C /* LightningTalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 461407F71004B9CB00964C01 /* LightningTalk.m */; };
+		461DE1371233336100C92085 /* Archive.m in Sources */ = {isa = PBXBuildFile; fileRef = 461DE1361233336100C92085 /* Archive.m */; };
 		4620EA15120317F6008BB2BC /* timetable.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA14120317F6008BB2BC /* timetable.json */; };
 		4620EA18120318A5008BB2BC /* JsonImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA17120318A5008BB2BC /* JsonImporter.m */; };
 		4620EA26120319AF008BB2BC /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA1D120319AF008BB2BC /* NSObject+SBJSON.m */; };
@@ -61,6 +62,8 @@
 		4621C51610072C4D0052495F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 4621C4A710071B770052495F /* iTunesArtwork */; };
 		4628F9D711DD68F400EFB272 /* SessionBySpeakerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628F9D611DD68F400EFB272 /* SessionBySpeakerTableViewController.m */; };
 		4628FA3C11DD76EA00EFB272 /* SessionDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4628FA3B11DD76EA00EFB272 /* SessionDetailedTableViewController.m */; };
+		464F6C4B1234BB7A008B1B61 /* archives.json in Resources */ = {isa = PBXBuildFile; fileRef = 464F6C481234BB63008B1B61 /* archives.json */; };
+		464F6C501234BCFB008B1B61 /* ArchiveJsonImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 464F6C4F1234BCFB008B1B61 /* ArchiveJsonImporter.m */; };
 		465600EF12150CF9003A3B3B /* Belonging.m in Sources */ = {isa = PBXBuildFile; fileRef = 465600EE12150CF9003A3B3B /* Belonging.m */; };
 		465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */; };
 		465BB4D211C9A25400770325 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB4CF11C9A25400770325 /* Room.m */; };
@@ -85,9 +88,9 @@
 		4668845511E31E1300D344C7 /* RoomColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4668845411E31E1300D344C7 /* RoomColorView.m */; };
 		46824FCB11E1B6B500D73D84 /* RoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */; };
 		4682504611E1BF3E00D73D84 /* SessionByRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */; };
-		468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 468A2A47100C5A4E00942FE4 /* Settings.bundle */; };
 		469B8149120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */; };
 		46A0B8331008194B006B355A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46A0B8321008194B006B355A /* Entitlements.plist */; };
+		46AA7E341237DE4000A469F4 /* V2To3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7E331237DE4000A469F4 /* V2To3.xcmappingmodel */; };
 		46AF91F21217777A0094F232 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD6B1207C25200317642 /* WebViewController.m */; };
 		46B73BBC11AD355700D04842 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BB911AD355700D04842 /* Session.m */; };
 		46B73BFA11ADD21A00D04842 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B73BF911ADD21A00D04842 /* Importer.m */; };
@@ -203,6 +206,9 @@
 		4617916511FB268E000BFA1C /* UIColorIRK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorIRK.m; sourceTree = "<group>"; };
 		461792F211FC0B85000BFA1C /* LightningTalkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkTableViewController.h; sourceTree = "<group>"; };
 		461792F311FC0B85000BFA1C /* LightningTalkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkTableViewController.m; sourceTree = "<group>"; };
+		461DE1321233325000C92085 /* iRubyKaigi 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iRubyKaigi 3.xcdatamodel"; sourceTree = "<group>"; };
+		461DE1351233336100C92085 /* Archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Archive.h; sourceTree = "<group>"; };
+		461DE1361233336100C92085 /* Archive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Archive.m; sourceTree = "<group>"; };
 		4620EA14120317F6008BB2BC /* timetable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = timetable.json; sourceTree = "<group>"; };
 		4620EA16120318A5008BB2BC /* JsonImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporter.h; sourceTree = "<group>"; };
 		4620EA17120318A5008BB2BC /* JsonImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporter.m; sourceTree = "<group>"; };
@@ -229,6 +235,9 @@
 		463AC8461001CEFF00AF2B05 /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUTLog.h; path = ../Test/Classes/UnitTest/IUTLog.h; sourceTree = SOURCE_ROOT; };
 		4641FD6A1207C25200317642 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		4641FD6B1207C25200317642 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		464F6C481234BB63008B1B61 /* archives.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = archives.json; sourceTree = "<group>"; };
+		464F6C4E1234BCFB008B1B61 /* ArchiveJsonImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveJsonImporter.h; sourceTree = "<group>"; };
+		464F6C4F1234BCFB008B1B61 /* ArchiveJsonImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveJsonImporter.m; sourceTree = "<group>"; };
 		465600ED12150CF9003A3B3B /* Belonging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Belonging.h; sourceTree = "<group>"; };
 		465600EE12150CF9003A3B3B /* Belonging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Belonging.m; sourceTree = "<group>"; };
 		465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V1To2.xcmappingmodel; sourceTree = "<group>"; };
@@ -264,12 +273,12 @@
 		46824FCA11E1B6B500D73D84 /* RoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewController.m; sourceTree = "<group>"; };
 		4682504411E1BF3E00D73D84 /* SessionByRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionByRoomTableViewController.h; sourceTree = "<group>"; };
 		4682504511E1BF3E00D73D84 /* SessionByRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionByRoomTableViewController.m; sourceTree = "<group>"; };
-		468A2A47100C5A4E00942FE4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4692CB4F11ACE3950098ADE1 /* iRubyKaigi_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRubyKaigi_Prefix.pch; sourceTree = "<group>"; };
 		469B8147120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueDefaultQueue.h; sourceTree = "<group>"; };
 		469B8148120BC4FC007CDCF2 /* NSOperationQueueDefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueDefaultQueue.m; sourceTree = "<group>"; };
 		46A0B8321008194B006B355A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		46AA7E331237DE4000A469F4 /* V2To3.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V2To3.xcmappingmodel; sourceTree = "<group>"; };
 		46B73BB811AD355700D04842 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		46B73BB911AD355700D04842 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		46B73BF811ADD21A00D04842 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importer.h; sourceTree = "<group>"; };
@@ -400,7 +409,7 @@
 				8D1107310486CEB800E47090 /* iRubyKaigi-Info.plist */,
 				4621C49D100718610052495F /* Default.png */,
 				46A0B8321008194B006B355A /* Entitlements.plist */,
-				468A2A47100C5A4E00942FE4 /* Settings.bundle */,
+				464F6C481234BB63008B1B61 /* archives.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -434,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				465601E6121521B7003A3B3B /* V1To2.xcmappingmodel */,
+				46AA7E331237DE4000A469F4 /* V2To3.xcmappingmodel */,
 			);
 			path = Migrations;
 			sourceTree = "<group>";
@@ -441,6 +451,8 @@
 		461407F51004B9CB00964C01 /* EO */ = {
 			isa = PBXGroup;
 			children = (
+				461DE1351233336100C92085 /* Archive.h */,
+				461DE1361233336100C92085 /* Archive.m */,
 				465600ED12150CF9003A3B3B /* Belonging.h */,
 				465600EE12150CF9003A3B3B /* Belonging.m */,
 				465BB4CE11C9A25400770325 /* Room.h */,
@@ -771,6 +783,8 @@
 				46D4472711B133F40076E28B /* Property.m */,
 				4620EA16120318A5008BB2BC /* JsonImporter.h */,
 				4620EA17120318A5008BB2BC /* JsonImporter.m */,
+				464F6C4E1234BCFB008B1B61 /* ArchiveJsonImporter.h */,
+				464F6C4F1234BCFB008B1B61 /* ArchiveJsonImporter.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -830,7 +844,6 @@
 				4621C49E100718610052495F /* Default.png in Resources */,
 				4621C51610072C4D0052495F /* iTunesArtwork in Resources */,
 				46A0B8331008194B006B355A /* Entitlements.plist in Resources */,
-				468A2A48100C5A4E00942FE4 /* Settings.bundle in Resources */,
 				4663019E11DC7965008FEB6D /* session_by_speaker_icon_30x30.png in Resources */,
 				4663019F11DC7965008FEB6D /* session_by_speaker_icon_30x30@2x.png in Resources */,
 				466301A211DC7B1B008FEB6D /* session_by_room_icon_30x30.png in Resources */,
@@ -859,6 +872,7 @@
 				4620EA15120317F6008BB2BC /* timetable.json in Resources */,
 				4613666D1212E40E00801913 /* timetable_update.json in Resources */,
 				46DDEDAD1218F8CC0046F022 /* SummaryViewController.xib in Resources */,
+				464F6C4B1234BB7A008B1B61 /* archives.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,6 +954,9 @@
 				465601E7121521B7003A3B3B /* V1To2.xcmappingmodel in Sources */,
 				46AF91F21217777A0094F232 /* WebViewController.m in Sources */,
 				46DDEDAC1218F8CC0046F022 /* SummaryViewController.m in Sources */,
+				461DE1371233336100C92085 /* Archive.m in Sources */,
+				464F6C501234BCFB008B1B61 /* ArchiveJsonImporter.m in Sources */,
+				46AA7E341237DE4000A469F4 /* V2To3.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1131,8 +1148,9 @@
 			children = (
 				4692CB4D11ACE36E0098ADE1 /* iRubyKaigi.xcdatamodel */,
 				461366E21213B6BD00801913 /* iRubyKaigi 2.xcdatamodel */,
+				461DE1321233325000C92085 /* iRubyKaigi 3.xcdatamodel */,
 			);
-			currentVersion = 461366E21213B6BD00801913 /* iRubyKaigi 2.xcdatamodel */;
+			currentVersion = 461DE1321233325000C92085 /* iRubyKaigi 3.xcdatamodel */;
 			name = iRubyKaigi.xcdatamodeld;
 			path = ../../iRubyKaigi.xcdatamodeld;
 			sourceTree = "<group>";

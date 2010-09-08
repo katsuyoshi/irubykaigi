@@ -46,6 +46,8 @@
 
 #import "TestDataImporter.h"
 #import "Importer.h"
+#import "ArchiveJsonImporter.h"
+
 
 
 @implementation iRubyKaigiAppDelegate
@@ -77,9 +79,14 @@ NSLog(@"%@", e);
     Importer *importer = [Importer defaultImporter];
     [importer cleanUp];
     [importer addObserver:self forKeyPath:@"isUpdated" options:NSKeyValueObservingOptionNew context:importer];
-    if ([Property sharedProperty].updatedAt == nil) {
+    Property *property = [Property sharedProperty];
+    if (property.updatedAt == nil || property.archiveUpdatedAt == nil) {
+        // ArchiveJsonImporterも一緒に処理される
         [[Importer defaultImporter] beginImport];
+    } else {
+        [[ArchiveJsonImporter sharedArchiveJsonImporter] beginUpdate];
     }
+        
 
     NSArray *iconNames = [NSArray arrayWithObjects:
                                 @"session_by_room_icon_30x30.png",
@@ -127,6 +134,7 @@ NSLog(@"%@", e);
 
 - (void)dealloc {
     [[Importer defaultImporter] removeObserver:self forKeyPath:@"isUpdated"];
+    [[ArchiveJsonImporter sharedArchiveJsonImporter] removeObserver:self forKeyPath:@"isUpdated"];
 
 	[tabBarController release];
 	[navigationController release];

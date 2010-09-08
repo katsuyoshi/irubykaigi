@@ -43,6 +43,7 @@
 @class Room;
 @class Day;
 @class Region;
+@class Archive;
 
 @interface LightningTalk : NSManagedObject {
 
@@ -56,6 +57,7 @@
 @property (nonatomic, retain) NSSet* speakers;
 
 @property (assign, readonly) NSString *code;
+@property (nonatomic, retain) NSSet* archives;
 
 // Session
 @property (assign, readonly) Day *day;
@@ -64,6 +66,7 @@
 @property (assign, readonly) Room *room;
 
 @property (assign, readonly) NSArray *sortedSpeakers;
+@property (assign, readonly) NSArray *sortedArchives;
 
 - (LightningTalk *)lightningTalkForRegion:(Region *)region;
 
@@ -76,5 +79,9 @@
 - (void)addSpeakers:(NSSet *)value;
 - (void)removeSpeakers:(NSSet *)value;
 
+- (void)addArchivesObject:(Archive *)value;
+- (void)removeArchivesObject:(Archive *)value;
+- (void)addArchives:(NSSet *)value;
+- (void)removeArchives:(NSSet *)value;
 @end
 

@@ -56,6 +56,7 @@
 @property (assign) NSArray *favoriteLightningTalks;
 
 @property (assign) NSDate *updatedAt;
+@property (assign) NSDate *archiveUpdatedAt;
 
 @property (getter=iOS4, readonly) BOOL isIOS4;
 

@@ -43,6 +43,7 @@
 @class Day;
 @class Speaker;
 @class Region;
+@class Archive;
 
 typedef enum {
     SessionTypeCodeNormal = 1,
@@ -78,6 +79,7 @@ typedef enum {
 @property (nonatomic, retain) Room * room;
 @property (nonatomic, retain) NSSet* talks;
 @property (nonatomic, retain) NSNumber * sessionType;
+@property (nonatomic, retain) NSSet* archives;
 
 /** NSFetchResultsControllerで対多の検索が出来ないので、検索の為にスピーカー名の生データを持つ. */
 @property (nonatomic, retain) NSString * speakerRawData;
@@ -95,6 +97,7 @@ typedef enum {
 @property (assign, readonly) NSString *endAt;
 
 @property (assign, readonly) NSArray *sortedSpeakers;
+@property (assign, readonly) NSArray *sortedArchives;
 
 
 - (Session *)sessionForRegion:(Region *)region;
@@ -113,5 +116,8 @@ typedef enum {
 - (void)addLightningTalks:(NSSet *)value;
 - (void)removeLightningTalks:(NSSet *)value;
 
+- (void)addArchivesObject:(Archive *)value;
+- (void)removeArchivesObject:(Archive *)value;
+- (void)addArchives:(NSSet *)value;
+- (void)removeArchives:(NSSet *)value;
 @end
-

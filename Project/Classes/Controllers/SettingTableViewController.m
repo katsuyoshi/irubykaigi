@@ -42,11 +42,12 @@
 
 #define REGION_SECTION              0
 #define INFORMATION_SECTION         1
-#define LINK_SECTION                2
-#define ACKNOWLEDGEMENT_SECTION     3
-#define FRAMEWORK_SECTION           4
+#define UPDATED_SECTION             2
+#define LINK_SECTION                3
+#define ACKNOWLEDGEMENT_SECTION     4
+#define FRAMEWORK_SECTION           5
 
-#define COUNT_OF_SECTIONS           5
+#define COUNT_OF_SECTIONS           6
 
 @implementation SettingTableViewController
 
@@ -96,7 +97,7 @@
     acknowledgements = [[NSArray alloc] initWithObjects:
                 [NSDictionary dictionaryWithObjectsAndKeys:@"The RubyKaigi 2010 Team", @"title",
                                                            @"icon, opening image", @"subtitle",
-                                                           @"http://rubykaigi.org/2010/", @"url", nil],
+                                                           @"http://rubykaigi.tdiary.net/", @"url", nil],
                         nil];
                         
     frameworks = [[NSArray alloc] initWithObjects:
@@ -179,6 +180,8 @@
     case REGION_SECTION:
         return 1;
     case INFORMATION_SECTION:
+        return 1;
+    case UPDATED_SECTION:
         return 2;
     case LINK_SECTION:
         return [links count];
@@ -198,6 +201,8 @@
         return NSLocalizedString(@"Language", nil);
     case INFORMATION_SECTION:
         return NSLocalizedString(@"Information", nil);
+    case UPDATED_SECTION:
+        return NSLocalizedString(@"Last updated at", nil);
     case LINK_SECTION:
         return NSLocalizedString(@"Links", nil);
     case ACKNOWLEDGEMENT_SECTION:
@@ -236,15 +241,32 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+    cell.textLabel.text = NSLocalizedString(@"Version", nil);
+    cell.detailTextLabel.text = [Property sharedProperty].version;
+    
+    return cell;
+}
+
+- (UITableViewCell *)updatedCellInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Update";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    
     if (indexPath.row == 0) {
-        cell.textLabel.text = NSLocalizedString(@"Version", nil);
-        cell.detailTextLabel.text = [Property sharedProperty].version;
-    } else {
-        cell.textLabel.text = NSLocalizedString(@"Last updated at", nil);
-        NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
-        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        cell.textLabel.text = NSLocalizedString(@"Session", nil);
         cell.detailTextLabel.text = [dateFormatter stringFromDate:[Property sharedProperty].updatedAt];
+    } else {
+        cell.textLabel.text = NSLocalizedString(@"Archive", nil);
+        cell.detailTextLabel.text = [dateFormatter stringFromDate:[Property sharedProperty].archiveUpdatedAt];
     }
     return cell;
 }
@@ -275,6 +297,8 @@
         return [self regionCellInTableView:tableView indexPath:indexPath];
     case INFORMATION_SECTION:
         return [self informationCellInTableView:tableView indexPath:indexPath];
+    case UPDATED_SECTION:
+        return [self updatedCellInTableView:tableView indexPath:indexPath];
     case LINK_SECTION:
     case ACKNOWLEDGEMENT_SECTION:
     case FRAMEWORK_SECTION:

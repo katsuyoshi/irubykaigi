@@ -83,7 +83,6 @@
 		4641FD141207BBF100317642 /* RegionSeesionsForDateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4641FD131207BBF100317642 /* RegionSeesionsForDateTest.m */; };
 		465600E712150B1A003A3B3B /* Belonging.m in Sources */ = {isa = PBXBuildFile; fileRef = 465600E612150B1A003A3B3B /* Belonging.m */; };
 		4656010E12150DDD003A3B3B /* V1To2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4656010D12150DDD003A3B3B /* V1To2.xcmappingmodel */; };
-		4656FF221214B86A003A3B3B /* iRubyKaigi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4656FF1F1214B86A003A3B3B /* iRubyKaigi.xcdatamodeld */; };
 		4656FF271214B880003A3B3B /* JsonImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656FF241214B880003A3B3B /* JsonImporter.m */; };
 		4656FF2B1214B89B003A3B3B /* SpeakerDetaildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656FF2A1214B89B003A3B3B /* SpeakerDetaildTableViewController.m */; };
 		4656FFDB1214E980003A3B3B /* JsonImporterVer2Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656FFDA1214E980003A3B3B /* JsonImporterVer2Test.m */; };
@@ -120,6 +119,16 @@
 		46655FFE120CB55F00694D25 /* JsonImporterTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 46655FFD120CB55F00694D25 /* JsonImporterTest.json */; };
 		466AF4DE0F2F02A3004A649A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 466AF4DD0F2F02A3004A649A /* icon.png */; };
 		4681C7E80FFAB9690023DACB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4681C7E70FFAB9690023DACB /* CoreData.framework */; };
+		46AA7CE61237B81400A469F4 /* iRubyKaigi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7CE21237B81400A469F4 /* iRubyKaigi.xcdatamodeld */; };
+		46AA7CE91237B83300A469F4 /* Archive.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7CE81237B83300A469F4 /* Archive.m */; };
+		46AA7CEB1237B83D00A469F4 /* V2To3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7CEA1237B83D00A469F4 /* V2To3.xcmappingmodel */; };
+		46AA7CEE1237B85500A469F4 /* ArchiveJsonImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7CED1237B85500A469F4 /* ArchiveJsonImporter.m */; };
+		46AA7D101237C0FF00A469F4 /* TableViewControllerBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7D0F1237C0FF00A469F4 /* TableViewControllerBaseTest.m */; };
+		46AA7D161237C29200A469F4 /* SessionDetailedTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7D151237C29200A469F4 /* SessionDetailedTableViewControllerTest.m */; };
+		46AA7D971237CF9D00A469F4 /* ArchiveJsonImporter.json in Resources */ = {isa = PBXBuildFile; fileRef = 46AA7D821237CF0900A469F4 /* ArchiveJsonImporter.json */; };
+		46AA7DD11237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7DD01237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.m */; };
+		46AA7E4C1237DF5000A469F4 /* RoomTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7E4B1237DF5000A469F4 /* RoomTableViewControllerTest.m */; };
+		46AA7E5E1237E15E00A469F4 /* SettingTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AA7E5D1237E15E00A469F4 /* SettingTableViewControllerTest.m */; };
 		46C6ADCA0F2DDFC800BA1B73 /* isd_logo_60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */; };
 		46D4451F11AED0DC0076E28B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46D4439D11AED0DC0076E28B /* Localizable.strings */; };
 		46D4452111AED0DC0076E28B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46D443A111AED0DC0076E28B /* Entitlements.plist */; };
@@ -287,8 +296,6 @@
 		465600E512150B1A003A3B3B /* Belonging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Belonging.h; sourceTree = "<group>"; };
 		465600E612150B1A003A3B3B /* Belonging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Belonging.m; sourceTree = "<group>"; };
 		4656010D12150DDD003A3B3B /* V1To2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V1To2.xcmappingmodel; sourceTree = "<group>"; };
-		4656FF201214B86A003A3B3B /* iRubyKaigi 2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = "iRubyKaigi 2.xcdatamodel"; sourceTree = "<group>"; };
-		4656FF211214B86A003A3B3B /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
 		4656FF231214B880003A3B3B /* JsonImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonImporter.h; sourceTree = "<group>"; };
 		4656FF241214B880003A3B3B /* JsonImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonImporter.m; sourceTree = "<group>"; };
 		4656FF291214B89B003A3B3B /* SpeakerDetaildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDetaildTableViewController.h; sourceTree = "<group>"; };
@@ -358,6 +365,25 @@
 		46655FFD120CB55F00694D25 /* JsonImporterTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JsonImporterTest.json; sourceTree = "<group>"; };
 		466AF4DD0F2F02A3004A649A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		4681C7E70FFAB9690023DACB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		46AA7CE31237B81400A469F4 /* iRubyKaigi 2.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = "iRubyKaigi 2.xcdatamodel"; sourceTree = "<group>"; };
+		46AA7CE41237B81400A469F4 /* iRubyKaigi 3.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = "iRubyKaigi 3.xcdatamodel"; sourceTree = "<group>"; };
+		46AA7CE51237B81400A469F4 /* iRubyKaigi.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = iRubyKaigi.xcdatamodel; sourceTree = "<group>"; };
+		46AA7CE71237B83300A469F4 /* Archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Archive.h; sourceTree = "<group>"; };
+		46AA7CE81237B83300A469F4 /* Archive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Archive.m; sourceTree = "<group>"; };
+		46AA7CEA1237B83D00A469F4 /* V2To3.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = V2To3.xcmappingmodel; sourceTree = "<group>"; };
+		46AA7CEC1237B85500A469F4 /* ArchiveJsonImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveJsonImporter.h; sourceTree = "<group>"; };
+		46AA7CED1237B85500A469F4 /* ArchiveJsonImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveJsonImporter.m; sourceTree = "<group>"; };
+		46AA7D0E1237C0FF00A469F4 /* TableViewControllerBaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewControllerBaseTest.h; sourceTree = "<group>"; };
+		46AA7D0F1237C0FF00A469F4 /* TableViewControllerBaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewControllerBaseTest.m; sourceTree = "<group>"; };
+		46AA7D141237C29200A469F4 /* SessionDetailedTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailedTableViewControllerTest.h; sourceTree = "<group>"; };
+		46AA7D151237C29200A469F4 /* SessionDetailedTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailedTableViewControllerTest.m; sourceTree = "<group>"; };
+		46AA7D821237CF0900A469F4 /* ArchiveJsonImporter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArchiveJsonImporter.json; sourceTree = "<group>"; };
+		46AA7DCF1237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightningTalkDetailedTableViewControllerTest.h; sourceTree = "<group>"; };
+		46AA7DD01237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightningTalkDetailedTableViewControllerTest.m; sourceTree = "<group>"; };
+		46AA7E4A1237DF5000A469F4 /* RoomTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewControllerTest.h; sourceTree = "<group>"; };
+		46AA7E4B1237DF5000A469F4 /* RoomTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewControllerTest.m; sourceTree = "<group>"; };
+		46AA7E5C1237E15E00A469F4 /* SettingTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewControllerTest.h; sourceTree = "<group>"; };
+		46AA7E5D1237E15E00A469F4 /* SettingTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewControllerTest.m; sourceTree = "<group>"; };
 		46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = isd_logo_60x40.png; sourceTree = "<group>"; };
 		46D4439E11AED0DC0076E28B /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46D443A111AED0DC0076E28B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -479,8 +505,17 @@
 		4641FBE21207ABCC00317642 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				46AA7E4D1237DF5600A469F4 /* Abstract */,
 				4641FBE31207ABF800317642 /* PresentSessionTableViewControllerTest.h */,
 				4641FBE41207ABF800317642 /* PresentSessionTableViewControllerTest.m */,
+				46AA7D141237C29200A469F4 /* SessionDetailedTableViewControllerTest.h */,
+				46AA7D151237C29200A469F4 /* SessionDetailedTableViewControllerTest.m */,
+				46AA7DCF1237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.h */,
+				46AA7DD01237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.m */,
+				46AA7E4A1237DF5000A469F4 /* RoomTableViewControllerTest.h */,
+				46AA7E4B1237DF5000A469F4 /* RoomTableViewControllerTest.m */,
+				46AA7E5C1237E15E00A469F4 /* SettingTableViewControllerTest.h */,
+				46AA7E5D1237E15E00A469F4 /* SettingTableViewControllerTest.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -621,6 +656,8 @@
 				4641FC8A1207AE0800317642 /* Property.m */,
 				4641FC8B1207AE0800317642 /* TestDataImporter.h */,
 				4641FC8C1207AE0800317642 /* TestDataImporter.m */,
+				46AA7CEC1237B85500A469F4 /* ArchiveJsonImporter.h */,
+				46AA7CED1237B85500A469F4 /* ArchiveJsonImporter.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,6 +665,8 @@
 		4641FC781207AE0800317642 /* EO */ = {
 			isa = PBXGroup;
 			children = (
+				46AA7CE71237B83300A469F4 /* Archive.h */,
+				46AA7CE81237B83300A469F4 /* Archive.m */,
 				465600E512150B1A003A3B3B /* Belonging.h */,
 				465600E612150B1A003A3B3B /* Belonging.m */,
 				4641FC791207AE0800317642 /* Day.h */,
@@ -666,6 +705,7 @@
 		4656FF251214B880003A3B3B /* Migrations */ = {
 			isa = PBXGroup;
 			children = (
+				46AA7CEA1237B83D00A469F4 /* V2To3.xcmappingmodel */,
 				4656010D12150DDD003A3B3B /* V1To2.xcmappingmodel */,
 			);
 			path = Migrations;
@@ -805,8 +845,18 @@
 				46F84370121D76D0009BE688 /* JsonImporterVer3Test.json */,
 				4656FFDC1214EA6C003A3B3B /* JsonImporterVer2Test.json */,
 				46655FFD120CB55F00694D25 /* JsonImporterTest.json */,
+				46AA7D821237CF0900A469F4 /* ArchiveJsonImporter.json */,
 			);
 			path = files;
+			sourceTree = "<group>";
+		};
+		46AA7E4D1237DF5600A469F4 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				46AA7D0E1237C0FF00A469F4 /* TableViewControllerBaseTest.h */,
+				46AA7D0F1237C0FF00A469F4 /* TableViewControllerBaseTest.m */,
+			);
+			name = Abstract;
 			sourceTree = "<group>";
 		};
 		46C20FD50F256E610053F9B9 /* TargetClasses */ = {
@@ -841,7 +891,7 @@
 		46D4436E11AED0DB0076E28B /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				4656FF1F1214B86A003A3B3B /* iRubyKaigi.xcdatamodeld */,
+				46AA7CE21237B81400A469F4 /* iRubyKaigi.xcdatamodeld */,
 				4641FC471207AE0800317642 /* Classes */,
 				46D4439D11AED0DC0076E28B /* Localizable.strings */,
 				46D443A111AED0DC0076E28B /* Entitlements.plist */,
@@ -959,6 +1009,7 @@
 				46655FFE120CB55F00694D25 /* JsonImporterTest.json in Resources */,
 				4656FFDD1214EA6C003A3B3B /* JsonImporterVer2Test.json in Resources */,
 				46F84371121D76D0009BE688 /* JsonImporterVer3Test.json in Resources */,
+				46AA7D971237CF9D00A469F4 /* ArchiveJsonImporter.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,7 +1116,6 @@
 				46655FF0120CB4CF00694D25 /* ISSelectionTableViewController.m in Sources */,
 				46655FF1120CB4CF00694D25 /* ISTableViewCell.m in Sources */,
 				46655FF6120CB4FA00694D25 /* WebViewController.m in Sources */,
-				4656FF221214B86A003A3B3B /* iRubyKaigi.xcdatamodeld in Sources */,
 				4656FF271214B880003A3B3B /* JsonImporter.m in Sources */,
 				4656FF2B1214B89B003A3B3B /* SpeakerDetaildTableViewController.m in Sources */,
 				4656FFDB1214E980003A3B3B /* JsonImporterVer2Test.m in Sources */,
@@ -1073,6 +1123,15 @@
 				4656010E12150DDD003A3B3B /* V1To2.xcmappingmodel in Sources */,
 				46F8436A121D7593009BE688 /* SummaryViewController.m in Sources */,
 				46F8436F121D7643009BE688 /* JsonImporterVer3Test.m in Sources */,
+				46AA7CE61237B81400A469F4 /* iRubyKaigi.xcdatamodeld in Sources */,
+				46AA7CE91237B83300A469F4 /* Archive.m in Sources */,
+				46AA7CEB1237B83D00A469F4 /* V2To3.xcmappingmodel in Sources */,
+				46AA7CEE1237B85500A469F4 /* ArchiveJsonImporter.m in Sources */,
+				46AA7D101237C0FF00A469F4 /* TableViewControllerBaseTest.m in Sources */,
+				46AA7D161237C29200A469F4 /* SessionDetailedTableViewControllerTest.m in Sources */,
+				46AA7DD11237D39200A469F4 /* LightningTalkDetailedTableViewControllerTest.m in Sources */,
+				46AA7E4C1237DF5000A469F4 /* RoomTableViewControllerTest.m in Sources */,
+				46AA7E5E1237E15E00A469F4 /* SettingTableViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1189,13 +1248,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4656FF1F1214B86A003A3B3B /* iRubyKaigi.xcdatamodeld */ = {
+		46AA7CE21237B81400A469F4 /* iRubyKaigi.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4656FF201214B86A003A3B3B /* iRubyKaigi 2.xcdatamodel */,
-				4656FF211214B86A003A3B3B /* iRubyKaigi.xcdatamodel */,
+				46AA7CE31237B81400A469F4 /* iRubyKaigi 2.xcdatamodel */,
+				46AA7CE41237B81400A469F4 /* iRubyKaigi 3.xcdatamodel */,
+				46AA7CE51237B81400A469F4 /* iRubyKaigi.xcdatamodel */,
 			);
-			currentVersion = 4656FF201214B86A003A3B3B /* iRubyKaigi 2.xcdatamodel */;
+			currentVersion = 46AA7CE41237B81400A469F4 /* iRubyKaigi 3.xcdatamodel */;
 			path = iRubyKaigi.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

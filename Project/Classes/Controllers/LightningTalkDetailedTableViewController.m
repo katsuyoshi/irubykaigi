@@ -41,6 +41,7 @@
 #import "Speaker.h"
 #import "SpeakerDetaildTableViewController.h"
 #import "SpeakerDetaildTableViewController.h"
+#import "Archive.h"
 
 
 #define TIME_SECTON             0
@@ -48,6 +49,7 @@
 #define SPEAKERS_SECTION        2
 #define ROOM_SECTION            3
 #define ABSTRACT_SECTION        4
+#define ARCHIVE_SECTION         5
 
 
 
@@ -72,24 +74,38 @@
 - (NSInteger)sectionTypeForSection:(NSInteger)section
 {
     NSString *title = [self tableView:nil titleForHeaderInSection:section];
-    if ([title isEqualToString:NSLocalizedString(@"Session:title", nil)]) {
+    if ([title isEqualToString:NSLocalizedString(@"LightningTalk:title", nil)]) {
         return TITLE_SECTION;
     } else
-    if ([title isEqualToString:NSLocalizedString(@"Session:dayTimeTitle", nil)]) {
+    if ([title isEqualToString:NSLocalizedString(@"LightningTalk:dayTimeTitle", nil)]) {
         return TIME_SECTON;
     } else
-    if ([title isEqualToString:NSLocalizedString(@"Session:speakers", nil)]) {
+    if ([title isEqualToString:NSLocalizedString(@"LightningTalk:speakers", nil)]) {
         return SPEAKERS_SECTION;
     } else
-    if ([title isEqualToString:NSLocalizedString(@"Session:room", nil)]) {
+    if ([title isEqualToString:NSLocalizedString(@"LightningTalk:room", nil)]) {
         return ROOM_SECTION;
     } else
-    if ([title isEqualToString:NSLocalizedString(@"Session:summary", nil)]) {
+    if ([title isEqualToString:NSLocalizedString(@"LightningTalk:summary", nil)]) {
         return ABSTRACT_SECTION;
     }
+    if ([title isEqualToString:NSLocalizedString(@"LightningTalk:archives", nil)]) {
+        return ARCHIVE_SECTION;
+    }
+    
     return 0;
 }
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger aSection = [self sectionTypeForSection:section];
+    if (aSection == ARCHIVE_SECTION) {
+        return [self.lightningTalk.archives count];
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
 
 - (UITableViewCell *)cellForTableView:(UITableView *)tableView inSection:(NSInteger)section
 {
@@ -147,17 +163,28 @@
 {
     NSInteger section = [self sectionTypeForSection:indexPath.section];
     UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    if (section == SPEAKERS_SECTION) {
-        NSArray *speakers = self.lightningTalk.sortedSpeakers;
-        if ([speakers count]) {
-            Speaker *speaker = [speakers objectAtIndex:indexPath.row];
-            cell.textLabel.text = speaker.name;
-            BOOL hasDisclosure = [speaker.profile length] || [speaker.belongings count];
-            cell.accessoryType = hasDisclosure ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
-            cell.selectionStyle = hasDisclosure ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
-        } else {
+    switch (section) {
+    case SPEAKERS_SECTION:
+        {
+            NSArray *speakers = self.lightningTalk.sortedSpeakers;
+            if ([speakers count]) {
+                Speaker *speaker = [speakers objectAtIndex:indexPath.row];
+                cell.textLabel.text = speaker.name;
+                BOOL hasDisclosure = [speaker.profile length] || [speaker.belongings count];
+                cell.accessoryType = hasDisclosure ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+                cell.selectionStyle = hasDisclosure ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
+            } else {
             // セルの高さを計算する為にダミーのセルを返すのでnilの場合がある
+            }
         }
+        break;
+    case ARCHIVE_SECTION:
+        {
+            NSArray *archives = self.lightningTalk.sortedArchives;
+            cell.textLabel.text = [[archives objectAtIndex:indexPath.row] title];
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        }
+        break;
     }
     return cell;
 }
@@ -165,17 +192,34 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = [self sectionTypeForSection:indexPath.section];
-    if (section == SPEAKERS_SECTION) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        if (cell.accessoryType != UITableViewCellAccessoryNone) {
-            SpeakerDetaildTableViewController *controller = [SpeakerDetaildTableViewController speakerDetailedTableViewController];
-            Speaker *speaker = [self.lightningTalk.sortedSpeakers objectAtIndex:indexPath.row];
-            controller.detailedObject = speaker;
-            controller.tableView.backgroundColor = self.tableView.backgroundColor;
-            [self.navigationController pushViewController:controller animated:YES];
+    switch (section) {
+    case SPEAKERS_SECTION:
+        {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            if (cell.accessoryType != UITableViewCellAccessoryNone) {
+                SpeakerDetaildTableViewController *controller = [SpeakerDetaildTableViewController speakerDetailedTableViewController];
+                Speaker *speaker = [self.lightningTalk.sortedSpeakers objectAtIndex:indexPath.row];
+                controller.detailedObject = speaker;
+                controller.tableView.backgroundColor = self.tableView.backgroundColor;
+                [self.navigationController pushViewController:controller animated:YES];
+            }
         }
-    } else {
+        break;
+    case ARCHIVE_SECTION:
+        {
+            NSArray *archives = self.lightningTalk.sortedArchives;
+            NSURL *url = [NSURL URLWithString:[[archives objectAtIndex:indexPath.row] url]];
+            UIApplication *application = [UIApplication sharedApplication];
+            if ([application canOpenURL:url]) {
+                [application openURL:url];
+            } else {
+                // TODO: show alert
+            }
+        }
+        break;
+    default:
         [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+        break;
     }
 }
 

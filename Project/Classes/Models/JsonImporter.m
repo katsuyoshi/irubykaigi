@@ -47,6 +47,7 @@
 #import "LightningTalk.h"
 #import "Property.h"
 #import "Belonging.h"
+#import "ArchiveJsonImporter.h"
 
 
 
@@ -110,6 +111,7 @@
     updating = YES;
     NSString *path = [[NSBundle mainBundle] pathForResource:@"timetable" ofType:@"json"];
     [self importWithURL:[NSURL fileURLWithPath:path]];
+    [[ArchiveJsonImporter sharedArchiveJsonImporter] beginImport];
     updating = NO;
 }
 
@@ -119,6 +121,7 @@
     if ([self importWithURL:self.mainSiteURL] == NO) {
         [self importWithURL:self.backupSiteURL];
     }
+    [[ArchiveJsonImporter sharedArchiveJsonImporter] beginUpdate];
     updating = NO;
 }
 

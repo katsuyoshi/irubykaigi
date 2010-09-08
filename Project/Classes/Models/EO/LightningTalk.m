@@ -49,6 +49,8 @@
 
 @dynamic session;
 @dynamic speakers;
+@dynamic archives;
+
 
 + (NSString *)listScopeName
 {
@@ -67,7 +69,9 @@
     if ([self.summary length]) {
         [array addObject:@"summary"];
     }
-
+    if ([[self sortedArchives] count]) {
+        [array addObject:@"archives.title"];
+    }
     return array;
 }
 
@@ -109,6 +113,12 @@
 {
     NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"position"];
     return [[self.speakers allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+}
+
+- (NSArray *)sortedArchives
+{
+    NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"position"];
+    return [[self.archives allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 
