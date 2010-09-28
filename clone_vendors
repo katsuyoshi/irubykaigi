@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 require 'fileutils'
 
-vender_path = "./project/vendor"
+vender_path = "./Project/vendor"
 libs_on_github = [
     "git://github.com/katsuyoshi/cider.git",
     "git://github.com/stig/json-framework.git"
